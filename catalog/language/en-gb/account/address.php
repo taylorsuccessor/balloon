@@ -31,6 +31,10 @@ $_['entry_governorate']    = 'Governorate';
 $_['entry_block']          = 'Block';
 $_['entry_street']         = 'Street';
 $_['entry_avenue']         = 'Avenue';
+$_['entry_building_number']= 'Building Number';
+$_['entry_floor_number']   = 'Floor Number';
+$_['entry_flat_number']    = 'Flat number';	
+
 // Error
 $_['error_delete']                = 'Warning: You must have at least one address!';
 $_['error_default']               = 'Warning: You can not delete your default address!';

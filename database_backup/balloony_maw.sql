@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2017 at 06:53 AM
+-- Generation Time: Apr 02, 2017 at 02:16 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -38,16 +38,24 @@ CREATE TABLE `oc_address` (
   `postcode` varchar(10) NOT NULL,
   `country_id` int(11) NOT NULL DEFAULT '0',
   `zone_id` int(11) NOT NULL DEFAULT '0',
-  `custom_field` text NOT NULL
+  `custom_field` text NOT NULL,
+  `area` varchar(40) NOT NULL,
+  `governorate` varchar(40) NOT NULL,
+  `block` varchar(32) NOT NULL,
+  `street` varchar(32) NOT NULL,
+  `avenue` int(11) NOT NULL,
+  `building_number` int(11) NOT NULL,
+  `floor_number` int(11) NOT NULL,
+  `flat_number` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_address`
 --
 
-INSERT INTO `oc_address` (`address_id`, `customer_id`, `firstname`, `lastname`, `company`, `address_1`, `address_2`, `city`, `postcode`, `country_id`, `zone_id`, `custom_field`) VALUES
-(1, 1, 'mohammad', 'gholeh', '', 'amman', '', 'amman', '', 114, 1791, ''),
-(2, 2, 'mohammad', 'gh', '', 'amman', '', 'amman', '', 108, 1704, '');
+INSERT INTO `oc_address` (`address_id`, `customer_id`, `firstname`, `lastname`, `company`, `address_1`, `address_2`, `city`, `postcode`, `country_id`, `zone_id`, `custom_field`, `area`, `governorate`, `block`, `street`, `avenue`, `building_number`, `floor_number`, `flat_number`) VALUES
+(1, 1, 'mohammad', 'gholeh', '', 'amman', '', 'amman', '', 114, 1791, '', '', '', '', '', 0, 0, 0, 0),
+(2, 2, 'mohammad', 'gh', '', 'amman', '', 'amman', '', 108, 1704, '', '', '', '', '', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -9414,7 +9422,7 @@ ALTER TABLE `oc_customer_transaction`
 -- AUTO_INCREMENT for table `oc_custom_field`
 --
 ALTER TABLE `oc_custom_field`
-  MODIFY `custom_field_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `custom_field_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `oc_custom_field_value`
 --
