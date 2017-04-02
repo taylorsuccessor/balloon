@@ -9597,3 +9597,14 @@
 2017-04-02 5:19:25 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
 2017-04-02 5:19:29 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
 2017-04-02 5:19:33 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:03:08 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:04:43 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:17:04 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:17:12 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:17:23 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:17:37 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:22:31 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:28:31 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:42:46 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:44:20 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:52:32 - PHP Notice:  Undefined variable: module in C:\xampp\htdocs\balloon\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
