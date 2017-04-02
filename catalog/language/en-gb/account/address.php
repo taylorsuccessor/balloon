@@ -19,15 +19,18 @@ $_['text_password']        = 'Change password';
 $_['entry_firstname']      = 'First Name';
 $_['entry_lastname']       = 'Last Name';
 $_['entry_company']        = 'Company';
-$_['entry_address_1']      = 'Address 1';
+$_['entry_address_1']      = 'Address Name';
 $_['entry_address_2']      = 'Address 2';
 $_['entry_postcode']       = 'Post Code';
 $_['entry_city']           = 'City';
 $_['entry_country']        = 'Country';
 $_['entry_zone']           = 'Region / State';
 $_['entry_default']        = 'Default Address';
-
-
+$_['entry_area']           = 'Area';
+$_['entry_governorate']    = 'Governorate';
+$_['entry_block']          = 'Block';
+$_['entry_street']         = 'Street';
+$_['entry_avenue']         = 'Avenue';
 // Error
 $_['error_delete']                = 'Warning: You must have at least one address!';
 $_['error_default']               = 'Warning: You can not delete your default address!';

@@ -9597,3 +9597,6 @@
 2017-04-02 5:19:25 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
 2017-04-02 5:19:29 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
 2017-04-02 5:19:33 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 8:34:32 - PHP Notice:  Undefined variable: error_area in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 52
+2017-04-02 8:53:47 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 9:03:09 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20

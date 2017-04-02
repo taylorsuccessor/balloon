@@ -40,34 +40,34 @@
 						    <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
 						        <fieldset>
 						            <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
-		                				<label class="control-label labelfloat" for="input-firstname"><?php echo $entry_firstname; ?> </label>
-		                				<input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
-							                <?php if ($error_firstname) { ?>
-								        <div class="text-danger"><?php echo $error_firstname; ?></div>
+		                				<label class="control-label labelfloat" for="input-address-1"><?php echo $entry_address_1; ?> </label>
+		                				<input type="text" name="address_1" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-address-1" class="form-control" />
+							                <?php if ($error_address_1) { ?>
+								        <div class="text-danger"><?php echo $error_address_1; ?></div>
 								            <?php } ?>
 	                			    </div><!-- /.for-small -->
 	                			    <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
-						            <label class="col-sm-2 control-label labelfloat" for="input-lastname"><?php echo $entry_lastname; ?></label>
-						              <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
-						              <?php if ($error_lastname) { ?>
-						              <div class="text-danger"><?php echo $error_lastname; ?></div>
+						            <label class="col-sm-2 control-label labelfloat" for="input-area"><?php echo $entry_area; ?></label>
+						              <input type="text" name="area" value="<?php echo $area; ?>" placeholder="<?php echo $entry_area; ?>" id="input-area" class="form-control" />
+						              <?php if ($error_area) { ?>
+						              <div class="text-danger"><?php echo $error_area; ?></div>
 						              <?php } ?>
 						            </div>
 						            <div class="col-md-3 col-sm-4 col-xs-6 for-small">
-						            <label class="col-sm-2 control-label labelfloat" for="input-company"><?php echo $entry_company; ?></label>
-						              <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+						            <label class="col-sm-2 control-label labelfloat" for="input-governorate"><?php echo $entry_governorate; ?></label>
+						              <input type="text" name="governorate" value="<?php echo $governorate; ?>" placeholder="<?php echo $entry_governorate; ?>" id="input-governorate" class="form-control" />
 						            </div>
 						            <div class="col-md-3 col-sm-4 col-xs-6 for-small">
-						            <label class="col-sm-2 control-label labelfloat" for="input-company"><?php echo $entry_company; ?></label>
-						              <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+						            <label class="col-sm-2 control-label labelfloat" for="input-block"><?php echo $entry_block; ?></label>
+						              <input type="text" name="block" value="<?php echo $block; ?>" placeholder="<?php echo $entry_block; ?>" id="input-block" class="form-control" />
 						            </div>
 						            <div class="col-md-3 col-sm-4 col-xs-6 for-small">
-						            <label class="col-sm-2 control-label labelfloat" for="input-company"><?php echo $entry_company; ?></label>
-						              <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+						            <label class="col-sm-2 control-label labelfloat" for="input-street"><?php echo $entry_street; ?></label>
+						              <input type="text" name="street" value="<?php echo $street; ?>" placeholder="<?php echo $entry_street; ?>" id="input-street" class="form-control" />
 						            </div>
 						            <div class="col-md-3 col-sm-4 col-xs-6 for-small">
-						            <label class="col-sm-2 control-label labelfloat" for="input-company"><?php echo $entry_company; ?></label>
-						              <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+						            <label class="col-sm-2 control-label labelfloat" for="input-avenue"><?php echo $entry_avenue; ?></label>
+						              <input type="text" name="avenue" value="<?php echo $avenue; ?>" placeholder="<?php echo $entry_avenue; ?>" id="input-avenue" class="form-control" />
 						            </div>
 						            <div class="col-md-3 col-sm-4 col-xs-6 for-small">
 						            <label class="col-sm-2 control-label labelfloat" for="input-company"><?php echo $entry_company; ?></label>
