@@ -37,6 +37,7 @@ class ControllerAccountEdit extends Controller {
 			}
 
 			$this->response->redirect($this->url->link('account/account', '', true));
+            
 		}
 
 		$data['breadcrumbs'] = array();
@@ -57,21 +58,29 @@ class ControllerAccountEdit extends Controller {
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
-
 		$data['text_your_details'] = $this->language->get('text_your_details');
 		$data['text_additional'] = $this->language->get('text_additional');
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_loading'] = $this->language->get('text_loading');
-
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_lastname'] = $this->language->get('entry_lastname');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_fax'] = $this->language->get('entry_fax');
-
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
 		$data['button_upload'] = $this->language->get('button_upload');
+        
+        // got them from address
+        
+        $data['entry_address_1'] = $this->language->get('entry_address_1');
+        $data['entry_area'] = $this->language->get('entry_area');
+
+
+        
+        
+        
+        
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -176,6 +185,13 @@ class ControllerAccountEdit extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+        
+        
+        
+        $data['edit'] = $this->url->link('account/edit', '', true);
+        $data['address'] = $this->url->link('account/address', '', true);
+        $data['orders'] = $this->url->link('account/orders', '', true);
+        $data['password'] = $this->url->link('account/password', '', true);
 
 		$this->response->setOutput($this->load->view('account/edit', $data));
 	}
@@ -185,9 +201,9 @@ class ControllerAccountEdit extends Controller {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
 
-		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
-			$this->error['lastname'] = $this->language->get('error_lastname');
-		}
+//		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
+//			$this->error['lastname'] = $this->language->get('error_lastname');
+//		}
 
 		if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error['email'] = $this->language->get('error_email');

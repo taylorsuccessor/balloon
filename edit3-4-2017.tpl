@@ -1,10 +1,31 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
+  <section class="banner-section"><!--Banner Section-->
+    <div class="inner-banner"><!--banner-->
+        <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+     </div><!--banner-->
+  </section><!--Banner Section-->
+  
+  
+<!--  <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
   </ul>
+  -->
+  <section class="content-section">
+  
+   <div class="bredcrumb"><!--bredcrumb-->      
+        <?php //print_r($breadcrumbs) ;?>
+            <ul>
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                <?php } ?>
+            </ul> 
+      </div> <!--bredcrumb-->
+      
+   
+  
   <?php if ($error_warning) { ?>
   <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
   <?php } ?>
@@ -16,54 +37,194 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
+    
+    
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
-        <fieldset>
-          <legend><?php echo $text_your_details; ?></legend>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-firstname"><?php echo $entry_firstname; ?> </label>
-            <div class="col-sm-10">
+     <div class="product-details-page"><!--balloons-->
+     
+     <h2><?php echo $heading_title; ?></h2>
+     
+      <div class="full-width common">
+      
+      <div class="row">
+     
+      <div class="col-md-3 col-sm-3 col-xs-12 side_navigation">
+        
+        <ul>
+              <li><a href="<?php echo $edit; ?>" class="active">Account information</a></li>
+              <li><a href="<?php echo $address; ?>">Address book</a></li>
+              <li><a href="<?php echo $orders; ?>">your orders</a></li>
+              <li><a href="<?php echo $password; ?>">Change password</a></li>
+                                        
+        </ul>
+        
+          </div><!-- /.side_navigation -->
+           
+          <div class="col-md-9 col-sm-9 col-xs-12 content_area">
+          
+                           <h2><span><?php echo $text_your_details; ?></span></h2>
+                           
+                <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                  
+                  <fieldset>
+
+         
+          <div class="row">
+                 
+                 
+
+             <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
+             
+            
+              <label class ='control-label labelfloat' for="input-firstname"><?php echo $entry_firstname; ?> </label>
+              
+
               <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
+              
               <?php if ($error_firstname) { ?>
               <div class="text-danger"><?php echo $error_firstname; ?></div>
               <?php } ?>
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-lastname"><?php echo $entry_lastname; ?></label>
-            <div class="col-sm-10">
-              <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
-              <?php if ($error_lastname) { ?>
-              <div class="text-danger"><?php echo $error_lastname; ?></div>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
-            <div class="col-sm-10">
+              
+              
+             </div>
+          
+             
+                     
+             <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
+                
+                
+                <label class =' control-label labelfloat' for="email"><?php echo $entry_email; ?></label>
+                
+
+                
               <input type="email" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
+              
               <?php if ($error_email) { ?>
               <div class="text-danger"><?php echo $error_email; ?></div>
               <?php } ?>
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
-            <div class="col-sm-10">
-              <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
+                
+                
+                 </div>
+           
+                   
+                                    
+            <div class="col-md-6 col-sm-6 col-xs-6 for-small mobile required"><!--Mobile-->
+            
+               
+                <label><?php echo $entry_telephone; ?></label>
+           
+             <select pattern="[1-9]{1}[0-9]{9}">
+                					<option>+333</option>
+                					<option>+333</option>
+                					<option>+333</option>
+             </select>
+             
+            <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
+             
+              
               <?php if ($error_telephone) { ?>
               <div class="text-danger"><?php echo $error_telephone; ?></div>
               <?php } ?>
-            </div>
+                     
+            </div><!--/ Mobile-->
+                   
+                    
+            
+                    
+                <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
+                               
+                				<button type="submit" value="<?php echo $button_continue; ?>">Edit Info</button>
+                </div>
+                      
+                                    
+              </div>
+              
+              
+              
+                		<hr>
+                		<h2>Delivery Address</h2>
+                		
+              <div class="row"><!--row 2 -->
+              
+              
+
+              
+            <div class="col-md-6 col-sm-6 col-xs-6 for-small  required">
+                	
+        
+         <label class="col-sm-2 control-label labelfloat" for="input-address-1"><?php echo $entry_address_1?></label>
+             
+            
+              <input type="text" name="address_1"  id="input-address-1" class="form-control" />
+              
+              
+<!--      value="<?php echo $address_1; ?>" //put it in input //placeholder="<?php echo $entry_address_1; ?>" -->
+              
+<!--              <?php if ($error_address_1) { ?>
+              
+              <div class="text-danger"><?php echo $error_address_1; ?></div>
+              <?php } ?>
+              -->
+            
+          
+            
           </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>
-            <div class="col-sm-10">
-              <input type="text" name="fax" value="<?php echo $fax; ?>" placeholder="<?php echo $entry_fax; ?>" id="input-fax" class="form-control" />
-            </div>
-          </div>
-          <?php foreach ($custom_fields as $custom_field) { ?>
+            
+            
+             <div class="col-md-6 col-sm-6 col-xs-6 for-small">
+                				<label class="col-sm-2 control-label labelfloat" for="area">Area</label>
+                				<input type="text" name="area" placeholder="Abu Halifa" />
+                			</div><!-- /.for-small -->
+             
+            
+                       
+                           <div class="col-md-3 col-sm-4 col-xs-6 for-small">
+                				<label class="col-sm-2 control-label labelfloat">Governorate</label>
+                				<input type="text" name="Governorate" placeholder="Jahra" />
+                			</div><!-- /.for-small -->
+                			
+                			<div class="col-md-3 col-sm-4 col-xs-6 for-small">
+                				<label class="col-sm-2 control-label labelfloat">Block</label>
+                				<input type="text" name="Block" placeholder="Block" />
+                			</div><!-- /.for-small -->
+                			
+                			<div class="col-md-3 col-sm-4 col-xs-6 for-small">
+                				<label class="col-sm-2 control-label labelfloat">Street</label>
+                				<input type="text" name="Street" placeholder="5th Ring Road" />
+                			</div><!-- /.for-small -->
+                			
+                			<div class="col-md-3 col-sm-4 col-xs-6 for-small">
+                				<label class="col-sm-2 control-label labelfloat">Avenue</label>
+                				<input type="text" name="Avenue" placeholder="4" />
+                			</div><!-- /.for-small -->
+                			
+                			<div class="col-md-3 col-sm-4 col-xs-6 for-small">
+                				<label class="col-sm-2 control-label labelfloat">Building Number</label>
+                				<input type="text" name="Building_Number" placeholder="3145" />
+                			</div><!-- /.for-small -->
+                			
+                			<div class="col-md-3 col-sm-4 col-xs-6 for-small">
+                				<label class="col-sm-2 control-label labelfloat">Floor Number</label>
+                				<input type="text" name="Floor_Number" placeholder="21" />
+                			</div><!-- /.for-small -->
+                			
+                			<div class="col-md-3 col-sm-4 col-xs-6 for-small">
+                				<label class="col-sm-2 control-label labelfloat">Flat Number</label>
+                				<input type="text" name="Flat_Number" placeholder="1105" />
+                			</div><!-- /.for-small -->
+                			
+                			<div class="col-md-3 col-sm-4 col-xs-6 for-small">
+                				<button>Edit Info</button>
+                			</div><!-- /.for-small -->
+            
+
+              </div><!--/row 2 -->
+              
+              
+              
+              
+              
+              <?php foreach ($custom_fields as $custom_field) { ?>
           <?php if ($custom_field['location'] == 'account') { ?>
           <?php if ($custom_field['type'] == 'select') { ?>
           <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
@@ -216,17 +377,41 @@
           <?php } ?>
           <?php } ?>
           <?php } ?>
-        </fieldset>
-        <div class="buttons clearfix">
-          <div class="pull-left"><a href="<?php echo $back; ?>" class="btn btn-default"><?php echo $button_back; ?></a></div>
-          <div class="pull-right">
-            <input type="submit" value="<?php echo $button_continue; ?>" class="btn btn-primary" />
+               </fieldset>
+                </form>		
+                				
+              </div>
+          
           </div>
-        </div>
-      </form>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
-</div>
+          
+          </div><!-- /row-->
+     
+         </div><!-- /full-width common -->
+        </div><!-- /balloons-->
+      </div>
+     
+     
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script type="text/javascript"><!--
 // Sort the custom fields
 $('.form-group[data-sort]').detach().each(function() {
@@ -314,4 +499,6 @@ $('.time').datetimepicker({
 	pickDate: false
 });
 //--></script>
+    </section>
+</div>
 <?php echo $footer; ?>
