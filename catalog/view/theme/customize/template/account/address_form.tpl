@@ -215,7 +215,6 @@
     </div>       
     <?php echo $column_right; ?>
     </div>
-</div>
 <script type="text/javascript"><!--
 // Sort the custom fields
 $('.form-group[data-sort]').detach().each(function() {

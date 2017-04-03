@@ -356,12 +356,12 @@ class ControllerProductProduct extends Controller {
 						);
 					}
 				}
-
+//die(var_dump($option));
 				$data['options'][] = array(
 					'product_option_id'    => $option['product_option_id'],
 					'product_option_value' => $product_option_value_data,
 					'option_id'            => $option['option_id'],
-					'name'                 => $option['name'],
+					'name'                 =>$option['name'],
 					'type'                 => $option['type'],
 					'value'                => $option['value'],
 					'required'             => $option['required']
