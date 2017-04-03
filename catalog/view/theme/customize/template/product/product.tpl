@@ -163,6 +163,14 @@
           </ul>
           <?php } ?>
           <div id="product">
+            <select name="eventPeriod">
+              <option value="0">select One</option>
+              <option value="1">5am to 7am</option>
+              <option value="2">8am to 10am</option>
+              <option value="3">11am to 13am</option>
+              <option value="4">5pm to 7pm</option>
+            </select>
+            <input value="2017-03-14" name="event_date" type="text">
             <?php if ($options) { ?>
             <hr>
             <h3><?php echo $text_option; ?></h3>
@@ -191,8 +199,8 @@
                   <label>
                     <input type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                     <?php if ($option_value['image']) { ?>
-                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" /> 
-                    <?php } ?>                    
+                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
+                    <?php } ?>
                     <?php echo $option_value['name']; ?>
                     <?php if ($option_value['price']) { ?>
                     (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
@@ -212,7 +220,7 @@
                   <label>
                     <input type="checkbox" name="option[<?php echo $option['product_option_id']; ?>][]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                     <?php if ($option_value['image']) { ?>
-                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" /> 
+                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
                     <?php } ?>
                     <?php echo $option_value['name']; ?>
                     <?php if ($option_value['price']) { ?>
