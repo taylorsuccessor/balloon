@@ -9657,3 +9657,57 @@
 2017-04-02 12:31:13 - PHP Notice:  Undefined index: city in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 613
 2017-04-02 12:31:13 - PHP Notice:  Undefined index: country_id in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 619
 2017-04-02 12:31:13 - PHP Notice:  Undefined index: country_id in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 625
+2017-04-02 14:41:03 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-02 14:41:06 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-03 5:49:10 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-03 6:00:46 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-03 6:02:31 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-03 8:00:37 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
+2017-04-03 8:22:26 - PHP Notice:  Undefined index: area in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 618
+2017-04-03 8:50:44 - PHP Notice:  Undefined index: firstname in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 606
+2017-04-03 8:50:44 - PHP Notice:  Undefined index: lastname in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 610
+2017-04-03 8:50:44 - PHP Notice:  Undefined index: address_1 in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 614
+2017-04-03 8:50:44 - PHP Notice:  Undefined index: city in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 622
+2017-04-03 8:50:44 - PHP Notice:  Undefined index: country_id in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 628
+2017-04-03 8:50:44 - PHP Notice:  Undefined index: country_id in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 634
+2017-04-03 8:55:49 - PHP Notice:  Undefined index: firstname in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 606
+2017-04-03 8:55:49 - PHP Notice:  Undefined index: lastname in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 610
+2017-04-03 8:55:49 - PHP Notice:  Undefined index: address_1 in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 614
+2017-04-03 8:55:49 - PHP Notice:  Undefined index: city in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 622
+2017-04-03 8:55:49 - PHP Notice:  Undefined index: country_id in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 628
+2017-04-03 8:55:49 - PHP Notice:  Undefined index: country_id in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 634
+2017-04-03 8:56:51 - PHP Notice:  Undefined index: address_1 in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 614
+2017-04-03 8:56:51 - PHP Notice:  Undefined index: country_id in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 628
+2017-04-03 8:57:04 - PHP Notice:  Undefined index: country_id in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 628
+2017-04-03 9:10:42 - PHP Notice:  Undefined variable: entry_first_name in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 43
+2017-04-03 9:10:42 - PHP Notice:  Undefined variable: first_name in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 44
+2017-04-03 9:10:42 - PHP Notice:  Undefined variable: entry_first_name in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 44
+2017-04-03 9:10:42 - PHP Notice:  Undefined variable: error_first_name in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 45
+2017-04-03 9:28:08 - PHP Notice:  Undefined index: area in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 464
+2017-04-03 9:28:08 - PHP Notice:  Undefined index: governorate in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 472
+2017-04-03 9:28:08 - PHP Notice:  Undefined index: block in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 480
+2017-04-03 9:28:08 - PHP Notice:  Undefined index: street in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 488
+2017-04-03 9:28:08 - PHP Notice:  Undefined index: avenue in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 496
+2017-04-03 9:28:08 - PHP Notice:  Undefined index: building_number in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 504
+2017-04-03 9:28:08 - PHP Notice:  Undefined index: floor_number in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 512
+2017-04-03 9:28:08 - PHP Notice:  Undefined index: flat_number in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 520
+2017-04-03 9:36:12 - PHP Notice:  Undefined variable: result in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 32
+2017-04-03 9:37:28 - PHP Notice:  Undefined variable: result in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 32
+2017-04-03 9:37:46 - PHP Notice:  Undefined variable: result in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 32
+2017-04-03 9:39:45 - PHP Notice:  Undefined variable: result in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 13
+2017-04-03 9:39:45 - PHP Notice:  Undefined variable: find in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 14
+2017-04-03 9:39:45 - PHP Notice:  Undefined variable: replace in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 14
+2017-04-03 9:39:45 - PHP Notice:  Undefined variable: format in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 14
+2017-04-03 9:39:45 - PHP Notice:  Undefined variable: result in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 15
+2017-04-03 9:39:45 - PHP Notice:  Undefined variable: result in C:\wamp64\www\opencart\catalog\controller\account\address.php on line 16
+2017-04-03 9:39:46 - PHP Notice:  Undefined variable: result in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 32
+2017-04-03 9:39:55 - PHP Notice:  Undefined variable: result in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 32
+2017-04-03 9:58:05 - PHP Notice:  Undefined variable: custom_field_id in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 115
+2017-04-03 9:58:05 - PHP Notice:  Undefined variable: custom_field_id in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 115
+2017-04-03 12:17:30 - PHP Warning:  in_array() expects parameter 2 to be array, string given in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 124
+2017-04-03 12:17:30 - PHP Warning:  in_array() expects parameter 2 to be array, string given in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 124
+2017-04-03 12:17:30 - PHP Warning:  in_array() expects parameter 2 to be array, string given in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 124
+2017-04-03 12:17:51 - PHP Warning:  in_array() expects parameter 2 to be array, string given in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 124
+2017-04-03 12:17:51 - PHP Warning:  in_array() expects parameter 2 to be array, string given in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 124
+2017-04-03 12:17:51 - PHP Warning:  in_array() expects parameter 2 to be array, string given in C:\wamp64\www\opencart\catalog\view\theme\customize\template\account\address_form.tpl on line 124
+2017-04-03 12:40:15 - PHP Notice:  Undefined variable: module in C:\wamp64\www\opencart\catalog\view\theme\customize\template\extension\module\latest.tpl on line 20
