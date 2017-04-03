@@ -547,16 +547,26 @@ other discount information.</p>
 	</script>
     <script src="js/responsive-calendar.js"></script>
     <script type="text/javascript">
+        //http://w3widgets.com/responsive-calendar/
+        /*
+         onInit()	Runs on calendar initialization. Use `this` here to access responsiveCalendar object including events object.
+         onDayClick(events)
+         onDayHover(events)
+         onActiveDayClick(events)
+         onActiveDayHover(events)
+         onMonthChange()
+         */
       $(document).ready(function () {
         $(".responsive-calendar").responsiveCalendar({
           time: '2017-1',
           events: {
-            "2017-01-03": {"number": 5, "url": "http://google.com"},
-            "2017-01-12": {"number": 1, "url": "http://google.com"}, 
+            "2017-01-03": {"number": "fffffffff", "url": "http://google.com"},
+            "2017-03-12": {"number": 1, "url": "http://google.com"},
             "2017-01-14":{"number": 1, "url": "http://google.com"}, 
             "2017-01-17": {"number": 1},
 			"2017-02-28": {"number": 1}
-			}
+			},
+            onDayClick: function(events) {console.log(events); alert($(this).data('year')+'-'+$(this).data('month')+'-'+$(this).data('day')) }
 			
         });
       });
