@@ -337,6 +337,9 @@ class ControllerAccountAddress extends Controller {
         $data['entry_block'] = $this->language->get('entry_block');
         $data['entry_street'] = $this->language->get('entry_street');
         $data['entry_avenue'] = $this->language->get('entry_avenue');
+        $data['entry_building_number'] = $this->language->get('entry_building_number');
+        $data['entry_floor_number'] = $this->language->get('entry_floor_number');
+        $data['entry_flat_number'] = $this->language->get('entry_flat_number');	
         //end add by gholeh
 
 		$data['button_continue'] = $this->language->get('button_continue');
@@ -374,7 +377,7 @@ class ControllerAccountAddress extends Controller {
 			$data['error_address_1'] = '';
 		}
 
-		//added by me
+		//added by gholeh 
         if (isset($this->error['area'])) {
 			$data['error_area'] = $this->error['area'];
 		} else {
@@ -454,7 +457,7 @@ class ControllerAccountAddress extends Controller {
 			$data['address_1'] = '';
 		}
 
-        //start added by me
+        //start added by gholeh
 		if (isset($this->request->post['area'])) {
 			$data['area'] = $this->request->post['area'];
 		} elseif (!empty($address_info)) {
@@ -494,7 +497,32 @@ class ControllerAccountAddress extends Controller {
 		} else {
 			$data['avenue'] = '';
 		}
-        //end added by me
+
+		if (isset($this->request->post['building_number'])) {
+			$data['building_number'] = $this->request->post['building_number'];
+		} elseif (!empty($address_info)) {
+			$data['building_number'] = $address_info['building_number'];
+		} else {
+			$data['building_number'] = '';
+		}
+
+        if (isset($this->request->post['floor_number'])) {
+			$data['floor_number'] = $this->request->post['floor_number'];
+		} elseif (!empty($address_info)) {
+			$data['floor_number'] = $address_info['floor_number'];
+		} else {
+			$data['floor_number'] = '';
+		}
+		
+		if (isset($this->request->post['flat_number'])) {
+			$data['flat_number'] = $this->request->post['flat_number'];
+		} elseif (!empty($address_info)) {
+			$data['flat_number'] = $address_info['flat_number'];
+		} else {
+			$data['flat_number'] = '';
+		}
+		
+        //end added by gholeh
 
 		if (isset($this->request->post['address_2'])) {
 			$data['address_2'] = $this->request->post['address_2'];

@@ -70,18 +70,18 @@
 						              <input type="text" name="avenue" value="<?php echo $avenue; ?>" placeholder="<?php echo $entry_avenue; ?>" id="input-avenue" class="form-control" />
 						            </div>
 						            <div class="col-md-3 col-sm-4 col-xs-6 for-small">
-						            <label class="col-sm-2 control-label labelfloat" for="input-company"><?php echo $entry_company; ?></label>
-						              <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+						            <label class="col-sm-2 control-label labelfloat" for="input-building-number"><?php echo $entry_building_number; ?></label>
+						              <input type="text" name="building_number" value="<?php echo $company; ?>" placeholder="<?php echo $entry_building_number; ?>" id="input-building-number" class="form-control" />
 						            </div>
 						            <div class="col-md-3 col-sm-4 col-xs-6 for-small">
-						            <label class="col-sm-2 control-label labelfloat" for="input-company"><?php echo $entry_company; ?></label>
-						              <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+						            <label class="col-sm-2 control-label labelfloat" for="input-floor-number"><?php echo $entry_floor_number; ?></label>
+						              <input type="text" name="floor_number" value="<?php echo $floor_number; ?>" placeholder="<?php echo $entry_floor_number; ?>" id="input-floor-number" class="form-control" />
 						            </div>
 						            <div class="col-md-3 col-sm-4 col-xs-6 for-small">
-						            <label class="col-sm-2 control-label labelfloat" for="input-company"><?php echo $entry_company; ?></label>
-						              <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+						            <label class="col-sm-2 control-label labelfloat" for="input-flat-number"><?php echo $entry_flat_number; ?></label>
+						              <input type="text" name="flat_number" value="<?php echo $flat_number; ?>" placeholder="<?php echo $entry_flat_number; ?>" id="input-flat-number" class="form-control" />
 						            </div>
-
+                                 
 
 
 

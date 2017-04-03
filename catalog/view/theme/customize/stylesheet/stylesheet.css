@@ -2846,13 +2846,16 @@ header .top-nav-left ul li{
 .content_area button {
 	font-size: 16px;
 	color: #fff;
-	background: #008b16;
+	background: #70c398;
 	border: none;
 	padding: 0px 35px;
 	height: 47px;
 	float: right;
 	/*width: 137px;*/
 	margin-top: 36px;
+}
+.content_area button:hover {
+    background: #9cd6ca ;
 }
 .content_area hr {
 	width: 100%;
@@ -3186,3 +3189,5 @@ header .top-nav-left ul li{margin: 0px 3px;}
 {
 	background: #9cd6ca;
 }
+
+
