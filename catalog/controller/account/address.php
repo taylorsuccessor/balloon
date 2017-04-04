@@ -10,8 +10,6 @@ class ControllerAccountAddress extends Controller {
 		}
 
         
-
-
 		$this->load->language('account/address');
 
 		$this->document->setTitle($this->language->get('heading_title'));
