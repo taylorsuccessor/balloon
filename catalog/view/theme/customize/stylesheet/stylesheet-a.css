@@ -2832,12 +2832,18 @@ header .top-nav-left ul li{
 	min-height: 100px;
 }
 .order-details h2 {
-	color: #e2001e;
+	color: #c90d7e;
 	font-size: 16px;
 }
 .order-details h2 span , .date_time span  {
 	font-family: 'CenturyGothic';
 	padding-right: 5px;
+}
+.order-details h2 a
+{
+	text-decoration: none;
+	color: #c90d7e;
+	font-size: 16px;
 }
 .date_time , .status {
 	display: block;
@@ -3094,4 +3100,20 @@ header .top-nav-left ul li{margin: 0px 3px;}
 {
 	margin-left: 20px;
 	margin-top: 10px;
+}
+.for-small .updatePassword
+{
+	font-size: 16px;
+    color: #fff;
+    background: #70c398;
+    border: none;
+    padding: 0px 35px;
+    height: 47px;
+    width:auto;
+    float: left;
+    margin-top: 33px;
+}
+.for-small .updatePassword:hover
+{
+	background: #9cd6ca;
 }

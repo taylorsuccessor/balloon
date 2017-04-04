@@ -191,7 +191,8 @@ class ControllerAccountAddress extends Controller {
 		$data['button_edit'] = $this->language->get('button_edit');
 		$data['button_delete'] = $this->language->get('button_delete');
 		$data['button_back'] = $this->language->get('button_back');
-        //start add byme 
+        //start add byme
+        $data['text_user_profile'] = $this->language->get('text_user_profile');
         $data['text_my_account'] = $this->language->get('text_my_account');
 		$data['text_edit'] = $this->language->get('text_edit');
 		$data['text_address'] = $this->language->get('text_address');
@@ -201,7 +202,7 @@ class ControllerAccountAddress extends Controller {
 
         $data['edit'] = $this->url->link('account/edit', '', true);
         $data['address'] = $this->url->link('account/address', '', true);
-        $data['orders'] = $this->url->link('account/orders', '', true);
+        $data['orders'] = $this->url->link('account/order', '', true);
 		$data['password'] = $this->url->link('account/password', '', true);
 
        //end added by me
@@ -344,6 +345,7 @@ class ControllerAccountAddress extends Controller {
 		$data['button_back'] = $this->language->get('button_back');
 		$data['button_upload'] = $this->language->get('button_upload');
 
+        $data['text_user_profile'] = $this->language->get('text_user_profile');
 		$data['text_my_account'] = $this->language->get('text_my_account');
 		$data['text_edit'] = $this->language->get('text_edit');
 		$data['text_address'] = $this->language->get('text_address');
@@ -354,7 +356,7 @@ class ControllerAccountAddress extends Controller {
 
         $data['edit'] = $this->url->link('account/edit', '', true);
         $data['address'] = $this->url->link('account/address', '', true);
-        $data['orders'] = $this->url->link('account/orders', '', true);
+        $data['orders'] = $this->url->link('account/order', '', true);
 		$data['password'] = $this->url->link('account/password', '', true);
 
 		if (isset($this->error['firstname'])) {

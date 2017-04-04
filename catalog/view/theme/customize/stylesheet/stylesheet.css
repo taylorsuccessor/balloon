@@ -2906,12 +2906,18 @@ header .top-nav-left ul li{
 	min-height: 100px;
 }
 .order-details h2 {
-	color: #e2001e;
+	color: #c90d7e;
 	font-size: 16px;
 }
 .order-details h2 span , .date_time span  {
 	font-family: 'CenturyGothic';
 	padding-left: 5px;
+}
+.order-details h2 a
+{
+	text-decoration: none;
+	color: #c90d7e;
+	font-size: 16px;
 }
 .date_time , .status {
 	display: block;
@@ -3188,6 +3194,39 @@ header .top-nav-left ul li{margin: 0px 3px;}
 .for-small .editinfo:hover
 {
 	background: #9cd6ca;
+}
+.for-small .updatePassword
+{
+	font-size: 16px;
+    color: #fff;
+    background: #70c398;
+    border: none;
+    padding: 0px 35px;
+    height: 47px;
+    width:auto;
+    float: right;
+    margin-top: 33px;
+}
+.for-small .updatePassword:hover
+{
+	background: #9cd6ca;
+}
+#continueOrder
+{
+	font-size: 16px;
+    color: #fff;
+    background: #70c398;
+    border: none;
+    padding: 10px 35px;
+   
+    width:auto;
+    float: right;
+    margin-top: 33px;
+}
+#reorder
+{
+	background: #70c398;
+	border-color:#70c398;
 }
 
 

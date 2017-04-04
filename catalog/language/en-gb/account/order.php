@@ -19,6 +19,11 @@ $_['text_success']          = 'Success: You have added <a href="%s">%s</a> to yo
 $_['text_empty']            = 'You have not made any previous orders!';
 $_['text_error']            = 'The order you requested could not be found!';
 
+$_['text_edit']      = 'Account Information';
+$_['text_address']   = 'Address book';
+$_['text_my_orders'] = 'Your orders';
+$_['text_password']  = 'Change password';
+$_['text_user_profile']    = 'User Profile';
 // Column
 $_['column_order_id']       = 'Order ID';
 $_['column_customer']       = 'Customer';
