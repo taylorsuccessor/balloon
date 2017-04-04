@@ -1,10 +1,26 @@
 <?php echo $header; ?>
+
 <div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
+
+
+ <section class="banner-section"><!--Banner Section-->
+    <div class="inner-banner"><!--banner-->
+        <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+     </div><!--banner-->
+  </section><!--Banner Section-->
+  
+  
+  <section class="content-section">
+  
+ <div class="bredcrumb"><!--bredcrumb-->      
+        <?php //print_r($breadcrumbs) ;?>
+            <ul>
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                <?php } ?>
+            </ul> 
+      </div> <!--bredcrumb-->
+      
   <?php if ($error_warning) { ?>
   <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
   <?php } ?>
@@ -17,11 +33,21 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <p><?php echo $text_account_already; ?></p>
+    
+               <div class="product-details-page"><!--balloons-->
+
+     
+      <h2><?php echo $heading_title; ?></h2>
+      
+       <div class="full-width common content_area">
+               
+               
+                <div class="row">
+      
+      
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset id="account">
-          <legend><?php echo $text_your_details; ?></legend>
+         
           <div class="form-group required" style="display: <?php echo (count($customer_groups) > 1 ? 'block' : 'none'); ?>;">
             <label class="col-sm-2 control-label"><?php echo $entry_customer_group; ?></label>
             <div class="col-sm-10">
@@ -42,33 +68,45 @@
               <?php } ?>
             </div>
           </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
-            <div class="col-sm-10">
+          
+          
+          
+            <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
+            <label class ='control-label labelfloat' for="input-firstname"><?php echo $entry_firstname; ?></label>
+            
               <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
+              
               <?php if ($error_firstname) { ?>
               <div class="text-danger"><?php echo $error_firstname; ?></div>
               <?php } ?>
             </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-lastname"><?php echo $entry_lastname; ?></label>
-            <div class="col-sm-10">
+          
+          
+          
+          
+            <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
+            
+            <label class='control-label labelfloat' for="input-lastname"><?php echo $entry_lastname; ?></label>
+            
               <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
+              
               <?php if ($error_lastname) { ?>
               <div class="text-danger"><?php echo $error_lastname; ?></div>
               <?php } ?>
             </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
-            <div class="col-sm-10">
+         
+         
+            <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
+            
+            <label class='control-label labelfloat' for="input-email"><?php echo $entry_email; ?></label>
               <input type="email" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
+              
               <?php if ($error_email) { ?>
               <div class="text-danger"><?php echo $error_email; ?></div>
               <?php } ?>
             </div>
-          </div>
+            
+            
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
             <div class="col-sm-10">
@@ -156,7 +194,11 @@
             </div>
           </div>
           <?php } ?>
-          <?php if ($custom_field['type'] == 'text') { ?>
+          
+          
+          <?php if ($custom_field['type'] == 'text' && $custom_field['custom_field_id']==2) { ?>
+          
+          <?php }else {?>
           <div id="custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-group custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
             <label class="col-sm-2 control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
             <div class="col-sm-10">
@@ -166,7 +208,10 @@
               <?php } ?>
             </div>
           </div>
-          <?php } ?>
+        <?php  } ?>
+         
+         
+         
           <?php if ($custom_field['type'] == 'textarea') { ?>
           <div id="custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-group custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
             <label class="col-sm-2 control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
@@ -234,6 +279,7 @@
               <?php } ?>
             </div>
           </div>
+          
           <?php } ?>
           <?php } ?>
           <?php } ?>
@@ -505,6 +551,7 @@
             </div>
           </div>
         </fieldset>
+    
         <?php echo $captcha; ?>
         <?php if ($text_agree) { ?>
         <div class="buttons">
@@ -525,10 +572,17 @@
           </div>
         </div>
         <?php } ?>
+        
       </form>
+           </div>
+                   </div>
+      
+        </div>
+      
+      
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
-</div>
+
 <script type="text/javascript"><!--
 // Sort the custom fields
 $('#account .form-group[data-sort]').detach().each(function() {
@@ -706,4 +760,6 @@ $('select[name=\'country_id\']').on('change', function() {
 
 $('select[name=\'country_id\']').trigger('change');
 //--></script>
+    </section>
+</div>
 <?php echo $footer; ?>
