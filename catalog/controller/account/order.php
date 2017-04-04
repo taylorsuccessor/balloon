@@ -96,6 +96,18 @@ class ControllerAccountOrder extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
+		//add by gholeh-04-04-2017
+		$data['edit'] = $this->url->link('account/edit', '', true);
+        $data['address'] = $this->url->link('account/address', '', true);
+		$data['password'] = $this->url->link('account/password', '', true);
+         
+        $data['text_user_profile'] = $this->language->get('text_user_profile');
+        $data['text_my_account'] = $this->language->get('text_my_account');
+		$data['text_edit'] = $this->language->get('text_edit');
+		$data['text_address'] = $this->language->get('text_address');
+		$data['text_my_orders'] = $this->language->get('text_my_orders');
+		$data['text_password'] = $this->language->get('text_password');
+
 		$this->response->setOutput($this->load->view('account/order_list', $data));
 	}
 
@@ -176,6 +188,19 @@ class ControllerAccountOrder extends Controller {
 			$data['button_reorder'] = $this->language->get('button_reorder');
 			$data['button_return'] = $this->language->get('button_return');
 			$data['button_continue'] = $this->language->get('button_continue');
+
+			//add by gholeh-04-04-2017
+			$data['edit'] = $this->url->link('account/edit', '', true);
+            $data['address'] = $this->url->link('account/address', '', true);
+            //$data['orders'] = $this->url->link('account/order', '', true);
+		    $data['password'] = $this->url->link('account/password', '', true);
+
+		    $data['text_user_profile'] = $this->language->get('text_user_profile');
+            $data['text_my_account'] = $this->language->get('text_my_account');
+		    $data['text_edit'] = $this->language->get('text_edit');
+		    $data['text_address'] = $this->language->get('text_address');
+		    $data['text_my_orders'] = $this->language->get('text_my_orders');
+		    $data['text_password'] = $this->language->get('text_password');
 
 			if (isset($this->session->data['error'])) {
 				$data['error_warning'] = $this->session->data['error'];

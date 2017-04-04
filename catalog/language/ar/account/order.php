@@ -22,6 +22,12 @@ $_['text_success']          = 'لقد قمت بنجاح بإضافة المنت�
 $_['text_empty']            = 'لا توجد طلبات خاصة بك !';
 $_['text_error']            = 'لم يتم العثور على طلبات !';
 
+$_['text_edit']      = 'Account Information';
+$_['text_address']   = 'Address book';
+$_['text_my_orders'] = 'Your orders';
+$_['text_password']  = 'Change password';
+$_['text_user_profile']    = 'User Profile';
+
 // Column
 $_['column_order_id']        = 'رقم الطلب';
 $_['column_customer']       = 'العميل';

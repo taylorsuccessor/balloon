@@ -96,6 +96,18 @@ class ControllerAccountPassword extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+        //added by gholeh for left menu
+        $data['edit'] = $this->url->link('account/edit', '', true);
+        $data['address'] = $this->url->link('account/address', '', true);
+        $data['orders'] = $this->url->link('account/order', '', true);
+        $data['password'] = $this->url->link('account/password', '', true);
+
+        $data['text_user_profile'] = $this->language->get('text_user_profile');
+        $data['text_edit'] = $this->language->get('text_edit');
+        $data['text_edit'] = $this->language->get('text_edit');
+		$data['text_address'] = $this->language->get('text_address');
+		$data['text_my_orders'] = $this->language->get('text_my_orders');
+		$data['text_password'] = $this->language->get('text_password');
 
 		$this->response->setOutput($this->load->view('account/password', $data));
 	}

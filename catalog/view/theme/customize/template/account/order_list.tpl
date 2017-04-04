@@ -1,10 +1,18 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
+   <section class="banner-section"><!--Banner Section-->
+        <div class="inner-banner"><!--banner-->
+            <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+        </div><!--banner-->
+  </section><!--Banner Section-->
+  <section class="content-section"><!--content-section-->
+    <div class="bredcrumb"><!--bredcrumb-->
+        <ul>
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+          <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php  } ?>
+        </ul>
+    </div><!--bredcrumb-->
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -14,47 +22,49 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <?php if ($orders) { ?>
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <td class="text-right"><?php echo $column_order_id; ?></td>
-              <td class="text-left"><?php echo $column_customer; ?></td>
-              <td class="text-right"><?php echo $column_product; ?></td>
-              <td class="text-left"><?php echo $column_status; ?></td>
-              <td class="text-right"><?php echo $column_total; ?></td>
-              <td class="text-left"><?php echo $column_date_added; ?></td>
-              <td></td>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($orders as $order) { ?>
-            <tr>
-              <td class="text-right">#<?php echo $order['order_id']; ?></td>
-              <td class="text-left"><?php echo $order['name']; ?></td>
-              <td class="text-right"><?php echo $order['products']; ?></td>
-              <td class="text-left"><?php echo $order['status']; ?></td>
-              <td class="text-right"><?php echo $order['total']; ?></td>
-              <td class="text-left"><?php echo $order['date_added']; ?></td>
-              <td class="text-right"><a href="<?php echo $order['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
-            </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div>
-      <?php } else { ?>
-      <p><?php echo $text_empty; ?></p>
-      <?php } ?>
-      <div class="buttons clearfix">
-        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
-      </div>
-      <?php echo $content_bottom; ?></div>
+      <div class="product-details-page"><!--balloons-->
+          <h2><?php echo $heading_title; ?></h2>
+          <div class="full-width common">
+            <div class="row">
+              <div class="col-md-3 col-sm-3 col-xs-12 side_navigation">
+                <ul class="list-unstyled">
+                  <li><a href="<?php echo $edit; ?>"><?php echo $text_edit; ?></a></li>
+                  <li><a href="<?php echo $address; ?>"><?php echo $text_address; ?></a></li>
+                  <li><a href="<?php echo $orders; ?>"><?php echo $text_my_orders; ?></a></li>
+                  <li><a href="<?php echo $password; ?>"><?php echo $text_password; ?></a></li>
+                </ul>
+              </div><!-- .side_navigation -->
+              <div class="col-md-9 col-sm-9 col-xs-12 content_area">
+                <div class="row">
+                    <?php if ($orders) { ?>
+                      <div class="col-xs-12 orders">
+                        <select>
+                          <option>Low to High</option>
+                          <option>Low to High</option>
+                          <option>Low to High</option>
+                        </select>
+                        <label>Sort By:</label>
+                      </div><!-- /.col-xs-12 -->
+                      <?php foreach ($orders as $order) { ?>
+                    <div class="col-xs-12 order-details">
+                      <h2> <a href="<?php echo $order['view']; ?>" title="<?php echo $button_view; ?>"> Order id :<span><?php echo $order['order_id']; ?></span> </a> </h2>
+                      <span class="date_time">Date: <?php echo $order['date_added']; ?> <!--23 Jan 2017 | <span>10 : 35 AM</span>--></span>
+                      <span class="status">Status:  <span><?php echo $order['status']; ?></span></span>
+                    </div><!-- /.col-xs-12 -->
+                    <?php } ?>
+                    <?php } ?>
+                    
+                      <a href="<?php echo $continue; ?>" role="button" id="continueOrder"><?php echo $button_continue; ?></a>
+                   
+                  <?php echo $content_bottom; ?>
+                </div> <!-- /.row --> 
+              </div><!-- /.content_area -->
+            </div><!-- /.row -->  
+          </div><!-- /.common --> 
+      </div>  <!-- /.products -->
+    </div><!-- /.content -->    
+  </div><!-- /.row --> 
+  </section>
     <?php echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>

@@ -23,7 +23,7 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"> <?php echo $content_top; ?>
     <div class="product-details-page"><!--balloons-->
-      <h2><?php echo $text_address_book; ?></h2>
+      <h2><?php echo $text_user_profile; ?></h2>
       <div class="full-width common">
           <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12 side_navigation">
