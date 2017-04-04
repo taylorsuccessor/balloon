@@ -11,6 +11,13 @@ class ControllerAccountEdit extends Controller {
 
 		$this->load->language('account/edit');
 
+		$this->load->model('account/address');
+		$this->load->language('account/address');
+
+		$addresses = $this->model_account_address->getAddresses();
+
+		//print_r($results);exit;
+
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
@@ -62,8 +69,8 @@ class ControllerAccountEdit extends Controller {
 		$data['text_additional'] = $this->language->get('text_additional');
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_loading'] = $this->language->get('text_loading');
-		$data['entry_firstname'] = $this->language->get('entry_firstname');
-		$data['entry_lastname'] = $this->language->get('entry_lastname');
+		//$data['entry_firstname'] = $this->language->get('entry_firstname');
+		//$data['entry_lastname'] = $this->language->get('entry_lastname');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_fax'] = $this->language->get('entry_fax');
@@ -122,6 +129,7 @@ class ControllerAccountEdit extends Controller {
 
 		if ($this->request->server['REQUEST_METHOD'] != 'POST') {
 			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+			//print_r($customer_info);exit;
 		}
 
 		if (isset($this->request->post['firstname'])) {
@@ -164,12 +172,21 @@ class ControllerAccountEdit extends Controller {
 			$data['fax'] = '';
 		}
 
+		/*if (isset($this->request->post['custom_field[1]'])) {
+			$data[$addresses['address_1']] = $this->request->post['custom_field[1]'];
+		} elseif (!empty($customer_info)) {
+			$data['custom_field[1]'] = $customer_info['custom_field[1]'];
+		} else {
+			$data[$addresses['address_1']] = '';
+		}*/
+
 		// Custom Fields
 		$this->load->model('account/custom_field');
 
 		$data['custom_fields'] = $this->model_account_custom_field->getCustomFields($this->config->get('config_customer_group_id'));
-
+		//print_r($data['custom_fields']);exit;
 		if (isset($this->request->post['custom_field'])) {
+			//die('custom field');
 			$data['account_custom_field'] = $this->request->post['custom_field'];
 		} elseif (isset($customer_info)) {
 			$data['account_custom_field'] = json_decode($customer_info['custom_field'], true);
@@ -197,13 +214,15 @@ class ControllerAccountEdit extends Controller {
 	}
 
 	protected function validate() {
-		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
-			$this->error['firstname'] = $this->language->get('error_firstname');
-		}
+		//if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
+			//$this->error['firstname'] = $this->language->get('error_firstname');
+		//}
 
 //		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
 //			$this->error['lastname'] = $this->language->get('error_lastname');
 //		}
+
+		
 
 		if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error['email'] = $this->language->get('error_email');
@@ -223,6 +242,12 @@ class ControllerAccountEdit extends Controller {
 		$custom_fields = $this->model_account_custom_field->getCustomFields($this->config->get('config_customer_group_id'));
 
 		foreach ($custom_fields as $custom_field) {
+			//print_r($custom_field);exit;
+			/*if($custom_field['custom_field_id']==4){
+				if ( !preg_match('/^[A-Za-z][A-Za-z]$/', $custom_field['custom_field_id'])){
+					$this->error['custom_field'][$custom_field['custom_field_id']] = 'Please enter valid full name';
+				}
+			} */
 			if (($custom_field['location'] == 'account') && $custom_field['required'] && empty($this->request->post['custom_field'][$custom_field['custom_field_id']])) {
 				$this->error['custom_field'][$custom_field['custom_field_id']] = sprintf($this->language->get('error_custom_field'), $custom_field['name']);
 			} elseif (($custom_field['location'] == 'account') && ($custom_field['type'] == 'text') && !empty($custom_field['validation']) && !filter_var($this->request->post['custom_field'][$custom_field['custom_field_id']], FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => $custom_field['validation'])))) {
