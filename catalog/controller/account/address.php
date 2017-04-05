@@ -10,6 +10,8 @@ class ControllerAccountAddress extends Controller {
 		}
 
         
+
+
 		$this->load->language('account/address');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -17,7 +19,7 @@ class ControllerAccountAddress extends Controller {
 		$this->load->model('account/address');
 
 		$this->getList();
-		$this->getForm();
+		//$this->getForm();
 	}
 
 	public function add() {
@@ -63,7 +65,6 @@ class ControllerAccountAddress extends Controller {
 	public function edit() {
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/address', '', true);
-
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
 
@@ -105,13 +106,15 @@ class ControllerAccountAddress extends Controller {
 				$activity_data = array(
 					'customer_id' => $this->customer->getId(),
 					'name'        => $this->customer->getFirstName() . ' ' . $this->customer->getLastName()
-				);
+				);	
 
 				$this->model_account_activity->addActivity('address_edit', $activity_data);
+
 			}
 
 			$this->response->redirect($this->url->link('account/address', '', true));
 		}
+
 
 		$this->getForm();
 	}
@@ -228,8 +231,13 @@ class ControllerAccountAddress extends Controller {
 		$results = $this->model_account_address->getAddresses();
 
 		foreach ($results as $result) {
-			if ($result['address_format']) {
-				$format = $result['address_format'];
+			// print_r($results);
+			//die();
+			if ($result['custom_field']) {
+				foreach ($result['custom_field'] as $custom_value) {
+					$format =  $custom_value;
+				}
+				//$format = $result['custom_field'][4];
 			} else {
 				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 			}
@@ -266,6 +274,8 @@ class ControllerAccountAddress extends Controller {
 				'update'     => $this->url->link('account/address/edit', 'address_id=' . $result['address_id'], true),
 				'delete'     => $this->url->link('account/address/delete', 'address_id=' . $result['address_id'], true)
 			);
+
+
 		}
 
 		$data['add'] = $this->url->link('account/address/add', '', true);
@@ -377,13 +387,7 @@ class ControllerAccountAddress extends Controller {
 			$data['error_address_1'] = '';
 		}
 
-		//added by gholeh 
-        if (isset($this->error['area'])) {
-			$data['error_area'] = $this->error['area'];
-		} else {
-			$data['error_area'] = '';
-		}
-		//end added by me
+		
 
 		if (isset($this->error['city'])) {
 			$data['error_city'] = $this->error['city'];
@@ -457,72 +461,9 @@ class ControllerAccountAddress extends Controller {
 			$data['address_1'] = '';
 		}
 
-        //start added by gholeh
-		if (isset($this->request->post['area'])) {
-			$data['area'] = $this->request->post['area'];
-		} elseif (!empty($address_info)) {
-			$data['area'] = $address_info['area'];
-		} else {
-			$data['area'] = '';
-		}
 
-		if (isset($this->request->post['governorate'])) {
-			$data['governorate'] = $this->request->post['governorate'];
-		} elseif (!empty($address_info)) {
-			$data['governorate'] = $address_info['governorate'];
-		} else {
-			$data['governorate'] = '';
-		}
 
-		if (isset($this->request->post['block'])) {
-			$data['block'] = $this->request->post['block'];
-		} elseif (!empty($address_info)) {
-			$data['block'] = $address_info['block'];
-		} else {
-			$data['block'] = '';
-		}
-
-		if (isset($this->request->post['street'])) {
-			$data['street'] = $this->request->post['street'];
-		} elseif (!empty($address_info)) {
-			$data['street'] = $address_info['street'];
-		} else {
-			$data['street'] = '';
-		}
-		
-		if (isset($this->request->post['avenue'])) {
-			$data['avenue'] = $this->request->post['avenue'];
-		} elseif (!empty($address_info)) {
-			$data['avenue'] = $address_info['avenue'];
-		} else {
-			$data['avenue'] = '';
-		}
-
-		if (isset($this->request->post['building_number'])) {
-			$data['building_number'] = $this->request->post['building_number'];
-		} elseif (!empty($address_info)) {
-			$data['building_number'] = $address_info['building_number'];
-		} else {
-			$data['building_number'] = '';
-		}
-
-        if (isset($this->request->post['floor_number'])) {
-			$data['floor_number'] = $this->request->post['floor_number'];
-		} elseif (!empty($address_info)) {
-			$data['floor_number'] = $address_info['floor_number'];
-		} else {
-			$data['floor_number'] = '';
-		}
-		
-		if (isset($this->request->post['flat_number'])) {
-			$data['flat_number'] = $this->request->post['flat_number'];
-		} elseif (!empty($address_info)) {
-			$data['flat_number'] = $address_info['flat_number'];
-		} else {
-			$data['flat_number'] = '';
-		}
-		
-        //end added by gholeh
+        
 
 		if (isset($this->request->post['address_2'])) {
 			$data['address_2'] = $this->request->post['address_2'];
@@ -603,41 +544,8 @@ class ControllerAccountAddress extends Controller {
 	}
 
 	protected function validateForm() {
-		// if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
-		// 	$this->error['firstname'] = $this->language->get('error_firstname');
-		// }
-
-		// if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
-		// 	$this->error['lastname'] = $this->language->get('error_lastname');
-		// }
-
-		// if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
-		// 	$this->error['address_1'] = $this->language->get('error_address_1');
-		// }
-  //       start added by me
-  //       if ((utf8_strlen(trim($this->request->post['area'])) < 3) || (utf8_strlen(trim($this->request->post['area'])) > 128)) {
-		// 	$this->error['area'] = $this->language->get('error_area');
-		// }
-  //       end added by me
-		// if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
-		// 	$this->error['city'] = $this->language->get('error_city');
-		// }
-
+		
 		$this->load->model('localisation/country');
-
-		// $country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
-
-		// if ($country_info && $country_info['postcode_required'] && (utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
-		// 	$this->error['postcode'] = $this->language->get('error_postcode');
-		// }
-
-		// if ($this->request->post['country_id'] == '' || !is_numeric($this->request->post['country_id'])) {
-		// 	$this->error['country'] = $this->language->get('error_country');
-		// }
-
-//		if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '' || !is_numeric($this->request->post['zone_id'])) {
-//			$this->error['zone'] = $this->language->get('error_zone');
-//		}
 
 		// Custom field validation
 		$this->load->model('account/custom_field');

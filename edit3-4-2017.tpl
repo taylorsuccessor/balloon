@@ -40,7 +40,6 @@
     
     
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-    
      <div class="product-details-page"><!--balloons-->
      
      <h2><?php echo $heading_title; ?></h2>
@@ -70,7 +69,7 @@
                   <fieldset>
 
          
-             <div class="row">
+          <div class="row">
                  
                  
 
@@ -115,10 +114,9 @@
                 <label><?php echo $entry_telephone; ?></label>
            
              <select pattern="[1-9]{1}[0-9]{9}">
-                                   
-                         <option>+333</option>
-                         <option>+333</option>
-                         <option>+333</option>
+                					<option>+333</option>
+                					<option>+333</option>
+                					<option>+333</option>
              </select>
              
             <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
@@ -135,8 +133,7 @@
                     
                 <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
                                
-                <button type="submit" value="<?php echo $button_continue; ?>">Edit Info</button>
-                
+                				<button type="submit" value="<?php echo $button_continue; ?>">Edit Info</button>
                 </div>
                       
                                     

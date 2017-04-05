@@ -2,4 +2,3 @@
 /admin/config.php
 /.idea
 /system/storage
- system/storage/logs/error.log

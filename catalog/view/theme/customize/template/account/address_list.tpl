@@ -47,7 +47,7 @@
                       <?php if ($addresses) { ?>
                           <?php foreach ($addresses as $result) { ?>
                             <td class="text-left"><?php echo $result['address']; ?></td>
-                            <td class="text-right"><a href="<?php echo $result['update']; ?>" class="btn btn-info"><?php echo $button_edit; ?></a> &nbsp; <a href="<?php echo $result['delete']; ?>" class="btn btn-danger"><?php echo $button_delete; ?></a></td>
+                            <td class="text-right"><a href="<?php echo $result['update']; ?>" class="btn btn-info"><?php echo $button_edit; ?></a> &nbsp; <a href="<?php echo $result['delete']; ?>" class="btn btn-danger"><?php echo $button_delete; ?></a></td><br>
                           <?php } ?>
 
                       <?php } else { ?>
@@ -63,6 +63,9 @@
           </div>
       </div>
     </div>
+    </div>
+    </div>
+    </section>
     <?php echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>

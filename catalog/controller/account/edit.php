@@ -1,6 +1,5 @@
 <?php
-//{include file="catalog/controller/account/address.php"}
-    class ControllerAccountEdit extends Controller {
+class ControllerAccountEdit extends Controller {
 	private $error = array();
 
 	public function index() {
@@ -13,11 +12,7 @@
 		$this->load->language('account/edit');
 
 		$this->load->model('account/address');
-        
-        
-        
-        $this->document->setTitle($this->language->get('heading_title'));
-
+		$this->load->language('account/address');
 
 		$addresses = $this->model_account_address->getAddresses();
 
@@ -30,9 +25,6 @@
 		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
 		$this->load->model('account/customer');
-        
-        $this->load->model('account/address');
-
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$this->model_account_customer->editCustomer($this->request->post);
@@ -134,7 +126,6 @@
 		}
 
 		$data['action'] = $this->url->link('account/edit', '', true);
-        $data['action_addresses'] = $this->url->link('account/address/edit', '', true);
 
 		if ($this->request->server['REQUEST_METHOD'] != 'POST') {
 			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
