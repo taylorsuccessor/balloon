@@ -5,7 +5,9 @@
         <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
      </div><!--banner-->
   </section><!--Banner Section-->
+  
   <section class="content-section">
+     
       <div class="bredcrumb"><!--bredcrumb-->      
         <?php //print_r($breadcrumbs) ;?>
             <ul>
@@ -14,6 +16,7 @@
                 <?php } ?>
             </ul> 
       </div> <!--bredcrumb-->
+      
       <div class="wrap_notfiy">  
         <?php if ($attention) { ?>
         <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $attention; ?>
@@ -31,6 +34,7 @@
         </div>
         <?php } ?>
       </div>
+      
       <div class="row"><?php echo $column_left; ?>
         <?php if ($column_left && $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>

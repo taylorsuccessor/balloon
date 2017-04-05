@@ -134,6 +134,7 @@
 		}
 
 		$data['action'] = $this->url->link('account/edit', '', true);
+        $data['action_addresses'] = $this->url->link('account/address/edit', '', true);
 
 		if ($this->request->server['REQUEST_METHOD'] != 'POST') {
 			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
