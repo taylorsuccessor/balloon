@@ -8,10 +8,6 @@ class ControllerAccountAddress extends Controller {
 
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
-
-        
-
-
 		$this->load->language('account/address');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -67,7 +63,6 @@ class ControllerAccountAddress extends Controller {
 			$this->session->data['redirect'] = $this->url->link('account/address', '', true);
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
-
 		$this->load->language('account/address');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -202,6 +197,8 @@ class ControllerAccountAddress extends Controller {
 		$data['text_my_orders'] = $this->language->get('text_my_orders');
 		$data['text_password'] = $this->language->get('text_password');
 
+		$data['text_address_list'] = $this->language->get('text_address_list');
+
 
         $data['edit'] = $this->url->link('account/edit', '', true);
         $data['address'] = $this->url->link('account/address', '', true);
@@ -231,17 +228,15 @@ class ControllerAccountAddress extends Controller {
 		$results = $this->model_account_address->getAddresses();
 
 		foreach ($results as $result) {
-			// print_r($results);
-			//die();
 			if ($result['custom_field']) {
 				foreach ($result['custom_field'] as $custom_value) {
+					
 					$format =  $custom_value;
+					break;
 				}
-				//$format = $result['custom_field'][4];
 			} else {
 				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 			}
-
 			$find = array(
 				'{firstname}',
 				'{lastname}',
@@ -329,6 +324,9 @@ class ControllerAccountAddress extends Controller {
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_none'] = $this->language->get('text_none');
 		$data['text_loading'] = $this->language->get('text_loading');
+        
+        $data['text_delivery_address'] = $this->language->get('text_delivery_address');
+        $data['text_edit_address'] = $this->language->get('text_edit_address');
 
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_lastname'] = $this->language->get('entry_lastname');

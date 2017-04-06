@@ -13,6 +13,12 @@ $_['text_add']             = 'تم اضافة العنوان بنجاح';
 $_['text_edit']            = 'تم تحديث العنوان بنجاح';
 $_['text_delete']          = 'تم حذف العنوان';
 $_['text_empty']           = 'لاتوجد عناوين في حسابك.';
+$_['text_address']         = 'دليل العناوين';
+$_['text_my_orders']       = 'طلباتك';
+$_['text_password']        = 'تغير كلمة المرور';
+$_['text_delivery_address'] ='Delivery <span>Address</span>';
+$_['text_edit_address']    = 'تعديل Delivery Address';
+$_['text_address_list']    = 'قائمة العناوين';
 
 // Entry
 $_['entry_firstname']   = 'الاسم الاول';
@@ -25,7 +31,8 @@ $_['entry_city']        = 'المدينة';
 $_['entry_country']     = 'البلد';
 $_['entry_zone']        = 'المنطقة / المحافظة';
 $_['entry_default']     = 'العنوان الافتراضي';
-
+//button
+$_['button_new_address']   = 'إضافة عنوان جديد';
 // Error
 $_['error_delete']      = 'تحذير : يجب أن تضع عنوان واحد على الأقل!';
 $_['error_default']     = 'تحذير : لا يمكنك حذف العنوان الافتراضي!';

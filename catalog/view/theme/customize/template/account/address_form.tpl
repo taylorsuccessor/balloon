@@ -23,7 +23,7 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"> <?php echo $content_top; ?>
     <div class="product-details-page"><!--balloons-->
-      <h2><?php echo $text_user_profile; ?></h2>
+      <h2><?php echo $text_address;  ?></h2>
       <div class="full-width common">
           <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12 side_navigation">
@@ -35,7 +35,7 @@
               </ul>
             </div><!-- .side_navigation -->
             <div class="col-md-9 col-sm-9 col-xs-12 content_area">
-                <h2>Delivery <span>Address1</span></h2>
+                <h2><?php echo $text_delivery_address; ?></h2>
                 <div class="row"> 
                   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
                     <fieldset>

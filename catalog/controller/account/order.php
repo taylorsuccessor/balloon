@@ -99,6 +99,7 @@ class ControllerAccountOrder extends Controller {
 		//add by gholeh-04-04-2017
 		$data['edit'] = $this->url->link('account/edit', '', true);
         $data['address'] = $this->url->link('account/address', '', true);
+        $data['order_link'] = $this->url->link('account/order', '', true);
 		$data['password'] = $this->url->link('account/password', '', true);
          
         $data['text_user_profile'] = $this->language->get('text_user_profile');

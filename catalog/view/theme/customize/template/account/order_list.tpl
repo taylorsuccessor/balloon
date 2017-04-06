@@ -30,7 +30,7 @@
                 <ul class="list-unstyled">
                   <li><a href="<?php echo $edit; ?>"><?php echo $text_edit; ?></a></li>
                   <li><a href="<?php echo $address; ?>"><?php echo $text_address; ?></a></li>
-                  <li><a href="<?php echo $orders; ?>"><?php echo $text_my_orders; ?></a></li>
+                  <li><a href="<?php echo $order_link; ?>"><?php echo $text_my_orders; ?></a></li>
                   <li><a href="<?php echo $password; ?>"><?php echo $text_password; ?></a></li>
                 </ul>
               </div><!-- .side_navigation -->
@@ -45,6 +45,7 @@
                         </select>
                         <label>Sort By:</label>
                       </div><!-- /.col-xs-12 -->
+                      <?php  ?>
                       <?php foreach ($orders as $order) { ?>
                     <div class="col-xs-12 order-details">
                       <h2> <a href="<?php echo $order['view']; ?>" title="<?php echo $button_view; ?>"> Order id :<span><?php echo $order['order_id']; ?></span> </a> </h2>

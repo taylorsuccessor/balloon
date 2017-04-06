@@ -3218,7 +3218,6 @@ header .top-nav-left ul li{margin: 0px 3px;}
     background: #70c398;
     border: none;
     padding: 10px 35px;
-   
     width:auto;
     float: right;
     margin-top: 33px;
@@ -3228,5 +3227,48 @@ header .top-nav-left ul li{margin: 0px 3px;}
 	background: #70c398;
 	border-color:#70c398;
 }
+.content_area .table > thead > tr > th
+{
+   padding: 8px 0px;
 
+}
+.content_area .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td
+{
+   padding: 18px 0px;
 
+}
+#addnewaddress
+{
+	border: none;
+	background:#70c398;
+	padding:10px;
+	font-size: 15px;
+	color: #fff;
+	float:right;
+}
+#addnewaddress:hover{
+	background:#9cd6ca;
+}
+#edit_address
+{
+	border: none;
+	background:#c90d7e;
+	padding:7px 25px;
+	font-size: 15px;
+	color: #fff;
+}
+#edit_address:hover{
+	background:#e06db2;
+}
+
+#delete_ddress
+{
+	border: none;
+	background:#ce0c2c;
+	padding:7px 20px;
+	font-size: 15px;
+	color: #fff;
+}
+#delete_address:hover{
+	background:#c90d7e;
+}

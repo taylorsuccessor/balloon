@@ -31,7 +31,7 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class="product-details-page"><!--balloons-->
-          <h2><?php echo $text_address_book; ?></h2>
+          <h2><?php echo $text_address; ?></h2>
           <div class="full-width common">
             <div class="row">
               <div class="col-md-3 col-sm-3 col-xs-12 side_navigation">
@@ -43,20 +43,27 @@
                   </ul>
               </div><!-- .side_navigation --> 
               <div class="col-md-9 col-sm-9 col-xs-12 content_area"> 
-                <div class="row">     
+                    <div class="table-responsive">          
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th><?php echo $text_address_list;?></th>
+                            <th><a href="<?php echo $add; ?>" id="addnewaddress"><?php echo $button_new_address; ?></a></th>
+                          </tr>
+                        </thead>
                       <?php if ($addresses) { ?>
                           <?php foreach ($addresses as $result) { ?>
+                          <tr>
                             <td class="text-left"><?php echo $result['address']; ?></td>
-                            <td class="text-right"><a href="<?php echo $result['update']; ?>" class="btn btn-info"><?php echo $button_edit; ?></a> &nbsp; <a href="<?php echo $result['delete']; ?>" class="btn btn-danger"><?php echo $button_delete; ?></a></td><br>
+                            <td class="text-right"><a href="<?php echo $result['update']; ?>" id="edit_address"><?php echo $button_edit; ?></a> &nbsp; <a href="<?php echo $result['delete']; ?>" id="delete_ddress"><?php echo $button_delete; ?></a></td>
+                          </tr>
                           <?php } ?>
-
+                        </tbody>
+                      </table>
+                      </div>
                       <?php } else { ?>
                       <p><?php echo $text_empty; ?></p>
                       <?php } ?>
-                      <div class="buttons clearfix">
-                        <div class="pull-left"><a href="<?php echo $back; ?>" class="btn btn-default"><?php echo $button_back; ?></a></div>
-                        <div class="pull-right"><a href="<?php echo $add; ?>" class="btn btn-primary"><?php echo $button_new_address; ?></a></div>
-                      </div>
                       <?php echo $content_bottom; ?>
               </div><!-- /.content_area -->      
             </div>

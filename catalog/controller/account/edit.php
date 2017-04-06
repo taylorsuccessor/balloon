@@ -1,5 +1,8 @@
 <?php
-class ControllerAccountEdit extends Controller {
+//{include file="catalog/controller/account/address.php"}
+    // $this->load->controller('includes/balloon/catalog/account/address.php', $data);
+
+    class ControllerAccountEdit extends Controller {
 	private $error = array();
 
 	public function index() {
@@ -12,7 +15,11 @@ class ControllerAccountEdit extends Controller {
 		$this->load->language('account/edit');
 
 		$this->load->model('account/address');
-		$this->load->language('account/address');
+        
+        
+        
+        $this->document->setTitle($this->language->get('heading_title'));
+
 
 		$addresses = $this->model_account_address->getAddresses();
 
@@ -25,6 +32,9 @@ class ControllerAccountEdit extends Controller {
 		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
 		$this->load->model('account/customer');
+        
+        $this->load->model('account/address');
+
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$this->model_account_customer->editCustomer($this->request->post);
@@ -80,8 +90,8 @@ class ControllerAccountEdit extends Controller {
         
         // got them from address
         
-        $data['entry_address_1'] = $this->language->get('entry_address_1');
-        $data['entry_area'] = $this->language->get('entry_area');
+       // $data['entry_address_1'] = $this->language->get('entry_address_1');
+        //$data['entry_area'] = $this->language->get('entry_area');
 
 
         
@@ -126,10 +136,11 @@ class ControllerAccountEdit extends Controller {
 		}
 
 		$data['action'] = $this->url->link('account/edit', '', true);
+        $data['action_addresses'] = $this->url->link('account/address/edit', '', true);
 
 		if ($this->request->server['REQUEST_METHOD'] != 'POST') {
 			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
-			//print_r($customer_info);exit;
+		//	print_r($customer_info);exit;
 		}
 
 		if (isset($this->request->post['firstname'])) {
@@ -217,7 +228,7 @@ class ControllerAccountEdit extends Controller {
 		//if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
 			//$this->error['firstname'] = $this->language->get('error_firstname');
 		//}
-
+   
 //		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
 //			$this->error['lastname'] = $this->language->get('error_lastname');
 //		}
