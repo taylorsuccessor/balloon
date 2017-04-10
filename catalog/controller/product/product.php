@@ -475,7 +475,18 @@ class ControllerProductProduct extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('product/product', $data));
+			//added by gholeh 10-04-2017
+			$categories = $this->model_catalog_product->getCategories($product_id);
+			foreach($categories as $cat)
+			{
+			 $category_dd = $cat['category_id'];
+			}
+			if ($category_dd == 69) {
+				$this->response->setOutput($this->load->view('product/custom_product', $data));
+			}else{
+				$this->response->setOutput($this->load->view('product/product', $data));
+			}
+			//end add by gholeh 10-04-2017
 		} else {
 			$url = '';
 
