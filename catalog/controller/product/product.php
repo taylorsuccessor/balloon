@@ -67,6 +67,10 @@ class ControllerProductProduct extends Controller {
 			}
 		}
 
+
+
+
+
 		$this->load->model('catalog/manufacturer');
 
 		if (isset($this->request->get['manufacturer_id'])) {
@@ -474,8 +478,8 @@ class ControllerProductProduct extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
-
-			$this->response->setOutput($this->load->view('product/product', $data));
+            //change product/product from assem to new tpl for custom product/product-assem 10-04-2017
+			$this->response->setOutput($this->load->view('product/product_1', $data));
 		} else {
 			$url = '';
 

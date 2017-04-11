@@ -43,7 +43,8 @@ other discount information.</p>
         </div><!--footer-botm-->
     </footer><!--footer-->
 
-   
+   <script src="catalog/view/javascript/js/icheck.js"></script><!--custom-->
+
     	
 
 <!--
@@ -59,5 +60,4 @@ info@opencartarab.com
 
 
                 
-</body></html>
 

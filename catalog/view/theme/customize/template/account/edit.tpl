@@ -22,10 +22,14 @@
             </ul> 
       </div> <!--bredcrumb-->
  
-  
+    <div class="wrap_notfiy">  
+
   <?php if ($error_warning) { ?>
   <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
   <?php } ?>
+  
+    </div>
+  
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -38,7 +42,6 @@
      
           <div class="product-details-page"><!--balloons-->
 
-     
       <h2><?php echo $heading_title; ?></h2>
            
             <div class="full-width common content_area">
@@ -115,6 +118,8 @@
                 <?php } ?>
                 <?php } ?>
               </select>
+                <input type="select" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo $custom_field_value['custom_field_value_id']; ?>" checked="checked" />
+
               <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
               <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
               <?php } ?>
@@ -126,6 +131,8 @@
           
           
           <?php if ($custom_field['type'] == 'radio') { ?>
+
+
           <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
             <label class="col-sm-2 control-label"><?php echo $custom_field['name']; ?></label>
             <div class="col-sm-10">
@@ -150,6 +157,7 @@
             </div>
           </div>
           <?php } ?>
+          
           <?php if ($custom_field['type'] == 'checkbox') { ?>
           <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
             <label class="col-sm-2 control-label"><?php echo $custom_field['name']; ?></label>
@@ -183,8 +191,6 @@
           <div class="col-md-6 col-sm-6 col-xs-6 for-small required <?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
            
            
-         
-
             <label class="control-label labelfloat" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
             
              
@@ -193,11 +199,10 @@
               <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
               <?php } ?>
               
-            
           </div>
           
-          
           <?php } ?>
+          
           <?php if ($custom_field['type'] == 'textarea') { ?>
           <div class="form-group<?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
             <label class="col-sm-2 control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
@@ -222,6 +227,8 @@
             </div>
           </div>
           <?php } ?>
+
+
           
           
           <?php if ($custom_field['type'] == 'date') { ?>
@@ -293,22 +300,42 @@
             </div>
           
           
-          
             <div class="col-md-6 col-sm-6 col-xs-6 for-small mobile required"><!--Mobile-->
             
-               
-                <label class ='control-label labelfloat'><?php echo $entry_telephone; ?></label>
-        
-            
- 
              
-            <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
-             
+            <?php foreach ($custom_fields as $custom_field) {  ?>
+
+               <?php if ($custom_field['type'] == 'select') { ?>
+
               
-              <?php if ($error_telephone) { ?>
+
+               <label class ='control-label labelfloat'><?php echo $entry_telephone; ?></label>
+
+                <select name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control">
+                <option value=""><?php echo $text_select; ?></option>
+                <?php foreach ($custom_field['custom_field_value'] as $custom_field_value) { ?>
+                <?php if (isset($account_custom_field[$custom_field['custom_field_id']]) && $custom_field_value['custom_field_value_id'] == $account_custom_field[$custom_field['custom_field_id']]) { ?>
+                <option value="<?php echo $custom_field_value['custom_field_value_id']; ?>" selected="selected"><?php echo $custom_field_value['name']; ?></option>
+                <?php } else { ?>
+                <option value="<?php echo $custom_field_value['custom_field_value_id']; ?>"><?php echo $custom_field_value['name']; ?></option>
+                <?php } ?>
+                <?php } ?>
+              </select>
+
+              <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
+              
+                  <?php if ($error_telephone) { ?>
               <div class="text-danger"><?php echo $error_telephone; ?></div>
               <?php } ?>
-                     
+            
+
+              <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
+              <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
+              <?php } ?>
+              <?php } ?>
+               <?php } ?>
+
+
             </div><!--/ Mobile-->
                   
                   
@@ -321,44 +348,63 @@
                    
           </div>
           
-          
-          
+                  </fieldset>
+     
+        
+      </form>
+         
+          <!-- <form action="<?php echo $action_addresses; ?>" method="post" enctype="multipart/form-data" class="form-horizontal"> 
+        <fieldset>
                 		<hr>
                 		<h2>Delivery Address</h2>
                 		
-              <div class="row"><!--row 2 -->
+              <div class="row">
                  
                         <?php /*print_r($custom_fields);exit; */ foreach ($custom_fields as $custom_field) {   ?>
           
-                          <?php if ( $custom_field['custom_field_id'] ==3 || $custom_field['custom_field_id'] ==4) { ?>
+                          <?php if ( $custom_field['location'] =='address' ) { ?>
           <div class="col-md-6 col-sm-6 col-xs-6 for-small required <?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
+           
             <label class="control-label labelfloat" for="input-custom-field<?php echo 
             $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
+             
               <input type="text" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : $custom_field['value']); ?>" placeholder="<?php echo $custom_field['name']; ?>" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control" />
+              
               <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
               <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
               <?php } ?>
           </div>
+
+
           <?php }else{?>
-            <div class="col-md-3 col-sm-4 col-xs-6 for-small <?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
+<!--            <div class="col-md-3 col-sm-4 col-xs-6 for-small <?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
+            
             <label class=" control-label labelfloat" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
+             
               <input type="text" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : $custom_field['value']); ?>" placeholder="<?php echo $custom_field['name']; ?>" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control" />
               <?php if (isset($error_custom_field[$custom_field['custom_field_id']])) { ?>
               <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
               <?php } ?>
             </div>
+            
           <?php } ?>
     
                <?php } ?>
           
           
           
-            </div>
+            
           
+ 
+                <button type="submit" value="<?php echo $button_continue; ?>">Edit Info</button>
+
+
+                </div>
+
         </fieldset>
-     
-        
       </form>
+       -->
+       
         </div>
         </div>
         </div>
