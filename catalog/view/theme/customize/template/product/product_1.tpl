@@ -50,7 +50,7 @@
         <?php } ?>
         
         
-        <div class="<?php echo $class; ?>">
+        
          
           <?php if ($thumb || $images) { ?>
           
@@ -64,7 +64,7 @@
             <?php } ?>
             <?php if ($images) { ?>
             <?php foreach ($images as $image) { ?>
-            <li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+            <li><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
             <?php } ?>
             <?php } ?>
           </ul>
@@ -78,8 +78,8 @@
 
        
          <div id="bx-pager">
-                                  <a data-slide-index="0" href=""><img src="images/color1.jpg" /></a>
-                                  <a data-slide-index="1" href=""><img src="images/color2.jpg" /></a>
+                                  <a data-slide-index="0" href=""><img src="../../image/color1.jpg" /></a>
+                                  <a data-slide-index="1" href=""><img src="../../image/color2.jpg" /></a>
                                   <a data-slide-index="2" href=""><img src="images/color3.jpg" /></a>
                                   <a data-slide-index="3" href=""><img src="images/color4.jpg" /></a>
                                   <a data-slide-index="4" href=""><img src="images/color5.jpg" /></a>
@@ -107,14 +107,44 @@
         <?php } ?>
         
         
+        
+        
+        
+        
+        
         <div class="<?php echo $class; ?>">
          
-        
-          
-          
-          
-          
-          
+   <div class="col-md-6 view-colors-right">
+                        	<div class="date-time"><!--date-time-->
+                            <div class="row">
+                            	<div class="col-md-6">
+                                	<label>Pick a delivery date:</label>
+                                    <input type="text" id="datepicker">
+                                </div>
+                                <div class="col-md-6">
+                                	<label>Pick a delivery time:</label>
+                                    <select>
+                                    	<option>Please select delivery time</option>
+                                        <option>Morning (09:00 to 14:00)</option>
+                                        <option>Afternoon (13:00 to 16:00)</option>
+                                        <option>Evening (17:00 to 21:30)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            </div><!--date-time-->
+                            <div class="filling">
+                            	<div class="row">
+                                	<div class="col-md-6">
+                                    	<input type="radio" id="helium" name="radio1"><label for="helium">Helium</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                    	<input type="radio" id="air" name="radio1"><label for="air">Air</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
           <div id="product">
             
             
@@ -130,7 +160,6 @@
             <?php } ?>
             
             
-            
           </div>
           
           
@@ -139,55 +168,32 @@
        
    
       
+        <div class="col-md-12">
+                        	<h3>Rose Pink</h3>
+                            <h4>10.000 KD</h4>
+                        </div>
       
       
-      
-      <?php if ($products) { ?>
-      <h3><?php echo $text_related; ?></h3>
-      <div class="row">
-        <?php $i = 0; ?>
-        <?php foreach ($products as $product) { ?>
-        <?php if ($column_left && $column_right) { ?>
-        <?php $class = 'col-xs-8 col-sm-6'; ?>
-        <?php } elseif ($column_left || $column_right) { ?>
-        <?php $class = 'col-xs-6 col-md-4'; ?>
-        <?php } else { ?>
-        <?php $class = 'col-xs-6 col-sm-3'; ?>
-        <?php } ?>
-      
-      
-      
-      
-      
-      
-        <?php if (($column_left && $column_right) && (($i+1) % 2 == 0)) { ?>
-        <div class="clearfix visible-md visible-sm"></div>
-        <?php } elseif (($column_left || $column_right) && (($i+1) % 3 == 0)) { ?>
-        <div class="clearfix visible-md"></div>
-        <?php } elseif (($i+1) % 4 == 0) { ?>
-        <div class="clearfix visible-md"></div>
-        <?php } ?>
-        <?php $i++; ?>
-        <?php } ?>
-      </div>
-      <?php } ?>
+       <div class="col-md-6 col-md-offset-3">
+                        	<div class="confetti-btns">
+                                <a href="#" class="confetti-cart">Add to Cart</a>
+                                <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="confetti-input">
+                                <a href="#" class="confetti-view">View</a>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    
       
       
       
       
-      
-      <?php if ($tags) { ?>
-      <p><?php echo $text_tags; ?>
-        <?php for ($i = 0; $i < count($tags); $i++) { ?>
-        <?php if ($i < (count($tags) - 1)) { ?>
-        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>,
-        <?php } else { ?>
-        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>
-        <?php } ?>
-        <?php } ?>
-      </p>
-      <?php } ?>
-      
+   
       
       
       <?php echo $content_bottom; ?></div>
@@ -198,7 +204,9 @@
       </div>
        </div><!--balloons-->
 
-
+     
+     
+      </div>
        
     </section><!-- /content-section-->
 </div>
