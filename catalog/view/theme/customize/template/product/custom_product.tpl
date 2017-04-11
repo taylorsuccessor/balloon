@@ -22,7 +22,9 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
-      <?php echo $content_top; ?>
+      <div class="product-details-page"><!--balloons-->
+        <div class="confetti-con">
+        <?php echo $content_top; ?>
         <div class="row">
         <?php if ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
@@ -410,6 +412,8 @@
         <?php echo $content_bottom; ?>
     </div>
         <?php echo $column_right; ?>
+        </div>
+      </div>
     </div>
   </section>
 </div>
