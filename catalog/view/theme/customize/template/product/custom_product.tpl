@@ -26,12 +26,14 @@
         <div class="confetti-con">
         <?php echo $content_top; ?>
         <div class="row">
-        <?php if ($column_left || $column_right) { ?>
-        <?php $class = 'col-sm-6'; ?>
-        <?php } else { ?>
-        <?php $class = 'col-sm-8'; ?>
-        <?php } ?>
-        <div class="<?php echo $class; ?>">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="confetti">
+                <?php if ($column_left || $column_right) { ?>
+                <?php $class = 'col-sm-6'; ?>
+                <?php } else { ?>
+                <?php $class = 'col-sm-8'; ?>
+                <?php } ?>
+            <div class="<?php echo $class; ?>">
           <?php if ($thumb || $images) { ?>
           <ul class="thumbnails">
             <?php if ($thumb) { ?>
@@ -412,6 +414,7 @@
         <?php echo $content_bottom; ?>
     </div>
         <?php echo $column_right; ?>
+          </div>
         </div>
       </div>
     </div>
