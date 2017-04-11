@@ -65,6 +65,8 @@
           <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
         <?php } ?>
         </div><!--logo-->
+        
+        
         <div class="top-nav"><!--top-nav-->
             <div class="top-nav-left"><!--Top nav Left-->
                 <ul>
@@ -92,6 +94,9 @@
                 </ul>
             </div><!--top-nav-right-->
         </div><!--top-nav-->
+        
+        
+        
  <div class="main-nav"><!--main-nav-->
  <nav class="navbar navbar-default">
   <div class="row">
@@ -234,6 +239,8 @@
      </div><!-- /.container-->
     </nav>
    </div>  <!--main-nav--> 
+   
+   
 
    <!--Mobile Only Nav-->
     <div class="mob-nav">

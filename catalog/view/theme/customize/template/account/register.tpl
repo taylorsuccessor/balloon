@@ -531,7 +531,9 @@
     <?php echo $column_right; ?></div>
 
 <script type="text/javascript"><!--
+        
 // Sort the custom fields
+        
 $('#account .form-group[data-sort]').detach().each(function() {
 	if ($(this).attr('data-sort') >= 0 && $(this).attr('data-sort') <= $('#account .form-group').length) {
 		$('#account .form-group').eq($(this).attr('data-sort')).before(this);

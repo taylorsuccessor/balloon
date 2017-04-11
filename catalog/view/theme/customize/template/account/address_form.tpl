@@ -39,6 +39,7 @@
                 <div class="row"> 
                   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
                     <fieldset>
+
           
           <?php foreach ($custom_fields as $custom_field) { ?>
           <?php if ($custom_field['location'] == 'address') { ?>

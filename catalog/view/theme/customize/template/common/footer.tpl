@@ -42,6 +42,7 @@ other discount information.</p>
             </div>
         </div><!--footer-botm-->
     </footer><!--footer-->
+
     <script src="catalog/view/javascript/js/icheck.js"></script><!--bxslider.min-->
     <script>
       $(document).ready(function(){
@@ -56,7 +57,7 @@ other discount information.</p>
       });
     </script>
    
-    	
+
 
 <!--
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
@@ -71,5 +72,4 @@ info@opencartarab.com
 
 
                 
-</body></html>
 
