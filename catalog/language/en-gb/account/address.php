@@ -14,7 +14,9 @@ $_['text_edit']            = 'Account Information';
 $_['text_address']         = 'Address book';
 $_['text_my_orders']       = 'Your orders';
 $_['text_password']        = 'Change password';
-
+$_['text_delivery_address'] ='Delivery <span>Address</span>';
+$_['text_edit_address']    = 'Edit Delivery Address';
+$_['text_address_list']    = 'Address List';
 // Entry
 $_['entry_firstname']      = 'First Name';
 $_['entry_lastname']       = 'Last Name';
@@ -34,7 +36,8 @@ $_['entry_avenue']         = 'Avenue';
 $_['entry_building_number']= 'Building Number';
 $_['entry_floor_number']   = 'Floor Number';
 $_['entry_flat_number']    = 'Flat number';	
-
+//button
+$_['button_new_address']   = 'Add New Address';
 // Error
 $_['error_delete']                = 'Warning: You must have at least one address!';
 $_['error_default']               = 'Warning: You can not delete your default address!';

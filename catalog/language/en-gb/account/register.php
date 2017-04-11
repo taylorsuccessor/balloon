@@ -12,6 +12,7 @@ $_['text_newsletter']      = 'Newsletter';
 $_['text_your_password']   = 'Your Password';
 $_['text_agree']           = 'I agree to the terms and conditions <a href="%s" class="agree"><b>%s</b></a>';
 
+
 // Entry
 $_['entry_customer_group'] = 'Customer Group';
 $_['entry_firstname']      = 'First Name';

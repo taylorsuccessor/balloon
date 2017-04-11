@@ -43,9 +43,21 @@ other discount information.</p>
         </div><!--footer-botm-->
     </footer><!--footer-->
 
-   <script src="catalog/view/javascript/js/icheck.js"></script><!--custom-->
+    <script src="catalog/view/javascript/js/icheck.js"></script><!--bxslider.min-->
+    <script>
+      $(document).ready(function(){
+        var callbacks_list = $('.demo-callbacks ul');
+        $('.demo-list input').on('ifCreated ifClicked ifChanged ifChecked ifUnchecked ifDisabled ifEnabled ifDestroyed', function(event){
+              callbacks_list.prepend('<li><span>#' + this.id + '</span> is ' + event.type.replace('if', '').toLowerCase() + '</li>');
+        }).iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%'
+        });
+      });
+    </script>
+   
 
-    	
 
 <!--
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.

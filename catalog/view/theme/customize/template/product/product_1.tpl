@@ -69,17 +69,35 @@
             <?php } ?>
           </ul>
            
-            </div>
-            </div>
+            
           <?php } ?>
           
-          </div>
-          
-            
-        </div>
+         
         
-        
-        
+     <h4>Rollover swatches to view colors.</h4>
+
+       
+         <div id="bx-pager">
+                                  <a data-slide-index="0" href=""><img src="images/color1.jpg" /></a>
+                                  <a data-slide-index="1" href=""><img src="images/color2.jpg" /></a>
+                                  <a data-slide-index="2" href=""><img src="images/color3.jpg" /></a>
+                                  <a data-slide-index="3" href=""><img src="images/color4.jpg" /></a>
+                                  <a data-slide-index="4" href=""><img src="images/color5.jpg" /></a>
+                                  <a data-slide-index="5" href=""><img src="images/color6.jpg" /></a>
+                                  <a data-slide-index="6" href=""><img src="images/color7.jpg" /></a>
+                                  <a data-slide-index="7" href=""><img src="images/color8.jpg" /></a>
+                                  <a data-slide-index="8" href=""><img src="images/color9.jpg" /></a>
+                                  <a data-slide-index="9" href=""><img src="images/color10.jpg" /></a>
+                                  <a data-slide-index="10" href=""><img src="images/color11.jpg" /></a>
+                                  <a data-slide-index="11" href=""><img src="images/color12.jpg" /></a>
+                                  <a data-slide-index="12" href=""><img src="images/color13.jpg" /></a>
+                                  <a data-slide-index="13" href=""><img src="images/color14.jpg" /></a>
+                                  <a data-slide-index="14" href=""><img src="images/color15.jpg" /></a>
+                                  <a data-slide-index="15" href=""><img src="images/color16.jpg" /></a>
+         </div>
+         
+         </div>
+            </div>
         
         
         <?php if ($column_left || $column_right) { ?>

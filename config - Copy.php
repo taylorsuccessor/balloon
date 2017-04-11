@@ -1,9 +1,9 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://192.168.100.5/balloon/');
+define('HTTP_SERVER', 'http://192.168.100.164/balloon/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://192.168.100.5/balloon/');
+define('HTTPS_SERVER', 'http://192.168.100.164/balloon/');
 
 // DIR
 define('DIR_APPLICATION', 'C:/xampp/htdocs/balloon/catalog/');
@@ -20,7 +20,7 @@ define('DIR_UPLOAD', 'C:/xampp/htdocs/balloon/system/storage/upload/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
-define('DB_HOSTNAME', '192.168.100.5');
+define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'balloon');
