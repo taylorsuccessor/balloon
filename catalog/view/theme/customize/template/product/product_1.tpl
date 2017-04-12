@@ -17,7 +17,7 @@
                     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
                 <?php } ?>
             </ul> 
-      </div> <!--bredcrumb-->
+      </div> <!-- /bredcrumb-->
       
       
   <div class="row"><?php echo $column_left; ?>
@@ -50,7 +50,7 @@
         <?php } ?>
         
         
-        
+
          
           <?php if ($thumb || $images) { ?>
           
@@ -72,7 +72,101 @@
             
           <?php } ?>
           
-         
+          
+          
+           <div class="tab-content"> <!-- tab-content -->
+          
+           <ul class="nav nav-tabs"> <!-- tabas for description and reviews -->
+            <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
+            <?php if ($attribute_groups) { ?>
+            <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
+            <?php } ?>
+            <?php if ($review_status) { ?>
+            <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
+            <?php } ?>
+          </ul>
+          
+          
+    <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div><!-- text of description to add , it's realated with tab above with id -->
+           
+           
+            <?php if ($attribute_groups) { ?>
+            <div class="tab-pane" id="tab-specification">
+              <table class="table table-bordered">
+                <?php foreach ($attribute_groups as $attribute_group) { ?>
+                <thead>
+                  <tr>
+                    <td colspan="2"><strong><?php echo $attribute_group['name']; ?></strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+                  <tr>
+                    <td><?php echo $attribute['name']; ?></td>
+                    <td><?php echo $attribute['text']; ?></td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+                <?php } ?>
+              </table>
+            </div>
+            <?php } ?><!-- end of text description  -->
+            
+            
+             <?php if ($review_status) { ?>
+            <div class="tab-pane" id="tab-review">
+              <form class="form-horizontal" id="form-review">
+                <div id="review"></div>
+                <h2><?php echo $text_write; ?></h2>
+                <?php if ($review_guest) { ?>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
+                    <input type="text" name="name" value="<?php echo $customer_name; ?>" id="input-name" class="form-control" />
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label" for="input-review"><?php echo $entry_review; ?></label>
+                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                    <div class="help-block"><?php echo $text_note; ?></div>
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label"><?php echo $entry_rating; ?></label>
+                    &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
+                    <input type="radio" name="rating" value="1" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="2" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="3" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="4" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="5" />
+                    &nbsp;<?php echo $entry_good; ?></div>
+                </div>
+                
+                <?php echo $captcha; ?>
+                <div class="buttons clearfix">
+                  <div class="pull-right">
+                    <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary"><?php echo $button_continue; ?></button>
+                  </div>
+                </div>
+                <?php } else { ?>
+                <?php echo $text_login; ?>
+                <?php } ?>
+              </form>
+            </div>
+            <?php } ?>
+            
+            </div> <!-- /tab-content -->
+
+            
+            
+                
+
         
      <h4>Rollover swatches to view colors.</h4>
 
@@ -99,7 +193,9 @@
          </div>
             </div>
         
-        
+         
+         
+         
         <?php if ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
         <?php } else { ?>
@@ -107,20 +203,62 @@
         <?php } ?>
         
         
+         <div class="btn-group margin-botom"><!--Wishlist and compare-->
+           
+            <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>
+            
+            <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>
+            
+          </div><!-- /Wishlist and compare-->
+          
+                      <br>
+
+         <h1><?php echo $heading_title; ?></h1> <!--name of the product , it's declears in controller -->
+          
+          <br>
+          
+           <ul class="list-unstyled"> <!--  for manufacturer , model , and reward-->
+            <?php if ($manufacturer) { ?>
+            <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
+            <?php } ?>
+            
+                      <br>
+
+            <li><?php echo $text_model; ?> <?php echo $model; ?></li>
+                                 
+                                  <br>
+
+            
+            <?php if ($reward) { ?>
+            <li><?php echo $text_reward; ?> <?php echo $reward; ?></li>
+            <?php } ?>
+            
+                                              <br>
+
+            <li><?php echo $text_stock; ?> <?php echo $stock; ?></li>
+            
+            
+          </ul><!-- /for manufacturer , model , and reward-->
+          
+          
+          
+
+        
+        <br>
         
         
-        
-        
-        
-        <div class="<?php echo $class; ?>">
          
-   <div class="col-md-6 view-colors-right">
+             <div class="col-md-6 view-colors-right">
+                           
                         	<div class="date-time"><!--date-time-->
+                           
                             <div class="row">
+                            
                             	<div class="col-md-6">
                                 	<label>Pick a delivery date:</label>
                                     <input type="text" id="datepicker">
                                 </div>
+                                
                                 <div class="col-md-6">
                                 	<label>Pick a delivery time:</label>
                                     <select>
@@ -130,8 +268,12 @@
                                         <option>Evening (17:00 to 21:30)</option>
                                     </select>
                                 </div>
+                                
                             </div>
+                            
                             </div><!--date-time-->
+                            
+                            
                             <div class="filling">
                             	<div class="row">
                                 	<div class="col-md-6">
@@ -145,39 +287,70 @@
                         </div>
                         
                         
-          <div id="product">
-            
-            
-            <div class="form-group">
-              <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
-              <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
-              <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-              <br />
-              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_cart; ?></button>
-            </div>
-            <?php if ($minimum > 1) { ?>
-            <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
-            <?php } ?>
-            
-            
-          </div>
-          
-          
-        </div>
+
         
        
    
       
         <div class="col-md-12">
-                        	<h3>Rose Pink</h3>
-                            <h4>10.000 KD</h4>
+                           
+                           
+                <h3><?php echo $heading_title; ?></h3>
+                           
+      <h4>
+                                
+                                       
+        <?php if ($price) { ?>
+          <ul class="list-unstyled">
+            <?php if (!$special) { ?>
+            <li>
+              <h2><?php echo $price; ?></h2>
+            </li>
+            <?php } else { ?>
+            <li><span style="text-decoration: line-through;"><?php echo $price; ?></span></li>
+            <li>
+              <h2><?php echo $special; ?></h2>
+            </li>
+            <?php } ?>
+            
+            <br>
+            
+            <?php if ($tax) { ?>
+            <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
+            <?php } ?>
+            
+            <?php if ($points) { ?>
+            <li><?php echo $text_points; ?> <?php echo $points; ?></li>
+            <?php } ?>
+            
+            <?php if ($discounts) { ?>
+            <li>
+              <hr>
+            </li>
+            <?php foreach ($discounts as $discount) { ?>
+            <li><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></li>
+            <?php } ?>
+            <?php } ?>
+          </ul>
+        <?php } ?> 
+                      
+                                
+     </h4>
+                           
+                           
+                           
+                            
                         </div>
       
       
        <div class="col-md-6 col-md-offset-3">
-                        	<div class="confetti-btns">
-                                <a href="#" class="confetti-cart">Add to Cart</a>
-                                <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="confetti-input">
+               
+                <div class="confetti-btns">
+                
+            <a   href="cart.tpl" class="confetti-cart" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"><?php echo $button_cart; ?></a>
+                       
+                    <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="confetti-input">
+                               
                                 <a href="#" class="confetti-view">View</a>
                             </div>
                         </div>

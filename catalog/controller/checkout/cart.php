@@ -1,6 +1,7 @@
 <?php
 class ControllerCheckoutCart extends Controller {
 	public function index() {
+        
 		$this->load->language('checkout/cart');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -293,7 +294,6 @@ class ControllerCheckoutCart extends Controller {
 
 	public function add() {
 		$this->load->language('checkout/cart');
-
 		$json = array();
 
 		if (isset($this->request->post['product_id'])) {

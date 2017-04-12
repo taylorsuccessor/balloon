@@ -1,10 +1,13 @@
 <?php echo $header; ?>
 <div class="container">
+ 
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
   </ul>
+  
+  
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -13,7 +16,11 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
+    
+    
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+     
+     
       <div class="row">
         <?php if ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
@@ -23,6 +30,8 @@
         
         
         <div class="<?php echo $class; ?>">
+         
+         
           <?php if ($thumb || $images) { ?>
           <ul class="thumbnails">
             <?php if ($thumb) { ?>
@@ -47,7 +56,9 @@
             <?php } ?>
           </ul>
           
-          <div class="tab-content">
+          <div class="tab-content"> <!-- tab-content -->
+           
+           
             <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
             <?php if ($attribute_groups) { ?>
             <div class="tab-pane" id="tab-specification">
@@ -70,6 +81,8 @@
               </table>
             </div>
             <?php } ?>
+            
+            
             <?php if ($review_status) { ?>
             <div class="tab-pane" id="tab-review">
               <form class="form-horizontal" id="form-review">
@@ -104,6 +117,7 @@
                     <input type="radio" name="rating" value="5" />
                     &nbsp;<?php echo $entry_good; ?></div>
                 </div>
+                
                 <?php echo $captcha; ?>
                 <div class="buttons clearfix">
                   <div class="pull-right">
@@ -116,8 +130,16 @@
               </form>
             </div>
             <?php } ?>
-          </div>
-        </div>
+            
+            
+          </div> <!-- /tab-content -->
+          
+          
+        </div> <!--/ class -->
+        
+        
+        
+        
         
         
         <?php if ($column_left || $column_right) { ?>
@@ -125,12 +147,17 @@
         <?php } else { ?>
         <?php $class = 'col-sm-4'; ?>
         <?php } ?>
+        
         <div class="<?php echo $class; ?>">
           <div class="btn-group">
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>
           </div>
+          
+          
           <h1><?php echo $heading_title; ?></h1>
+          
+          
           <ul class="list-unstyled">
             <?php if ($manufacturer) { ?>
             <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
@@ -141,6 +168,8 @@
             <?php } ?>
             <li><?php echo $text_stock; ?> <?php echo $stock; ?></li>
           </ul>
+          
+          
           <?php if ($price) { ?>
           <ul class="list-unstyled">
             <?php if (!$special) { ?>
@@ -169,16 +198,28 @@
             <?php } ?>
           </ul>
           <?php } ?>
+          
+          
+          
+          
           <div id="product">
+           
             <?php if ($options) { ?>
+            
             <hr>
             <h3><?php echo $text_option; ?></h3>
+            
             <?php foreach ($options as $option) { ?>
+            
             <?php if ($option['type'] == 'select') { ?>
+            
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
-              <label class="control-label" for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?></label>
+           <label class="control-label" for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?></label>
+             
               <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" class="form-control">
+               
                 <option value=""><?php echo $text_select; ?></option>
+                
                 <?php foreach ($option['product_option_value'] as $option_value) { ?>
                 <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
                 <?php if ($option_value['price']) { ?>
@@ -186,9 +227,14 @@
                 <?php } ?>
                 </option>
                 <?php } ?>
+                
               </select>
             </div>
+            
             <?php } ?>
+            
+            
+            
             <?php if ($option['type'] == 'radio') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
               <label class="control-label"><?php echo $option['name']; ?></label>
@@ -209,7 +255,10 @@
                 <?php } ?>
               </div>
             </div>
+            
             <?php } ?>
+            
+            
             <?php if ($option['type'] == 'checkbox') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
               <label class="control-label"><?php echo $option['name']; ?></label>
@@ -282,6 +331,12 @@
             <?php } ?>
             <?php } ?>
             <?php } ?>
+            
+            
+            
+            
+            
+            
             <?php if ($recurrings) { ?>
             <hr>
             <h3><?php echo $text_payment_recurring; ?></h3>
@@ -295,6 +350,9 @@
               <div class="help-block" id="recurring-description"></div>
             </div>
             <?php } ?>
+            
+            
+            
             <div class="form-group">
               <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
               <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
@@ -302,10 +360,22 @@
               <br />
               <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_cart; ?></button>
             </div>
+            
             <?php if ($minimum > 1) { ?>
             <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
             <?php } ?>
+            
+            
           </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
           <?php if ($review_status) { ?>
           <div class="rating">
             <p>
@@ -326,6 +396,8 @@
           <?php } ?>
         </div>
       </div>
+      
+      
       <?php if ($products) { ?>
       <h3><?php echo $text_related; ?></h3>
       <div class="row">
@@ -386,6 +458,8 @@
         <?php } ?>
       </div>
       <?php } ?>
+      
+      <?php if ($tags) { ?>
       <?php if ($tags) { ?>
       <p><?php echo $text_tags; ?>
         <?php for ($i = 0; $i < count($tags); $i++) { ?>

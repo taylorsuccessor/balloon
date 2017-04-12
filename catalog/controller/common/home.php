@@ -18,4 +18,12 @@ class ControllerCommonHome extends Controller {
 
 		$this->response->setOutput($this->load->view('common/home', $data));
 	}
+    
+    	public function newIndex() {
+            $data=[];
+            
+        $data['indexLink'] = $this->url->link('common/home');
+		
+		$this->response->setOutput($this->load->view('common/newIndex', $data));
+	}
 }
