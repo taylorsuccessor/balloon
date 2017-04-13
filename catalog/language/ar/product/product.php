@@ -33,7 +33,7 @@ $_['text_week']                               = 'اسبوعي';
 $_['text_semi_month']                         = 'نصف شهري';
 $_['text_month']                              = 'شهري';
 $_['text_year']                               = 'سنوي';
-
+$_['text_size']                               = 'المقاس';
 // Entry
 $_['entry_qty']                               = 'الكمية:';
 $_['entry_name']          = 'الاسم:';
