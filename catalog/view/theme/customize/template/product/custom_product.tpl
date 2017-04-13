@@ -27,6 +27,7 @@
         <div class="product-details-page"><!--balloons-->
           <div class="confetti-con">
             <?php echo $content_top; ?>
+            <div id="product">
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
                 <div class="confetti">
@@ -60,8 +61,10 @@
                 </div>
               </div>
             </div>
+
             <div class="confetti-select"><!--confetti-select-->
               <div class="row">
+
                 <?php if ($options) { ?>
                 <div class="col-md-4 col-sm-4 col-xs-4">
                   <?php foreach ($options as $option) { ?>
@@ -78,11 +81,13 @@
                       <?php } ?>
                     </select>
                   </div>
+
                   <?php } ?>
 
             <?php } ?>
             <?php } ?>
                 </div>
+
               </div>
             </div><!--confetti-select-->
             <?php echo $content_bottom; ?>
