@@ -26,7 +26,6 @@
 <script src="catalog/view/javascript/js/jquery.bxslider.min.js"></script><!--bxslider.min-->
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
-
 <?php if ($direction == 'rtl') { ?>
 <link href="catalog/view/javascript/bootstrap/css/bootstrap-a.css" rel="stylesheet" media="screen" />
 <link href="catalog/view/theme/customize/stylesheet/stylesheet-a.css" rel="stylesheet">
@@ -70,12 +69,13 @@
         <div class="top-nav"><!--top-nav-->
             <div class="top-nav-left"><!--Top nav Left-->
                 <ul>
-                    <li><a href="https://www.facebook.com/BalloonyLand/"><img src="catalog/view/theme/customize/image/icons/fb.png" alt=""/></a></li>
-                    <li><a href="https://twitter.com/balloonyland?lang=en"><img src="catalog/view/theme/customize/image/icons/twt.png" alt=""/></a></li>
-                    <li><a href="https://www.instagram.com/balloonylan"><img src="catalog/view/theme/customize/image/icons/in.png" alt=""/></a></li>
-                    <li><a href="<?php echo $wishlist;?>"><img src="catalog/view/theme/customize/image/icons/fav.png" alt=""/></a></li>
-                    <li><a href="<?php echo $shopping_cart;?>"><img src="catalog/view/theme/customize/image/icons/cart.png" alt=""/></a></li>
-                    <li><a href="http://openc/index.php?route=product/search"><img src="catalog/view/theme/customize/image/icons/search.png" alt=""/></a></li>
+                    <li><a href="https://www.facebook.com/BalloonyLand/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://twitter.com/balloonyland?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.instagram.com/balloonylan"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="<?php echo $wishlist;?>"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                    <li><a href="<?php echo $shopping_cart;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </a></li>
+                    <li><a href="http://openc/index.php?route=product/search"><i class="fa fa-search"  aria-hidden="true"></i></a></li>
                 </ul>
             </div><!--Top nav Left-->
             <div class="top-nav-right"><!--top-nav-right-->

@@ -12,7 +12,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* default font size */
 .fa {
-	font-size: 14px;
+	font-size: 22px;
+	color: #6b6b6b;
 }
 /* Override the bootstrap defaults */
 h1 {
@@ -1003,7 +1004,7 @@ header .logo img{
 }
 header .top-nav-left ul li{
 	float:left;
-	margin-right:12px;
+	margin-right:26px;
 }
 .top-nav-right{
 	float:right;
@@ -3517,3 +3518,4 @@ header .top-nav-left ul li{margin: 0px 3px;}
 .margin-botom {
     margin-bottom: 20px;
 }
+
