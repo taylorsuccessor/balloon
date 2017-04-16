@@ -2,3 +2,7 @@
 /system/storage/logs
 /image/cache
 /.idea
+/config - Copy.php
+/admin/config - Copy.php
+/config.php
+/admin/config.php

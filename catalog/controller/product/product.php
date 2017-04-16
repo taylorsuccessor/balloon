@@ -67,6 +67,10 @@ class ControllerProductProduct extends Controller {
 			}
 		}
 
+
+
+
+
 		$this->load->model('catalog/manufacturer');
 
 		if (isset($this->request->get['manufacturer_id'])) {
@@ -243,6 +247,7 @@ class ControllerProductProduct extends Controller {
 			$data['text_related'] = $this->language->get('text_related');
 			$data['text_payment_recurring'] = $this->language->get('text_payment_recurring');
 			$data['text_loading'] = $this->language->get('text_loading');
+			$data['text_size'] = $this->language->get('text_size');
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -474,14 +479,15 @@ class ControllerProductProduct extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
-
+            //change product/product from assem to new tpl for custom product/product-assem 10-04-2017
+			//$this->response->setOutput($this->load->view('product/product_1', $data));
 			//added by gholeh 10-04-2017
 			$categories = $this->model_catalog_product->getCategories($product_id);
 			foreach($categories as $cat)
 			{
-			 $category_dd = $cat['category_id'];
+				$category_dd = $cat['category_id'];
 			}
-			if ($category_dd == 69) {
+			if (isset ($category_dd) && $category_dd == 69) {
 				$this->response->setOutput($this->load->view('product/custom_product', $data));
 			}else{
 				$this->response->setOutput($this->load->view('product/product', $data));

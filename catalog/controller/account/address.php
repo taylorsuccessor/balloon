@@ -74,6 +74,7 @@ class ControllerAccountAddress extends Controller {
 		$this->load->model('account/address');
 		
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+			echo "im here";die();
 			$this->model_account_address->editAddress($this->request->get['address_id'], $this->request->post);
 
 			// Default Shipping Address
@@ -544,6 +545,23 @@ class ControllerAccountAddress extends Controller {
 	protected function validateForm() {
 		
 		$this->load->model('localisation/country');
+
+
+		// $country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
+
+		// if ($country_info && $country_info['postcode_required'] && (utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
+		// 	$this->error['postcode'] = $this->language->get('error_postcode');
+		// }
+
+		// if ($this->request->post['country_id'] == '' || !is_numeric($this->request->post['country_id'])) {
+		// 	$this->error['country'] = $this->language->get('error_country');
+		// }
+
+//		if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '' || !is_numeric($this->request->post['zone_id'])) {
+//			$this->error['zone'] = $this->language->get('error_zone');
+//		}
+
+
 
 		// Custom field validation
 		$this->load->model('account/custom_field');

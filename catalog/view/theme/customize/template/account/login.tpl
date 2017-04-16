@@ -24,8 +24,11 @@
         <div class="col-sm-6">
           <div class="well">
             <h2><?php echo $text_new_customer; ?></h2>
+            <br>
             <p><strong><?php echo $text_register; ?></strong></p>
+             <br>
             <p><?php echo $text_register_account; ?></p>
+            <br>
             <a href="<?php echo $register; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
         </div>
         <div class="col-sm-6">
@@ -44,7 +47,7 @@
               <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" />
               <?php if ($redirect) { ?>
               <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
-              <?php } ?>
+              <?php } ?> 
             </form>
           </div>
         </div>

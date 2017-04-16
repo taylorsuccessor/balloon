@@ -168,6 +168,7 @@ class ControllerAccountLogin extends Controller {
 
 		if (isset($this->request->post['password'])) {
 			$data['password'] = $this->request->post['password'];
+
 		} else {
 			$data['password'] = '';
 		}
