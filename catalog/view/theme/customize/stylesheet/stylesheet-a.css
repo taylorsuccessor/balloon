@@ -1005,7 +1005,11 @@ header .logo img{
 }
 header .top-nav-left ul li{
 	float:right;
-	margin-right:12px;
+	margin-right:26px;
+}
+header .top-nav-left ul li:first-child
+{
+	margin-right:0;
 }
 .top-nav-right{
 	float:left;
@@ -3278,4 +3282,60 @@ header .top-nav-left ul li{margin: 0px 3px;}
 .contact-sub:hover
 {
 	color: #fff;
+}
+.well
+{
+	border-radius:0px;
+}
+.well p
+{
+	margin-bottom:15px;
+}
+.well .control-label
+{
+	margin-bottom: 10px;
+}
+.well .forg
+{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.continue-reg
+{
+	border: none;
+	background: #70c398;
+	padding: 7px 15px;
+	font-size: 15px;
+	color: #fff;
+	text-decoration: none;
+}
+.continue-reg:hover
+{
+	color: #fff;
+}
+.login
+{
+	border: none;
+	background: #70c398;
+	padding: 9px 15px;
+	font-size: 15px;
+	color: #fff;
+	text-decoration: none;
+}
+.login:hover
+{
+	color: #fff;
+}
+.search-btn
+{
+	border: none;
+	background: #70c398;
+	padding: 9px 15px;
+	font-size: 15px;
+	color: #fff;
+	text-decoration: none;
+}
+#content .search
+{
+	margin-bottom: 20px;
 }

@@ -1,16 +1,26 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
-  <?php if ($success) { ?>
-  <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?></div>
-  <?php } ?>
-  <?php if ($error_warning) { ?>
-  <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
-  <?php } ?>
+  <section class="banner-section"><!--Banner Section-->
+    <div class="inner-banner"><!--banner-->
+      <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+    </div><!--banner-->
+  </section><!--Banner Section-->
+  <section class="content-section"><!--content-section-->
+    <div class="bredcrumb"><!--bredcrumb-->
+      <ul>
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php  } ?>
+      </ul>
+    </div> <!--bredcrumb-->
+    <div class="wrap_notfiy">
+      <?php if ($success) { ?>
+      <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?></div>
+      <?php } ?>
+      <?php if ($error_warning) { ?>
+      <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
+      <?php } ?>
+    </div>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -29,7 +39,7 @@
              <br>
             <p><?php echo $text_register_account; ?></p>
             <br>
-            <a href="<?php echo $register; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+            <a href="<?php echo $register; ?>" class="continue-reg"><?php echo $button_continue; ?></a></div>
         </div>
         <div class="col-sm-6">
           <div class="well">
@@ -44,7 +54,7 @@
                 <label class="control-label" for="input-password"><?php echo $entry_password; ?></label>
                 <input type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
                 <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a></div>
-              <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" />
+              <input type="submit" value="<?php echo $button_login; ?>" class="login" />
               <?php if ($redirect) { ?>
               <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
               <?php } ?> 
@@ -52,6 +62,7 @@
           </div>
         </div>
       </div>
+      </section>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>

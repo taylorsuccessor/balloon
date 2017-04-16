@@ -125,9 +125,9 @@
                       <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">About Balloony</a></li>
-                          <li><a href="#">Location Map</a></li>
-                          <li><a href="#">Our Staff</a></li>
+                          <li><a href="http://openc//index.php?route=information/information&information_id=7">About Balloony</a></li>
+                          <li><a href="http://openc//index.php?route=information/information&information_id=8">Location Map</a></li>
+                          <li><a href="http://openc//index.php?route=information/information&information_id=9">Our Staff</a></li>
                         </ul>
                       </li>
                       <li>

@@ -1,11 +1,19 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
-  <div class="row"><?php echo $column_left; ?>
+  <section class="banner-section"><!--Banner Section-->
+    <div class="inner-banner"><!--banner-->
+      <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+    </div><!--banner-->
+  </section><!--Banner Section-->
+  <section class="content-section"><!--content-section-->
+    <div class="bredcrumb"><!--bredcrumb-->
+      <ul>
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php  } ?>
+      </ul>
+    </div> <!--bredcrumb-->
+    <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
@@ -20,7 +28,7 @@
         <div class="col-sm-4">
           <input type="text" name="search" value="<?php echo $search; ?>" placeholder="<?php echo $text_keyword; ?>" id="input-search" class="form-control" />
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 search">
           <select name="category_id" class="form-control">
             <option value="0"><?php echo $text_category; ?></option>
             <?php foreach ($categories as $category_1) { ?>
@@ -46,7 +54,7 @@
             <?php } ?>
           </select>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 search">
           <label class="checkbox-inline">
             <?php if ($sub_category) { ?>
             <input type="checkbox" name="sub_category" value="1" checked="checked" />
@@ -56,7 +64,7 @@
             <?php echo $text_sub_category; ?></label>
         </div>
       </div>
-      <p>
+      <p class="search">
         <label class="checkbox-inline">
           <?php if ($description) { ?>
           <input type="checkbox" name="description" value="1" id="description" checked="checked" />
@@ -65,8 +73,8 @@
           <?php } ?>
           <?php echo $entry_description; ?></label>
       </p>
-      <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="btn btn-primary" />
-      <h2><?php echo $text_search; ?></h2>
+      <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="search-btn search" />
+      <h2 class="search"><?php echo $text_search; ?></h2>
       <?php if ($products) { ?>
       <div class="row">
         <div class="col-md-2 col-sm-6 hidden-xs">
@@ -75,12 +83,12 @@
             <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6 search">
           <div class="form-group">
             <a href="<?php echo $compare; ?>" id="compare-total" class="btn btn-link"><?php echo $text_compare; ?></a>
           </div>
         </div>
-        <div class="col-md-4 col-xs-6">
+        <div class="col-md-4 col-xs-6 search">
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
             <select id="input-sort" class="form-control" onchange="location = this.value;">
@@ -145,7 +153,6 @@
               <div class="button-group">
                 <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
                 <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
               </div>
             </div>
           </div>
@@ -159,6 +166,7 @@
       <?php } else { ?>
       <p><?php echo $text_empty; ?></p>
       <?php } ?>
+      </section>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
