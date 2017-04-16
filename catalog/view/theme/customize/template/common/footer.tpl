@@ -7,8 +7,11 @@
                   <h2>Join Our <span>Mailing List</span></h2>
                     <p>please sign up to the mailing list to receive updates on new arrivals, special offers and 
 other discount information.</p>
-        <input type="text" placeholder="Your email address">
-                <button type="button">Subscribe</button>
+                  <form action="<?php echo $newsletterLink;?>" method="post">
+                      <h4>NEWSLETTER</h4>
+                      <input type="text" name="email" placeholder="Your Email Address">
+                      <button type="submit">Submit</button>
+                  </form>
                 </div><!--footer-left-->
             </div><!--col-md-7-->
             <div class="col-md-5 col-xs-12"><!--col-md-5-->

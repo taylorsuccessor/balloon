@@ -132,6 +132,17 @@ class ControllerMarketingContact extends Controller {
 						foreach ($results as $result) {
 							$emails[] = $result['email'];
 						}
+
+
+						$this->load->model('marketing/newsletter');
+
+
+						$newsletter_result = $this->model_marketing_newsletter->getEmails(['start'=> (($page - 1) * 10),'limit'=> 10]);
+						if (count($newsletter_result)) {
+							$emails += $result['email'];
+					}
+
+
 						break;
 					case 'customer_all':
 						$customer_data = array(
