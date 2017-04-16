@@ -9,7 +9,7 @@
 other discount information.</p>
                   <form action="<?php echo $newsletterLink;?>" method="post">
                       <h4>NEWSLETTER</h4>
-                      <input type="text" name="email" placeholder="Your Email Address">
+                      <input type="email" name="email" placeholder="Your Email Address">
                       <button type="submit">Submit</button>
                   </form>
                 </div><!--footer-left-->

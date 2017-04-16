@@ -14,3 +14,15 @@ $_['text_logout']        = 'Logout';
 $_['text_checkout']      = 'Checkout';
 $_['text_search']        = 'Search';
 $_['text_all']           = 'Show All';
+$_['text_about_us']      = 'About Us';
+$_['text_about_balloony']= 'About Balloony';
+$_['text_location_map']  = 'Location Map';
+$_['text_our_staff']     = 'Our Staff';
+
+
+
+
+
+
+
+

@@ -82,7 +82,6 @@
                 <ul>
                 <?php if ($logged) { ?>
 		            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-		            <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
 		            <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
                 <li><a href=""><?php echo $language; ?></a></li>
                 <?php } else { ?>
@@ -123,11 +122,11 @@
                     <ul class='nav navbar-nav navbar-left'>
                        <li><a href="<?php echo $home; ?>">Home</a></li>
                       <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $text_about_us;?> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="http://openc//index.php?route=information/information&information_id=7">About Balloony</a></li>
-                          <li><a href="http://openc//index.php?route=information/information&information_id=8">Location Map</a></li>
-                          <li><a href="http://openc//index.php?route=information/information&information_id=9">Our Staff</a></li>
+                          <li><a href="http://openc//index.php?route=information/information&information_id=7"><?php echo $text_about_balloony;?></a></li>
+                          <li><a href="http://openc//index.php?route=information/information&information_id=8"><?php echo $text_location_map;?></a></li>
+                          <li><a href="http://openc//index.php?route=information/information&information_id=9"><?php echo $text_our_staff;?></a></li>
                         </ul>
                       </li>
                       <li>

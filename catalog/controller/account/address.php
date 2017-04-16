@@ -74,7 +74,7 @@ class ControllerAccountAddress extends Controller {
 		$this->load->model('account/address');
 		
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			echo "im here";die();
+
 			$this->model_account_address->editAddress($this->request->get['address_id'], $this->request->post);
 
 			// Default Shipping Address

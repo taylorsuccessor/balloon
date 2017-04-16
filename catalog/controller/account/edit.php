@@ -1,7 +1,4 @@
 <?php
-//{include file="catalog/controller/account/address.php"}
-    // $this->load->controller('includes/balloon/catalog/account/address.php', $data);
-
     class ControllerAccountEdit extends Controller {
 	private $error = array();
 

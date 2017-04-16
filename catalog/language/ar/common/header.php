@@ -17,3 +17,7 @@ $_['text_logout']        = 'خروج';
 $_['text_checkout']      = 'إنهاء الطلب';
 $_['text_search']        = 'بحث';
 $_['text_all']           = 'اذهب الى قسم';
+$_['text_about_us']      = 'من نحن';
+$_['text_about_balloony']= 'عن بالوني';
+$_['text_location_map']  = 'موقعنا على الخريطة';
+$_['text_our_staff']     = 'فريقنا';
