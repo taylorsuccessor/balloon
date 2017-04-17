@@ -34,6 +34,10 @@ $_['text_semi_month']                         = 'نصف شهري';
 $_['text_month']                              = 'شهري';
 $_['text_year']                               = 'سنوي';
 $_['text_size']                               = 'المقاس';
+$_['text_confetti']                           = 'قصاصات ورق';
+$_['text_tail']                               = 'الذيل';
+
+
 // Entry
 $_['entry_qty']                               = 'الكمية:';
 $_['entry_name']          = 'الاسم:';

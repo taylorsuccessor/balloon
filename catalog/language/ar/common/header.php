@@ -21,3 +21,6 @@ $_['text_about_us']      = 'من نحن';
 $_['text_about_balloony']= 'عن بالوني';
 $_['text_location_map']  = 'موقعنا على الخريطة';
 $_['text_our_staff']     = 'فريقنا';
+$_['text_contact_us']     = 'اتصل بنا';
+
+

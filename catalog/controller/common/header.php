@@ -73,6 +73,7 @@ class ControllerCommonHeader extends Controller {
 		$data['text_about_balloony'] = $this->language->get('text_about_balloony');
 		$data['text_location_map'] = $this->language->get('text_location_map');
 		$data['text_our_staff'] = $this->language->get('text_our_staff');
+		$data['text_contact_us'] = $this->language->get('text_contact_us');
 
 
 

@@ -64,31 +64,73 @@
 
             <div class="confetti-select"><!--confetti-select-->
               <div class="row">
-
                 <?php if ($options) { ?>
-                <div class="col-md-4 col-sm-4 col-xs-4">
                   <?php foreach ($options as $option) { ?>
-                  <?php if ($option['type'] == 'select' && $option['option_id'] == 11 ) { ?>
-                  <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
-                    <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" class="form-control">
-                      <option value=""><?php echo $text_size; ?></option>
-                      <?php foreach ($option['product_option_value'] as $option_value) { ?>
-                      <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
-                        <?php if ($option_value['price']) { ?>
-                        (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
-                        <?php } ?>
-                      </option>
-                      <?php } ?>
-                    </select>
-                  </div>
+                  <?php if ($option['type'] == 'select') { ?>
+                  <?php if($option['option_id'] == 11){ ?>
+                   <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+                        <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>">
+                          <option value=""><?php echo $text_size; ?></option>
+                          <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                          <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+                            <?php if ($option_value['price']) { ?>
+                            (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+                            <?php } ?>
+                          </option>
+                          <?php } ?>
+                        </select>
+                      </div>
+                   </div>
 
                   <?php } ?>
-
+                  <?php if ($option['option_id'] == 14 ) { ?>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                       <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+                          <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" >
+                            <option value=""><?php echo $text_confetti; ?></option>
+                            <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                            <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+                              <?php if ($option_value['price']) { ?>
+                              (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+                              <?php } ?>
+                            </option>
+                            <?php } ?>
+                          </select>
+                       </div>
+                    </div>
+                  <?php } ?>
+                  <?php if ($option['option_id'] == 15 ) { ?>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+                            <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>">
+                              <option value=""><?php echo $text_tail; ?></option>
+                              <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                              <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+                                <?php if ($option_value['price']) { ?>
+                                (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+                                <?php } ?>
+                              </option>
+                              <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                  <?php } ?>
+                  <?php } //type select ?>
+                  <?php if ($option['type'] == 'textarea') { ?>
+                   <?php if($option['option_id'] == 6){ ?>
+                     <div class="confetti-text">
+                        <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+                                <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5" placeholder="<?php echo $option['name']; ?>" id="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['value']; ?></textarea>
+                        </div>
+                     </div>
+                   <?php } ?>
+                  <?php } ?>
             <?php } ?>
             <?php } ?>
-                </div>
 
               </div>
+
             </div><!--confetti-select-->
             <?php echo $content_bottom; ?>
             <?php echo $column_right; ?>
@@ -288,4 +330,9 @@
     });
   });
   //--></script>
+<script type="text/javascript">
+  $(".quantity").change(function() {
+    $(".quantity").closest('form').submit();
+  });
+</script>
 <?php echo $footer; ?>

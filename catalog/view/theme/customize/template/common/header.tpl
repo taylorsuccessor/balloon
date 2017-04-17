@@ -120,7 +120,7 @@
                //$class="nav navbar-nav navbar-left";
                //start add be me ?>
                     <ul class='nav navbar-nav navbar-left'>
-                       <li><a href="<?php echo $home; ?>">Home</a></li>
+                       <li><a href="<?php echo $home; ?>"><?php echo $text_home;?></a></li>
                       <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $text_about_us;?> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -136,7 +136,7 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $values[0];?><span class="caret"></span></a>
                       <ul class="dropdown-menu">
                    <?php foreach ($category_1['children'][0] as $category_level2) { ?> 
-                    <?php if (is_array($category_level2) || is_object($category_level2)){ foreach ($category_level2 as $categorysublevel2) {?>
+                    <?php if (is_array($category_level2) || is_object($category_level2)){ foreach ($category_level2 as $categorysublevel2) { ?>
                            <li class="dropdown-submenu"><a href="<?php echo $categorysublevel2['href']; ?>"><?php echo $categorysublevel2['name']; ?></a>
                         <?php if ($categorysublevel2) { ?>
                             <ul class="dropdown-menu">
@@ -175,7 +175,7 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $values[0];?><span class="caret"></span></a>
                       <ul class="dropdown-menu">
                    <?php foreach ($category_1['children'][1] as $category_2) { ?> 
-                    <?php if (is_array($category_2) || is_object($category_2)){ foreach ($category_2 as $categorysub) {?>
+                    <?php if (is_array($category_2) || is_object($category_2)){ foreach ($category_2 as $categorysub) { ?>
                            <li class="dropdown-submenu"><a href="<?php echo $categorysub['href']; ?>"><?php echo $categorysub['name']; ?></a>
                         <?php if ($categorysub) { ?>
                             <ul class="dropdown-menu">
@@ -205,7 +205,7 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $values[0];?><span class="caret"></span></a>
                       <ul class="dropdown-menu">
                    <?php foreach ($category_1['children'][2] as $category_2) { ?> 
-                    <?php if (is_array($category_2) || is_object($category_2)){ foreach ($category_2 as $categorysub) {?>
+                    <?php if (is_array($category_2) || is_object($category_2)){ foreach ($category_2 as $categorysub) { ?>
                            <li class="dropdown-submenu"><a href="<?php echo $categorysub['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $categorysub['name']; ?></a>
                         <?php if ($categorysub) { ?>
                             <ul class="dropdown-menu">
@@ -225,7 +225,7 @@
                     </li>
                     </ul>
                     </li>
-                    <li><a href="<?php echo $contact; ?>">Contact Us</a></li>
+                    <li><a href="<?php echo $contact; ?>"><?php echo $text_contact_us; ?></a></li>
               </ul>
               
             <?php
@@ -250,7 +250,7 @@
 		
 			<!-- div 1 -->
 			<div class="nosubnav">
-				<div class="acc_head active"><a href="<?php echo $home; ?>">Home</a></div>
+				<div class="acc_head active"><a href="<?php echo $home; ?>"><?php echo $text_home;?></a></div>
 			</div>
             <!-- div 2 -->
 			<div class="accordion_in">
@@ -272,7 +272,7 @@
            { ?>
            <?php
              if($category_1['children'])
-                {?>
+                { ?>
                  <?php foreach ($category_1['children'] as $category_2) 
                    { ?>
 			  <div class="accordion_in">

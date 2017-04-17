@@ -19,7 +19,7 @@
               <?php } ?>
               </h5>
               <p><?php echo $product['description']; ?></p>
-              <a href="<?php echo $product['href'] ?>">More</a>
+              <a href="<?php echo $product['href'] ?>"><?php echo $text_more; ?></a>
             </div>
           <?php } ?>
           </div>

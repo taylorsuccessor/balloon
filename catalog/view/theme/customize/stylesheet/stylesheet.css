@@ -1587,7 +1587,6 @@ header .top-nav-left ul li{
     margin-top: 5px;
     margin-right: -10px;
 }
-
 .dropdown-submenu:hover>a:after {
     border-left-color: #fff;
 }
@@ -1951,6 +1950,7 @@ header .top-nav-left ul li{
 	width:100%;
 	border:#dadada solid 1px;
 }
+
 .confetti h4{
 	font-size:18px;
 	color:#000000;
@@ -1979,6 +1979,7 @@ header .top-nav-left ul li{
 	line-height:34px;
 	text-decoration:none;
 	padding-left:15px;
+	border:0px;
 }
 .confetti-btns .confetti-input{
 	width:32.8%;
@@ -1997,8 +1998,8 @@ header .top-nav-left ul li{
 	width:32.8%;
 	float:right;
 	height:34px;
-	background:#008b16;
-	color:#000000;
+	background:#c90d7e;
+	color:#fff;
 	font-size:18px;
 	display:block;
 	text-align:center;
@@ -2013,7 +2014,7 @@ header .top-nav-left ul li{
 .confetti-select select{
 	width:100%;
 	height:40px;
-	background:#fff url(../image/icons/select-arrow.jpg) right center no-repeat;
+	background:#fff url(../image/select_drop.png) right center no-repeat;
 	border:#bebebe solid 1px;
 	appearance:none;
 	-moz-appearance:none;
@@ -2034,6 +2035,7 @@ header .top-nav-left ul li{
 	width:100%;
 	float:left;
 	margin-top:30px;
+	padding:0 15px;
 }
 .confetti-text textarea{
 	width:100%;
@@ -3266,13 +3268,13 @@ header .top-nav-left ul li{margin: 0px 3px;}
 #delete_ddress
 {
 	border: none;
-	background:#ce0c2c;
-	padding:7px 20px;
+	background:#c90d7e;
+	padding:7px 25px;
 	font-size: 15px;
 	color: #fff;
 }
 #delete_address:hover{
-	background:#c90d7e;
+	background:#e06db2;
 }
 /* iCheck plugin Square skin
 ----------------------------------- */

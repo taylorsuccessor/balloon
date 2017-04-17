@@ -6,6 +6,7 @@ class ControllerExtensionModuleFeatured extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_tax'] = $this->language->get('text_tax');
+		$data['text_more'] = $this->language->get('text_more');
 
 		$data['button_cart'] = $this->language->get('button_cart');
 		$data['button_wishlist'] = $this->language->get('button_wishlist');
