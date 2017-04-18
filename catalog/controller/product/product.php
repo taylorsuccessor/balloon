@@ -228,6 +228,8 @@ class ControllerProductProduct extends Controller {
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
+			$data['url_pro'] = $this->url->link('product/product&product_id=', '', true);
+
 			$data['heading_title'] = $product_info['name'];
 
 			$data['text_select'] = $this->language->get('text_select');
@@ -490,7 +492,7 @@ class ControllerProductProduct extends Controller {
 			{
 				$category_dd = $cat['category_id'];
 			}
-			if (isset ($category_dd) && $category_dd == 69) {
+			if (isset ($category_dd) && $category_dd == 69  && !isset($_GET['preview']) ) {
 				$this->response->setOutput($this->load->view('product/custom_product', $data));
 			}else{
 				$this->response->setOutput($this->load->view('product/product', $data));

@@ -56,7 +56,8 @@
                     <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="confetti-cart"><?php echo $button_cart; ?></button>
                     <input type="text" name="quantity" class="confetti-input" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                    <a href="#" class="confetti-view">View</a>
+                    <?php $flag = "&preview=1";?>
+                    <a href="<?php echo $url_pro.$product_id.$flag ;?>" class="confetti-view">View</a>
                   </div>
                 </div>
               </div>
@@ -87,7 +88,7 @@
                   <?php if ($option['option_id'] == 14 ) { ?>
                     <div class="col-md-4 col-sm-4 col-xs-4">
                        <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
-                          <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" >
+                          <select name="option[<?php echo $option['product_option_id']; ?>]" class="conffetti-type" id="input-option<?php echo $option['product_option_id']; ?>" >
                             <option value=""><?php echo $text_confetti; ?></option>
                             <?php foreach ($option['product_option_value'] as $option_value) { ?>
                             <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
@@ -121,7 +122,7 @@
                    <?php if($option['option_id'] == 6){ ?>
                      <div class="confetti-text">
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
-                                <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5" placeholder="<?php echo $option['name']; ?>" id="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['value']; ?></textarea>
+                           <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5" placeholder="<?php echo $option['name']; ?>" class="col-text" id="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['value']; ?></textarea>
                         </div>
                      </div>
                    <?php } ?>
@@ -331,8 +332,19 @@
   });
   //--></script>
 <script type="text/javascript">
-  $(".quantity").change(function() {
-    $(".quantity").closest('form').submit();
+  $(function () {
+    $(".conffetti-type").change(function() {
+      var val = $(this).val();
+      if(val == 20) {
+        $(".col-text").hide();
+        $(".col-text").show();
+      }else
+      {
+          $(".col-text").show();
+          $(".col-text").hide();
+      }
+
+    });
   });
 </script>
 <?php echo $footer; ?>

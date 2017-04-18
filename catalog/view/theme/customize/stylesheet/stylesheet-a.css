@@ -3148,6 +3148,7 @@ header .top-nav-left ul li:first-child
 .content_area .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td
 {
 	padding: 18px 0px;
+	text-align:center;
 
 }
 #addnewaddress

@@ -48,7 +48,7 @@
                     <h2><?php echo $heading_title; ?></h2>
                     <div class="list-item full-width">
                         <ul>
-                          <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
                           <?php foreach ($products as $product) { ?>
                               <li class="spcbor">
                                 <div class="row">
