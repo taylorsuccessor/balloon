@@ -1,4 +1,198 @@
 <?php echo $header; ?>
+
+
+
+
+
+
+<section class="content-section"><!--content-section-->
+    <div class="container"><!--container-->
+        <div class="bredcrumb"><!--bredcrumb-->
+            <ul>
+                <li>Home</li>
+                <li>/</li>
+                <li>Ballons</li>
+                <li>/</li>
+                <li class="active">Regular Latest Balloons</li>
+            </ul>
+        </div> <!--bredcrumb-->
+        <div class="product-details-page"><!--balloons-->
+            <h2>Regular Latest Balloons</h2>
+            <div class="confetti-con view-colors-con">
+                <div class="row">
+                    <div class="col-md-6 view-colors-left">
+                        <div class="slider_cover">
+                            <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 382px;"><ul class="color-slider" style="width: auto; position: relative;">
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon1.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon2.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon3.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 50; display: list-item;">
+                                            <img src="image/catalog/baloon4.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon5.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon6.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon7.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon8.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon9.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon10.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon11.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon12.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon13.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon14.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon15.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                            <img src="image/catalog/baloon16.jpg">
+                                            <h4>Rose Pink</h4>
+                                        </li>
+                                    </ul></div><div class="bx-controls"></div></div>
+                            <h4>Rollover swatches to view colors.</h4>
+                            <div id="bx-pager">
+                                <a data-slide-index="0" href="" class=""><img src="image/catalog/color1.jpg"></a>
+                                <a data-slide-index="1" href="" class=""><img src="image/catalog/color2.jpg"></a>
+                                <a data-slide-index="2" href=""><img src="image/catalog/color3.jpg"></a>
+                                <a data-slide-index="3" href="" class="active"><img src="image/catalog/color4.jpg"></a>
+                                <a data-slide-index="4" href=""><img src="image/catalog/color5.jpg"></a>
+                                <a data-slide-index="5" href=""><img src="image/catalog/color6.jpg"></a>
+                                <a data-slide-index="6" href=""><img src="image/catalog/color7.jpg"></a>
+                                <a data-slide-index="7" href=""><img src="image/catalog/color8.jpg"></a>
+                                <a data-slide-index="8" href=""><img src="image/catalog/color9.jpg"></a>
+                                <a data-slide-index="9" href=""><img src="image/catalog/color10.jpg"></a>
+                                <a data-slide-index="10" href="" class=""><img src="image/catalog/color11.jpg"></a>
+                                <a data-slide-index="11" href=""><img src="image/catalog/color12.jpg"></a>
+                                <a data-slide-index="12" href="" class=""><img src="image/catalog/color13.jpg"></a>
+                                <a data-slide-index="13" href=""><img src="image/catalog/color14.jpg"></a>
+                                <a data-slide-index="14" href=""><img src="image/catalog/color15.jpg"></a>
+                                <a data-slide-index="15" href=""><img src="image/catalog/color16.jpg"></a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 view-colors-right">
+                        <div class="date-time"><!--date-time-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Pick a delivery date:</label>
+                                    <input type="text" id="datepicker" class="hasDatepicker">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Pick a delivery time:</label>
+                                    <select>
+                                        <option>Please select delivery time</option>
+                                        <option>Morning (09:00 to 14:00)</option>
+                                        <option>Afternoon (13:00 to 16:00)</option>
+                                        <option>Evening (17:00 to 21:30)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div><!--date-time-->
+                        <div class="filling">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="radio" id="helium" name="radio1"><label for="helium">Helium</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="radio" id="air" name="radio1"><label for="air">Air</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h3>Rose Pink</h3>
+                        <h4>10.000 KD</h4>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="confetti-btns">
+                            <a href="#" class="confetti-cart">Add to Cart</a>
+                            <input class="confetti-input" value="1" type="text">
+                            <a href="#" class="confetti-view">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--balloons-->
+    </div><!--container-->
+</section>
+
+
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if(false) { ?>
+
 <div class="container">
  
   <section class="banner-section"><!--Banner Section-->
@@ -174,20 +368,20 @@
          <div id="bx-pager">
                                   <a data-slide-index="0" href=""><img src="../../image/color1.jpg" /></a>
                                   <a data-slide-index="1" href=""><img src="../../image/color2.jpg" /></a>
-                                  <a data-slide-index="2" href=""><img src="images/color3.jpg" /></a>
-                                  <a data-slide-index="3" href=""><img src="images/color4.jpg" /></a>
-                                  <a data-slide-index="4" href=""><img src="images/color5.jpg" /></a>
-                                  <a data-slide-index="5" href=""><img src="images/color6.jpg" /></a>
-                                  <a data-slide-index="6" href=""><img src="images/color7.jpg" /></a>
-                                  <a data-slide-index="7" href=""><img src="images/color8.jpg" /></a>
-                                  <a data-slide-index="8" href=""><img src="images/color9.jpg" /></a>
-                                  <a data-slide-index="9" href=""><img src="images/color10.jpg" /></a>
-                                  <a data-slide-index="10" href=""><img src="images/color11.jpg" /></a>
-                                  <a data-slide-index="11" href=""><img src="images/color12.jpg" /></a>
-                                  <a data-slide-index="12" href=""><img src="images/color13.jpg" /></a>
-                                  <a data-slide-index="13" href=""><img src="images/color14.jpg" /></a>
-                                  <a data-slide-index="14" href=""><img src="images/color15.jpg" /></a>
-                                  <a data-slide-index="15" href=""><img src="images/color16.jpg" /></a>
+                                  <a data-slide-index="2" href=""><img src="image/catalog/color3.jpg" /></a>
+                                  <a data-slide-index="3" href=""><img src="image/catalog/color4.jpg" /></a>
+                                  <a data-slide-index="4" href=""><img src="image/catalog/color5.jpg" /></a>
+                                  <a data-slide-index="5" href=""><img src="image/catalog/color6.jpg" /></a>
+                                  <a data-slide-index="6" href=""><img src="image/catalog/color7.jpg" /></a>
+                                  <a data-slide-index="7" href=""><img src="image/catalog/color8.jpg" /></a>
+                                  <a data-slide-index="8" href=""><img src="image/catalog/color9.jpg" /></a>
+                                  <a data-slide-index="9" href=""><img src="image/catalog/color10.jpg" /></a>
+                                  <a data-slide-index="10" href=""><img src="image/catalog/color11.jpg" /></a>
+                                  <a data-slide-index="11" href=""><img src="image/catalog/color12.jpg" /></a>
+                                  <a data-slide-index="12" href=""><img src="image/catalog/color13.jpg" /></a>
+                                  <a data-slide-index="13" href=""><img src="image/catalog/color14.jpg" /></a>
+                                  <a data-slide-index="14" href=""><img src="image/catalog/color15.jpg" /></a>
+                                  <a data-slide-index="15" href=""><img src="image/catalog/color16.jpg" /></a>
          </div>
          
          </div>
@@ -384,7 +578,7 @@
     </section><!-- /content-section-->
 </div>
 
-
+<?php } ?>
 
 
 
