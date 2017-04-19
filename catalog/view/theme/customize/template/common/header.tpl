@@ -146,7 +146,6 @@
 
                              <?php if (is_array($category3) || is_object($category3)) { ?>
                                 <?php foreach ($category3 as $categorysublevel3) { ?>
-                              
                                <li class="dropdown-submenu"><a href="<?php echo  $categorysublevel3['href']; ?>"><?php echo $categorysublevel3['name']; ?></a></li>
                                 <?php  }?>
                               <?php } ?>
