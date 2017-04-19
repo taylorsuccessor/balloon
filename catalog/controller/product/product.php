@@ -367,16 +367,20 @@ class ControllerProductProduct extends Controller {
 					}
 				}
 //die(var_dump($option));
-				$data['options'][] = array(
-					'product_option_id'    => $option['product_option_id'],
-					'product_option_value' => $product_option_value_data,
-					'option_id'            => $option['option_id'],
-					'name'                 =>$option['name'],
-					'type'                 => $option['type'],
-					'value'                => $option['value'],
-					'required'             => $option['required']
-				);
+				//$option['product_option_value']=$product_option_value_data;
+				$data['options'][] =$option;
 			}
+
+
+//die(var_dump($data['options'] ));
+//			foreach($data['options'] as $option){
+//				if($option['name']=='ballon collor'){
+//					foreach($option['product_option_value'] as $optio_value){
+//						echo $option_value['name'].'_______'. $option_value['product_option_value_id'].'_______'. $option_value['image'];
+//
+//					}
+//				}
+//			}
 
 			if ($product_info['minimum']) {
 				$data['minimum'] = $product_info['minimum'];
@@ -495,7 +499,7 @@ class ControllerProductProduct extends Controller {
 			if (isset ($category_dd) && $category_dd == 69  && !isset($_GET['preview']) ) {
 				$this->response->setOutput($this->load->view('product/custom_product', $data));
 			}else{
-				$this->response->setOutput($this->load->view('product/product_1', $data));
+				$this->response->setOutput($this->load->view('product/product_2', $data));
 			}
 			//end add by gholeh 10-04-2017
 		} else {

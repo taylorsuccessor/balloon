@@ -18,6 +18,8 @@
 <meta name="keywords" content= "<?php echo $keywords; ?>" />
 <?php } ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><!--jquery.min-->
+    <script src="catalog/view/javascript/jquery-ui.js"></script><!--Date picker-->
+    <link href="catalog/view/theme/customize/stylesheet/jquery-ui.css" rel="stylesheet" /><!--Date picker-->
 <!-- <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>  -->
 <script src="catalog/view/javascript/js/custom.js"></script><!--custom-->
 <script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom--> 
@@ -27,7 +29,7 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
 
-    <link href="catalog/view/javascript/jquery-ui.css" rel="stylesheet" /><!--Date picker-->
+
 <?php if ($direction == 'rtl') { ?>
 <link href="catalog/view/javascript/bootstrap/css/bootstrap-a.css" rel="stylesheet" media="screen" />
 <link href="catalog/view/theme/customize/stylesheet/stylesheet-a.css" rel="stylesheet">
