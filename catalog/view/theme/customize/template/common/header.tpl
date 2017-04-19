@@ -75,7 +75,7 @@
                     <li><a href="<?php echo $wishlist;?>"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
                     <li><a href="<?php echo $shopping_cart;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </a></li>
-                    <li><a href="http://openc/index.php?route=product/search"><i class="fa fa-search"  aria-hidden="true"></i></a></li>
+                    <li><a href="?route=product/search"><i class="fa fa-search"  aria-hidden="true"></i></a></li>
                 </ul>
             </div><!--Top nav Left-->
             <div class="top-nav-right"><!--top-nav-right-->
@@ -124,9 +124,9 @@
                       <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $text_about_us;?> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="http://openc//index.php?route=information/information&information_id=7"><?php echo $text_about_balloony;?></a></li>
-                          <li><a href="http://openc//index.php?route=information/information&information_id=8"><?php echo $text_location_map;?></a></li>
-                          <li><a href="http://openc//index.php?route=information/information&information_id=9"><?php echo $text_our_staff;?></a></li>
+                          <li><a href="?route=information/information&information_id=7"><?php echo $text_about_balloony;?></a></li>
+                          <li><a href="?route=information/information&information_id=8"><?php echo $text_location_map;?></a></li>
+                          <li><a href="?route=information/information&information_id=9"><?php echo $text_our_staff;?></a></li>
                         </ul>
                       </li>
                       <li>
