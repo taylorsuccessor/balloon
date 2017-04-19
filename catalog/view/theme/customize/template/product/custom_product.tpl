@@ -56,8 +56,8 @@
                     <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="confetti-cart"><?php echo $button_cart; ?></button>
                     <input type="text" name="quantity" class="confetti-input" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                    <?php $flag = "&preview=1";?>
-                    <a href="<?php echo $url_pro.$product_id.$flag ;?>" class="confetti-view">View</a>
+                    <?php $flag = "&preview=1"; ?>
+                    <a href="<?php echo $url_pro.$product_id.$flag ;?>"   class="confetti-view">View</a>
                   </div>
                 </div>
               </div>
@@ -347,4 +347,5 @@
     });
   });
 </script>
+
 <?php echo $footer; ?>
