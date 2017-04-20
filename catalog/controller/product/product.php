@@ -488,11 +488,12 @@ class ControllerProductProduct extends Controller {
 			//$this->response->setOutput($this->load->view('product/product_1', $data));
 			//added by gholeh 10-04-2017
 			$categories = $this->model_catalog_product->getCategories($product_id);
-			foreach($categories as $cat)
+			if ($categories)
 			{
-				$category_dd = $cat['category_id'];
+				$categories_info = $this->model_catalog_category->getCategory($categories[0]['category_id']);
+				$category_name = $categories_info['name'];
 			}
-			if (isset ($category_dd) && $category_dd == 69  && !isset($_GET['preview']) ) {
+			if (isset ($category_name) && $category_name == 'Confetti Balloon'  && !isset($_GET['preview']) ) {
 				$this->response->setOutput($this->load->view('product/custom_product', $data));
 			}else{
 				$this->response->setOutput($this->load->view('product/product', $data));
