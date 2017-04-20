@@ -34,9 +34,9 @@ define('DB_DRIVER', 'mysqli');
 //define('DB_HOSTNAME', 'localhost');
 //public ip 185.96.70.232
 
-define('DB_HOSTNAME', 'localhost');
+define('DB_HOSTNAME', '192.168.100.11');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'balloony_maw');
+define('DB_DATABASE', 'balloon');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');

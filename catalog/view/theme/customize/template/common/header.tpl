@@ -18,6 +18,8 @@
 <meta name="keywords" content= "<?php echo $keywords; ?>" />
 <?php } ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><!--jquery.min-->
+    <script src="catalog/view/javascript/jquery-ui.js"></script><!--Date picker-->
+    <link href="catalog/view/theme/customize/stylesheet/jquery-ui.css" rel="stylesheet" /><!--Date picker-->
 <!-- <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>  -->
 <script src="catalog/view/javascript/js/custom.js"></script><!--custom-->
 <script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom--> 
@@ -26,6 +28,8 @@
 <script src="catalog/view/javascript/js/jquery.bxslider.min.js"></script><!--bxslider.min-->
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
+
+
 <?php if ($direction == 'rtl') { ?>
 <link href="catalog/view/javascript/bootstrap/css/bootstrap-a.css" rel="stylesheet" media="screen" />
 <link href="catalog/view/theme/customize/stylesheet/stylesheet-a.css" rel="stylesheet">
@@ -75,7 +79,7 @@
                     <li><a href="<?php echo $wishlist;?>"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
                     <li><a href="<?php echo $shopping_cart;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </a></li>
-                    <li><a href="http://openc/index.php?route=product/search"><i class="fa fa-search"  aria-hidden="true"></i></a></li>
+                    <li><a href="?route=product/search"><i class="fa fa-search"  aria-hidden="true"></i></a></li>
                 </ul>
             </div><!--Top nav Left-->
             <div class="top-nav-right"><!--top-nav-right-->
@@ -124,9 +128,9 @@
                       <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $text_about_us;?> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="http://openc//index.php?route=information/information&information_id=7"><?php echo $text_about_balloony;?></a></li>
-                          <li><a href="http://openc//index.php?route=information/information&information_id=8"><?php echo $text_location_map;?></a></li>
-                          <li><a href="http://openc//index.php?route=information/information&information_id=9"><?php echo $text_our_staff;?></a></li>
+                          <li><a href="?route=information/information&information_id=7"><?php echo $text_about_balloony;?></a></li>
+                          <li><a href="?route=information/information&information_id=8"><?php echo $text_location_map;?></a></li>
+                          <li><a href="?route=information/information&information_id=9"><?php echo $text_our_staff;?></a></li>
                         </ul>
                       </li>
                       <li>
@@ -144,7 +148,6 @@
 
                              <?php if (is_array($category3) || is_object($category3)) { ?>
                                 <?php foreach ($category3 as $categorysublevel3) { ?>
-                              
                                <li class="dropdown-submenu"><a href="<?php echo  $categorysublevel3['href']; ?>"><?php echo $categorysublevel3['name']; ?></a></li>
                                 <?php  }?>
                               <?php } ?>
