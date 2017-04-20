@@ -120,9 +120,23 @@
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
                                     <div class="numb-box">
                                         <label>Qty</label>
-                                        <input class="confetti-input"  type="number" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity" >
+                                        <input class="confetti-input"  type="number" name="quantity" value="<?php echo $minimum; ?>" data-minimum="<?php echo $minimum; ?>" id="input-quantity" >
                                         <button id="up"><img src="image/catalog/icons/up.jpg" alt="" /></button>
                                         <button id="down"><img src="image/catalog/icons/down.jpg" alt="" /></button>
+                                        <script >
+                                            $('#up').click(function(){
+                                                $('#input-quantity').val( $('#input-quantity').val() *1 +1);
+                                            });
+
+                                            $('#down').click(function(){
+                                                var quantityNode=$('#input-quantity');
+                                                var quantity=quantityNode.val();
+if(quantity > quantityNode.data('minimum') ){
+
+    quantityNode.val( quantity -1);
+}
+                                            });
+                                        </script>
                                     </div><!-- /.numbox -->
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">

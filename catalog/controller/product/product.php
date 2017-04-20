@@ -496,11 +496,12 @@ class ControllerProductProduct extends Controller {
 			{
 				$category_dd = $cat['category_id'];
 			}
+
 			if (isset ($category_dd) && $category_dd == 69  && !isset($_GET['preview']) ) {
 				$this->response->setOutput($this->load->view('product/custom_product', $data));
 			}else{
 
-				$this->response->setOutput($this->load->view('product/product_2', $data));
+				$this->response->setOutput($this->load->view('product/product', $data));
 
 			}
 			//end add by gholeh 10-04-2017
