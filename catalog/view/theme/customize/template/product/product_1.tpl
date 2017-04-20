@@ -6,7 +6,10 @@
 
 
 <section class="content-section" id="product"><!--content-section-->
-    <div class="container"><!--container-->
+    <form action="<?php echo $finalProductDetailLink;?>" method="post">
+
+
+        <div class="container"><!--container-->
         <div class="bredcrumb"><!--bredcrumb-->
             <ul>
                 <li>Home</li>
@@ -188,13 +191,15 @@ echo '
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                             <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"  class="confetti-cart"><?php echo $button_cart; ?></button>
                             <input class="confetti-input"  type="text" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity" >
-                            <a href="javascript:void(0)" class="confetti-view">View</a>
+                            <button type="submit" name="finalProductDetail" value="1" class="confetti-view">View</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div><!--balloons-->
     </div><!--container-->
+    </form>
+
 </section>
 
 
