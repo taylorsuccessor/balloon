@@ -64,7 +64,7 @@
 <body class="<?php echo $class; ?>">
 <section><!--Header Section-->
     <header><!--header-->
-<?php if ($categories) { ?>
+<?php if (true) { ?>
 <div class="container"><!--container-->
         <div class="logo"><!--logo-->
         <?php if ($logo) { ?>
@@ -121,7 +121,45 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  <?php foreach ($categories as $category_1) { ?>
+<?php
+function drowMenu($menu,$first=true){
+
+$html=(!$first)? '<ul class="dropdown-menu">':'';
+
+        foreach($menu as $oneMenu){
+        $childrenExist=(isset($oneMenu['children']) && count($oneMenu['children']));
+        if(!array_key_exists('href',$oneMenu)){var_dump($oneMenu);}
+        $html.=' <li '.(($childrenExist && !$first)? '  class="dropdown-submenu" ':'').'>
+
+        <a href="'.$oneMenu['href'].'" '.(($childrenExist)? ' class="dropdown-toggle" data-toggle="dropdown" ':'').'>'.$oneMenu['name'].(($first && $childrenExist)? '<span class="caret"></span>':'').'</a>';
+
+        if($childrenExist){
+        $html.=drowMenu($oneMenu['children'],false);
+        }
+        $html.='</li>';
+        }
+        $html.=(!$first)? '</ul>':'';
+
+        return $html;
+        }
+
+?>
+
+        <ul class="nav navbar-nav navbar-left">
+
+<?php echo drowMenu($leftCategories); ?>
+
+
+
+        </ul>
+        <ul class='nav navbar-nav navbar-right'>
+
+            <?php echo drowMenu($rightCategories); ?>
+            </ul>
+
+        <?php
+   if(false){
+   foreach ($categories as $category_1) { ?>
      <?php
      if($category_1['children'][0])
               {
@@ -161,7 +199,10 @@
                          <!-- end last li-->
                             </ul>
 
-                    <?php } }}?>
+                    <?php } }}
+
+                    }//if false
+                    ?>
                     </li>
                     </ul>
                     </li>

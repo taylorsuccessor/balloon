@@ -1,0 +1,25 @@
+//_____________________categories
+eventsleft
+eventsright
+productsleft
+productsright
+
+
+//_____________________options
+
+ballooncolor
+balloondeliverydate
+balloondeliverytime
+air
+
+confetti
+textarea
+tail
+size
+
+
+eventtime
+eventdate
+
+//_____________________request fields
+finalProductDetail

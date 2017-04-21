@@ -344,8 +344,24 @@ class ControllerProductProduct extends Controller {
 			}
 
 			$data['options'] = array();
-
+//confetti
+			// if(str_replace(' ','',strtolower($option['name']))=='ballooncolor')
+			//eventtime
+			$view_template_name='product/product_final';
 			foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
+				$option_name=str_replace(' ','',strtolower($option['name']));
+
+				if($option_name == 'confetti'){
+
+					$view_template_name='product/custom_product';
+				}elseif($option_name == 'ballooncolor'){
+
+					$view_template_name='product/product_color';
+				}elseif($option_name == 'eventtime'){
+
+					$view_template_name='product/event';
+				}
+
 				$product_option_value_data = array();
 
 				foreach ($option['product_option_value'] as $option_value) {
@@ -500,16 +516,10 @@ class ControllerProductProduct extends Controller {
 
 			return 	$this->response->setOutput($this->load->view('product/product_2', $data));
 			}
-			
-			if (isset ($category_dd) && $category_dd == 69  && !isset($_GET['preview']) || true ) {
 
 
-				return $this->response->setOutput($this->load->view('product/custom_product', $data));
-			}else{
+				return $this->response->setOutput($this->load->view($view_template_name, $data));
 
-				return $this->response->setOutput($this->load->view('product/product_1', $data));
-
-			}
 			//end add by gholeh 10-04-2017
 		} else {
 			$url = '';
