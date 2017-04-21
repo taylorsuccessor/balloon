@@ -366,21 +366,13 @@ class ControllerProductProduct extends Controller {
 						);
 					}
 				}
-//die(var_dump($option));
+                 //die(var_dump($option));
 				//$option['product_option_value']=$product_option_value_data;
 				$data['options'][] =$option;
 			}
 
 
-//die(var_dump($data['options'] ));
-//			foreach($data['options'] as $option){
-//				if($option['name']=='ballon collor'){
-//					foreach($option['product_option_value'] as $optio_value){
-//						echo $option_value['name'].'_______'. $option_value['product_option_value_id'].'_______'. $option_value['image'];
-//
-//					}
-//				}
-//			}
+
 
 			if ($product_info['minimum']) {
 				$data['minimum'] = $product_info['minimum'];
@@ -492,10 +484,9 @@ class ControllerProductProduct extends Controller {
 			//$this->response->setOutput($this->load->view('product/product_1', $data));
 			//added by gholeh 10-04-2017
 			$categories = $this->model_catalog_product->getCategories($product_id);
-			if ($categories)
+			foreach($categories as $cat)
 			{
-				$categories_info = $this->model_catalog_category->getCategory($categories[0]['category_id']);
-				$category_name = $categories_info['name'];
+				$category_dd = $cat['category_id'];
 			}
 
 			$data['finalProductDetailLink']= $this->url->link('product/product', 'product_id=' . $this->request->get['product_id']);
@@ -509,7 +500,9 @@ class ControllerProductProduct extends Controller {
 
 			return 	$this->response->setOutput($this->load->view('product/product_2', $data));
 			}
+			
 			if (isset ($category_dd) && $category_dd == 69  && !isset($_GET['preview']) || true ) {
+
 
 				return $this->response->setOutput($this->load->view('product/custom_product', $data));
 			}else{
