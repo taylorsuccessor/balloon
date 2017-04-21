@@ -1,8 +1,92 @@
 <?php
-class ControllerProductProduct extends Controller {
+class ControllerProductEvent extends Controller {
 	private $error = array();
 
+
+	public function getEventDateOptionIdAndTimeId(){
+
+		$eventDateOptionId=0;
+		$eventTimeOptionId=0;
+		$total_option_value=[];
+
+
+		$this->load->model('catalog/product');
+		foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
+
+			if(str_replace(' ','',strtolower($option['name']))=='eventdate'){
+				$eventDateOptionId= $option['product_option_id'];
+			}
+			if(str_replace(' ','',strtolower($option['name']))=='eventtime'){
+				$eventTimeOptionId= $option['product_option_id'];
+
+				foreach($option['product_option_value'] as $option_value){
+					$total_option_value[$option_value['product_option_value_id']]=$option_value['name'];
+				}
+			}
+		}
+
+
+		return [$eventDateOptionId,$eventTimeOptionId,$total_option_value];
+
+	}
+	public function getEventReservation($product_id){
+
+		$cart_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "cart  WHERE product_id='".$product_id."' ");
+list($eventDateOptionId,$eventTimeOptionId,$option_value)=$this->getEventDateOptionIdAndTimeId();
+
+		$existReservation=[];
+		foreach ($cart_query->rows as $cart) {
+
+			$options=json_decode($cart['option'],true);
+			$date='';
+			$time='';
+			foreach($options as $optionId=>$option){
+				if( $eventDateOptionId == $optionId){$date=$option;}
+				if( $eventTimeOptionId == $optionId){$time=$option;}
+
+			}
+			$existReservation[$date]['reserved']=false;
+			$existReservation[$date]['times'][]=$time;
+//			if(isset($option->eventDate) && isset($option->eventPeriod)){
+//
+//				$existReservation[$option->eventDate]['period'][]=$option->eventPeriod;
+//			}
+
+
+		}
+
+		foreach($existReservation as $date=>&$times){
+			if(count($times['times']) >= count($option_value)){$times['reserved']=true;}
+		}
+
+
+		return [$existReservation,$option_value];
+
+	}
+public function getProductPeriodList($product_id){
+
+			$product_option_value_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_option_value  WHERE product_id='".$product_id."' ");
+
+		$productPeriodList=[];
+		foreach ($product_option_value_query->rows as $option) {
+
+			$productPeriodList[$option['product_option_id']]=$option['product_option_value_id'];
+
+		}
+
+
+}
+
 	public function index() {
+
+		list($existReservation,$total_option_value)=$this->getEventReservation((int)$this->request->get['product_id']);
+
+
+//foreach($existReservation as $date=>$times){
+//	$times['times'];
+//	$times['reserved'];
+//}
+
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();
@@ -66,10 +150,6 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 		}
-
-
-
-
 
 		$this->load->model('catalog/manufacturer');
 
@@ -228,8 +308,6 @@ class ControllerProductProduct extends Controller {
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
-			$data['url_pro'] = $this->url->link('product/product&product_id=', '', true);
-
 			$data['heading_title'] = $product_info['name'];
 
 			$data['text_select'] = $this->language->get('text_select');
@@ -249,10 +327,6 @@ class ControllerProductProduct extends Controller {
 			$data['text_related'] = $this->language->get('text_related');
 			$data['text_payment_recurring'] = $this->language->get('text_payment_recurring');
 			$data['text_loading'] = $this->language->get('text_loading');
-			$data['text_size'] = $this->language->get('text_size');
-			$data['text_confetti'] = $this->language->get('text_confetti');
-			$data['text_tail'] = $this->language->get('text_tail');
-
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -345,6 +419,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['options'] = array();
 
+
 			foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
 				$product_option_value_data = array();
 
@@ -371,16 +446,6 @@ class ControllerProductProduct extends Controller {
 				$data['options'][] =$option;
 			}
 
-
-//die(var_dump($data['options'] ));
-//			foreach($data['options'] as $option){
-//				if($option['name']=='ballon collor'){
-//					foreach($option['product_option_value'] as $optio_value){
-//						echo $option_value['name'].'_______'. $option_value['product_option_value_id'].'_______'. $option_value['image'];
-//
-//					}
-//				}
-//			}
 
 			if ($product_info['minimum']) {
 				$data['minimum'] = $product_info['minimum'];
@@ -488,36 +553,12 @@ class ControllerProductProduct extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
-            //change product/product from assem to new tpl for custom product/product-assem 10-04-2017
-			//$this->response->setOutput($this->load->view('product/product_1', $data));
-			//added by gholeh 10-04-2017
-			$categories = $this->model_catalog_product->getCategories($product_id);
-			if ($categories)
-			{
-				$categories_info = $this->model_catalog_category->getCategory($categories[0]['category_id']);
-				$category_name = $categories_info['name'];
-			}
-
-			$data['finalProductDetailLink']= $this->url->link('product/product', 'product_id=' . $this->request->get['product_id']);
 
 
-//			var_dump($this->request->post);
-			if(isset( $this->request->post['finalProductDetail'])){
+			$data['existReservation']=$existReservation;
+			$data['eventTimesList']=$total_option_value;
 
-				$data['request']=$this->request->post;
-//				die(var_dump( $data['request']['option']));
-
-			return 	$this->response->setOutput($this->load->view('product/product_2', $data));
-			}
-			if (isset ($category_dd) && $category_dd == 69  && !isset($_GET['preview']) || true ) {
-
-				return $this->response->setOutput($this->load->view('product/custom_product', $data));
-			}else{
-
-				return $this->response->setOutput($this->load->view('product/product_1', $data));
-
-			}
-			//end add by gholeh 10-04-2017
+			return $this->response->setOutput($this->view('product/event', $data,['products']));
 		} else {
 			$url = '';
 

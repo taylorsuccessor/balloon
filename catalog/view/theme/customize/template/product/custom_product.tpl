@@ -6,6 +6,8 @@
     </div><!--banner-->
   </section><!--Banner Section-->
   <section class="content-section"><!--content-section-->
+
+    <form action="<?php echo $finalProductDetailLink;?>" method="post">
     <div class="bredcrumb"><!--bredcrumb-->
       <ul>
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -57,7 +59,8 @@
                     <input type="text" name="quantity" class="confetti-input" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                     <?php $flag = "&preview=1"; ?>
-                    <a href="<?php echo $url_pro.$product_id.$flag ;?>"   class="confetti-view">View</a>
+
+                    <button type="submit" name="finalProductDetail" value="1" class="confetti-view">View</button>
                   </div>
                 </div>
               </div>
@@ -68,9 +71,10 @@
                 <?php if ($options) { ?>
                   <?php foreach ($options as $option) { ?>
                   <?php if ($option['type'] == 'select') { ?>
-                  <?php if($option['option_id'] == 11){ ?>
+                  <?php if(str_replace(' ','',strtolower($option['name'])) == 'size'){ ?>
                    <div class="col-md-4 col-sm-4 col-xs-4">
                       <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+
                         <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>">
                           <option value=""><?php echo $text_size; ?></option>
                           <?php foreach ($option['product_option_value'] as $option_value) { ?>
@@ -85,9 +89,10 @@
                    </div>
 
                   <?php } ?>
-                  <?php if ($option['option_id'] == 14 ) { ?>
+                  <?php if (str_replace(' ','',strtolower($option['name'])) ==  'confetti' ) { ?>
                     <div class="col-md-4 col-sm-4 col-xs-4">
                        <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+
                           <select name="option[<?php echo $option['product_option_id']; ?>]" class="conffetti-type" id="input-option<?php echo $option['product_option_id']; ?>" >
                             <option value=""><?php echo $text_confetti; ?></option>
                             <?php foreach ($option['product_option_value'] as $option_value) { ?>
@@ -101,9 +106,10 @@
                        </div>
                     </div>
                   <?php } ?>
-                  <?php if ($option['option_id'] == 15 ) { ?>
+                  <?php if (str_replace(' ','',strtolower($option['name'])) == 'tail' ) { ?>
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+
                             <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>">
                               <option value=""><?php echo $text_tail; ?></option>
                               <?php foreach ($option['product_option_value'] as $option_value) { ?>
@@ -119,9 +125,10 @@
                   <?php } ?>
                   <?php } //type select ?>
                   <?php if ($option['type'] == 'textarea') { ?>
-                   <?php if($option['option_id'] == 6){ ?>
+                   <?php if(str_replace(' ','',strtolower($option['name'])) == 'textarea'){ ?>
                      <div class="confetti-text">
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+
                            <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5" placeholder="<?php echo $option['name']; ?>" class="col-text" id="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['value']; ?></textarea>
                         </div>
                      </div>
@@ -136,7 +143,14 @@
             <?php echo $content_bottom; ?>
             <?php echo $column_right; ?>
 
-  </section>
+
+
+
+
+
+
+
+  </form></section>
 </div>
 <script type="text/javascript"><!--
   $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){

@@ -42,6 +42,11 @@
 <link href="catalog/view/theme/customize/stylesheet/smk-accordion.css" rel="stylesheet">
 
 <?php } ?>
+
+
+    <link href="catalog/view/theme/customize/stylesheet/responsive-calendar.css" rel="stylesheet">
+
+
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
