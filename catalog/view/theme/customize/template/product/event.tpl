@@ -24,136 +24,73 @@
             <div class="col-md-4">
               <div class="accordion_example2">
                 <!-- div 1 -->
-                <div class="accordion_in">
-                  <div class="acc_head">Entertainment </div>
-                  <div class="acc_content">
-                    <div class="demo-list clear">
-                      <ul>
-                        <li>
-                          <input tabindex="1" type="checkbox" id="input-1" checked>
-                          <label for="input-1">Magic Show</label>
-                        </li>
-                        <li>
-                          <input tabindex="2" type="checkbox" id="input-2" >
-                          <label for="input-2">Bubble Show (Booked)</label>
-                          <ul class="sub-check">
-                            <li>
-                              <input tabindex="2-1" type="checkbox" id="input-2-1">
-                              <label for="input-2-1">Option 1</label>
-                            </li>
-                            <li>
-                              <input tabindex="2-2" type="checkbox" id="input-2-2">
-                              <label for="input-2-2">Option 2</label>
-                            </li>
-                            <li>
-                              <input tabindex="2-3" type="checkbox" id="input-2-3">
-                              <label for="input-2-3">Option 3</label>
-                            </li>
-                          </ul>
 
-                        </li>
-                        <li>
-                          <input tabindex="3" type="checkbox" id="input-3" >
-                          <label for="input-3"> Balloon Twister</label>
-                        </li>
-                        <li>
-                          <input tabindex="4" type="checkbox" id="input-4" >
-                          <label for="input-4">Clown</label>
-                        </li>
-                        <li>
-                          <input tabindex="5" type="checkbox" id="input-5" >
-                          <label for="input-5">Face Painting (Booked)</label>
-                        </li>
-                        <li>
-                          <input tabindex="6" type="checkbox" id="input-6">
-                          <label for="input-6">Henna</label>
-                        </li>
-                        <li>
-                          <input tabindex="7" type="checkbox" id="input-7" >
-                          <label for="input-7">Juggler (Booked)</label>
-                        </li>
-                        <li>
-                          <input tabindex="8" type="checkbox" id="input-8" >
-                          <label for="input-8">Stilt Walker</label>
-                        </li>
-                        <li>
-                          <input tabindex="9" type="checkbox" id="input-9" >
-                          <label for="input-9">Unicycyclist</label>
-                        </li>
-                        <li>
-                          <input tabindex="10" type="checkbox" id="input-10" >
-                          <label for="input-10">Mascot Character</label>
-                        </li>
-                        <li>
-                          <input tabindex="11" type="checkbox" id="input-11" >
-                          <label for="input-11">Puppet Show</label>
-                        </li>
-                        <li>
-                          <input tabindex="12" type="checkbox" id="input-12" >
-                          <label for="input-12">Mickey & Minnie Mouse</label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!-- div 2 -->
+
+
+
+
+
+                      <?php
+
+function drowLeftMenu($menu,$product_id,$first=true){
+
+$html='';
+
+
+$html.=(!$first)? '<ul  class="sub-check">':'';
+
+                      foreach($menu as $oneMenu){
+$html.=($first)? '
                 <div class="accordion_in">
-                  <div class="acc_head">Art & Creativity Station </div>
-                  <div class="acc_content">
-                    <div class="sub_links">
-                      <ul>
-                        <li>Sub</li>
-                      </ul>
-                    </div>
-                  </div>
+                      <div class="acc_head">'.$oneMenu['name'].' </div>
+                      <div class="acc_content">
+                        <div class="demo-list clear">':'<li '.((isset($oneMenu['product_id']) && $oneMenu['product_id'] ==$product_id)? 'class="active"':'').'><label></label><a href="'.$oneMenu['href'].'"><i class="fa fa-circle" style="font-size: 8px;margin: 5px;"></i>'.$oneMenu['name'];
+
+$html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$product_id,false):'';
+
+                            $html.=($first)? '
+                        </div>
+                      </div>
                 </div>
-                <!-- div 2 -->
-                <div class="accordion_in">
-                  <div class="acc_head">Rental </div>
-                  <div class="acc_content">
-                    <div class="sub_links">
-                      <ul>
-                        <li>Sub</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!-- div 2 -->
-                <div class="accordion_in">
-                  <div class="acc_head">SweetCart </div>
-                  <div class="acc_content">
-                    <div class="sub_links">
-                      <ul>
-                        <li>Sub</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!-- div 2 -->
-                <div class="accordion_in">
-                  <div class="acc_head">Party Services </div>
-                  <div class="acc_content">
-                    <div class="sub_links">
-                      <ul>
-                        <li>Sub</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!-- div 2 -->
-                <div class="accordion_in">
-                  <div class="acc_head">Decorations </div>
-                  <div class="acc_content">
-                    <div class="sub_links">
-                      <ul>
-                        <li>Sub</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+
+                                  ':'
+                                  </label></a></li>';
+
+
+                          }
+
+                            $html.=(!$first)? '</ul>':'';
+
+                      return $html;
+                      }
+
+                      ?>
+<?= drowLeftMenu($leftMenu,$product_id);?>
+
+
 
               </div>
             </div>
+              <style type="text/css">
+                  .accordion_example2 li a{
+                      color:#000000;
+                  }
+                  .accordion_example2 li.active i{
+                      color:red;
+                  }
+                  .accordion_example2 li.active a{
+                      color:blue;
+                  }
+
+
+              </style>
+              <script>
+                  function activeMenu(){
+                      
+                  $('.accordion_example2 li.active').closest('.accordion_in').addClass('acc_active');
+                  }
+                activeMenu();
+              </script>
             <div class="col-md-8">
               <!-- Responsive calendar - START -->
               <div class="responsive-calendar">

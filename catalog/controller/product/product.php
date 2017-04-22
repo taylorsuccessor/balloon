@@ -359,7 +359,8 @@ class ControllerProductProduct extends Controller {
 					$view_template_name='product/product_color';
 				}elseif($option_name == 'eventtime'){
 
-					$view_template_name='product/event';
+					return $this->response->redirect($this->url->link('product/event', 'product_id='.$this->request->get['product_id'], true));
+
 				}
 
 				$product_option_value_data = array();

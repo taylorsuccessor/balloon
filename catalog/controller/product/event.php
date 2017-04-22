@@ -2,6 +2,85 @@
 class ControllerProductEvent extends Controller {
 	private $error = array();
 
+	public function events_main() {
+		$this->session->data['serviceType']='events';
+		$this->document->setTitle($this->config->get('config_meta_title'));
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+
+		if (isset($this->request->get['route'])) {
+			$this->document->addLink($this->config->get('config_url'), 'canonical');
+		}
+
+		$data['column_left'] = $this->load->controller('common/column_left');
+		$data['column_right'] = $this->load->controller('common/column_right');
+		$data['content_top'] = $this->load->controller('common/content_top');
+		$data['content_bottom'] = $this->load->controller('common/content_bottom');
+		$data['footer'] = $this->load->controller('common/footer');
+		$data['header'] = $this->load->controller('common/header');
+		$data['indexLink'] = $this->url->link('common/home');
+		$data['partySupplies'] = $this->url->link('common/home/newIndex');
+
+
+
+		$data['categories']=$this->getEventsCategory();
+
+
+		if ($this->customer->isLogged()) {
+			$this->load->model('account/customer');
+
+			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+
+			$data['firstname'] = $customer_info['firstname'];
+			$data['lastname'] = $customer_info['lastname'];
+			$data['email'] = $customer_info['email'];
+			$data['telephone'] = $customer_info['telephone'];
+			$data['location'] = '';
+			$data['category'] = '';
+		} elseif (isset($this->session->data['guest'])) {
+			$data['firstname']=$this->session->data['guest']['firstname'];
+			$data['lastname']=$this->session->data['guest']['lastname'] ;
+			$data['email']=$this->session->data['guest']['email'] ;
+			$data['telephone']=$this->session->data['guest']['telephone'];
+			$data['location']=$this->session->data['guest']['location'];
+			$data['category']=$this->session->data['guest']['category'] ;
+		}else{
+
+			$data['firstname'] = '';
+			$data['lastname'] = '';
+			$data['email'] = '';
+			$data['telephone'] = '';
+			$data['location'] = '';
+			$data['category'] = '';
+		}
+
+
+//		$this->load->model('localisation/country');
+//		$data['countries']=$this->model_localisation_country->getCountries();
+if(isset($this->request->post['bookNow'])){
+
+		$this->session->data['guest']['firstname'] = $this->request->post['firstname'];
+		$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
+		$this->session->data['guest']['email'] = $this->request->post['email'];
+		$this->session->data['guest']['telephone'] = $this->request->post['telephone'];
+		$this->session->data['guest']['location'] = $this->request->post['location'];
+		$this->session->data['guest']['category'] = $this->request->post['category'];
+
+
+	$this->session->data['guest']['customer_group_id']=0;
+$this->session->data['guest']['fax']='';
+	$this->session->data['guest']['custom_field']='';
+
+	return $this->response->redirect($this->url->link('product/event', 'category_id='.$this->request->post['category'], true));
+
+
+}
+
+
+
+
+		$this->response->setOutput($this->load->view('product/events_main', $data));
+	}
 
 	public function getEventDateOptionIdAndTimeId(){
 
@@ -78,6 +157,40 @@ public function getProductPeriodList($product_id){
 }
 
 	public function index() {
+
+
+		$data['leftMenu']=$this->getLeftMenu();
+
+		if(!isset($this->request->get['product_id'])) {
+
+			$category_id=(isset($this->request->get['category_id']))? $this->request->get['category_id']:0;
+
+			function findProductId($categoriesOrProducts,$category_id,$correctCategory=false)
+			{
+				$product_id=0;
+				foreach ($categoriesOrProducts as $oneCategoryOrProduct) {
+
+
+					if(isset($oneCategoryOrProduct['category_id']) && $oneCategoryOrProduct['category_id'] == $category_id){ $correctCategory=true;}
+
+					if(isset($oneCategoryOrProduct['product_id']) && $oneCategoryOrProduct['product_id'] > 0){
+						$product_id=$oneCategoryOrProduct['product_id'];
+						if($correctCategory){
+							return $product_id;
+						}
+					}
+
+					if (isset($oneCategoryOrProduct['children']) && count($oneCategoryOrProduct['children'])) {
+						$child_product_id=findProductId($oneCategoryOrProduct['children'],$category_id,$correctCategory);
+						if($child_product_id > 0) {
+							$product_id=$child_product_id;
+						}
+					}
+				}
+				return $product_id;
+			}
+			$this->request->get['product_id']=findProductId($data['leftMenu'],$category_id);
+		}
 
 		list($existReservation,$total_option_value)=$this->getEventReservation((int)$this->request->get['product_id']);
 
@@ -558,6 +671,7 @@ public function getProductPeriodList($product_id){
 			$data['existReservation']=$existReservation;
 			$data['eventTimesList']=$total_option_value;
 
+			$data['product_id']=$this->request->get['product_id'];
 			return $this->response->setOutput($this->view('product/event', $data,['products']));
 		} else {
 			$url = '';
@@ -777,5 +891,33 @@ public function getProductPeriodList($product_id){
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+	}
+
+	public function getLeftMenu(){
+
+		$this->load->model('catalog/category');
+		$mainCategoriesIds= $this->model_catalog_category->getMainMenuCategory();
+
+		$leftCategories = $this->model_catalog_category->getCategoryChildrenWithProducts([$mainCategoriesIds[0]]);
+		$rightCategories = $this->model_catalog_category->getCategoryChildrenWithProducts([$mainCategoriesIds[1]]);
+
+		return array_merge($leftCategories,$rightCategories);
+
+
+
+	}
+
+	public function getEventsCategory(){
+
+		$this->load->model('catalog/category');
+		$mainCategoriesIds= $this->model_catalog_category->getMainMenuCategory();
+
+		$leftCategories = $this->model_catalog_category->getCategoryChildren([$mainCategoriesIds[0]]);
+		$rightCategories = $this->model_catalog_category->getCategoryChildren([$mainCategoriesIds[1]]);
+
+		return array_merge($leftCategories,$rightCategories);
+
+
+
 	}
 }

@@ -103,26 +103,18 @@ class ControllerCommonHeader extends Controller {
 		// $data['categories'] = array();
 
 		 $categories = $this->model_catalog_category->getCategories(0);
-		$eventsLeftId=-1;
-		$eventsRightId=-1;
-		$productsLeftId=-1;
-		$productsRightId=-1;
 
-		foreach($categories as $category){
-			$category_name=str_replace(' ','',strtolower($category['name']));
-			$eventsLeftId=($category_name == 'eventsleft')? $category['category_id']:$eventsLeftId;
-			$eventsRightId=($category_name == 'eventsright')? $category['category_id']:$eventsRightId;
-			$productsLeftId=($category_name == 'productsleft')? $category['category_id']:$productsLeftId;
-			$productsRightId=($category_name == 'productsright')? $category['category_id']:$productsRightId;
-		}
-		if(true){
-			$data['leftCategories'] = $this->getCategoryChildrenWithProducts([$eventsLeftId]);
-			$data['rightCategories'] = $this->getCategoryChildrenWithProducts([$eventsRightId]);
+
+		list($eventsLeftId,$eventsRightId,$productsLeftId,$productsRightId)=$this->model_catalog_category->getMainMenuCategory();
+
+		if($this->session->data['serviceType'] =='events'){
+			$data['leftCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
+			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsRightId]);
 //		$this->dd($data['rightCategories'] );die();
 		}else{
 
-			$data['leftCategories'] = $this->getCategoryChildren([$productsLeftId]);
-			$data['rightCategories'] = $this->getCategoryChildren([$productsRightId]);
+			$data['leftCategories'] = $this->model_catalog_category->getCategoryChildren([$productsLeftId]);
+			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildren([$productsRightId]);
 		}
 
 
@@ -242,105 +234,6 @@ class ControllerCommonHeader extends Controller {
 //
 //		return $categories;
 //	}
-
-
-	public function getCategoryChildrenWithProducts($parentIdArray){
-		$category_id=$parentIdArray[count($parentIdArray)- 1 ];
-
-
-		$categories = $this->model_catalog_category->getCategories($category_id);
-
-
-		$final_categories = array();
-		foreach ($categories as $category)
-		{
-			$newParentIdArray=$parentIdArray;
-			$newParentIdArray[count($parentIdArray)]=$category['category_id'];
-
-
-
-
-
-
-			$level_data = array(
-				'name' => $category['name'],
-				'href' => $this->url->link('product/category', 'path=' . join('_',$newParentIdArray))
-			);
-
-			$children=$this->getCategoryChildrenWithProducts($newParentIdArray);
-
-
-			if(count($children) ){
-				foreach($children as $child){
-
-					$level_data['children'][] =$child;
-				}
-
-			}
-
-
-
-			$products = $this->model_catalog_product->getProducts(['filter_category_id'=>$category['category_id']]);
-
-
-
-			if(count($products)){
-
-				$productsLinks=[];
-				foreach($products as $product){
-					$productsLinks[] = array(
-						'name' => $product['name'],
-						'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'])
-					);
-				}
-				if(isset($level_data['children'])){
-					$level_data['children']=array_merge($productsLinks,$level_data['children']);
-				}else{
-					$level_data['children']=	$productsLinks;
-
-				}
-			}
-
-
-
-			$final_categories[]=$level_data;
-		}
-
-
-
-
-
-
-		return $final_categories;
-
-	}
-
-	public function getCategoryChildren($parentIdArray){
-
-		$final_categories = array();
-
-		$categories = $this->model_catalog_category->getCategories($parentIdArray[count($parentIdArray)- 1]);
-
-
-		foreach ($categories as $category)
-		{
-			$parentIdArray[]=$category['category_id'];
-			$level_data = array(
-				'name' => $category['name'],
-				'href' => $this->url->link('product/category', 'path=' . join('_',$parentIdArray))
-			);
-
-			$children=$this->getCategoryChildren($parentIdArray);
-
-			if(count($children)){
-				$level_data['children'] =$children;
-			}
-
-			$final_categories[]=$level_data;
-		}
-		return $final_categories;
-
-	}
 
 
 	function dd($array){

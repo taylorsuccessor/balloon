@@ -23,3 +23,8 @@ eventdate
 
 //_____________________request fields
 finalProductDetail
+
+
+//_________________________serviceType
+events
+products
