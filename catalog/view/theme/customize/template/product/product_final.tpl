@@ -508,7 +508,7 @@ echo '
                     }
 
                     // Highlight any found errors
-                    $('.text-danger').parent().addClass('has-error');
+                    $('.wrap_notfiy').parent().addClass('has-error');
                 }
 
                 if (json['success']) {
