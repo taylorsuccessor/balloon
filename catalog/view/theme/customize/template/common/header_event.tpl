@@ -42,11 +42,6 @@
 <link href="catalog/view/theme/customize/stylesheet/smk-accordion.css" rel="stylesheet">
 
 <?php } ?>
-
-
-    <link href="catalog/view/theme/customize/stylesheet/responsive-calendar.css" rel="stylesheet">
-
-
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -64,7 +59,7 @@
 <body class="<?php echo $class; ?>">
 <section><!--Header Section-->
     <header><!--header-->
-<?php if (true) { ?>
+<?php if ($categories) { ?>
 <div class="container"><!--container-->
         <div class="logo"><!--logo-->
         <?php if ($logo) { ?>
@@ -121,45 +116,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-<?php
-function drowMenu($menu,$first=true){
-
-$html=(!$first)? '<ul class="dropdown-menu">':'';
-
-        foreach($menu as $oneMenu){
-        $childrenExist=(isset($oneMenu['children']) && count($oneMenu['children']));
-        if(!array_key_exists('href',$oneMenu)){var_dump($oneMenu);}
-        $html.=' <li '.(($childrenExist && !$first)? '  class="dropdown-submenu" ':'').'>
-
-        <a href="'.$oneMenu['href'].'" '.(($childrenExist)? ' class="dropdown-toggle" data-toggle="dropdown" ':'').'>'.$oneMenu['name'].(($first && $childrenExist)? '<span class="caret"></span>':'').'</a>';
-
-        if($childrenExist){
-        $html.=drowMenu($oneMenu['children'],false);
-        }
-        $html.='</li>';
-        }
-        $html.=(!$first)? '</ul>':'';
-
-        return $html;
-        }
-
-?>
-
-        <ul class="nav navbar-nav navbar-left">
-
-<?php echo drowMenu($leftCategories); ?>
-
-
-
-        </ul>
-        <ul class='nav navbar-nav navbar-right'>
-
-            <?php echo drowMenu($rightCategories); ?>
-            </ul>
-
-        <?php
-   if(false){
-   foreach ($categories as $category_1) { ?>
+  <?php foreach ($categories as $category_1) { ?>
      <?php
      if($category_1['children'][0])
               {
@@ -199,10 +156,7 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
                          <!-- end last li-->
                             </ul>
 
-                    <?php } }}
-
-                    }//if false
-                    ?>
+                    <?php } }}?>
                     </li>
                     </ul>
                     </li>

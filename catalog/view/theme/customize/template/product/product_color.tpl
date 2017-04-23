@@ -30,7 +30,7 @@
 
                                         <?php if ($options) {
                                 foreach($options as $option){
-                                                                   if($option['name']=='balloon color'){
+                                                                   if(str_replace(' ','',strtolower($option['name']))=='ballooncolor'){
                                                                    $i=0;
                                                                                         foreach($option['product_option_value'] as $option_value){
 
@@ -59,7 +59,7 @@ echo '
                                 if ($options) {
                                 foreach($options as $option){
 
-                                                                   if($option['name']=='balloon color'){
+                                                                   if(str_replace(' ','',strtolower($option['name']))=='ballooncolor'){
 
                                                                    $i=0;
                                                                                         foreach($option['product_option_value'] as $option_value){
@@ -99,7 +99,7 @@ echo '
                                     if ($options) {
                                     foreach($options as $option){
 
-                                    if($option['name']=='balloon delivery  date'){
+                                    if(str_replace(' ','',strtolower($option['name']))=='balloondeliverydate'){
 
 
                                     echo '<input type="text" name="option['.$option['product_option_id'].']" value="'.gmdate('d/m/Y').'" data-date-format="YYYY-MM-DD"  id="datepicker"   />';
@@ -117,7 +117,7 @@ echo '
 
                                     <?php if ($options) {
                                 foreach($options as $option){
-                                                                   if($option['name']=='balloon delivery time'){
+                                                                   if(str_replace(' ','',strtolower($option['name']))=='balloondeliverytime'){
                                                                    $i=0;
 
 
@@ -142,7 +142,7 @@ echo '
 
                                 <?php if ($options) {
                                 foreach($options as $option){
-                                                                   if($option['name']=='air'){
+                                                                   if(str_replace(' ','',strtolower($option['name']))=='air'){
                                                                    $i=0;
 
 

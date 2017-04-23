@@ -102,89 +102,21 @@ class ControllerCommonHeader extends Controller {
 
 		// $data['categories'] = array();
 
-		// $categories = $this->model_catalog_category->getCategories(0);
-//sitemap
-		$data['categories'] = array();
-
-		$categories_1 = $this->model_catalog_category->getCategories(0);
- //var_dump($categories_1); die();
-
-		foreach ($categories_1 as $category_1) {
-			$level_2_data = array();
-
-			$categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
-
-			foreach ($categories_2 as $category_2) 
-			{
-				$level_3_data = array();
-
-				$categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
-
-				foreach ($categories_3 as $category_3)
-				{
-					
-	                //start add by me level4
-				    $level_4_data = array();
-	                $categories_4 = $this->model_catalog_category->getCategories($category_3['category_id']);
-
-	                foreach ($categories_4 as $category_4) 
-	                {
-                      //start add by me level5
-				        $level_5_data = array();
-	                    $categories_5 = $this->model_catalog_category->getCategories($category_4['category_id']);
-                        foreach ($categories_5 as $category_5) 
-	                    {
-                        //start add by me level6
-				        $level_6_data = array();
-	                    $categories_6 = $this->model_catalog_category->getCategories($category_5['category_id']);
-                         foreach ($categories_6 as $category_6) 
-	                    {
-                            $level_6_data[] = array(
-							'name' => $category_4['name'],
-							'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'] . '_' . $category_4['category_id'] . '_' . $category_5['category_id'] . '_' . $category_6['category_id'])
-						    );
+		 $categories = $this->model_catalog_category->getCategories(0);
 
 
-                        }
-                        //end add by me level6
+		list($eventsLeftId,$eventsRightId,$productsLeftId,$productsRightId)=$this->model_catalog_category->getMainMenuCategory();
 
-                          $level_5_data[] = array(
-							'name' => $category_4['name'],
-							'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'] . '_' . $category_4['category_id'] . '_' . $category_5['category_id'])
-						    );
+		if($this->session->data['serviceType'] =='events'){
+			$data['leftCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
+			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsRightId]);
+//		$this->dd($data['rightCategories'] );die();
+		}else{
 
-
-
-                        }
-                      //end add by me level5
-
-
-						$level_4_data[] = array(
-							'name' => $category_4['name'],
-							'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'] . '_' . $category_4['category_id'])
-						);
-					}
-	                $level_3_data[] = array(
-						'name'     => $category_3['name'],
-						'children' => $level_4_data,
-						'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'])
-					);
-	                //end add by me level4
-				}
-
-				$level_2_data[] = array(
-					'name'     => $category_2['name'],
-					'children' => $level_3_data,
-					'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'])
-				);
-			}
-
-			$data['categories'][] = array(
-				'name'     => $category_1['name'],
-				'children' => $level_2_data,
-				'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
-			);
+			$data['leftCategories'] = $this->model_catalog_category->getCategoryChildren([$productsLeftId]);
+			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildren([$productsRightId]);
 		}
+
 
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
@@ -211,5 +143,115 @@ class ControllerCommonHeader extends Controller {
 		}
 
 		return $this->load->view('common/header', $data);
+
+
 	}
+
+
+//	public function getMenu(){
+//
+//		$categories = array();
+//
+//		$categories_1 = $this->model_catalog_category->getCategories(0);
+//		//var_dump($categories_1); die();
+//
+//		foreach ($categories_1 as $category_1) {
+//			$level_2_data = array();
+//
+//			$categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
+//
+//			foreach ($categories_2 as $category_2)
+//			{
+//				$level_3_data = array();
+//
+//				$categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
+//
+//				foreach ($categories_3 as $category_3)
+//				{
+//
+//					//start add by me level4
+//					$level_4_data = array();
+//					$categories_4 = $this->model_catalog_category->getCategories($category_3['category_id']);
+//
+//					foreach ($categories_4 as $category_4)
+//					{
+//						//start add by me level5
+//						$level_5_data = array();
+//						$categories_5 = $this->model_catalog_category->getCategories($category_4['category_id']);
+//						foreach ($categories_5 as $category_5)
+//						{
+//							//start add by me level6
+//							$level_6_data = array();
+//							$categories_6 = $this->model_catalog_category->getCategories($category_5['category_id']);
+//							foreach ($categories_6 as $category_6)
+//							{
+//								$level_6_data[] = array(
+//									'name' => $category_4['name'],
+//									'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'] . '_' . $category_4['category_id'] . '_' . $category_5['category_id'] . '_' . $category_6['category_id'])
+//								);
+//
+//
+//							}
+//							//end add by me level6
+//
+//							$level_5_data[] = array(
+//								'name' => $category_4['name'],
+//								'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'] . '_' . $category_4['category_id'] . '_' . $category_5['category_id'])
+//							);
+//
+//
+//
+//						}
+//						//end add by me level5
+//
+//
+//						$level_4_data[] = array(
+//							'name' => $category_4['name'],
+//							'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'] . '_' . $category_4['category_id'])
+//						);
+//					}
+//					$level_3_data[] = array(
+//						'name'     => $category_3['name'],
+//						'children' => $level_4_data,
+//						'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'])
+//					);
+//					//end add by me level4
+//				}
+//
+//				$level_2_data[] = array(
+//					'name'     => $category_2['name'],
+//					'children' => $level_3_data,
+//					'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'])
+//				);
+//			}
+//
+//			$categories[] = array(
+//				'name'     => $category_1['name'],
+//				'children' => $level_2_data,
+//				'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
+//			);
+//		}
+//
+//		return $categories;
+//	}
+
+
+	function dd($array){
+
+		echo '<ol>';
+		foreach($array as $key=>$oneItem){
+
+			if(is_array($oneItem)){
+				echo '<li class="arrayContainer" >'.$key.'<div>';
+				$this->dd($oneItem);
+				echo '</div></li>';
+			}else{
+				echo '<li class="oneItem" >'.$key.'____'.$oneItem.'</li>';
+			}
+
+		}
+		echo '</ol>';
+
+	}
+
 }

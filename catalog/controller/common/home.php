@@ -1,6 +1,18 @@
 <?php
 class ControllerCommonHome extends Controller {
-	public function index() {
+	public  function index(){
+
+$data=[];
+
+		$data['eventsLink'] = $this->url->link('product/event/events_main');
+
+		$data['partySuppliesLink'] = $this->url->link('common/home/index_supply');
+
+		$this->response->setOutput($this->load->view('common/index_intro', $data));
+	}
+
+	public function index_supply() {
+		$this->session->data['serviceType']='products';
 		$this->document->setTitle($this->config->get('config_meta_title'));
 		$this->document->setDescription($this->config->get('config_meta_description'));
 		$this->document->setKeywords($this->config->get('config_meta_keyword'));
@@ -21,12 +33,6 @@ class ControllerCommonHome extends Controller {
 		$this->response->setOutput($this->load->view('common/home', $data));
 	}
 
-	public function newIndex() {
-		$data=[];
-		$data['indexLink'] = $this->url->link('common/home');
-		$data['partySupplies'] = $this->url->link('common/home/newIndex');
 
 
-    
-    }
 }

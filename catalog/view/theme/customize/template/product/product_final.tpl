@@ -1,6 +1,5 @@
 <?php echo $header; ?>
 
-
 <section class="content-section"  id="product"><!--content-section-->
     <div class="container"><!--container-->
         <div class="bredcrumb"><!--bredcrumb-->
@@ -79,10 +78,10 @@
                                     if ($options) {
                                     foreach($options as $option){
 
-                                    if($option['name']=='balloon delivery  date'){
+                                    if(str_replace(' ','',strtolower($option['name']))=='balloondeliverydate'){
 
 
-                                    echo '<input type="text" name="option['.$option['product_option_id'].']" value="'.gmdate('d/m/Y').'" data-date-format="YYYY-MM-DD"  id="datepicker"   />';
+                                    echo '<input type="text" name="option['.$option['product_option_id'].']" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: gmdate('d/m/Y')).'" data-date-format="YYYY-MM-DD"  id="datepicker"   />';
 
 
 
@@ -96,7 +95,7 @@
 
                                     <?php if ($options) {
                                 foreach($options as $option){
-                                                                   if($option['name']=='balloon delivery time'){
+                                                                   if(str_replace(' ','',strtolower($option['name']))=='balloondeliverytime'){
                                                                    $i=0;
 
 
@@ -104,7 +103,7 @@
                                     foreach($option['product_option_value'] as $option_value){
 
                                     echo '
-                                    <option value="'.$option_value['product_option_value_id'].'">'.$option_value['name'].'</option>
+                                    <option value="'.$option_value['product_option_value_id'].'" '.((isset($request['option'][$option['product_option_id']]) && $request['option'][$option['product_option_id']] == $option_value['product_option_value_id'])? 'selected':'').'>'.$option_value['name'].'</option>
                                     ';
                                     }
                                     echo '</select>';
@@ -120,7 +119,7 @@
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
                                     <div class="numb-box">
                                         <label>Qty</label>
-                                        <input class="confetti-input"  type="number" name="quantity" value="<?php echo $minimum; ?>" data-minimum="<?php echo $minimum; ?>" id="input-quantity" >
+                                        <input class="confetti-input"  type="number" name="quantity" value="<?php echo ((isset($request['quantity']))? $request['quantity']:$minimum) ?>" data-minimum="<?php echo $minimum; ?>" id="input-quantity" >
                                         <button id="up"><img src="image/catalog/icons/up.jpg" alt="" /></button>
                                         <button id="down"><img src="image/catalog/icons/down.jpg" alt="" /></button>
                                         <script >
@@ -141,6 +140,58 @@ if(quantity > quantityNode.data('minimum') ){
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
                                     <div class="addtocart">
+
+                                        <?php if ($options) {
+                                foreach($options as $option){
+                                                                   if(str_replace(' ','',strtolower($option['name']))=='air'){
+
+
+
+                                echo '
+
+                                        <input type="hidden"  id="'.$option_value['name'].'" name="option['.$option['product_option_id'].']" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >
+
+                                    ';
+
+
+                                    }
+                                    }
+                                    }//if option
+                                    ?>
+
+                                        <?php
+                                $balloonColorOptionId=0;
+                                $balloonColorValueId=0;
+                                $colorName='';
+
+                                if ($options) {
+                                foreach($options as $option){
+
+                                                                   if(str_replace(' ','',strtolower($option['name'])) == 'ballooncolor'){
+             echo ' <input type="hidden" name="option['.$option['product_option_id'].']" id="balloonColor" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
+                                        }
+
+                                        if(str_replace(' ','',strtolower($option['name'])) == 'size'){
+                                        echo ' <input type="hidden" name="option['.$option['product_option_id'].']"  value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
+                                        }
+
+                                        if(str_replace(' ','',strtolower($option['name'])) ==  'confetti'){
+                                        echo ' <input type="hidden" name="option['.$option['product_option_id'].']"  value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
+                                        }
+
+                                        if(str_replace(' ','',strtolower($option['name'])) == 'tail' ){
+                                        echo ' <input type="hidden" name="option['.$option['product_option_id'].']"  value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
+                                        }
+
+                                        if(str_replace(' ','',strtolower($option['name'])) == 'textarea' ){
+                                        echo ' <input type="hidden" name="option['.$option['product_option_id'].']"  value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
+                                        }
+
+
+
+                                        }
+                                        }//if option
+                                        ?>
 
 
                                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
@@ -290,8 +341,7 @@ echo '
 
                                     if($option['name']=='balloon delivery  date'){
 
-
-                                    echo '<input type="text" name="option['.$option['product_option_id'].']" value="'.gmdate('d/m/Y').'" data-date-format="YYYY-MM-DD"  id="datepicker"   />';
+                                    echo '<input type="text" name="option['.$option['product_option_id'].']" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: gmdate('d/m/Y')).'" data-date-format="YYYY-MM-DD"  id="datepicker"   />';
 
 
 
