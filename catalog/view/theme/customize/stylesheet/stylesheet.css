@@ -75,8 +75,8 @@ div.required .control-label:before {
 .dropdown-menu li > a:hover {
 	text-decoration: none;
 	color: #ffffff;
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+	background-color: #70c398;
+	background-image: linear-gradient(to bottom, #70c398, #70c398);
 	background-repeat: repeat-x;
 }
 /* top */
@@ -2556,7 +2556,7 @@ header .top-nav-left ul li{
 	margin-top:10px;
 	margin-left: 30px;
 }
-.footer-top hr{
+.text_home hr{
 	border-color:#dadada ;
 }
 /*Live Chat*/
