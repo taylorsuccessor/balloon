@@ -69,7 +69,7 @@ if(isset($this->request->post['bookNow'])){
 
 	$this->session->data['guest']['customer_group_id']=0;
 $this->session->data['guest']['fax']='';
-	$this->session->data['guest']['custom_field']='';
+	$this->session->data['guest']['custom_field']=array();
 
 	return $this->response->redirect($this->url->link('product/event', 'category_id='.$this->request->post['category'], true));
 
@@ -672,7 +672,7 @@ public function getProductPeriodList($product_id){
 			$data['eventTimesList']=$total_option_value;
 
 			$data['product_id']=$this->request->get['product_id'];
-			return $this->response->setOutput($this->view('product/event', $data,['products']));
+			return $this->response->setOutput($this->view('product/event', $data,['options']));
 		} else {
 			$url = '';
 
