@@ -77,6 +77,9 @@ class ControllerCommonHeader extends Controller {
 
 
 		$data['home'] = $this->url->link('common/home');
+		$data['home_supply'] = $this->url->link('common/home/index_supply');
+		$data['home_events'] = $this->url->link('product/event/events_main');
+
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
 		$data['logged'] = $this->customer->isLogged();
 		$data['account'] = $this->url->link('account/account', '', true);
@@ -106,16 +109,34 @@ class ControllerCommonHeader extends Controller {
 
 		list($eventsLeftId,$eventsRightId,$productsLeftId,$productsRightId)=$this->model_catalog_category->getMainMenuCategory();
 
+
 		if(isset($this->session->data['serviceType'] ) && $this->session->data['serviceType'] =='events'){
-
-			$data['leftCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
-
-
+			$preLinks=[
+				[   'name'  =>$data['text_home'],
+					'href'  =>$data['home_events'],
+				]
+			];
+			$leftCategoriesList = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
+			$data['leftCategories']=array_merge($preLinks,$leftCategoriesList);
+			
 			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsRightId]);
-//		$this->dd($data['rightCategories'] );die();
 		}else{
+			$preLinksEvent=[
+				[   'name'  =>$data['text_home'],
+					'href'  =>$data['home_supply'],
+				],
+				[   'name'  =>$data['text_about_us'],
+					'href'=>$this->url->link('information/information&information_id=7','id=fff'),
+					'children'=>[
+						['name'=>$data['text_about_balloony'],'href'=>'?route=information/information&information_id=7'],
+						['name'=>$data['text_location_map'],'href'=>'?route=information/information&information_id=8'],
+						['name'=>$data['text_our_staff'],'href'=>'?route=information/information&information_id=9']
+					],
 
-			$data['leftCategories'] = $this->model_catalog_category->getCategoryChildren([$productsLeftId]);
+				]
+			];
+			$leftCategoriesList = $this->model_catalog_category->getCategoryChildren([$productsLeftId]);
+			$data['leftCategories'] = array_merge($preLinksEvent,$leftCategoriesList);
 			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildren([$productsRightId]);
 		}
 
