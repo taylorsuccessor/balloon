@@ -145,16 +145,6 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 ?>
 
         <ul class="nav navbar-nav navbar-left">
-            <li><a href="<?php echo $home; ?>"><?php echo $text_home;?></a></li>
-            <?php //print_r( $_SESSION); ?>
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $text_about_us;?> <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="?route=information/information&information_id=7"><?php echo $text_about_balloony;?></a></li>
-                    <li><a href="?route=information/information&information_id=8"><?php echo $text_location_map;?></a></li>
-                    <li><a href="?route=information/information&information_id=9"><?php echo $text_our_staff;?></a></li>
-                </ul>
-            </li>
           <?php echo drowMenu($leftCategories); ?>
 
         </ul>
