@@ -118,7 +118,7 @@ class ControllerCommonHeader extends Controller {
 			];
 			$leftCategoriesList = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
 			$data['leftCategories']=array_merge($preLinks,$leftCategoriesList);
-			
+
 			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsRightId]);
 		}else{
 			$preLinksEvent=[
