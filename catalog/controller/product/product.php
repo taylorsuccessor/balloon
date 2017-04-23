@@ -515,7 +515,7 @@ class ControllerProductProduct extends Controller {
 				$data['request']=$this->request->post;
 //				die(var_dump( $data['request']['option']));
 
-			return 	$this->response->setOutput($this->load->view('product/product_2', $data));
+			return 	$this->response->setOutput($this->load->view('product/product_final', $data));
 			}
 
 
