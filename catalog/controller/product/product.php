@@ -522,6 +522,20 @@ class ControllerProductProduct extends Controller {
 				return $this->response->setOutput($this->load->view($view_template_name, $data));
 
 			//end add by gholeh 10-04-2017
+            
+            foreach($categories as $cat)
+			{
+				$category_latex = $cat['category_id'];
+			}
+			if (isset ($category_latex) && $category_latex == 65  && !isset($_GET['preview']) ) {
+				$this->response->setOutput($this->load->view('product/product_1', $data));
+			}else{
+				$this->response->setOutput($this->load->view('product/product', $data));
+			}
+			//end add by gholeh 10-04-2017
+            
+            
+            
 		} else {
 			$url = '';
 

@@ -18,7 +18,7 @@ $_['text_about_us']      = 'About Us';
 $_['text_about_balloony']= 'About Balloony';
 $_['text_location_map']  = 'Location Map';
 $_['text_our_staff']     = 'Our Staff';
-$_['text_contact_us']     = 'Contact Us';
+$_['text_contact_us']    = 'Contact Us';
 
 
 

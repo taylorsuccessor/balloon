@@ -20,6 +20,30 @@ class ControllerCommonFooter extends Controller {
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
 
+
+		//added by assem al jimzawi
+
+		$data['join_mailing_list'] = $this->language->get('join_mailing_list');
+		$data['paragraph_mailing_list'] = $this->language->get('paragraph_mailing_list');
+		$data['h4_newsletter'] = $this->language->get('h4_newsletter');
+		$data['place_holder_newsletter'] = $this->language->get('place_holder_newsletter');
+		$data['submit_button'] = $this->language->get('submit_button');
+		$data['get_app'] = $this->language->get('get_app');
+		$data['native_platform'] = $this->language->get('native_platform');
+		$data['copy_right'] = $this->language->get('copy_right');
+		$data['powered_by'] = $this->language->get('powered_by');
+
+
+
+
+
+
+
+
+
+
+		//
+
 		$this->load->model('catalog/information');
 
 		$data['informations'] = array();
