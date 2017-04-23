@@ -108,7 +108,10 @@ class ControllerCommonHeader extends Controller {
 		list($eventsLeftId,$eventsRightId,$productsLeftId,$productsRightId)=$this->model_catalog_category->getMainMenuCategory();
 
 		if($this->session->data['serviceType'] =='events'){
+
 			$data['leftCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
+
+
 			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsRightId]);
 //		$this->dd($data['rightCategories'] );die();
 		}else{

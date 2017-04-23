@@ -86,7 +86,7 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
               </style>
               <script>
                   function activeMenu(){
-                      
+
                   $('.accordion_example2 li.active').closest('.accordion_in').addClass('acc_active');
                   }
                 activeMenu();
