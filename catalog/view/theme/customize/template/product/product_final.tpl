@@ -1,22 +1,23 @@
 <?php echo $header; ?>
-
-<section class="content-section"  id="product"><!--content-section-->
+<div class="container">
+    <section class="banner-section"><!--Banner Section-->
+        <div class="inner-banner"><!--banner-->
+            <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+        </div><!--banner-->
+    </section><!--Banner Section-->
+   <section class="content-section"  id="product"><!--content-section-->
     <div class="container"><!--container-->
         <div class="bredcrumb"><!--bredcrumb-->
             <ul>
-                <li>Home</li>
-                <li>/</li>
-                <li>Ballons</li>
-                <li>/</li>
-                <li>Birthday</li>
-                <li>/</li>
-                <li>Confetti Balloons</li>
-                <li>/</li>
-                <li class="active">Jumbo Confetti Balloon Unicorn</li>
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                <?php  } ?>
             </ul>
         </div> <!--bredcrumb-->
         <div class="product-details-page"><!--balloons-->
             <h2><?php echo $heading_title; ?></h2>
+            <div class="wrap_notfiy">
+            </div>
             <div class="row">
                 <div class="product-details">
                     <div class="col-lg-6 col-md-6">
@@ -507,11 +508,11 @@ echo '
                     }
 
                     // Highlight any found errors
-                    $('.text-danger').parent().addClass('has-error');
+                    $('.wrap_notfiy').parent().addClass('has-error');
                 }
 
                 if (json['success']) {
-                    $('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                    $('.wrap_notfiy').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
                     $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 

@@ -147,19 +147,7 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 
         <ul class="nav navbar-nav navbar-left">
 
-
-
-
-            <li><a href="<?php echo $home; ?>"><?php echo $text_home;?></a></li>
-            <?php //print_r( $_SESSION); ?>
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $text_about_us;?> <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="?route=information/information&information_id=7"><?php echo $text_about_balloony;?></a></li>
-                    <li><a href="?route=information/information&information_id=8"><?php echo $text_location_map;?></a></li>
-                    <li><a href="?route=information/information&information_id=9"><?php echo $text_our_staff;?></a></li>
-                </ul>
-            </li>
+           
           <?php echo drowMenu($leftCategories); ?>
 
         </ul>
@@ -331,51 +319,51 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 			</div>
    
             <!-- div 3 -->
-           
-           <?php foreach ($categories as $category_1) 
+
+           <?php foreach ($categories as $category_1)
            { ?>
            <?php
              if($category_1['children'])
                 { ?>
-                 <?php foreach ($category_1['children'] as $category_2) 
+                 <?php foreach ($category_1['children'] as $category_2)
                    { ?>
 			  <div class="accordion_in">
 					<div class="acc_head">
 					 <?php echo $category_2['name'];?></div>
-				     <?php if($category_2['children']) 
+				     <?php if($category_2['children'])
 				      { ?>
-				    
+
 						<div class="acc_content">
 							<div class="accordion_example9">
-							<?php foreach ($category_2['children'] as $category_3) 
+							<?php foreach ($category_2['children'] as $category_3)
 								    { ?>
 								<div class="accordion_in">
-									
+
 										<div class="acc_head">
-											
+
 											<?php echo $category_3['name']; ?>
-										 		
+
 										</div>
 									<?php  if ($category_3['children'])
 												   { ?>
-												    
+
 														<div class="acc_content">
 															<div class="sub_links second-sub">
 																<ul>
-												            <?php foreach ($category_3['children'] as $category_4) 
+												            <?php foreach ($category_3['children'] as $category_4)
 																	{  ?>
 																		<li>
 																		<a href="<?php echo $category_4['href']; ?>">
 																		<?php echo $category_4['name']; ?>
 																		</a>
 																		</li>
-															 <?php } ?>	
+															 <?php } ?>
 																</ul>
-						                  </div> 
+						                  </div>
 													  </div>
-													   
-						                      <?php }//end if category 3 ?>	
-						                      
+
+						                      <?php }//end if category 3 ?>
+
 								</div><?php }//foreach category_2 child?>
 						  </div>
 				    </div>

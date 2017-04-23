@@ -1,4 +1,62 @@
 <?php echo $header; ?>
+
+
+<div class="container">
+  <div class="row">
+    <div id="content"  >
+      <?php echo $content_top; ?>
+
+<div class="balloons"><!--balloons-->
+  <h2>Confetti Balloons</h2>
+  <div class="row">
+
+
+    <?php if($products){ foreach ($products as $product) { ?>
+
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 product-box">
+      <img  src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+      <h4><?php echo $product['name']; ?> </h4>
+      <h5>
+        <?php if (!$product['special']) { ?>
+        <?php echo $product['price']; ?>
+        <?php } else { ?>
+        <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old" style="text-decoration: line-through;"><?php echo $product['price']; ?></span>
+        <?php } ?>
+
+      </h5>
+      <a href="#" onclick="productQuantity=$(this).parent().find('.productQuantity');cart.add('<?php echo $product['product_id']; ?>', productQuantity);"class="addcart">Add to Cart</a>
+      <input type="text" class="productQuantity" placeholder="1">
+      <a href="<?php echo $product['href']; ?>" class="view">View</a>
+    </div>
+
+<?php }//foreach products
+}//if products
+else{
+?>
+There is no products in this category
+    <?php }//end else if product ?>
+
+
+
+
+    <div class="row">
+      <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
+      <div class="col-sm-6 text-right"><?php echo $results; ?></div>
+    </div>
+
+
+  </div>
+</div><!--balloons-->
+
+
+
+      <?php echo $content_bottom; ?></div>
+    <?php echo $column_right; ?></div>
+</div>
+
+
+
+<?php if(false){ ?>
 <div class="container">
   <section class="banner-section"><!--Banner Section-->
     <div class="inner-banner"><!--banner-->
@@ -160,4 +218,5 @@
     <?php echo $column_right; ?></div>
     </section>
 </div>
+<?php }// if false ?>
 <?php echo $footer; ?>

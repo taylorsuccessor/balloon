@@ -45,18 +45,6 @@ abstract class Controller {
 			//header('HTTP/1.1 401 Unauthorized', true, 401);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 		}else{
 
 			return	$this->load->view($route, $data);

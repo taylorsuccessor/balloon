@@ -46,13 +46,14 @@
               </div><!-- .side_navigation --> 
               <div class="col-md-9 col-sm-9 col-xs-12 content_area"> 
                     <div class="table-responsive">          
-                      <table class="table">
+                      <table class="table" id="table_address_list">
                         <thead>
                           <tr>
                             <th><?php echo $text_address_list;?></th>
                             <th><a href="<?php echo $add; ?>" id="addnewaddress"><?php echo $button_new_address; ?></a></th>
                           </tr>
                         </thead>
+                        <tbody>
                       <?php if ($addresses) { ?>
                           <?php foreach ($addresses as $result) { ?>
                           <tr>
