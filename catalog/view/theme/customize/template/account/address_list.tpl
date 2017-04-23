@@ -44,7 +44,7 @@
               </div><!-- .side_navigation --> 
               <div class="col-md-9 col-sm-9 col-xs-12 content_area"> 
                     <div class="table-responsive">          
-                      <table class="table">
+                      <table class="table" id="table_address_list">
                         <thead>
                           <tr>
                             <th><?php echo $text_address_list;?></th>
