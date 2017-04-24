@@ -33,6 +33,31 @@ $_['text_year']                = 'year';
 $_['text_size']                = 'Size';
 $_['text_confetti']            = 'Confetti';
 $_['text_tail']                = 'Tail';
+$_['text_price']               = 'Price :';
+$_['text_share_product']       = 'Share this product :';
+$_['availabilty']              = 'Availability :';
+$_['text_delivery_date']       = 'Pick a delivery date:';
+$_['text_delivery_time']       = 'Pick a delivery time:';
+$_['text_option_time']         = 'Please select delivery time';
+$_['Qty']                      = 'Qty';
+$_['text_add_favourite']       = 'Add To Favourites';
+$_['text_description']         = 'Description';
+$_['text_regular_latest']      = 'Regular Latest Balloons';
+$_['text_Rollover_swatches']   = 'Rollover swatches to view colors.';
+$_['text_view']                = 'View';
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Entry
 $_['entry_qty']                = 'Qty';

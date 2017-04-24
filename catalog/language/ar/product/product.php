@@ -24,7 +24,7 @@ $_['text_success']                            = 'شكرا لك على إضافة
 $_['text_related']                            = 'منتجات ذات صلة';
 $_['text_tags']                               = 'الكلمات الدليليلة :';
 $_['text_error']                              = 'لم يتم العثور على المنتج!';
-$_['text_payment_recurring']                  = 'Payment Profile';
+$_['text_payment_recurring']                  = 'دفعات متكررة';
 $_['text_trial_description']                  = '%s every %d %s(s) for %d payment(s) then';
 $_['text_payment_description']                = '%s every %d %s(s) for %d payment(s)';
 $_['text_payment_cancel'] = '%s every %d %s(s) until canceled';
@@ -36,6 +36,28 @@ $_['text_year']                               = 'سنوي';
 $_['text_size']                               = 'المقاس';
 $_['text_confetti']                           = 'قصاصات ورق';
 $_['text_tail']                               = 'الذيل';
+$_['text_price']                               = 'السعر :';
+$_['text_share_product']                     = 'مشاركة هذا المنج :';
+$_['availabilty']                               = 'الأتاحية :';
+$_['text_delivery_date']       = 'اختيار تاريخ الوصول :';
+$_['text_delivery_time']       = 'اختيار وقت الوصول :';
+$_['text_option_time']         = 'الرجاء تحديد وقت الوصول';
+$_['Qty']                               = 'الكمية';
+$_['text_add_favourite']                      = 'اضافة الى  المفضلة';
+$_['text_description']                      = 'الوصف';
+$_['text_regular_latest']                      = 'البالونات العادية المضافة اخيرا ';
+$_['text_Rollover_swatches']                      = 'تمرير المؤشر لعرض الألوان.';
+$_['text_view']                      = 'تفاصيل المنتج';
+
+
+
+
+
+
+
+
+
+
 
 
 // Entry

@@ -77,10 +77,10 @@ $this->session->data['guest']['fax']='';
 }
 
 
-
-
 		$this->response->setOutput($this->load->view('product/events_main', $data));
 	}
+
+
 
 	public function getEventDateOptionIdAndTimeId(){
 
