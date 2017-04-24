@@ -1,15 +1,26 @@
 <?php echo $header; ?>
-
-
 <div class="container">
-  <div class="row">
-    <div id="content"  >
+  <section class="banner-section"><!--Banner Section-->
+    <div class="inner-banner"><!--banner-->
+      <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+    </div><!--banner-->
+  </section><!--Banner Section-->
+
+  <section class="content-section"><!--content-section-->
+
+    <div class="bredcrumb"><!--bredcrumb-->
+
+      <ul>
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php  } ?>
+      </ul>
+
+    </div> <!--bredcrumb-->
+
       <?php echo $content_top; ?>
-
-<div class="balloons"><!--balloons-->
-  <h2>Confetti Balloons</h2>
+  <div class="balloons"><!--balloons-->
   <div class="row">
-
 
     <?php if($products){ foreach ($products as $product) { ?>
 

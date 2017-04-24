@@ -1,7 +1,13 @@
 <?php echo $header; ?>
+<div class="container">
+
+<section class="banner-section"><!--Banner Section-->
+    <div class="inner-banner"><!--banner-->
+        <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+    </div><!--banner-->
+</section><!--Banner Section-->
 
 
-<section class="content-section" id="product"><!--content-section-->
     <form action="<?php echo $finalProductDetailLink;?>" method="post">
 
 
@@ -13,6 +19,22 @@
                 <?php  } ?>
             </ul>
         </div> <!--bredcrumb-->
+
+<section class="content-section"><!--content-section-->
+
+    <div class="bredcrumb"><!--bredcrumb-->
+
+        <ul>
+            <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+            <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+            <?php  } ?>
+        </ul>
+
+    </div> <!--bredcrumb-->
+
+<section class="content-section" id="product"><!--content-section-->
+    <form action="<?php echo $finalProductDetailLink;?>" method="post">
+
         <div class="product-details-page"><!--balloons-->
             <h2><?php echo $text_regular_latest; ?></h2>
             <div class="confetti-con view-colors-con">

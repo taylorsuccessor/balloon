@@ -1880,7 +1880,7 @@ header .top-nav-left ul li:first-child
 }
 .confetti img{
 	width:100%;
-	border:#dadada solid 1px;
+	/*border:#dadada solid 1px;*/
 }
 .confetti h4{
 	font-size:18px;
@@ -1935,6 +1935,7 @@ header .top-nav-left ul li:first-child
 	text-align:center;
 	line-height:34px;
 	text-decoration:none;
+	border:none;
 }
 .confetti-select{
 	margin-top:30px;
@@ -2096,7 +2097,7 @@ header .top-nav-left ul li:first-child
 .events-booking select{
 	width:100%;
 	height:40px;
-	background:#fff url(../image/icons/select-arrow.jpg) left center no-repeat;
+	background:#fff url(../image/select_drop_right.png) left center no-repeat;
 	border:#bebebe solid 1px;
 	margin:5px 0px;
 	padding-right:18px;
@@ -2245,19 +2246,20 @@ header .top-nav-left ul li:first-child
 .calender-status .red div{
 	width:25px;
 	height:25px;
-	background:#e20020;
+	background:#c90d7e;
 	float:right;
 	margin-left:10px;
 }
 .calender-status .blue div{
 	width:25px;
 	height:25px;
-	background:#005aa8;
+	background:#fff;
 	float:right;
 	margin-left:10px;
+	border: #ebebeb solid 1px;
 }
 .calender-status .blue{
-	color:#005aa8;
+	color:#000;
 }
 .selected-items-wrapper{
 	margin-top:20px;
@@ -3149,6 +3151,14 @@ header .top-nav-left ul li:first-child
 	padding: 18px 0px;
 	text-align:center;
 
+}
+#table_address_list .text-left
+{
+	text-align:left;
+}
+#table_address_list .text-right
+{
+	text-align:right;
 }
 #addnewaddress
 {
