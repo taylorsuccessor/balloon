@@ -126,7 +126,7 @@
 .calendar-con .smk_accordion .accordion_in .acc_head{
 	padding: 15px 0 15px 20px;
 	border-bottom:none;
-	background:#000;
+	background:#70c398;
 	border-radius:0px;
 	color:#fff;
 }
@@ -146,9 +146,11 @@
 .calendar-con .smk_accordion .accordion_in.acc_active > .acc_head .acc_icon_expand{
 	background: url(../image/icons/white-plusminus.png) 0 -35px;
 }
-	
+.calendar-con .smk_accordion .accordion_in .acc_head:hover {
+  background: #9cd6ca;
+}
 .calendar-con .acc_active .acc_head{
-	background:#e20020 !important;
+  background:#9cd6ca !important;
 }
 .calendar-con .smk_accordion .accordion_in .acc_content{
 	padding:20px;
