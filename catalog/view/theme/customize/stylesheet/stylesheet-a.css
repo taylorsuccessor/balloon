@@ -1645,7 +1645,7 @@ header .top-nav-left ul li:first-child
 	height:34px;
 	text-align:center;
 	line-height:34px;
-	background:#008b16;
+	background:#70c398;
 	color:#fff;
 	font-size:18px;
 	display:block;
@@ -1675,10 +1675,11 @@ header .top-nav-left ul li:first-child
 .product-details-content .share > ul {
 	float: right;
 	margin-right: 20px;
-	margin-top: 6px;
+	margin-top: 14px;
 }
 .product-details-content .share ul li{
 	display:inline-block;
+	padding-right:10px;
 }
 .product-details-content .stock{
 	float:right;
@@ -1751,7 +1752,7 @@ header .top-nav-left ul li:first-child
 .addtocart a{
 	width:100%;
 	height:48px;
-	background:#008b16;
+	background:#70c398;
 	text-align:center;
 	color:#fff;
 	font-size:18px;
@@ -1762,7 +1763,7 @@ header .top-nav-left ul li:first-child
 .addfav a{
 	width:100%;
 	height:48px;
-	background:#008b16;
+	background:#70c398;
 	text-align:center;
 	color:#fff;
 	font-size:18px;
