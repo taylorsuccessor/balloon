@@ -13,13 +13,13 @@
           <div class="container"><!--container-->
 
             <div class="events-booking">
-              <h2>Events <span>Booking</span></h2>
+              <h2> <?php echo $text_events_book; ?></h2>
               <div class="col-md-4">
 
-                <input type="text" name="firstname" value="<?=$firstname;?>" placeholder="Frist Name">
-                <input type="text" name="lastname" value="<?=$lastname;?>" placeholder="Last Name">
+                <input type="text" name="firstname" value="<?=$firstname;?>" placeholder="<?php echo $placeholder_first_name; ?>">
+                <input type="text" name="lastname" value="<?=$lastname;?>" placeholder="<?php echo $placeholder_last_name; ?>">
                 <div class="cards">
-                  <h5>Accepted Payments  - </h5>
+                  <h5><?php echo $text_accepted_payments; ?> </h5>
                   <a href="#"><img src="image/catalog/knet.jpg"/></a>
                   <a href="#"><img src="image/catalog/visa.jpg"/></a>
                   <a href="#"><img src="image/catalog/master.jpg"/></a>
@@ -28,12 +28,12 @@
               </div>
 
               <div class="col-md-4">
-                <input type="text"  name="email" value="<?=$email;?>" placeholder="Email">
-                <input type="text" name="telephone" value="<?=$telephone;?>" placeholder="Mobile">
+                <input type="text"  name="email" value="<?=$email;?>" placeholder="<?php echo $placeholder_email; ?>">
+                <input type="text" name="telephone" value="<?=$telephone;?>" placeholder="<?php echo $placeholder_mobile; ?>">
               </div>
               <div class="col-md-4" >
-                <select  name="location">
-                  <option>Location</option>
+                <select name="location">
+                  <option value="disabled selected" ><?php echo $placeholder_location; ?></option>
                   <option>Location 1</option>
                   <option>Location 2</option>
                   <option>Location 3</option>
@@ -54,7 +54,7 @@
                   drowCategoryWithChildren($categories);
                   ?>
                 </select>
-                <button type="submit" name="bookNow">Book Now</button>
+                <button type="submit" name="bookNow"><?php echo $placeholder_book_now; ?></button>
               </div>
             </div>
           </div><!--container-->

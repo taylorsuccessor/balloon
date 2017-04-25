@@ -8,6 +8,10 @@ class ControllerProductEvent extends Controller {
 		$this->document->setDescription($this->config->get('config_meta_description'));
 		$this->document->setKeywords($this->config->get('config_meta_keyword'));
 
+		$this->load->language('product/event_main');
+
+
+
 		if (isset($this->request->get['route'])) {
 			$this->document->addLink($this->config->get('config_url'), 'canonical');
 		}
@@ -21,6 +25,23 @@ class ControllerProductEvent extends Controller {
 		$data['indexLink'] = $this->url->link('common/home');
 		$data['partySupplies'] = $this->url->link('common/home/newIndex');
 
+		// added by assem
+
+		$data['text_events_book'] = $this->language->get('text_events_book');
+		$data['text_accepted_payments'] = $this->language->get('text_accepted_payments');
+		$data['placeholder_first_name'] = $this->language->get('placeholder_first_name');
+		$data['placeholder_last_name'] = $this->language->get('placeholder_last_name');
+
+		$data['placeholder_email'] = $this->language->get('placeholder_email');
+		$data['placeholder_location'] = $this->language->get('placeholder_location');
+		$data['placeholder_mobile'] = $this->language->get('placeholder_mobile');
+		$data['placeholder_entertainment'] = $this->language->get('placeholder_entertainment');
+		$data['placeholder_book_now'] = $this->language->get('placeholder_book_now');
+
+
+
+
+		//
 
 
 		$data['categories']=$this->getEventsCategory();
@@ -57,7 +78,8 @@ class ControllerProductEvent extends Controller {
 
 //		$this->load->model('localisation/country');
 //		$data['countries']=$this->model_localisation_country->getCountries();
-if(isset($this->request->post['bookNow'])){
+
+		if(isset($this->request->post['bookNow'])){
 
 		$this->session->data['guest']['firstname'] = $this->request->post['firstname'];
 		$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
@@ -68,7 +90,7 @@ if(isset($this->request->post['bookNow'])){
 
 
 	$this->session->data['guest']['customer_group_id']=0;
-$this->session->data['guest']['fax']='';
+    $this->session->data['guest']['fax']='';
 	$this->session->data['guest']['custom_field']=array();
 
 	return $this->response->redirect($this->url->link('product/event', 'category_id='.$this->request->post['category'], true));
@@ -111,7 +133,7 @@ $this->session->data['guest']['fax']='';
 	public function getEventReservation($product_id){
 
 		$cart_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "cart  WHERE product_id='".$product_id."' ");
-list($eventDateOptionId,$eventTimeOptionId,$option_value)=$this->getEventDateOptionIdAndTimeId();
+		list($eventDateOptionId,$eventTimeOptionId,$option_value)=$this->getEventDateOptionIdAndTimeId();
 
 		$existReservation=[];
 		foreach ($cart_query->rows as $cart) {
