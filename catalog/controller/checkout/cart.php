@@ -293,6 +293,14 @@ class ControllerCheckoutCart extends Controller {
 	}
 
 	public function add() {
+
+
+		$this->load->model('catalog/custom_field');
+		$this->request->post=$this->model_catalog_custom_field->fixRequest($this->request->post);
+
+
+
+
 		$this->load->language('checkout/cart');
 		$json = array();
 

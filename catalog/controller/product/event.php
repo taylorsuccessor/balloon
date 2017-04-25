@@ -1,65 +1,94 @@
 <?php
+class ControllerProductEvent extends Controller {
+	private $error = array();
 
-class ControllerProductEvent extends Controller
-{
-    private $error = array();
+	public function events_main() {
+		$this->session->data['serviceType']='events';
+		$this->document->setTitle($this->config->get('config_meta_title'));
+		$this->document->setDescription($this->config->get('config_meta_description'));
+		$this->document->setKeywords($this->config->get('config_meta_keyword'));
 
-    public function events_main()
-    {
-        $this->session->data['serviceType'] = 'events';
-        $this->document->setTitle($this->config->get('config_meta_title'));
-        $this->document->setDescription($this->config->get('config_meta_description'));
-        $this->document->setKeywords($this->config->get('config_meta_keyword'));
-
-        if (isset($this->request->get['route'])) {
-            $this->document->addLink($this->config->get('config_url'), 'canonical');
-        }
-
-        $data['column_left'] = $this->load->controller('common/column_left');
-        $data['column_right'] = $this->load->controller('common/column_right');
-        $data['content_top'] = $this->load->controller('common/content_top');
-        $data['content_bottom'] = $this->load->controller('common/content_bottom');
-        $data['footer'] = $this->load->controller('common/footer');
-        $data['header'] = $this->load->controller('common/header');
-        $data['indexLink'] = $this->url->link('common/home');
-        $data['partySupplies'] = $this->url->link('common/home/newIndex');
+		$this->load->language('product/event_main');
 
 
-        $data['categories'] = $this->getEventsCategory();
+
+		if (isset($this->request->get['route'])) {
+			$this->document->addLink($this->config->get('config_url'), 'canonical');
+		}
+
+		$data['column_left'] = $this->load->controller('common/column_left');
+		$data['column_right'] = $this->load->controller('common/column_right');
+		$data['content_top'] = $this->load->controller('common/content_top');
+		$data['content_bottom'] = $this->load->controller('common/content_bottom');
+		$data['footer'] = $this->load->controller('common/footer');
+		$data['header'] = $this->load->controller('common/header');
+		$data['indexLink'] = $this->url->link('common/home');
+		$data['partySupplies'] = $this->url->link('common/home/newIndex');
+
+		// added by assem
+
+		$data['text_events_book'] = $this->language->get('text_events_book');
+		$data['text_accepted_payments'] = $this->language->get('text_accepted_payments');
+		$data['placeholder_first_name'] = $this->language->get('placeholder_first_name');
+		$data['placeholder_last_name'] = $this->language->get('placeholder_last_name');
+
+		$data['placeholder_email'] = $this->language->get('placeholder_email');
+		$data['placeholder_location'] = $this->language->get('placeholder_location');
+		$data['placeholder_mobile'] = $this->language->get('placeholder_mobile');
+		$data['placeholder_entertainment'] = $this->language->get('placeholder_entertainment');
+		$data['placeholder_book_now'] = $this->language->get('placeholder_book_now');
 
 
-        if ($this->customer->isLogged()) {
-            $this->load->model('account/customer');
 
-            $customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 
-            $data['firstname'] = $customer_info['firstname'];
-            $data['lastname'] = $customer_info['lastname'];
-            $data['email'] = $customer_info['email'];
-            $data['telephone'] = $customer_info['telephone'];
-            $data['location'] = '';
-            $data['category'] = '';
-        } elseif (isset($this->session->data['guest'])) {
-            $data['firstname'] = $this->session->data['guest']['firstname'];
-            $data['lastname'] = $this->session->data['guest']['lastname'];
-            $data['email'] = $this->session->data['guest']['email'];
-            $data['telephone'] = $this->session->data['guest']['telephone'];
-            $data['location'] = $this->session->data['guest']['location'];
-            $data['category'] = $this->session->data['guest']['category'];
-        } else {
+		//
 
-            $data['firstname'] = '';
-            $data['lastname'] = '';
-            $data['email'] = '';
-            $data['telephone'] = '';
-            $data['location'] = '';
-            $data['category'] = '';
-        }
+
+		$data['categories']=$this->getEventsCategory();
+
+
+		if ($this->customer->isLogged()) {
+			$this->load->model('account/customer');
+
+			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+
+			$data['firstname'] = $customer_info['firstname'];
+			$data['lastname'] = $customer_info['lastname'];
+			$data['email'] = $customer_info['email'];
+			$data['telephone'] = $customer_info['telephone'];
+			$data['location'] = '';
+			$data['category'] = '';
+		} elseif (isset($this->session->data['guest'])) {
+			$data['firstname']=$this->session->data['guest']['firstname'];
+			$data['lastname']=$this->session->data['guest']['lastname'] ;
+			$data['email']=$this->session->data['guest']['email'] ;
+			$data['telephone']=$this->session->data['guest']['telephone'];
+			$data['location']=$this->session->data['guest']['location'];
+			$data['category']=$this->session->data['guest']['category'] ;
+		}else{
+
+			$data['firstname'] = '';
+			$data['lastname'] = '';
+			$data['email'] = '';
+			$data['telephone'] = '';
+			$data['location'] = '';
+			$data['category'] = '';
+		}
 
 
 //		$this->load->model('localisation/country');
 //		$data['countries']=$this->model_localisation_country->getCountries();
-        if (isset($this->request->post['bookNow'])) {
+
+
+
+		if(isset($this->request->post['bookNow'])){
+
+		$this->session->data['guest']['firstname'] = $this->request->post['firstname'];
+		$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
+		$this->session->data['guest']['email'] = $this->request->post['email'];
+		$this->session->data['guest']['telephone'] = $this->request->post['telephone'];
+		$this->session->data['guest']['location'] = $this->request->post['location'];
+		$this->session->data['guest']['category'] = $this->request->post['category'];
 
             $this->session->data['guest']['firstname'] = $this->request->post['firstname'];
             $this->session->data['guest']['lastname'] = $this->request->post['lastname'];
@@ -67,6 +96,7 @@ class ControllerProductEvent extends Controller
             $this->session->data['guest']['telephone'] = $this->request->post['telephone'];
             $this->session->data['guest']['location'] = $this->request->post['location'];
             $this->session->data['guest']['category'] = $this->request->post['category'];
+
 
 
             $this->session->data['guest']['customer_group_id'] = 0;
@@ -111,10 +141,11 @@ class ControllerProductEvent extends Controller
 
     }
 
+
     public function getEventReservation($product_id)
     {
-        $cart_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "cart  WHERE product_id='" . $product_id . "' ");
-        list($eventDateOptionId, $eventTimeOptionId, $option_value) = $this->getEventDateOptionIdAndTimeId();
+		$cart_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "cart  WHERE product_id='".$product_id."' ");
+		list($eventDateOptionId,$eventTimeOptionId,$option_value)=$this->getEventDateOptionIdAndTimeId();
 
         $existReservation = [];
         foreach ($cart_query->rows as $cart) {
@@ -683,12 +714,23 @@ class ControllerProductEvent extends Controller
             $data['header'] = $this->load->controller('common/header');
 
 
+			$data['product_id']=$this->request->get['product_id'];
+
+
+			$this->load->model('catalog/custom_field');
+			$data=$this->model_catalog_custom_field->addOptionsValues($data);
+
+
+			return $this->response->setOutput($this->view('product/event', $data,['options','air_values']));
+		} else {
+			$url = '';
+
             $data['existReservation'] = $existReservation;
             $data['eventTimesList'] = $total_option_value;
 
             $data['product_id'] = $this->request->get['product_id'];
             return $this->response->setOutput($this->view('product/event', $data, ['options']));
-        } else {
+        }else {
             $url = '';
 
             if (isset($this->request->get['path'])) {
