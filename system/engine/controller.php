@@ -18,8 +18,9 @@ abstract class Controller {
 
 
 
-		if( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-			$newData=array();
+		//if( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+			if( isset($this->request->get['ajaxRequest']) && $this->request->get['ajaxRequest'] ==1){
+				$newData=array();
 			if($selectedData != 'all' && count($selectedData)> 0){
 				foreach($selectedData as $oneSelect){
 					if(array_key_exists($oneSelect,$data)){

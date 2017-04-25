@@ -509,6 +509,13 @@ class ControllerProductProduct extends Controller {
 			$data['finalProductDetailLink']= $this->url->link('product/product', 'product_id=' . $this->request->get['product_id']);
 
 
+
+			$this->load->model('catalog/custom_field');
+			$data=$this->model_catalog_custom_field->addOptionsValues($data);
+
+			$data['languageCode']=$this->language->get('code'	);
+
+
 //			var_dump($this->request->post);
 			if(isset( $this->request->post['finalProductDetail'])){
 

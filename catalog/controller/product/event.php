@@ -672,7 +672,13 @@ public function getProductPeriodList($product_id){
 			$data['eventTimesList']=$total_option_value;
 
 			$data['product_id']=$this->request->get['product_id'];
-			return $this->response->setOutput($this->view('product/event', $data,['options']));
+
+
+			$this->load->model('catalog/custom_field');
+			$data=$this->model_catalog_custom_field->addOptionsValues($data);
+
+
+			return $this->response->setOutput($this->view('product/event', $data,['options','air_values']));
 		} else {
 			$url = '';
 

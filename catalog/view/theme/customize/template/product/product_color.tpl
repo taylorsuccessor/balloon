@@ -113,9 +113,16 @@ echo '
 
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Pick a delivery time:</label>
+                                    <label>Pick a delivery time: </label>
 
-                                    <?php if ($options) {
+                                    <select name="balloondeliverytime">
+                                        <?php foreach($balloondeliverytime_values[$languageCode] as $oneOptionValue){
+                                        echo '<option value="'.$oneOptionValue['value'].'">'.$oneOptionValue['name'].'</option>';
+                                        }?>
+                                        </select>
+
+
+                                    <?php if (false && $options) {
                                 foreach($options as $option){
                                                                    if(str_replace(' ','',strtolower($option['name']))=='balloondeliverytime'){
                                                                    $i=0;
@@ -248,7 +255,7 @@ echo '
                 $('#button-cart').button('reset');
             },
             success: function(json) {
-
+console.log(json);
                 $('.alert, .text-danger').remove();
                 $('.form-group').removeClass('has-error');
 
@@ -284,6 +291,8 @@ echo '
                 }
             },
             error: function(xhr, ajaxOptions, thrownError) {
+
+                console.log(xhr.responseText);
                 alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
             }
         });
