@@ -135,7 +135,7 @@ class ControllerCommonHeader extends Controller {
 
 				]
 			];
-			$leftCategoriesList = $this->model_catalog_category->getCategoryChildren([$productsLeftId]);
+			$leftCategoriesList = $this->model_catalog_category->getCategoryChildren([$productsLeftId]);//print_r to see results for left side
 			$data['leftCategories'] = array_merge($preLinksEvent,$leftCategoriesList);
 			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildren([$productsRightId]);
 		}

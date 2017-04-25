@@ -215,7 +215,7 @@
         
         $data['edit'] = $this->url->link('account/edit', '', true);
         $data['address'] = $this->url->link('account/address', '', true);
-        $data['orders'] = $this->url->link('account/orders', '', true);
+        $data['orders'] = $this->url->link('account/order', '', true);
         $data['password'] = $this->url->link('account/password', '', true);
 
 		$this->response->setOutput($this->load->view('account/edit', $data));

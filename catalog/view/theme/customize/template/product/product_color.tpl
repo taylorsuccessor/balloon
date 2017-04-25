@@ -1,44 +1,60 @@
 <?php echo $header; ?>
+<div class="container">
+
+<section class="banner-section"><!--Banner Section-->
+    <div class="inner-banner"><!--banner-->
+        <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+    </div><!--banner-->
+</section><!--Banner Section-->
 
 
-
-
-
-
-<section class="content-section" id="product"><!--content-section-->
     <form action="<?php echo $finalProductDetailLink;?>" method="post">
 
 
         <div class="container"><!--container-->
         <div class="bredcrumb"><!--bredcrumb-->
             <ul>
-                <li>Home</li>
-                <li>/</li>
-                <li>Ballons</li>
-                <li>/</li>
-                <li class="active">Regular Latest Balloons</li>
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                <?php  } ?>
             </ul>
         </div> <!--bredcrumb-->
+
+<section class="content-section"><!--content-section-->
+
+    <div class="bredcrumb"><!--bredcrumb-->
+
+        <ul>
+            <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+            <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+            <?php  } ?>
+        </ul>
+
+    </div> <!--bredcrumb-->
+
+<section class="content-section" id="product"><!--content-section-->
+    <form action="<?php echo $finalProductDetailLink;?>" method="post">
+
         <div class="product-details-page"><!--balloons-->
-            <h2>Regular Latest Balloons</h2>
+            <h2><?php echo $text_regular_latest; ?></h2>
             <div class="confetti-con view-colors-con">
                 <div class="row">
                     <div class="col-md-6 view-colors-left">
                         <div class="slider_cover">
-                            <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 382px;"><ul class="color-slider" style="width: auto; position: relative;">
+                            <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 382px;">
+                                    <ul class="color-slider" style="width: auto; position: relative;">
 
 
                                         <?php if ($options) {
                                 foreach($options as $option){
-                                                                   if(str_replace(' ','',strtolower($option['name']))=='ballooncolor'){
-                                                                   $i=0;
-                                                                                        foreach($option['product_option_value'] as $option_value){
+                                if(str_replace(' ','',strtolower($option['name']))=='ballooncolor'){
+                                        $i=0;
+                   foreach($option['product_option_value'] as $option_value){
+                       echo '
 
-echo '
-
-                                        <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
-                                            <img src="image/'.$option_value['image'].'">
-                                            <h4>'.$option_value['name'].'</h4>
+                                     <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
+                                        <img src="image/'.$option_value['image'].'">
+                                        <h4>'.$option_value['name'].'</h4>
                                         </li>
                                         ';
                                         }
@@ -48,8 +64,12 @@ echo '
                                         ?>
 
 
-                                    </ul></div><div class="bx-controls"></div></div>
-                            <h4>Rollover swatches to view colors.</h4>
+                                    </ul>
+                                </div>
+                                <div class="bx-controls"></div>
+                            </div>
+                            <h4><?php echo $text_Rollover_swatches; ?></h4>
+
                             <div id="bx-pager">
                                 <?php
                                 $balloonColorOptionId=0;
@@ -59,11 +79,11 @@ echo '
                                 if ($options) {
                                 foreach($options as $option){
 
-                                                                   if(str_replace(' ','',strtolower($option['name']))=='ballooncolor'){
+                                 if(str_replace(' ','',strtolower($option['name']))=='ballooncolor'){
 
-                                                                   $i=0;
-                                                                                        foreach($option['product_option_value'] as $option_value){
-                                                                                        if($balloonColorOptionId==0){
+                                      $i=0;
+                                foreach($option['product_option_value'] as $option_value){
+                                 if($balloonColorOptionId==0){
 
 
                                 $balloonColorOptionId=$option['product_option_id'];
@@ -93,7 +113,7 @@ echo '
                         <div class="date-time"><!--date-time-->
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Pick a delivery date:</label>
+                                    <label><?php echo $text_delivery_date; ?></label>
 
                                     <?php
                                     if ($options) {
@@ -113,7 +133,9 @@ echo '
 
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Pick a delivery time: </label>
+
+                                    <label><?php echo $text_delivery_time; ?></label>
+
 
                                     <select name="balloondeliverytime">
                                         <?php foreach($balloondeliverytime_values[$languageCode] as $oneOptionValue){
@@ -128,7 +150,7 @@ echo '
                                                                    $i=0;
 
 
-                                echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" > <option>Please select delivery time</option>';
+                                echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" > <option> '.$text_option_time.' </option>';
                                                                                         foreach($option['product_option_value'] as $option_value){
 
 echo '
@@ -198,10 +220,15 @@ echo '
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                             <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"  class="confetti-cart"><?php echo $button_cart; ?></button>
                             <input class="confetti-input"  type="text" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity" >
-                            <button type="submit" name="finalProductDetail" value="1" class="confetti-view">View</button>
+                            <button type="submit" name="finalProductDetail" value="1" class="confetti-view">  <?php echo $text_view; ?></button>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
             </div>
         </div><!--balloons-->
     </div><!--container-->

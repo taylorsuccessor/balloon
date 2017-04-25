@@ -39,7 +39,7 @@
   text-align: center;
 }
 .responsive-calendar .day a {
-  color: #fff;
+  color: #000;
   display: inline-block;
   cursor: pointer;
   /*padding: 20% 0 20% 0;*/
@@ -48,10 +48,10 @@
   line-height:50px;
   border:#ebebeb solid 1px;
   margin-bottom:20px;
-	background-color: #1d86c8;
+	background-color: #fff;
 }
 .responsive-calendar .day a:hover {
-  background-color: #1d86c8;
+  background-color: #70c398;
   text-decoration: none;
   color:#fff;
 }

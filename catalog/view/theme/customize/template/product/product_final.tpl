@@ -1,147 +1,169 @@
 <?php echo $header; ?>
+<div class="container">
+    <section class="banner-section"><!--Banner Section-->
+        <div class="inner-banner"><!--banner-->
+            <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+        </div>
+        <!--banner-->
+    </section>
+    <!--Banner Section-->
+    <section class="content-section" id="product"><!--content-section-->
+        <div class="container"><!--container-->
+            <div class="bredcrumb"><!--bredcrumb-->
+                <ul>
+                    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                    <?php  } ?>
+                </ul>
+            </div>
+            <!--bredcrumb-->
+            <div class="product-details-page"><!--balloons-->
+                <h2><?php echo $heading_title; ?></h2>
 
-<section class="content-section"  id="product"><!--content-section-->
-    <div class="container"><!--container-->
-        <div class="bredcrumb"><!--bredcrumb-->
-            <ul>
-                <li>Home</li>
-                <li>/</li>
-                <li>Ballons</li>
-                <li>/</li>
-                <li>Birthday</li>
-                <li>/</li>
-                <li>Confetti Balloons</li>
-                <li>/</li>
-                <li class="active">Jumbo Confetti Balloon Unicorn</li>
-            </ul>
-        </div> <!--bredcrumb-->
-        <div class="product-details-page"><!--balloons-->
-            <h2><?php echo $heading_title; ?></h2>
-            <div class="row">
-                <div class="product-details">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product-details-image"><!--product-details-image-->
-                            <ul id="product-thumb">
+                <div class="wrap_notfiy">
+                </div>
+                <div class="row">
+                    <div class="product-details">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="product-details-image"><!--product-details-image-->
+                                <ul id="product-thumb">
                                     <?php if ($images) { ?>
                                     <?php foreach ($images as $image) { ?>
 
-                                <li><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"  /></li>
+                                    <li><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>"
+                                             alt="<?php echo $heading_title; ?>"/></li>
                                     <?php } ?>
+                                    <?php } ?>
+
+                                    <div id="bx-pager2"><!--bx-pager-->
+
+                                        <?php if ($images) { ?>
+                                        <?php $i=0; foreach ($images as $image) { ?>
+
+                                        <a data-slide-index="<?=$i;?>" href=""><img src="<?php echo $image['thumb']; ?>"
+                                                                                    title="<?php echo $heading_title; ?>"
+                                                                                    alt="<?php echo $heading_title; ?>"/></a>
+
+                                        <?php $i++; } ?>
+                                        <?php } ?>
+
+                                    </div>
+                                    <!--bx-pager-->
+                            </div>
+                            <!--product-details-image-->
+                        </div>
+                        <div class="col-lg-6 col-md-6 product-details-content"><!--col-md-6-->
+                            <p><?php echo $text_option; ?> <?php echo $heading_title; ?></p>
+
+                            <div class="price">
+
+
+                                <?php if ($price) { ?>
+                                <?php if (!$special) { ?>
+
+                                <p><?php echo $text_price; ?> <span><?php echo $price; ?></span></p>
+                                <?php } else { ?>
+                                <p><?php echo $text_price; ?><span> <?php echo $special; ?></span><span
+                                            style="text-decoration: line-through;"><?php echo $price; ?></span></p>
                                 <?php } ?>
 
-                            <div id="bx-pager2"><!--bx-pager-->
 
-                                <?php if ($images) { ?>
-                                <?php $i=0; foreach ($images as $image) { ?>
-
-                                <a data-slide-index="<?=$i;?>" href=""><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
-
-                                <?php $i++; } ?>
                                 <?php } ?>
 
-                            </div><!--bx-pager-->
-                        </div><!--product-details-image-->
-                    </div>
-                    <div class="col-lg-6 col-md-6 product-details-content"><!--col-md-6-->
-                        <p>Option : <?php echo $heading_title; ?></p>
-                        <div class="price">
+                            </div>
+                            <div class="share">
+                                <p><?php echo $text_share_product; ?></p>
+                                <ul>
+                                    <li><a href="#"><img src="image/catalog/icons/share-fb.png" alt=""/></a></li>
+                                    <li><a href="#"><img src="image/catalog/icons/share-tw.png" alt=""/></a></li>
+                                    <li><a href="#"><img src="image/catalog/icons/share-in.png" alt=""/></a></li>
+                                </ul>
+                            </div>
+                            <div class="stock"><p><?php echo $availabilty; ?> <span><?php echo $stock; ?></span></p></div>
 
 
-                            <?php if ($price) { ?>
-                            <?php if (!$special) { ?>
-
-                            <p>Price : <span><?php echo $price; ?></span></p>
-                            <?php } else { ?>
-                            <p>Price : <span> <?php echo $special; ?></span><span style="text-decoration: line-through;"><?php echo $price; ?></span></p>
-                            <?php } ?>
-
-
-                            <?php } ?>
-
-                        </div>
-                        <div class="share">
-                            <p>Share this product</p>
-                            <ul>
-                                <li><a href="#"><img src="image/catalog/icons/share-fb.png" alt=""/></a></li>
-                                <li><a href="#"><img src="image/catalog/icons/share-tw.png" alt=""/></a></li>
-                                <li><a href="#"><img src="image/catalog/icons/share-in.png" alt=""/></a></li>
-                            </ul>
-                        </div>
-                        <div class="stock"><p>Availability : <span><?php echo $stock; ?></span></p></div>
-
-
-                        <div class="date-time"><!--date-time-->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Pick a delivery date:</label>
-                                    <?php
+                            <div class="date-time"><!--date-time-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label><?php echo $text_delivery_date; ?></label>
+                                        <?php
                                     if ($options) {
                                     foreach($options as $option){
 
                                     if(str_replace(' ','',strtolower($option['name']))=='balloondeliverydate'){
 
 
-                                    echo '<input type="text" name="option['.$option['product_option_id'].']" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: gmdate('d/m/Y')).'" data-date-format="YYYY-MM-DD"  id="datepicker"   />';
+                                    echo '<input type="text" name="option['.$option['product_option_id'].']" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: gmdate('d/m/Y')).'" data-date-format="YYYY-MM-DD"  id="datepicker"   />
+                                        ';
 
 
+                                        }
+                                        }
+                                        }//if option
+                                        ?>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label><?php echo $text_delivery_time; ?></label>
 
-                                    }
-                                    }
-                                    }//if option
-                                    ?>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Pick a delivery time:</label>
-
-                                    <?php if ($options) {
+                                        <?php if ($options) {
                                 foreach($options as $option){
                                                                    if(str_replace(' ','',strtolower($option['name']))=='balloondeliverytime'){
                                                                    $i=0;
 
 
-                                echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" > <option>Please select delivery time</option>';
-                                    foreach($option['product_option_value'] as $option_value){
+                                echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" >
+                                        <option value="">  '.$text_option_time.'</option>
+                                        ';
+                                        foreach($option['product_option_value'] as $option_value){
 
-                                    echo '
-                                    <option value="'.$option_value['product_option_value_id'].'" '.((isset($request['option'][$option['product_option_id']]) && $request['option'][$option['product_option_id']] == $option_value['product_option_value_id'])? 'selected':'').'>'.$option_value['name'].'</option>
-                                    ';
-                                    }
-                                    echo '</select>';
-                                    }
-                                    }
-                                    }//if option
-                                    ?>
+                                        echo '
+                                        <option value="'.$option_value['product_option_value_id'].'"
+                                        '.((isset($request['option'][$option['product_option_id']]) &&
+                                        $request['option'][$option['product_option_id']] ==
+                                        $option_value['product_option_value_id'])?
+                                        'selected':'').'>'.$option_value['name'].'</option>
+                                        ';
+                                        }
+                                        echo '</select>';
+                                        }
+                                        }
+                                        }//if option
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div><!--date-time-->
-                        <div class="product-btns"><!--product-btns-->
-                            <div class="product-btns-row">
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
-                                    <div class="numb-box">
-                                        <label>Qty</label>
-                                        <input class="confetti-input"  type="number" name="quantity" value="<?php echo ((isset($request['quantity']))? $request['quantity']:$minimum) ?>" data-minimum="<?php echo $minimum; ?>" id="input-quantity" >
-                                        <button id="up"><img src="image/catalog/icons/up.jpg" alt="" /></button>
-                                        <button id="down"><img src="image/catalog/icons/down.jpg" alt="" /></button>
-                                        <script >
-                                            $('#up').click(function(){
-                                                $('#input-quantity').val( $('#input-quantity').val() *1 +1);
-                                            });
+                            <!--date-time-->
+                            <div class="product-btns"><!--product-btns-->
+                                <div class="product-btns-row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
+                                        <div class="numb-box">
+                                            <label><?php echo $Qty; ?></label>
+                                            <input class="confetti-input" type="number" name="quantity"
+                                                   value="<?php echo ((isset($request['quantity']))? $request['quantity']:$minimum) ?>"
+                                                   data-minimum="<?php echo $minimum; ?>" id="input-quantity">
+                                            <button id="up"><img src="image/catalog/icons/up.jpg" alt=""/></button>
+                                            <button id="down"><img src="image/catalog/icons/down.jpg" alt=""/></button>
+                                            <script>
+                                                $('#up').click(function () {
+                                                    $('#input-quantity').val($('#input-quantity').val() * 1 + 1);
+                                                });
 
-                                            $('#down').click(function(){
-                                                var quantityNode=$('#input-quantity');
-                                                var quantity=quantityNode.val();
-if(quantity > quantityNode.data('minimum') ){
+                                                $('#down').click(function () {
+                                                    var quantityNode = $('#input-quantity');
+                                                    var quantity = quantityNode.val();
+                                                    if (quantity > quantityNode.data('minimum')) {
 
-    quantityNode.val( quantity -1);
-}
-                                            });
-                                        </script>
-                                    </div><!-- /.numbox -->
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
-                                    <div class="addtocart">
+                                                        quantityNode.val(quantity - 1);
+                                                    }
+                                                });
+                                            </script>
+                                        </div>
+                                        <!-- /.numbox -->
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
+                                        <div class="addtocart">
 
-                                        <?php if ($options) {
+                                            <?php if ($options) {
                                 foreach($options as $option){
                                                                    if(str_replace(' ','',strtolower($option['name']))=='air'){
 
@@ -151,15 +173,15 @@ if(quantity > quantityNode.data('minimum') ){
 
                                         <input type="hidden"  id="'.$option_value['name'].'" name="option['.$option['product_option_id'].']" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >
 
-                                    ';
+                                            ';
 
 
-                                    }
-                                    }
-                                    }//if option
-                                    ?>
+                                            }
+                                            }
+                                            }//if option
+                                            ?>
 
-                                        <?php
+                                            <?php
                                 $balloonColorOptionId=0;
                                 $balloonColorValueId=0;
                                 $colorName='';
@@ -168,107 +190,103 @@ if(quantity > quantityNode.data('minimum') ){
                                 foreach($options as $option){
 
                                                                    if(str_replace(' ','',strtolower($option['name'])) == 'ballooncolor'){
-             echo ' <input type="hidden" name="option['.$option['product_option_id'].']" id="balloonColor" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
-                                        }
+             echo ' <input type="hidden" name="option['.$option['product_option_id'].']" id="balloonColor" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >
+                                            ';
+                                            }
 
-                                        if(str_replace(' ','',strtolower($option['name'])) == 'size'){
-                                        echo ' <input type="hidden" name="option['.$option['product_option_id'].']"  value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
-                                        }
+                                            if(str_replace(' ','',strtolower($option['name'])) == 'size'){
+                                            echo ' <input type="hidden" name="option['.$option['product_option_id'].']"
+                                                          value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'">';
+                                            }
 
-                                        if(str_replace(' ','',strtolower($option['name'])) ==  'confetti'){
-                                        echo ' <input type="hidden" name="option['.$option['product_option_id'].']"  value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
-                                        }
+                                            if(str_replace(' ','',strtolower($option['name'])) == 'confetti'){
+                                            echo ' <input type="hidden" name="option['.$option['product_option_id'].']"
+                                                          value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'">';
+                                            }
 
-                                        if(str_replace(' ','',strtolower($option['name'])) == 'tail' ){
-                                        echo ' <input type="hidden" name="option['.$option['product_option_id'].']"  value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
-                                        }
+                                            if(str_replace(' ','',strtolower($option['name'])) == 'tail' ){
+                                            echo ' <input type="hidden" name="option['.$option['product_option_id'].']"
+                                                          value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'">';
+                                            }
 
-                                        if(str_replace(' ','',strtolower($option['name'])) == 'textarea' ){
-                                        echo ' <input type="hidden" name="option['.$option['product_option_id'].']"  value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'" >';
-                                        }
-
-
-
-                                        }
-                                        }//if option
-                                        ?>
+                                            if(str_replace(' ','',strtolower($option['name'])) == 'textarea' ){
+                                            echo ' <input type="hidden" name="option['.$option['product_option_id'].']"
+                                                          value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: '').'">';
+                                            }
 
 
-                                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                                        <a type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"  class="confetti-cart"><?php echo $button_cart; ?></a>
+                                            }
+                                            }//if option
+                                            ?>
 
+
+                                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>"/>
+                                            <a type="button" id="button-cart"
+                                               data-loading-text="<?php echo $text_loading; ?>"
+                                               class="confetti-cart"><?php echo $button_cart; ?></a>
+
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
-                                    <div class="addfav">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
+                                        <div class="addfav">
 
-                                        <a  title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');">Add To Favourites</a>
+                                            <a title="<?php echo $button_wishlist; ?>"
+                                               onclick="wishlist.add('<?php echo $product_id; ?>');"><?php echo $text_add_favourite; ?></a>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div><!--product-btns-->
-                    </div><!--col-md-6-->
-                    <div class="col-lg-12 col-md-12">
-                        <div class="description">
-                            <h3>Description</h3>
+                            <!--product-btns-->
+                        </div>
+                        <!--col-md-6-->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="description">
+                                <h3><?php echo $text_description; ?></h3>
 
-                          <p>
-                              <?php echo $description; ?>
+                                <p>
+                                    <?php echo $description; ?>
 
-                          </p> </div>
+                                </p></div>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div><!--balloons-->
-    </div><!--container-->
-</section><!--content-section-->
+            <!--balloons-->
+        </div>
+        <!--container-->
+    </section>
+    <!--content-section-->
 
 
+    <?php if(false){ ?>
+    <section class="content-section" id="product"><!--content-section-->
+        <div class="container"><!--container-->
+            <div class="bredcrumb"><!--bredcrumb-->
+                <ul>
+                    <li>Home</li>
+                    <li>/</li>
+                    <li>Ballons</li>
+                    <li>/</li>
+                    <li class="active">Regular Latest Balloons</li>
+                </ul>
+            </div>
+            <!--bredcrumb-->
+            <div class="product-details-page"><!--balloons-->
+                <h2>Regular Latest Balloons</h2>
+
+                <div class="confetti-con view-colors-con">
+                    <div class="row">
+                        <div class="col-md-6 view-colors-left">
+                            <div class="slider_cover">
+                                <div class="bx-wrapper" style="max-width: 100%;">
+                                    <div class="bx-viewport"
+                                         style="width: 100%; overflow: hidden; position: relative; height: 382px;">
+                                        <ul class="color-slider" style="width: auto; position: relative;">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php if(false){ ?>
-<section class="content-section" id="product"><!--content-section-->
-    <div class="container"><!--container-->
-        <div class="bredcrumb"><!--bredcrumb-->
-            <ul>
-                <li>Home</li>
-                <li>/</li>
-                <li>Ballons</li>
-                <li>/</li>
-                <li class="active">Regular Latest Balloons</li>
-            </ul>
-        </div> <!--bredcrumb-->
-        <div class="product-details-page"><!--balloons-->
-            <h2>Regular Latest Balloons</h2>
-            <div class="confetti-con view-colors-con">
-                <div class="row">
-                    <div class="col-md-6 view-colors-left">
-                        <div class="slider_cover">
-                            <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 382px;"><ul class="color-slider" style="width: auto; position: relative;">
-
-
-                                        <?php if ($options) {
+                                            <?php if ($options) {
                                 foreach($options as $option){
                                                                    if($option['name']=='balloon color'){
                                                                    $i=0;
@@ -279,19 +297,23 @@ echo '
                                         <li style="float: none; list-style: none; position: absolute; width: 530px; z-index: 0; display: none;">
                                             <img src="image/'.$option_value['image'].'">
                                             <h4>'.$option_value['name'].'</h4>
-                                        </li>
-                                        ';
-                                        }
-                                        }
-                                        }
-                                        }//if option
-                                        ?>
+                                            </li>
+                                            ';
+                                            }
+                                            }
+                                            }
+                                            }//if option
+                                            ?>
 
 
-                                    </ul></div><div class="bx-controls"></div></div>
-                            <h4>Rollover swatches to view colors.</h4>
-                            <div id="bx-pager">
-                                <?php
+                                        </ul>
+                                    </div>
+                                    <div class="bx-controls"></div>
+                                </div>
+                                <h4>Rollover swatches to view colors.</h4>
+
+                                <div id="bx-pager">
+                                    <?php
                                 $balloonColorOptionId=0;
                                 $balloonColorValueId=0;
                                 $colorName='';
@@ -310,76 +332,83 @@ echo '
                                 $balloonColorValueId=$option_value['product_option_value_id'];
                                 $colorName=$option_value['name'];
                                                                                         }
-             echo ' <a data-slide-index="'.$i.'" data-value="'.$option_value['product_option_value_id'].'" data-name="'.$option_value['name'].'" href="" style="background-color:'.$option_value['name'].'; height:44px;"></a>';$i++;
+             echo ' <a data-slide-index="'.$i.'" data-value="'.$option_value['product_option_value_id'].'" data-name="'.$option_value['name'].'" href="" style="background-color:'.$option_value['name'].'; height:44px;"></a>
+                                    ';$i++;
 
-                                }
-                                }
-                                }
-                                }//if option
-                                ?>
+                                    }
+                                    }
+                                    }
+                                    }//if option
+                                    ?>
+                                </div>
+
+                                <input type="hidden" name="option[<?php echo $balloonColorOptionId; ?>]"
+                                       id="balloonColor" value="<?php echo $balloonColorValueId; ?>">
+                                <script>
+                                    $('#bx-pager a').mouseover(function () {
+                                        $('#balloonColor').val($(this).data('value'));
+                                        $('#colorNameLabel').text($(this).data('name'));
+                                    });
+                                </script>
+
                             </div>
-
-                            <input type="hidden" name="option[<?php echo $balloonColorOptionId; ?>]" id="balloonColor" value="<?php echo $balloonColorValueId; ?>" >
-                            <script >
-                                $('#bx-pager a').mouseover(function(){
-                                    $('#balloonColor').val($(this).data('value'));
-                                    $('#colorNameLabel').text($(this).data('name'));
-                                });
-                            </script>
-
                         </div>
-                    </div>
-                    <div class="col-md-6 view-colors-right">
-                        <div class="date-time"><!--date-time-->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Pick a delivery date:</label>
+                        <div class="col-md-6 view-colors-right">
+                            <div class="date-time"><!--date-time-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Pick a delivery date:</label>
 
-                                    <?php
+                                        <?php
                                     if ($options) {
                                     foreach($options as $option){
 
                                     if($option['name']=='balloon delivery  date'){
 
-                                    echo '<input type="text" name="option['.$option['product_option_id'].']" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: gmdate('d/m/Y')).'" data-date-format="YYYY-MM-DD"  id="datepicker"   />';
+                                    echo '<input type="text" name="option['.$option['product_option_id'].']" value="'. ((isset($request['option'][$option['product_option_id']]))? $request['option'][$option['product_option_id']]: gmdate('d/m/Y')).'" data-date-format="YYYY-MM-DD"  id="datepicker"   />
+                                        ';
 
 
+                                        }
+                                        }
+                                        }//if option
+                                        ?>
 
-                                    }
-                                    }
-                                    }//if option
-                                    ?>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Pick a delivery time:</label>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Pick a delivery time:</label>
-
-                                    <?php if ($options) {
+                                        <?php if ($options) {
                                 foreach($options as $option){
                                                                    if($option['name']=='balloon delivery time'){
                                                                    $i=0;
 
 
-                                echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" > <option>Please select delivery time</option>';
-                                                                                        foreach($option['product_option_value'] as $option_value){
+                                echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" >
+                                        <option>Please select delivery time</option>
+                                        ';
+                                        foreach($option['product_option_value'] as $option_value){
 
-echo '
-<option value="'.$option_value['product_option_value_id'].'">'.$option_value['name'].'</option>
-';
-                                    }
-                                    echo '</select>';
-                                    }
-                                    }
-                                    }//if option
-                                    ?>
+                                        echo '
+                                        <option value="'.$option_value['product_option_value_id'].'">
+                                            '.$option_value['name'].'
+                                        </option>
+                                        ';
+                                        }
+                                        echo '</select>';
+                                        }
+                                        }
+                                        }//if option
+                                        ?>
 
+                                    </div>
                                 </div>
                             </div>
-                        </div><!--date-time-->
-                        <div class="filling">
-                            <div class="row">
+                            <!--date-time-->
+                            <div class="filling">
+                                <div class="row">
 
-                                <?php if ($options) {
+                                    <?php if ($options) {
                                 foreach($options as $option){
                                                                    if($option['name']=='air'){
                                                                    $i=0;
@@ -390,7 +419,10 @@ echo '
                                 echo '
 
                                 <div class="col-md-6">
-                                    <input type="radio"  id="'.$option_value['name'].'" name="option['.$option['product_option_id'].']" value="'. $option_value['product_option_value_id'].'" checked><label for="'.$option_value['name'].'">'.$option_value['name'].'</label>
+                                    <input type="radio" id="'.$option_value['name'].'"
+                                           name="option['.$option['product_option_id'].']"
+                                           value="'. $option_value['product_option_value_id'].'" checked><label
+                                            for="'.$option_value['name'].'">'.$option_value['name'].'</label>
                                 </div>
                                 ';
                                 }
@@ -409,11 +441,12 @@ echo '
 
 
                             <?php if ($price) { ?>
-                                <?php if (!$special) { ?>
-                                                      <?php echo $price; ?>
-                                <?php } else { ?>
-                            <?php echo $special; ?><span style="text-decoration: line-through;"><?php echo $price; ?></span>
-                                <?php } ?>
+                            <?php if (!$special) { ?>
+                            <?php echo $price; ?>
+                            <?php } else { ?>
+                            <?php echo $special; ?><span
+                                    style="text-decoration: line-through;"><?php echo $price; ?></span>
+                            <?php } ?>
 
 
                             <?php } ?>
@@ -425,43 +458,40 @@ echo '
                         <div class="confetti-btns">
 
 
-
-
-                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                            <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"  class="confetti-cart"><?php echo $button_cart; ?></button>
-                            <input class="confetti-input"  type="text" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity" >
+                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>"/>
+                            <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"
+                                    class="confetti-cart"><?php echo $button_cart; ?></button>
+                            <input class="confetti-input" type="text" name="quantity" value="<?php echo $minimum; ?>"
+                                   id="input-quantity">
                             <a href="javascript:void(0)" class="confetti-view">View</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!--balloons-->
-    </div><!--container-->
+        </div>
+        <!--balloons-->
+</div><!--container-->
 </section>
 <?php }// if false ?>
 
 <script>
-    $( function() {
-        $( "#datepicker" ).datepicker();
-    } );
+    $(function () {
+        $("#datepicker").datepicker();
+    });
 </script>
 
 
-
-
-
-
 <script type="text/javascript"><!--
-    $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
+    $('select[name=\'recurring_id\'], input[name="quantity"]').change(function () {
         $.ajax({
             url: 'index.php?route=product/product/getRecurringDescription',
             type: 'post',
             data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
             dataType: 'json',
-            beforeSend: function() {
+            beforeSend: function () {
                 $('#recurring-description').html('');
             },
-            success: function(json) {
+            success: function (json) {
                 $('.alert, .text-danger').remove();
 
                 if (json['success']) {
@@ -472,19 +502,19 @@ echo '
     });
     //--></script>
 <script type="text/javascript"><!--
-    $('#button-cart').on('click', function() {
+    $('#button-cart').on('click', function () {
         $.ajax({
             url: 'index.php?route=checkout/cart/add',
             type: 'post',
             data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
             dataType: 'json',
-            beforeSend: function() {
+            beforeSend: function () {
                 $('#button-cart').button('loading');
             },
-            complete: function() {
+            complete: function () {
                 $('#button-cart').button('reset');
             },
-            success: function(json) {
+            success: function (json) {
 
                 $('.alert, .text-danger').remove();
                 $('.form-group').removeClass('has-error');
@@ -492,7 +522,8 @@ echo '
                 if (json['error']) {
                     if (json['error']['option']) {
                         for (i in json['error']['option']) {
-                            var element = $('#input-option' + i.replace('_', '-'));console.log('#input-option' + i.replace('_', '-'));
+                            var element = $('#input-option' + i.replace('_', '-'));
+                            console.log('#input-option' + i.replace('_', '-'));
 
                             if (element.parent().hasClass('input-group')) {
                                 element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
@@ -507,20 +538,20 @@ echo '
                     }
 
                     // Highlight any found errors
-                    $('.text-danger').parent().addClass('has-error');
+                    $('.wrap_notfiy').parent().addClass('has-error');
                 }
 
                 if (json['success']) {
-                    $('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                    $('.wrap_notfiy').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
                     $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 
-                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    $('html, body').animate({scrollTop: 0}, 'slow');
 
                     $('#cart > ul').load('index.php?route=common/cart/info ul li');
                 }
             },
-            error: function(xhr, ajaxOptions, thrownError) {
+            error: function (xhr, ajaxOptions, thrownError) {
                 alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
             }
         });
@@ -540,7 +571,7 @@ echo '
         pickDate: false
     });
 
-    $('button[id^=\'button-upload\']').on('click', function() {
+    $('button[id^=\'button-upload\']').on('click', function () {
         var node = this;
 
         $('#form-upload').remove();
@@ -553,7 +584,7 @@ echo '
             clearInterval(timer);
         }
 
-        timer = setInterval(function() {
+        timer = setInterval(function () {
             if ($('#form-upload input[name=\'file\']').val() != '') {
                 clearInterval(timer);
 
@@ -565,13 +596,13 @@ echo '
                     cache: false,
                     contentType: false,
                     processData: false,
-                    beforeSend: function() {
+                    beforeSend: function () {
                         $(node).button('loading');
                     },
-                    complete: function() {
+                    complete: function () {
                         $(node).button('reset');
                     },
-                    success: function(json) {
+                    success: function (json) {
                         $('.text-danger').remove();
 
                         if (json['error']) {
@@ -584,7 +615,7 @@ echo '
                             $(node).parent().find('input').val(json['code']);
                         }
                     },
-                    error: function(xhr, ajaxOptions, thrownError) {
+                    error: function (xhr, ajaxOptions, thrownError) {
                         alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
                     }
                 });
@@ -593,7 +624,7 @@ echo '
     });
     //--></script>
 <script type="text/javascript"><!--
-    $('#review').delegate('.pagination a', 'click', function(e) {
+    $('#review').delegate('.pagination a', 'click', function (e) {
         e.preventDefault();
 
         $('#review').fadeOut('slow');
@@ -605,19 +636,19 @@ echo '
 
     $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
-    $('#button-review').on('click', function() {
+    $('#button-review').on('click', function () {
         $.ajax({
             url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
             type: 'post',
             dataType: 'json',
             data: $("#form-review").serialize(),
-            beforeSend: function() {
+            beforeSend: function () {
                 $('#button-review').button('loading');
             },
-            complete: function() {
+            complete: function () {
                 $('#button-review').button('reset');
             },
-            success: function(json) {
+            success: function (json) {
                 $('.alert-success, .alert-danger').remove();
 
                 if (json['error']) {
@@ -635,26 +666,16 @@ echo '
         });
     });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.thumbnails').magnificPopup({
-            type:'image',
+            type: 'image',
             delegate: 'a',
             gallery: {
-                enabled:true
+                enabled: true
             }
         });
     });
     //--></script>
-
-
-
-
-
-
-
-
-
-
 
 
 <?php echo $footer; ?>

@@ -43,10 +43,10 @@
                     </ul>
 
                     <?php } ?>
-                    
+
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab-description"
-                        data-toggle="tab"><?php echo $tab_description; ?></a></li>
+                                              data-toggle="tab"><?php echo $tab_description; ?></a></li>
                         <?php if ($attribute_groups) { ?>
                         <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
                         <?php } ?>
@@ -54,8 +54,7 @@
                         <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
                         <?php } ?>
                     </ul>
-                    
-                    
+
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
@@ -85,9 +84,10 @@
                             <form class="form-horizontal" id="form-review">
                                 <div id="review"></div>
                                 <br>
+
                                 <h2><?php echo $text_write; ?></h2>
                                 <?php if ($review_guest) { ?>
-                                
+
                                 <div class="form-group required">
                                     <div class="col-sm-12">
                                         <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
@@ -95,7 +95,7 @@
                                                id="input-name" class="form-control"/>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group required">
                                     <div class="col-sm-12">
                                         <label class="control-label"
@@ -105,9 +105,9 @@
 
                                         <div class="help-block"><?php echo $text_note; ?></div>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="form-group required">
                                     <div class="col-sm-12">
                                         <label class="control-label"><?php echo $entry_rating; ?></label>
@@ -123,7 +123,7 @@
                                         <input type="radio" name="rating" value="5"/>
                                         &nbsp;<?php echo $entry_good; ?></div>
                                 </div>
-                                
+
                                 <?php echo $captcha; ?>
                                 <div class="buttons clearfix">
                                     <div class="pull-right">
@@ -139,7 +139,7 @@
                         </div>
                         <?php } ?>
                     </div>
-                    <br>                    <br>
+                    <br> <br>
 
                 </div>
                 <?php if ($column_left || $column_right) { ?>
@@ -149,51 +149,51 @@
                 <?php } ?>
                 <div class="<?php echo $class; ?>">
                     <div class="btn-group">
-                       
+
                         <button type="button" data-toggle="tooltip" class="btn btn-default"
                                 title="<?php echo $button_wishlist; ?>"
                                 onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i>
                         </button>
-                        
+
                         <button type="button" data-toggle="tooltip" class="btn btn-default"
                                 title="<?php echo $button_compare; ?>"
                                 onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i>
                         </button>
-                        
+
                     </div>
-                    
-                                        <br>                    <br>
+
+                    <br> <br>
 
                     <h1><?php echo $heading_title; ?></h1>
-                                                           
-                                                           
-                                 <br>
 
-                    
+
+                    <br>
+
+
                     <ul class="list-unstyled">
                         <?php if ($manufacturer) { ?>
                         <li><?php echo $text_manufacturer; ?>
-                                   
-                                    <a  href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a>
-                                    
+
+                            <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a>
+
                         </li>
-                        
+
                         <?php } ?>
-                        
+
                         <li><?php echo $text_model; ?> <?php echo $model; ?></li>
                         <br>
-                        
+
                         <?php if ($reward) { ?>
                         <li><?php echo $text_reward; ?> <?php echo $reward; ?></li>
                         <?php } ?>
-                        
+
                         <br>
-                        
+
                         <li><?php echo $text_stock; ?> <?php echo $stock; ?></li>
                     </ul>
-                                                    
-                                                     <br>
-                                                     
+
+                    <br>
+
 
                     <?php if ($price) { ?>
                     <ul class="list-unstyled">
@@ -202,14 +202,14 @@
                             <h2><?php echo $price; ?></h2>
                         </li>
                         <?php } else { ?>
-                        
+
                         <li><span style="text-decoration: line-through;"><?php echo $price; ?></span></li>
-                        
+
                         <li>
                             <h2><?php echo $special; ?></h2>
                         </li>
                         <?php } ?>
-                        
+
                         <?php if ($tax) { ?>
                         <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
                         <?php } ?>
@@ -228,9 +228,9 @@
                         <?php } ?>
                     </ul>
                     <?php } ?>
-                    
+
                     <br>
-                    
+
                     <div id="product">
                         <select name="eventPeriod">
                             <option value="0">select One</option>
@@ -239,22 +239,22 @@
                             <option value="3">11am to 13am</option>
                             <option value="4">5pm to 7pm</option>
                         </select>
-                        
+
                         <input value="2017-03-14" name="event_date" type="text">
-                        
+
                         <?php if ($options) { ?>
                         <hr>
                         <h3><?php echo $text_option; ?></h3>
-                        
+
                         <br>
-                        
+
                         <?php foreach ($options as $option) { ?>
-                        
+
                         <?php if ($option['type'] == 'select') { ?>
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
                             <label class="control-label"
                                    for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?></label>
-                                   <br>
+                            <br>
                             <select name="option[<?php echo $option['product_option_id']; ?>]"
                                     id="input-option<?php echo $option['product_option_id']; ?>" class="form-control">
                                 <option value=""><?php echo $text_select; ?></option>
@@ -265,16 +265,16 @@
                                     <?php } ?>
                                 </option>
                                 <?php } ?>
-                                
+
                             </select>
                         </div>
                         <?php } ?>
-                        
-                        
+
+
                         <?php if ($option['type'] == 'radio') { ?>
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
                             <label class="control-label"><?php echo $option['name']; ?></label>
-                                   <br>
+                            <br>
 
                             <div id="input-option<?php echo $option['product_option_id']; ?>">
                                 <?php foreach ($option['product_option_value'] as $option_value) { ?>
@@ -298,7 +298,7 @@
                             </div>
                         </div>
                         <?php } ?>
-                        
+
                         <?php if ($option['type'] == 'checkbox') { ?>
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
                             <label class="control-label"><?php echo $option['name']; ?></label>
@@ -326,34 +326,34 @@
                             </div>
                         </div>
                         <?php } ?>
-                        
+
                         <?php if ($option['type'] == 'text') { ?>
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
                             <label class="control-label"
                                    for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?></label>
-                                                                      <br>
+                            <br>
 
                             <input type="text" name="option[<?php echo $option['product_option_id']; ?>]"
                                    value="<?php echo $option['value']; ?>" placeholder="<?php echo $option['name']; ?>"
                                    id="input-option<?php echo $option['product_option_id']; ?>" class="form-control"/>
                         </div>
-                        
+
                         <?php } ?>
-                        
+
                         <?php if ($option['type'] == 'textarea') { ?>
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
                             <label class="control-label"
                                    for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?></label>
-                                                                      <br>
+                            <br>
 
                             <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5"
                                       placeholder="<?php echo $option['name']; ?>"
                                       id="input-option<?php echo $option['product_option_id']; ?>"
                                       class="form-control"><?php echo $option['value']; ?></textarea>
                         </div>
-                        
+
                         <?php } ?>
-                        
+
                         <?php if ($option['type'] == 'file') { ?>
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
                             <label class="control-label"><?php echo $option['name']; ?></label>
@@ -394,7 +394,7 @@
                 </span></div>
                         </div>
                         <?php } ?>
-                        
+
                         <?php if ($option['type'] == 'time') { ?>
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
                             <label class="control-label"
@@ -410,11 +410,11 @@
                 </span></div>
                         </div>
                         <?php } ?>
-                        
+
                         <?php } ?>
                         <?php } ?>
-                        
-                        
+
+
                         <?php if ($recurrings) { ?>
                         <hr>
                         <h3><?php echo $text_payment_recurring; ?></h3>

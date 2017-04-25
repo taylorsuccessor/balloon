@@ -12,7 +12,8 @@
           <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
         <?php  } ?>
         </ul>
-    </div><!--bredcrumb--> 
+    </div><!--bredcrumb-->
+
     <div class="wrap_notfiy">
       <?php if ($success) { ?>
       <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?></div>
@@ -20,7 +21,8 @@
       <?php if ($error_warning) { ?>
       <div class="alert alert-warning"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
       <?php } ?>
-    </div>  
+    </div>
+
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -44,13 +46,14 @@
               </div><!-- .side_navigation --> 
               <div class="col-md-9 col-sm-9 col-xs-12 content_area"> 
                     <div class="table-responsive">          
-                      <table class="table">
+                      <table class="table" id="table_address_list">
                         <thead>
                           <tr>
                             <th><?php echo $text_address_list;?></th>
                             <th><a href="<?php echo $add; ?>" id="addnewaddress"><?php echo $button_new_address; ?></a></th>
                           </tr>
                         </thead>
+                        <tbody>
                       <?php if ($addresses) { ?>
                           <?php foreach ($addresses as $result) { ?>
                           <tr>
@@ -71,6 +74,8 @@
       </div>
     </div>
     </div>
+
+
     </div>
     </section>
     <?php echo $column_right; ?></div>

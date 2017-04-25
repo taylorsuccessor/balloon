@@ -12,8 +12,8 @@
           <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
         <?php  } ?>
         </ul>
-    </div><!--bredcrumb--> 
-  <div class="row"><?php echo $column_left; ?>
+    </div><!--bredcrumb-->
+    <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>

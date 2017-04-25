@@ -34,14 +34,6 @@ class ControllerCommonFooter extends Controller {
 		$data['powered_by'] = $this->language->get('powered_by');
 
 
-
-
-
-
-
-
-
-
 		//
 
 		$this->load->model('catalog/information');
