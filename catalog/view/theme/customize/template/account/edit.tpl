@@ -22,7 +22,10 @@
             </ul> 
       </div> <!--bredcrumb-->
  
-    <div class="wrap_notfiy">  
+    <div class="wrap_notfiy">
+        <?php if ($success) { ?>
+        <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?></div>
+        <?php } ?>
 
   <?php if ($error_warning) { ?>
   <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
