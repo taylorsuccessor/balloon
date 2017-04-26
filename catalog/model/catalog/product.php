@@ -73,9 +73,20 @@ class ModelCatalogProduct extends Model {
 			}
 		} else {
 			$sql .= " FROM " . DB_PREFIX . "product p";
+			if(isset($data['parentCategories'])){
+
+				$sql.=' inner join '.DB_PREFIX.'product_to_category p2c ';
+			}
+
 		}
 
-		$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
+		$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE  ";
+
+		if(isset($data['parentCategories'])){
+//die(var_dump('('.join(',', $data['parentCategories']).')'));
+			$sql.='  p2c.category_id in ('.join(',', $data['parentCategories']).') and 	 ';
+		}
+		$sql .=" pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
 
 		if (!empty($data['filter_category_id'])) {
 			if (!empty($data['filter_sub_category'])) {
@@ -152,6 +163,7 @@ class ModelCatalogProduct extends Model {
 		if (!empty($data['filter_manufacturer_id'])) {
 			$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
 		}
+
 
 		$sql .= " GROUP BY p.product_id";
 
@@ -415,6 +427,8 @@ class ModelCatalogProduct extends Model {
 
 	public function getTotalProducts($data = array()) {
 		$sql = "SELECT COUNT(DISTINCT p.product_id) AS total";
+
+
 
 		if (!empty($data['filter_category_id'])) {
 			if (!empty($data['filter_sub_category'])) {

@@ -539,10 +539,10 @@ class ControllerProductProduct extends Controller {
 
 
 
-			$this->load->model('catalog/custom_field');
-			$data=$this->model_catalog_custom_field->addOptionsValues($data);
-
-			$data['languageCode']=$this->language->get('code'	);
+			$this->load->model('catalog/custom_option');
+			$data=$this->model_catalog_custom_option->addOptionsValues($data);
+$data['optionsWithName']=$this->model_catalog_custom_option->getOptions($data['product_id']);
+			$data['languageCode']=$this->language->get('code');
 
 
 //			var_dump($this->request->post);

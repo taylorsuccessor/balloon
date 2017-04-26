@@ -138,6 +138,7 @@
 
 
                                     <select name="balloondeliverytime">
+                                        <option value="0"> <?=$text_option_time;?> </option>
                                         <?php foreach($balloondeliverytime_values[$languageCode] as $oneOptionValue){
                                         echo '<option value="'.$oneOptionValue['value'].'">'.$oneOptionValue['name'].'</option>';
                                         }?>
@@ -443,6 +444,10 @@ console.log(json);
             }
         });
     });
+
+    <?php foreach($optionsWithName as $product_option_id =>$option){
+       echo '$("[name=\''.$option['alias'].'\']").attr("id","input-option'.$product_option_id.'");';
+    }?>
     //--></script>
 
 

@@ -13,7 +13,7 @@
 </form>
 </div>
 <?php }else
-{?>
+{ ?>
 <div class="pull-left">
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-language">
       <?php foreach ($languages as $language) { ?>

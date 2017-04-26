@@ -1,23 +1,11 @@
 <?php echo $header; ?>
+
 <div class="container">
-    <section class="banner-section"><!--Banner Section-->
-        <div class="inner-banner"><!--banner-->
-            <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
-        </div><!--banner-->
-    </section><!--Banner Section-->
-
-    <section class="content-section"><!--content-section-->
-
-        <div class="bredcrumb"><!--bredcrumb-->
-
-            <ul>
-                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-                <?php  } ?>
-            </ul>
-
-        </div> <!--bredcrumb-->
-
+  <ul class="breadcrumb">
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+    <?php } ?>
+  </ul>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -77,7 +65,9 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                       }
 
                       ?>
-<?= drowLeftMenu($leftMenu,$product_id);?>
+<?= drowLeftMenu($leftMenu,0);?>
+
+
 
               </div>
             </div>
@@ -133,70 +123,57 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                   </div>
                 </div>
               </div><!--row-->
-              <div class="delevery_time" id="product">
-                <div class="date-time"><!--date-time-->
-                  <div class="row">
-                    <div class="col-md-4">
-                      <label>Pick an event time:</label>
+
+
+
+
+                <div class="selected-items-wrapper"><!--Selected Items-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="selected-items">
+                                <h4>Selected Items</h4>
+                                <table>
+                                    <thead>
+                                    <tr class="hidden-xs tablehead">
+                                        <th>Services</th>
+                                        <th>Timings </th>
+                                        <th>Date </th>
+                                        <th><?php echo $text_price; ?> </th>
+                                        <th><?php echo $text_total; ?></th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <?php foreach($products as $product) { ?>
+                                    <tr class="tablecontent">
+                                        <td><span class="td-name visible-xs">Services</span><?php echo $product['name']; ?></td>
+                                        <?php foreach($product['option'] as $option) {
+                                        echo '<td><span class="td-name visible-xs">'.$option['name'].'</span>'.$option['value'].'</td>';
+                                        }
+                                        ?>
+                                        <td><span class="td-name visible-xs"><?php echo $text_price; ?> </span><?php echo $product['price']; ?></td>
+                                        <td><span class="td-name visible-xs"><?php echo $text_total; ?></span> <?php echo $product['total']; ?></td>
+                                        <td><a  class="remove-button visible-xs" ></a><a   onclick="cart.remove('<?php echo $product['cart_id']; ?>');window.location.reload();"><img class="preview" src="image/catalog/icons/close.png" alt=""></a></td>
+                                    </tr>
+                                    <?php } ?>
+
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="proceed">
+                                <a class="" href="<?=$eventSummaryFinalLink;?>">Proceed</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-5">
-
-
-                      <?php
-                      $eventTimeProductOptionId=0;
-
-                      if ($options) {
-                                foreach($options as $option){
-                                    if(str_replace(' ','',strtolower($option['name']))=='eventtime'){
-                                                $i=0;
-
-
-                                echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" > <option value="0">Please select delivery time</option>';
-                      $eventTimeProductOptionId=$option['product_option_id'];
-                    foreach($option['product_option_value'] as $option_value){
-
-                      echo '
-                      <option value="'.$option_value['product_option_value_id'].'">'.$option_value['name'].'</option>
-                      ';
-                      }
-                      echo '</select>';
-                      }
-                      }
-                      }//if option
-                      ?>
-
-
-                    </div>
-                    <div class="col-md-3">
+                </div>
 
 
 
-                      <?php if ($options) {
-                                foreach($options as $option){
-                                                                   if(str_replace(' ','',strtolower($option['name']))=='eventdate'){
 
-
-                     echo '<input name="option['.$option['product_option_id'].']" id="input-option'.$option['product_option_id'].'"type="hidden"value="2017-03-05" class="eventDate">';
-                      }
-                      }
-                      }//if option
-                      ?>
-
-
-                        <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" style="display:none" />
-                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-
-                      <a href="javascript: void(0)"  id="button-cart" data-loading-text="<?php echo $text_loading; ?>" ><?php echo $button_cart; ?></a>
-                    </div>
-                  </div>
-
-                </div><!--date-time-->
-
-                  <div class="proceed" style="clear: both;margin:30px auto 0px auto; padding-top: 30px;">
-                      <a class="" style="width:100%; display:inline-block; " href="<?php echo $eventSummaryLink;?>">Proceed</a>
-                  </div>
-
-              </div>
             </div>
           </div>
         </div>
@@ -290,18 +267,18 @@ $('#button-cart').on('click', function() {
 });
 //--></script>
 <script type="text/javascript"><!--
-$('.date').datetimepicker({
-	pickTime: false
-});
-
-$('.datetime').datetimepicker({
-	pickDate: true,
-	pickTime: true
-});
-
-$('.time').datetimepicker({
-	pickDate: false
-});
+//$('.date').datetimepicker({
+//	pickTime: false
+//});
+//
+//$('.datetime').datetimepicker({
+//	pickDate: true,
+//	pickTime: true
+//});
+//
+//$('.time').datetimepicker({
+//	pickDate: false
+//});
 
 $('button[id^=\'button-upload\']').on('click', function() {
 	var node = this;
@@ -366,11 +343,11 @@ $('#review').delegate('.pagination a', 'click', function(e) {
     $('#review').fadeIn('slow');
 });
 
-$('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
+//  $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
 $('#button-review').on('click', function() {
 	$.ajax({
-		url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
+		url: 'index.php?route=product/product/write&product_id=<?php /* echo $product_id; */ ?>',
 		type: 'post',
 		dataType: 'json',
 		data: $("#form-review").serialize(),
@@ -398,15 +375,15 @@ $('#button-review').on('click', function() {
 	});
 });
 
-$(document).ready(function() {
-	$('.thumbnails').magnificPopup({
-		type:'image',
-		delegate: 'a',
-		gallery: {
-			enabled:true
-		}
-	});
-});
+//$(document).ready(function() {
+//	$('.thumbnails').magnificPopup({
+//		type:'image',
+//		delegate: 'a',
+//		gallery: {
+//			enabled:true
+//		}
+//	});
+//});
 //--></script>
 <?php echo $footer; ?>
 
@@ -471,12 +448,9 @@ $('.eventDate').val(fullDate);
     $(".responsive-calendar").responsiveCalendar({
       time: year+'-'+month,
       events: {
-        <?php
 
-
-            foreach($existReservation as $date=>$times){
-              sort($times['times']);
-              echo '"'.$date.'": {"number":"'.join(',',$times['times']).'"},';
+ <?php foreach ($eventsDate as $eventDate) {
+              echo '"'.$eventDate.'": {"number":"1"},';
             }
 
 
@@ -485,22 +459,22 @@ $('.eventDate').val(fullDate);
       onDayClick: function(events) {
     var fullDate=$(this).data('year')+'-'+ addLeadingZero($(this).data('month'))+'-'+ addLeadingZero($(this).data('day'));
 
-    setDateTimeOptions(fullDate);
+    //setDateTimeOptions(fullDate);
         if(false && $(this).parent().hasClass('active')){
           return false;
         }else{
-$(this).parent().parent().find('div:not(.active) a').css('background-color','#fff !important');
+$(this).parent().parent().find('div:not(.active) a').css('background-color','#1d86c8 !important');
           $(this).css('background-color','#0ff !important');
         }
 
         $('.eventDate').val(fullDate);
   },
   onInit:function(events){
-    setTimeout("setDateTimeOptions('"+fullDate+"')",500);
-    setTimeout("checkTheFullReserveDay()",500);
+//    setTimeout("setDateTimeOptions('"+fullDate+"')",500);
+   // setTimeout("checkTheFullReserveDay()",500);
   },
   onMonthChange:function(events){
-    setTimeout("checkTheFullReserveDay()",1000);
+   // setTimeout("checkTheFullReserveDay()",1000);
   }
 
     });
@@ -509,41 +483,6 @@ $(this).parent().parent().find('div:not(.active) a').css('background-color','#ff
 
   });
 
-  function setDateTimeOptions(selectedDate){
-   var allEventTimesList=<?=json_encode($eventTimesList); ?>;
-var dateArray=selectedDate.split('-');
-    var year=dateArray[0];
-    var month= dateArray[1] * 1;
-    var day=dateArray[2] * 1;
-
-    var dayNode=$("a[data-year='"+ year+"'][data-month='"+ month+"'][data-day='"+ day+"']");
-
-    var reservedDayTime=dayNode.parent().find('span').text().split(',');
-
-    var timeSelectNode= $('#input-option<?=$eventTimeProductOptionId;?>');
-
-    timeSelectNode.find('option').each(function(){ if($(this).attr('value') >0 ){$(this).remove(); } });
-    for(oneEventTime in allEventTimesList  ){
-      if(reservedDayTime.indexOf(oneEventTime) == -1){timeSelectNode.append('<option value="'+oneEventTime+'" >'+allEventTimesList[oneEventTime]+'</option>');}
-    }
-  }
-
-
-      function checkTheFullReserveDay(){
-        var allEventTimesList="<?php $eventTimesKeyList=array_keys($eventTimesList);sort($eventTimesKeyList); echo join(',',$eventTimesKeyList); ?>";
-
-        $('.responsive-calendar .days div span').each(function(){
-          $(this).parent().removeClass('active notFull');
-          if($(this).text() == allEventTimesList){
-            $(this).parent().addClass('active');
-          }else if($(this).text() != ''){
-            $(this).parent().addClass('notFull');
-          }else{
-
-          }
-        });
-
-          }
 </script>
 
     <style type="text/css">

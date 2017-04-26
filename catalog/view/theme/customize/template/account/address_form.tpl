@@ -38,6 +38,8 @@
                 <h2><?php echo $text_delivery_address; ?></h2>
                 <div class="row"> 
                   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+
                     <fieldset>
 
           

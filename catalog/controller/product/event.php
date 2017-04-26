@@ -40,7 +40,6 @@ class ControllerProductEvent extends Controller {
 
 
 
-
 		//
 
 
@@ -717,10 +716,15 @@ class ControllerProductEvent extends Controller {
 			$data['product_id']=$this->request->get['product_id'];
 
 
-			$this->load->model('catalog/custom_field');
-			$data=$this->model_catalog_custom_field->addOptionsValues($data);
+			$this->load->model('catalog/custom_option');
+			$data=$this->model_catalog_custom_option->addOptionsValues($data);
 
 
+            $data['existReservation'] = $existReservation;
+            $data['eventTimesList'] = $total_option_value;
+
+            $data['product_id']=$this->request->get['product_id'];
+            $data['eventSummaryLink']=$this->url->link('product/event_summary', '');
 			return $this->response->setOutput($this->view('product/event', $data,['options','air_values']));
 		} else {
 			$url = '';
@@ -728,10 +732,14 @@ class ControllerProductEvent extends Controller {
             $data['existReservation'] = $existReservation;
             $data['eventTimesList'] = $total_option_value;
 
+
+			$data['product_id']=$this->request->get['product_id'];
+$data['eventSummaryLink']=$this->url->link('product/event_summary', '');
+
             $data['product_id'] = $this->request->get['product_id'];
             return $this->response->setOutput($this->view('product/event', $data, ['options']));
-        } else {
-            $url = '';
+
+        }
 
             if (isset($this->request->get['path'])) {
                 $url .= '&path=' . $this->request->get['path'];
@@ -807,7 +815,7 @@ class ControllerProductEvent extends Controller {
 
             $this->response->setOutput($this->load->view('error/not_found', $data));
         }
-    }
+
 
     public function review()
     {

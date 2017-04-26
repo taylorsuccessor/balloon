@@ -16,6 +16,7 @@
       </ul>
     </div> <!--bredcrumb-->
     <div class="wrap_notfiy">
+
     </div>
     <div class="row"><?php echo $column_left; ?>
       <?php if ($column_left && $column_right) { ?>
