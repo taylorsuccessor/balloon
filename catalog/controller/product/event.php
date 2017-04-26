@@ -727,6 +727,10 @@ class ControllerProductEvent extends Controller {
             $data['existReservation'] = $existReservation;
             $data['eventTimesList'] = $total_option_value;
 
+
+			$data['product_id']=$this->request->get['product_id'];
+$data['eventSummaryLink']=$this->url->link('product/event_summary', '');
+
             $data['product_id'] = $this->request->get['product_id'];
             return $this->response->setOutput($this->view('product/event', $data, ['options']));
         }
