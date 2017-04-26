@@ -7,9 +7,7 @@
   </section><!--Banner Section-->
   
   <section class="content-section">
-     
       <div class="bredcrumb"><!--bredcrumb-->      
-        <?php //print_r($breadcrumbs) ;?>
             <ul>
                 <?php foreach ($breadcrumbs as $breadcrumb) { ?>
                     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>

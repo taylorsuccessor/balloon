@@ -2783,7 +2783,7 @@ header .top-nav-left ul li:first-child
 .content_area button {
 	font-size: 16px;
 	color: #fff;
-	background: #008b16;
+	background: #70c398;
 	border: none;
 	padding: 0px 35px;
 	height: 47px;
@@ -3155,11 +3155,11 @@ header .top-nav-left ul li:first-child
 }
 #table_address_list .text-left
 {
-	text-align:left;
+	text-align:right;
 }
 #table_address_list .text-right
 {
-	text-align:right;
+	text-align:left;
 }
 #addnewaddress
 {

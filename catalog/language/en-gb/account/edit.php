@@ -7,7 +7,11 @@ $_['text_account']       = 'Account';
 $_['text_edit']          = 'Edit Information';
 $_['text_your_details']  = 'Account  <span>Information</span>';
 $_['text_success']       = 'Success: Your account has been successfully updated.';
-
+$_['text_edit']      = 'Account Information';
+$_['text_address']   = 'Address book';
+$_['text_my_orders'] = 'Your orders';
+$_['text_password']  = 'Change password';
+$_['text_user_profile']    = 'User Profile';
 // Entry
 $_['entry_firstname']    = 'Full Name';
 $_['entry_lastname']     = 'Last Name';
