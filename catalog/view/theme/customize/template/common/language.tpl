@@ -1,5 +1,5 @@
 <?php if (count($languages) > 1) { ?>
-<?php if ( $languages[0]['name'] == 'English') {?>
+<?php if ( $languages[0]['name'] == 'English') { ?>
 <div class="pull-right">
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-language">
       <?php foreach ($languages as $language) { ?>
@@ -13,7 +13,7 @@
 </form>
 </div>
 <?php }else
-{?>
+{ ?>
 <div class="pull-left">
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-language">
       <?php foreach ($languages as $language) { ?>

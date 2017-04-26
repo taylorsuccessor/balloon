@@ -74,9 +74,9 @@
                             <div class="share">
                                 <p><?php echo $text_share_product; ?></p>
                                 <ul>
-                                    <li><a href="#"><img src="image/catalog/icons/share-fb.png" alt=""/></a></li>
-                                    <li><a href="#"><img src="image/catalog/icons/share-tw.png" alt=""/></a></li>
-                                    <li><a href="#"><img src="image/catalog/icons/share-in.png" alt=""/></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                             <div class="stock"><p><?php echo $availabilty; ?> <span><?php echo $stock; ?></span></p></div>

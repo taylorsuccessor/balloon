@@ -11,6 +11,13 @@ $_['text_edit']           = 'تحرير المعلومات';
 $_['text_your_details']   = 'معلوماتك الشخصية';
 $_['text_success']        = 'تم تحديث حسابك بنجاح.';
 
+
+$_['text_edit']      = 'تحرير المعلومات';
+$_['text_address']   = 'العناوين';
+$_['text_my_orders'] = 'طلباتك';
+$_['text_password']  = 'تغير كلمة المرور';
+$_['text_user_profile']    = 'معلومات حسابي';
+
 // Entry
 $_['entry_firstname']     = 'الاسم الأول';
 $_['entry_lastname']      = 'اسم العائلة';

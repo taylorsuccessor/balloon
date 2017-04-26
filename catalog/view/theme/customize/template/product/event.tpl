@@ -1,11 +1,23 @@
 <?php echo $header; ?>
-
 <div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
+    <section class="banner-section"><!--Banner Section-->
+        <div class="inner-banner"><!--banner-->
+            <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+        </div><!--banner-->
+    </section><!--Banner Section-->
+
+    <section class="content-section"><!--content-section-->
+
+        <div class="bredcrumb"><!--bredcrumb-->
+
+            <ul>
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                <?php  } ?>
+            </ul>
+
+        </div> <!--bredcrumb-->
+
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -66,8 +78,6 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
 
                       ?>
 <?= drowLeftMenu($leftMenu,$product_id);?>
-
-
 
               </div>
             </div>
@@ -137,8 +147,8 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
 
                       if ($options) {
                                 foreach($options as $option){
-                                                                   if(str_replace(' ','',strtolower($option['name']))=='eventtime'){
-                                                                   $i=0;
+                                    if(str_replace(' ','',strtolower($option['name']))=='eventtime'){
+                                                $i=0;
 
 
                                 echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" > <option value="0">Please select delivery time</option>';

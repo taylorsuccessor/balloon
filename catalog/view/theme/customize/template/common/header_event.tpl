@@ -88,7 +88,8 @@
 		            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
 		            <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
                 <li><a href=""><?php echo $language; ?></a></li>
-                <?php } else { ?>
+                <?php } else {
+                 ?>
                     <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
                     <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
                     <li><a href=""><?php echo $language; ?></a></li>

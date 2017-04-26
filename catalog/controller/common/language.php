@@ -19,7 +19,7 @@ class ControllerCommonLanguage extends Controller {
 			if ($result['status']) {
 				$data['languages'][] = array(
 					'name' => $result['name'],
-					'code' => $result['code']
+					'code' => $result['code'],
 				);
 			}
 		}
