@@ -40,7 +40,6 @@ class ControllerProductEvent extends Controller {
 
 
 
-
 		//
 
 
@@ -730,8 +729,7 @@ class ControllerProductEvent extends Controller {
 
             $data['product_id'] = $this->request->get['product_id'];
             return $this->response->setOutput($this->view('product/event', $data, ['options']));
-        }else {
-            $url = '';
+        }
 
             if (isset($this->request->get['path'])) {
                 $url .= '&path=' . $this->request->get['path'];
@@ -807,7 +805,7 @@ class ControllerProductEvent extends Controller {
 
             $this->response->setOutput($this->load->view('error/not_found', $data));
         }
-    }
+
 
     public function review()
     {
