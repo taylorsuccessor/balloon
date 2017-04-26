@@ -694,11 +694,7 @@ public function getProductPeriodList($product_id){
 			$data['eventTimesList']=$total_option_value;
 
 			$data['product_id']=$this->request->get['product_id'];
-
-
-			$this->load->model('catalog/custom_field');
-			$data=$this->model_catalog_custom_field->addOptionsValues($data);
-
+$data['eventSummaryLink']=$this->url->link('product/event_summary', '');
 
 			return $this->response->setOutput($this->view('product/event', $data,['options','air_values']));
 		} else {

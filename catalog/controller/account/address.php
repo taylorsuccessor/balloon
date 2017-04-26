@@ -19,6 +19,13 @@ class ControllerAccountAddress extends Controller {
 	}
 
 	public function add() {
+
+
+		$this->load->model('catalog/custom_field');
+		$this->request->post=$this->model_catalog_custom_field->fixRequest($this->request->post);
+
+//die(var_dump($this->request->post));
+
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/address', '', true);
 
