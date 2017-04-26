@@ -1056,8 +1056,8 @@ header .top-nav-left ul li:first-child
 	padding: 10px 9px;
 }
 .navbar-right .dropdown-menu{
-	right: 0px;
-	left: auto;
+	right: auto;
+	left: 0px;
 }
 .navbar-default .navbar-nav > li > a:hover{
 	color:#c90d7e;
@@ -1500,8 +1500,8 @@ header .top-nav-left ul li:first-child
 	box-shadow: none;
 }
 .navbar-right .dropdown-submenu>.dropdown-menu {
-	right: 100% !important;
-	left: auto;
+	right: auto;
+	left: 100% !important;
 }
 
 .dropdown-submenu:hover>.dropdown-menu {
