@@ -10,11 +10,11 @@ $_['text_account']   = 'الحساب';
 $_['text_password']  = 'كلمة المرور الجديدة';
 $_['text_success']   = 'كلمة المرور الخاصة بك قد تم تحديثها بنجاح.';
 
-$_['text_edit']      = 'معلومات الحساب';
-$_['text_address']   = 'Address book';
-$_['text_my_orders'] = 'Your orders';
+$_['text_edit']      = 'تحرير المعلومات';
+$_['text_address']   = 'العناوين';
+$_['text_my_orders'] = 'طلباتك';
 $_['text_password']  = 'تغير كلمة المرور';
-$_['text_user_profile']    = 'User Profile';
+$_['text_user_profile']    = 'معلومات حسابي';
 
 //buttons
 $_['button_continue'] = 'تحديث كلمة المرور';

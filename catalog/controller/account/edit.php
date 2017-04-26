@@ -76,16 +76,18 @@
 		$data['text_additional'] = $this->language->get('text_additional');
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_loading'] = $this->language->get('text_loading');
-		//$data['entry_firstname'] = $this->language->get('entry_firstname');
-		//$data['entry_lastname'] = $this->language->get('entry_lastname');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_fax'] = $this->language->get('entry_fax');
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
 		$data['button_upload'] = $this->language->get('button_upload');
-        
-        // got them from address
+		$data['text_edit'] = $this->language->get('text_edit');
+		$data['text_password'] = $this->language->get('text_password');
+		$data['text_address'] = $this->language->get('text_address');
+		$data['text_my_orders'] = $this->language->get('text_my_orders');
+
+		// got them from address
         
        // $data['entry_address_1'] = $this->language->get('entry_address_1');
         //$data['entry_area'] = $this->language->get('entry_area');

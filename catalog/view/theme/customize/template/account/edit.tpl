@@ -51,10 +51,10 @@
                    <div class="col-md-3 col-sm-3 col-xs-12 side_navigation">
         
         <ul>
-              <li><a href="<?php echo $edit; ?>" class="active">Account information</a></li>
-              <li><a href="<?php echo $address; ?>">Address book</a></li>
-              <li><a href="<?php echo $orders; ?>">your orders</a></li>
-              <li><a href="<?php echo $password; ?>">Change password</a></li>
+              <li><a href="<?php echo $edit; ?>" class="active"><?php echo $text_edit; ?></a></a></li>
+              <li><a href="<?php echo $address; ?>"><?php echo $text_address; ?></a></li>
+              <li><a href="<?php echo $orders; ?>"><?php echo $text_my_orders; ?></a></li>
+              <li><a href="<?php echo $password; ?>"><?php echo $text_password; ?></a></li>
                                         
         </ul>
         
