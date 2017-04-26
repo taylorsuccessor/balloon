@@ -19,13 +19,35 @@ class ControllerExtensionModuleLatest extends Controller
 
 		$this->load->model('tool/image');
 
+
+
+
+		$this->load->model('catalog/category');
+		list($eventsLeftId,$eventsRightId,$productsLeftId,$productsRightId)=$this->model_catalog_category->getMainMenuCategory();
+
+		$parentCategriesId=[];
+
+		if(isset($this->session->data['serviceType'] ) && $this->session->data['serviceType'] =='events'){
+
+			$parentCategriesId=[$eventsLeftId,$eventsRightId];
+			$data['serviceType']='events';
+		}else{
+
+			$parentCategriesId=[$productsLeftId,$productsRightId];
+			$data['serviceType']='products';
+
+		}
+
+
+
 		$data['products'] = array();
 
 		$filter_data = array(
 			'sort' => 'p.date_added',
 			'order' => 'DESC',
 			'start' => 0,
-			'limit' => $setting['limit']
+			'limit' => $setting['limit'],
+			'parentCategories'=>$this->getCategriesId($parentCategriesId)
 
 		);
 
@@ -80,5 +102,25 @@ class ControllerExtensionModuleLatest extends Controller
 		return $this->load->view('extension/module/latest', $data);
 
 	}
+
+	public function getCategriesId($parentIdArray){
+		function getChildCategoryId($categories){
+
+			$ids=[];
+			foreach($categories as $category){
+				$ids[]=$category['category_id'];
+				if(isset($category['children'])){
+					$ids=array_merge($ids,getChildCategoryId($category['children']));
+				}
+			}
+			return $ids;
+		}
+		$categories=$this->model_catalog_category->getCategoryChildren($parentIdArray);
+
+		return getChildCategoryId($categories);
+
+	}
+
+
 }
 

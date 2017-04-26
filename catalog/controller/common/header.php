@@ -126,13 +126,13 @@ class ControllerCommonHeader extends Controller {
 					'href'  =>$data['home_supply'],
 				],
 				[   'name'  =>$data['text_about_us'],
-					'href'=>$this->url->link('information/information&information_id=7','id=fff'),
+					'href'=>$this->url->link('information/information','information_id=7'),
 					'children'=>[
-						['name'=>$data['text_about_balloony'],'href'=>'?route=information/information&information_id=7'],
-						['name'=>$data['text_location_map'],'href'=>'?route=information/information&information_id=8'],
-						['name'=>$data['text_our_staff'],'href'=>'?route=information/information&information_id=9']
+						['name'=>$data['text_about_balloony'],'href'=>$this->url->link('information/information','information_id=7'),
+						['name'=>$data['text_location_map'],'href'=>$this->url->link('information/information','information_id=8')],
+						['name'=>$data['text_our_staff'],'href'=>$this->url->link('information/information','information_id=9')]
 					],
-
+],
 				]
 			];
 			$leftCategoriesList = $this->model_catalog_category->getCategoryChildren([$productsLeftId]);//print_r to see results for left side

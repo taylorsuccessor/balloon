@@ -339,7 +339,7 @@ footer h5 {
 /* alert */
 .alert {
 	padding: 8px 14px 8px 14px;
-	/*overflow: hidden;*/
+	overflow: hidden;
 }
 /* breadcrumb */
 .breadcrumb {
@@ -603,9 +603,10 @@ h2.price {
 }
 .product-thumb .price-new {
 	font-weight: 600;
+	color: #c90d7e;
 }
 .product-thumb .price-old {
-	color: #999;
+	color:#c90d7e;
 	text-decoration: line-through;
 	margin-left: 10px;
 }
@@ -3617,6 +3618,23 @@ header .top-nav-left ul li{margin: 0px 3px;}
 {
 
 	padding: 0px;
+}
+.txt_error
+{
+	padding-top: 10px;
+}
+.txt
+{
+	padding-top: 10px;
 
-
+}
+.name_product
+{
+	padding-top: 10px;
+}
+.name_product a
+{
+	color:#000;
+	text-decoration: none;
+	padding-top: 10px;
 }
