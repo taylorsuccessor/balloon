@@ -21,6 +21,10 @@ size
 eventtime
 eventdate
 
+lettercolor
+nameletters
+lettersize
+
 //_____________________request fields
 finalProductDetail
 
