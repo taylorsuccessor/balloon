@@ -47,7 +47,7 @@ class ControllerExtensionModuleLatest extends Controller
 			'order' => 'DESC',
 			'start' => 0,
 			'limit' => $setting['limit'],
-			'parentCategories'=>$this->getCategriesId($parentCategriesId)
+			'parentCategories'=>array_merge($parentCategriesId,$this->getCategriesId($parentCategriesId))
 
 		);
 
@@ -104,21 +104,22 @@ class ControllerExtensionModuleLatest extends Controller
 	}
 
 	public function getCategriesId($parentIdArray){
-		function getChildCategoryId($categories){
 
-			$ids=[];
-			foreach($categories as $category){
-				$ids[]=$category['category_id'];
-				if(isset($category['children'])){
-					$ids=array_merge($ids,getChildCategoryId($category['children']));
-				}
-			}
-			return $ids;
-		}
 		$categories=$this->model_catalog_category->getCategoryChildren($parentIdArray);
 
-		return getChildCategoryId($categories);
+		return $this->getChildCategoryIds($categories);
 
+	}
+	private 		function getChildCategoryIds($categories){
+
+		$ids=[];
+		foreach($categories as $category){
+			$ids[]=$category['category_id'];
+			if(isset($category['children'])){
+				$ids=array_merge($ids,$this->getChildCategoryIds($category['children']));
+			}
+		}
+		return $ids;
 	}
 
 

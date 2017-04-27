@@ -1,4 +1,84 @@
+<?php if($serviceType == 'events'){ ?>
 
+
+
+
+<section class="content-section"><!--content-section-->
+    <div class="container"><!--container-->
+        <div class="latest-services"><!--latest-services-->
+            <h2> <span><?php echo $heading_title; ?></span></h2>
+
+            <div class="row1">
+                <div id="owl-demo3" class="owl-carousel owl-theme">
+
+
+
+                    <?php if(true){ $i=0; foreach ($products as $product) {
+
+
+                    if($i%3 ==0){ ?>
+
+
+                    <div class="item" onclick="window.location.href='<?php echo $product['href']; ?>'" style="cursor:pointer;">
+                        <img  src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" style="height:440px;"/>
+                        <h4><?php echo $product['name']; ?> </h4>
+                    </div>
+
+
+
+                    <?php }else if($i%3 ==1){ ?>
+
+
+
+                    <div class="item" onclick="window.location.href='<?php echo $product['href']; ?>'" style="cursor:pointer;">
+
+                        <div class="small-item">
+                        <img  src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"  style="height:208px;"/>
+                        <h4><?php echo $product['name']; ?> </h4>
+                            </div>
+
+
+
+                    <?php  }else if($i%3 ==2){ ?>
+
+
+                        <div class="small-item2">
+
+                        <img  src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"  style="height:208px;"/>
+                        <h4><?php echo $product['name']; ?> </h4>
+                            </div>
+                    </div>
+
+
+                    <?php
+                    }
+                    $i++;
+
+                    ?>
+
+                    <?php }
+                    }
+
+                    ?>
+
+                </div>
+            </div>
+
+        </div><!--latest-products-->
+
+    </div><!--container-->
+</section><!--content-section-->
+
+
+
+
+
+
+
+
+
+
+<?php }else{ ?>
 
 <section class="content-section"><!--content-section-->
   <div ><!--container-->
@@ -29,5 +109,5 @@
 --></script>
 
 
-
+<?php } ?>
 

@@ -107,6 +107,7 @@ class ControllerProductEvent extends Controller {
 
         }
 
+        $data['content_bottom'] = $this->load->controller('common/content_bottom');
 
         $this->response->setOutput($this->load->view('product/events_main', $data));
     }
