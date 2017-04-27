@@ -1,3 +1,4 @@
+
 <?php
 class ControllerProductProduct extends Controller {
 	private $error = array();
@@ -18,6 +19,15 @@ class ControllerProductProduct extends Controller {
 			$path = '';
 
 			$parts = explode('_', (string)$this->request->get['path']);
+
+			if (isset($this->session->data['success'])) {
+				$data['success'] = $this->session->data['success'];
+
+				unset($this->session->data['success']);
+			} else {
+				$data['success'] = '';
+			}
+
 
 			$category_id = (int)array_pop($parts);
 
@@ -43,6 +53,13 @@ class ControllerProductProduct extends Controller {
 
 			if ($category_info) {
 				$url = '';
+				if (isset($this->session->data['success'])) {
+					$data['success'] = $this->session->data['success'];
+
+					unset($this->session->data['success']);
+				} else {
+					$data['success'] = '';
+				}
 
 				if (isset($this->request->get['sort'])) {
 					$url .= '&sort=' . $this->request->get['sort'];
@@ -164,6 +181,13 @@ class ControllerProductProduct extends Controller {
 
 		if ($product_info) {
 			$url = '';
+			if (isset($this->session->data['success'])) {
+				$data['success'] = $this->session->data['success'];
+
+				unset($this->session->data['success']);
+			} else {
+				$data['success'] = '';
+			}
 
 			if (isset($this->request->get['path'])) {
 				$url .= '&path=' . $this->request->get['path'];
@@ -386,6 +410,7 @@ class ControllerProductProduct extends Controller {
 				}elseif($option_name == 'ballooncolor'){
 
 					$view_template_name='product/product_color';
+
 				}elseif($option_name == 'eventtime'){
 
 					return $this->response->redirect($this->url->link('product/event', 'product_id='.$this->request->get['product_id'], true));

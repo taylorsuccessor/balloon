@@ -1,24 +1,18 @@
 <?php echo $header; ?>
 <div class="container">
-
   <section class="banner-section"><!--Banner Section-->
     <div class="inner-banner"><!--banner-->
       <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
     </div><!--banner-->
   </section><!--Banner Section-->
-
   <section class="content-section"><!--content-section-->
-
     <div class="bredcrumb"><!--bredcrumb-->
-
       <ul>
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
         <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
         <?php  } ?>
       </ul>
-
     </div> <!--bredcrumb-->
-
     <div class="row"><?php echo $column_left; ?>
       <?php if ($column_left && $column_right) { ?>
       <?php $class = 'col-sm-6'; ?>
@@ -74,11 +68,7 @@
               <?php } ?>
               <?php echo $text_sub_category; ?></label>
           </div>
-
         </div>
-
-
-
         <p class="search">
           <label class="checkbox-inline">
             <?php if ($description) { ?>
@@ -139,8 +129,8 @@
               <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
               <div>
                 <div class="caption">
-                  <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-                  <p><?php echo $product['description']; ?></p>
+                  <h4 class="name_product"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+                  <p class="txt"><?php echo $product['description']; ?></p>
                   <?php if ($product['price']) { ?>
                   <p class="price">
                     <?php if (!$product['special']) { ?>
@@ -149,7 +139,6 @@
                     <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
                     <?php } ?>
                     <?php if ($product['tax']) { ?>
-                    <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
                     <?php } ?>
                   </p>
                   <?php } ?>

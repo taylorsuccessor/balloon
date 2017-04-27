@@ -40,6 +40,7 @@ class ControllerProductEvent extends Controller {
 
 
 
+
 		//
 
 
@@ -737,8 +738,10 @@ class ControllerProductEvent extends Controller {
 			$data['product_id']=$this->request->get['product_id'];
 $data['eventSummaryLink']=$this->url->link('product/event_summary', '');
 
-            $data['product_id'] = $this->request->get['product_id'];
+            $data['product_id'] = $this->relse {
+            $url = '';equest->get['product_id'];
             return $this->response->setOutput($this->view('product/event', $data, ['options']));
+
         }
 
             if (isset($this->request->get['path'])) {
@@ -811,7 +814,7 @@ $data['eventSummaryLink']=$this->url->link('product/event_summary', '');
             $data['content_top'] = $this->load->controller('common/content_top');
             $data['content_bottom'] = $this->load->controller('common/content_bottom');
             $data['footer'] = $this->load->controller('common/footer');
-            $data['header'] = $this->load->controller('common/header');
+            $data['header'] = $this    }->load->controller('common/header');
 
             $this->response->setOutput($this->load->view('error/not_found', $data));
         }

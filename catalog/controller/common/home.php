@@ -1,16 +1,23 @@
+
 <?php
 class ControllerCommonHome extends Controller {
-	public  function index(){
+	public  function index() {
 
-$data=[];
+        $data=[];
 
 		$data['eventsLink'] = $this->url->link('product/event/events_main');
 
 		$data['partySuppliesLink'] = $this->url->link('common/home/index_supply');
+		//$this->load->language('common/index_intro');
 
+		//$data['text_balloons_party_supply'] = $this->language->get('text_balloons_party_supply');
 		$this->response->setOutput($this->load->view('common/index_intro', $data));
+
 	}
 
+	/**
+	 *
+     */
 	public function index_supply() {
 		$this->session->data['serviceType']='products';
 		$this->document->setTitle($this->config->get('config_meta_title'));
@@ -29,10 +36,12 @@ $data=[];
 		$data['header'] = $this->load->controller('common/header');
 		$data['indexLink'] = $this->url->link('common/home');
 		$data['partySupplies'] = $this->url->link('common/home/newIndex');
-
+		//$this->load->language('common/index_intro');
+		//$data['text_balloons_party_supply'] = $this->language->get('text_balloons_party_supply');
 		$this->response->setOutput($this->load->view('common/home', $data));
-	}
 
+
+	}
 
 
 }

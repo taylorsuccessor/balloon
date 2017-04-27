@@ -9,7 +9,15 @@ class ControllerCommonNewsletter extends Controller {
 		$this->load->model('checkout/newsletter');
 
 		$this->model_checkout_newsletter->addNewEmail($this->request->post['email']);
-		$this->response->redirect($this->url->link('common/home', '', true));
+		if(isset($this->session->data['serviceType'] ) && $this->session->data['serviceType'] =='events')
+		{
+			$this->response->redirect($this->url->link('product/event/events_main', '', true));
+
+		}
+		else
+		{
+			$this->response->redirect($this->url->link('common/home/index_supply', '', true));
+		}
 	}
 
 
