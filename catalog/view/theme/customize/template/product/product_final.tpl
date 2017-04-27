@@ -67,16 +67,15 @@
                                             style="text-decoration: line-through;"><?php echo $price; ?></span></p>
                                 <?php } ?>
 
-
                                 <?php } ?>
-
                             </div>
                             <div class="share">
-                                <p><?php echo $text_share_product; ?></p>
+                                <p class="text_share"><?php echo $text_share_product; ?></p>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <!-- AddThis Button BEGIN -->
+                                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+                                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5901df5f5f7f4bba"></script>
+                                    <!-- AddThis Button END -->
                                 </ul>
                             </div>
                             <div class="stock"><p><?php echo $availabilty; ?> <span><?php echo $stock; ?></span></p></div>

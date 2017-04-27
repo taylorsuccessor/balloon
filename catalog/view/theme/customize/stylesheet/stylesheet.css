@@ -1739,6 +1739,7 @@ header .top-nav-left ul li{
 }
 .product-details-content .share p{
 	float:left;
+	margin-top: 10px;
 }
 .product-details-content .share > ul {
     float: left;

@@ -1673,6 +1673,7 @@ header .top-nav-left ul li:first-child
 }
 .product-details-content .share p{
 	float:right;
+	margin-top: 10px;
 }
 .product-details-content .share > ul {
 	float: right;
