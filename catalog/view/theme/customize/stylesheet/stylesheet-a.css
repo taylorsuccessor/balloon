@@ -1673,6 +1673,7 @@ header .top-nav-left ul li:first-child
 }
 .product-details-content .share p{
 	float:right;
+	margin-top: 10px;
 }
 .product-details-content .share > ul {
 	float: right;
@@ -1851,7 +1852,7 @@ header .top-nav-left ul li:first-child
 	-ms-appearance:none;
 	-o-appearance:none;
 	-webkit-appearance:none;
-	background:#fff url(../image/icons/select-arrow.jpg) left center no-repeat;
+	background:#fff url(../image/select_drop_right.png) left center no-repeat;
 	font-family: 'CenturyGothic';
 	font-size:13px;
 }
@@ -2306,7 +2307,7 @@ header .top-nav-left ul li:first-child
 	text-align:center;
 }
 .selected-items-wrapper .proceed a{
-	background:#008b16;
+	background:#70c398;
 	width:195px;
 	height:48px;
 	color:#fff;
@@ -2328,7 +2329,7 @@ header .top-nav-left ul li:first-child
 	margin-top: 0px;
 }
 .delevery_time a{
-	background: #008b16;
+	background: #70c398;
 	color: #fff;
 	font-family: 'Raleway-Regular';
 	font-size: 20px;
@@ -2480,7 +2481,7 @@ header .top-nav-left ul li:first-child
 	font-family: 'CenturyGothic';
 }
 .grand-total-wrapper a{
-	background:#008b16;
+	background:#70c398;
 	color:#fff;
 	font-family: 'Raleway-Regular';
 	font-size:20px;

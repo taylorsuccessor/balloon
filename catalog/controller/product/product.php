@@ -1,4 +1,3 @@
-
 <?php
 class ControllerProductProduct extends Controller {
 	private $error = array();
@@ -17,17 +16,14 @@ class ControllerProductProduct extends Controller {
 
 		if (isset($this->request->get['path'])) {
 			$path = '';
-
+//			if (isset($this->session->data['success'])) {
+//				$data['success'] = $this->session->data['success'];
+//
+//				unset($this->session->data['success']);
+//			} else {
+//				$data['success'] = '';
+//			}
 			$parts = explode('_', (string)$this->request->get['path']);
-
-			if (isset($this->session->data['success'])) {
-				$data['success'] = $this->session->data['success'];
-
-				unset($this->session->data['success']);
-			} else {
-				$data['success'] = '';
-			}
-
 
 			$category_id = (int)array_pop($parts);
 
@@ -53,13 +49,6 @@ class ControllerProductProduct extends Controller {
 
 			if ($category_info) {
 				$url = '';
-				if (isset($this->session->data['success'])) {
-					$data['success'] = $this->session->data['success'];
-
-					unset($this->session->data['success']);
-				} else {
-					$data['success'] = '';
-				}
 
 				if (isset($this->request->get['sort'])) {
 					$url .= '&sort=' . $this->request->get['sort'];
@@ -181,13 +170,6 @@ class ControllerProductProduct extends Controller {
 
 		if ($product_info) {
 			$url = '';
-			if (isset($this->session->data['success'])) {
-				$data['success'] = $this->session->data['success'];
-
-				unset($this->session->data['success']);
-			} else {
-				$data['success'] = '';
-			}
 
 			if (isset($this->request->get['path'])) {
 				$url .= '&path=' . $this->request->get['path'];
@@ -287,25 +269,9 @@ class ControllerProductProduct extends Controller {
 			$data['text_add_favourite'] = $this->language->get('text_add_favourite');
 			$data['text_description'] = $this->language->get('text_description');
 
-
-            //added by assem for products-color
-
 			$data['text_regular_latest'] = $this->language->get('text_regular_latest');
 			$data['text_Rollover_swatches'] = $this->language->get('text_Rollover_swatches');
 			$data['text_view'] = $this->language->get('text_view');
-
-
-
-
-
-			//
-
-
-
-
-
-
-
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -410,13 +376,14 @@ class ControllerProductProduct extends Controller {
 				}elseif($option_name == 'ballooncolor'){
 
 					$view_template_name='product/product_color';
-
 				}elseif($option_name == 'eventtime'){
 
 					return $this->response->redirect($this->url->link('product/event', 'product_id='.$this->request->get['product_id'], true));
 
-				}
+				}elseif($option_name == 'nameletters'){
 
+					$view_template_name='product/product_letter';
+				}
 				$product_option_value_data = array();
 
 				foreach ($option['product_option_value'] as $option_value) {
@@ -563,11 +530,10 @@ class ControllerProductProduct extends Controller {
 			$data['finalProductDetailLink']= $this->url->link('product/product', 'product_id=' . $this->request->get['product_id']);
 
 
-
 			$this->load->model('catalog/custom_option');
 			$data=$this->model_catalog_custom_option->addOptionsValues($data);
-$data['optionsWithName']=$this->model_catalog_custom_option->getOptions($data['product_id']);
 			$data['languageCode']=$this->language->get('code');
+
 
 
 //			var_dump($this->request->post);
@@ -583,20 +549,7 @@ $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($data['p
 				return $this->response->setOutput($this->load->view($view_template_name, $data));
 
 			//end add by gholeh 10-04-2017
-            
-            foreach($categories as $cat)
-			{
-				$category_latex = $cat['category_id'];
-			}
-			if (isset ($category_latex) && $category_latex == 65  && !isset($_GET['preview']) ) {
-				$this->response->setOutput($this->load->view('product/product_1', $data));
-			}else{
-				$this->response->setOutput($this->load->view('product/product', $data));
-			}
-			//end add by gholeh 10-04-2017
-            
-            
-            
+
 		} else {
 			$url = '';
 
@@ -660,14 +613,6 @@ $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($data['p
 			$data['text_error'] = $this->language->get('text_error');
 
 			$data['button_continue'] = $this->language->get('button_continue');
-
-
-			//added by assem
-
-			$data['option'] = $this->language->get('');
-
-
-			//
 
 			$data['continue'] = $this->url->link('common/home');
 

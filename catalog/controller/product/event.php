@@ -982,8 +982,6 @@ class ControllerProductEvent extends Controller {
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');
 
-			$data['product_id']=$this->request->get['product_id'];
-
 
 			$this->load->model('catalog/custom_option');
 			$data=$this->model_catalog_custom_option->addOptionsValues($data);
