@@ -583,7 +583,7 @@ $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($data['p
 				return $this->response->setOutput($this->load->view($view_template_name, $data));
 
 			//end add by gholeh 10-04-2017
-            
+
             foreach($categories as $cat)
 			{
 				$category_latex = $cat['category_id'];
@@ -594,9 +594,9 @@ $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($data['p
 				$this->response->setOutput($this->load->view('product/product', $data));
 			}
 			//end add by gholeh 10-04-2017
-            
-            
-            
+
+
+
 		} else {
 			$url = '';
 
