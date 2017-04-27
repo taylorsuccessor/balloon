@@ -16,7 +16,13 @@ class ControllerProductProduct extends Controller {
 
 		if (isset($this->request->get['path'])) {
 			$path = '';
-
+//			if (isset($this->session->data['success'])) {
+//				$data['success'] = $this->session->data['success'];
+//
+//				unset($this->session->data['success']);
+//			} else {
+//				$data['success'] = '';
+//			}
 			$parts = explode('_', (string)$this->request->get['path']);
 
 			$category_id = (int)array_pop($parts);
@@ -253,6 +259,19 @@ class ControllerProductProduct extends Controller {
 			$data['text_confetti'] = $this->language->get('text_confetti');
 			$data['text_tail'] = $this->language->get('text_tail');
 
+			$data['text_price'] = $this->language->get('text_price');
+			$data['text_share_product'] = $this->language->get('text_share_product');
+			$data['availabilty'] = $this->language->get('availabilty');
+			$data['text_delivery_date'] = $this->language->get('text_delivery_date');
+			$data['text_delivery_time'] = $this->language->get('text_delivery_time');
+			$data['text_option_time'] = $this->language->get('text_option_time');
+			$data['Qty'] = $this->language->get('Qty');
+			$data['text_add_favourite'] = $this->language->get('text_add_favourite');
+			$data['text_description'] = $this->language->get('text_description');
+
+			$data['text_regular_latest'] = $this->language->get('text_regular_latest');
+			$data['text_Rollover_swatches'] = $this->language->get('text_Rollover_swatches');
+			$data['text_view'] = $this->language->get('text_view');
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');

@@ -56,7 +56,11 @@
                                            <?php } ?>       
                                     </div> <!-- /.image -->
                                     <div class="col-md-9 col-sm-9 col-xs-8 for-small text_part">
-                                        <h2><?php echo $product['name']; ?></h2>
+                                        <h2><?php echo $product['name']; ?>
+                                        <?php if (!$product['stock']) { ?>
+                                        <span class="text-danger">***</span>
+                                        <?php } ?>
+                                        </h2>
                                         <p class="price"><?php echo $text_price; ?> : <span><?php echo $product['price']; ?></span></p>
                                         <div class="select_area full-width">
                                             <label><?php echo $text_quantity; ?> </label>
