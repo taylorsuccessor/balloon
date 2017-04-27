@@ -3,6 +3,15 @@
       <div class="container"><!--container-->
           <div class="row"><!--row-->
           <div class="col-md-7"><!--col-md-7-->
+              <div class="wrap_notfiy">
+
+                  <?php if ($success) { ?>
+                  <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  </div>
+                  <?php } ?>
+
+              </div>
               <div class="footer-left"><!--footer-left-->
                   <h2><?php echo $join_mailing_list;?></h2>
                     <p><?php echo $paragraph_mailing_list;?></p>

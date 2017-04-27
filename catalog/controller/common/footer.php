@@ -3,6 +3,14 @@ class ControllerCommonFooter extends Controller {
 	public function index() {
 		$this->load->language('common/footer');
 
+		if (isset($this->session->data['success'])) {
+			$data['success'] = $this->session->data['success'];
+
+			unset($this->session->data['success']);
+		} else {
+			$data['success'] = '';
+		}
+
 		$data['scripts'] = $this->document->getScripts('footer');
 
 		$data['text_information'] = $this->language->get('text_information');
@@ -47,6 +55,7 @@ class ControllerCommonFooter extends Controller {
 					'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id']),
 					'information_id' => $result['information_id'], 
 				);
+
 			}
 		}
 
