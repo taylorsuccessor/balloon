@@ -714,8 +714,9 @@ class ControllerProductEvent extends Controller {
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');
 
+            $data['checkout'] = $this->url->link('checkout/checkout', '', true);
 
-			$data['product_id']=$this->request->get['product_id'];
+            $data['product_id']=$this->request->get['product_id'];
 
 
 			$this->load->model('catalog/custom_option');
