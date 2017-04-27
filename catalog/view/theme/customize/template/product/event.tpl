@@ -7,7 +7,7 @@
     </section><!--Banner Section-->
 
     <section class="content-section"><!--content-section-->
-
+        <div class="container"><!--container-->
         <div class="bredcrumb"><!--bredcrumb-->
 
             <ul>
@@ -17,6 +17,17 @@
             </ul>
 
         </div> <!--bredcrumb-->
+
+        <div class="wrap_notfiy">
+
+
+            <?php if ($success) { ?>
+            <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+            <?php } ?>
+
+        </div>
 
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
@@ -30,7 +41,7 @@
 
 
       <div class="events-booking-calendar"><!--events-booking-calendar-->
-        <h2>Events <span>Booking</span></h2>
+        <h2><?php echo $text_event_booking; ?></h2>
         <div class="calendar-con">
           <div class="row">
             <div class="col-md-4">
@@ -81,6 +92,8 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
 
               </div>
             </div>
+
+             {*
               <style type="text/css">
                   .accordion_example2 li a{
                       color:#000000;
@@ -92,8 +105,9 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                       color:blue;
                   }
 
-
               </style>
+              *}
+
               <script>
                   function activeMenu(){
 
@@ -106,7 +120,7 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
               <div class="responsive-calendar">
                 <div class="controls">
                   <a class="pull-left cal-prev" data-go="prev"></a>
-                  <h4><span data-head-month></span><span class="year" data-head-year></span></h4>
+                  <h4><span data-head-month></span> <span class="year" data-head-year></span></h4>
                   <a class="pull-right cal-next" data-go="next"></a>
                 </div><hr/>
                 <div class="day-headers">
@@ -127,8 +141,8 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                 <div class="col-md-5 pull-right"><!--calender-status-->
                   <div class="calender-status">
                     <ul>
-                      <li class="red"><div></div>Booked</li>
-                      <li class="blue"><div></div>Available</li>
+                      <li class="red"><div></div><?php echo $text_booked; ?></li>
+                      <li class="blue"><div></div><?php echo $text_available; ?></li>
                     </ul>
                   </div>
                 </div>
@@ -137,7 +151,7 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                 <div class="date-time"><!--date-time-->
                   <div class="row">
                     <div class="col-md-4">
-                      <label>Pick an event time:</label>
+                      <label><?php echo $text_pick_event_time; ?></label>
                     </div>
                     <div class="col-md-5">
 
@@ -193,7 +207,7 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                 </div><!--date-time-->
 
                   <div class="proceed" style="clear: both;margin:30px auto 0px auto; padding-top: 30px;">
-                      <a class="" style="width:100%; display:inline-block; " href="<?php echo $eventSummaryLink;?>">Proceed</a>
+                      <a class="" style="width:100%; display:inline-block; " href="<?php echo $eventSummaryLink;?>"><?php echo $text_button_proceed; ?></a>
                   </div>
 
               </div>
@@ -204,17 +218,9 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
 
 
 
-
-
-
-
-
-
-
-
-
-
 </div>
+
+
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	$.ajax({
@@ -274,7 +280,7 @@ $('#button-cart').on('click', function() {
 			}
 
 			if (json['success']) {
-				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+				$('.bredcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 

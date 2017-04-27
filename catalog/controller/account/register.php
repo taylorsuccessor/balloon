@@ -44,6 +44,8 @@ class ControllerAccountRegister extends Controller {
 			$this->response->redirect($this->url->link('account/success'));
 		}
 
+
+
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(

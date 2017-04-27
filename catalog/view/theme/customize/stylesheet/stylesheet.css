@@ -3638,3 +3638,12 @@ header .top-nav-left ul li{margin: 0px 3px;}
 	text-decoration: none;
 	padding-top: 10px;
 }
+.accordion_example2 li a{
+	color:#000000;
+}
+.accordion_example2 li.active i{
+	color:red;
+}
+.accordion_example2 li.active a{
+	color:blue;
+}

@@ -213,8 +213,127 @@ class ControllerExtensionInstaller extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
-	
- 
+
+	public function localcopy() {
+
+        $this->load->language('extension/installer');
+
+
+
+        $json = array();
+
+
+
+        if (!$this->user->hasPermission('modify', 'extension/installer')) {
+
+            $json['error'] = $this->language->get('error_permission');
+
+        }
+
+
+
+        $directory = DIR_DOWNLOAD . str_replace(array('../', '..\\', '..'), '', $this->request->post['path']) . '/upload/';
+
+
+
+        if (!is_dir($directory)) {
+
+            $json['error'] = $this->language->get('error_directory');
+
+        }
+
+
+
+        if (!$json) {
+
+            // Get a list of files ready to upload
+
+            $files = array();
+
+
+
+            $path = array($directory . '*');
+
+
+
+            while (count($path) != 0) {
+
+                $next = array_shift($path);
+
+
+
+                foreach (glob($next) as $file) {
+
+                    if (is_dir($file)) {
+
+                        $path[] = $file . '/*';
+
+                    }
+
+
+
+                    $files[] = $file;
+
+                }
+
+            }
+
+
+
+            $root = dirname(DIR_APPLICATION).'/';
+
+
+
+            foreach ($files as $file) {
+
+                // Upload everything in the upload directory
+
+                $destination = $root.substr($file, strlen($directory));
+
+
+
+                if (is_dir($file)) {
+
+                    $list = glob(rtrim($destination, '/').'/*');
+
+
+
+                    if (!file_exists($destination)) {
+
+                        if (!mkdir($destination)) {
+
+                            $json['error'] = sprintf($this->language->get('error_ftp_directory'), $destination);
+
+                        }
+
+                    }
+
+                }
+
+
+
+                if (is_file($file)) {
+
+                    if (!copy($file, $destination)) {
+
+                        $json['error'] = sprintf($this->language->get('error_ftp_file'), $file);
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
+
+        $this->response->addHeader('Content-Type: application/json');
+
+        $this->response->setOutput(json_encode($json));
+
+    }
+
 	public function unzip() {
 		$this->load->language('extension/installer');
 

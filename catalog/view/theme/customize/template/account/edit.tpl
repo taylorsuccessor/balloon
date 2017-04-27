@@ -344,7 +344,7 @@
                   
                    <div class="col-md-6 col-sm-6 col-xs-6 for-small required">
                                
-                <button type="submit" value="<?php echo $button_continue; ?>">Edit Info</button>
+                <button type="submit" value="<?php echo $button_continue; ?>"><?php echo $text_edit_button; ?></button>
                 
                 </div>
                   

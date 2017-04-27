@@ -45,6 +45,16 @@ $_['text_description']         = 'Description';
 $_['text_regular_latest']      = 'Regular Latest Balloons';
 $_['text_Rollover_swatches']   = 'Rollover swatches to view colors.';
 $_['text_view']                = 'View';
+$_['text_event_booking']       = 'Events <span>Booking</span>';
+$_['text_booked']              = 'Booked';
+$_['text_available']           = 'Available';
+$_['text_pick_event_time']     = 'Pick an event time :';
+$_['text_button_proceed']     = 'Proceed';
+
+
+
+
+
 
 
 
