@@ -94,8 +94,10 @@ class ControllerProductEventSummary extends Controller {
 				$option_data = array();
 				$eventProduct=false;
 				foreach ($product['option'] as $option) {
+$optionName=strtolower(preg_replace(['/[^a-zA-Z0-9]/'],'',$option['name']));
+					if($optionName != 'eventdate' || $optionName !='eventtime'){continue;}
 
-					if(strtolower(preg_replace(['/[^a-zA-Z0-9]/'],'',$option['name'])) == 'eventdate'){
+					if($optionName == 'eventdate'){
 						$eventProduct= true ;
 						$eventsDate[]=$option['value'];
 					}

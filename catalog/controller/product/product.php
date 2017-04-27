@@ -361,8 +361,10 @@ class ControllerProductProduct extends Controller {
 
 					return $this->response->redirect($this->url->link('product/event', 'product_id='.$this->request->get['product_id'], true));
 
-				}
+				}elseif($option_name == 'nameletters'){
 
+					$view_template_name='product/product_letter';
+				}
 				$product_option_value_data = array();
 
 				foreach ($option['product_option_value'] as $option_value) {
@@ -507,6 +509,12 @@ class ControllerProductProduct extends Controller {
 			}
 
 			$data['finalProductDetailLink']= $this->url->link('product/product', 'product_id=' . $this->request->get['product_id']);
+
+
+			$this->load->model('catalog/custom_option');
+			$data=$this->model_catalog_custom_option->addOptionsValues($data);
+			$data['languageCode']=$this->language->get('code');
+
 
 
 //			var_dump($this->request->post);

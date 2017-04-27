@@ -95,11 +95,13 @@ class ControllerProductEventSummaryFinal extends Controller {
 				$eventProduct=false;
 				foreach ($product['option'] as $option) {
 
-					if(strtolower(preg_replace(['/[^a-zA-Z0-9]/'],'',$option['name'])) == 'eventdate'){
+					$optionName=strtolower(preg_replace(['/[^a-zA-Z0-9]/'],'',$option['name']));
+					if($optionName != 'eventdate' || $optionName !='eventtime'){continue;}
+
+					if($optionName == 'eventdate'){
 						$eventProduct= true ;
 						$eventsDate[]=$option['value'];
 					}
-
 
 
 					if ($option['type'] != 'file') {
