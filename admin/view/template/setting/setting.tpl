@@ -631,6 +631,12 @@
               <fieldset>
                 <legend><?php echo $text_checkout; ?></legend>
                 <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-min-price"><span data-toggle="tooltip" title="<?php echo $help_min_price; ?>"><?php echo $entry_min_price; ?></span></label>
+                  <div class="col-sm-10">
+                    <input type="text" name="config_min_price" value="<?php echo $config_min_price; ?>" placeholder="<?php echo $entry_min_price; ?>" id="input-min-price" class="form-control" />
+                  </div>
+                </div>
+                <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-invoice-prefix"><span data-toggle="tooltip" title="<?php echo $help_invoice_prefix; ?>"><?php echo $entry_invoice_prefix; ?></span></label>
                   <div class="col-sm-10">
                     <input type="text" name="config_invoice_prefix" value="<?php echo $config_invoice_prefix; ?>" placeholder="<?php echo $entry_invoice_prefix; ?>" id="input-invoice-prefix" class="form-control" />

@@ -99,6 +99,7 @@ class ControllerSettingSetting extends Controller {
 		$data['entry_login_attempts'] = $this->language->get('entry_login_attempts');
 		$data['entry_account'] = $this->language->get('entry_account');
 		$data['entry_invoice_prefix'] = $this->language->get('entry_invoice_prefix');
+		$data['entry_min_price'] = $this->language->get('entry_min_price');
 		$data['entry_cart_weight'] = $this->language->get('entry_cart_weight');
 		$data['entry_checkout_guest'] = $this->language->get('entry_checkout_guest');
 		$data['entry_checkout'] = $this->language->get('entry_checkout');
@@ -176,6 +177,7 @@ class ControllerSettingSetting extends Controller {
 		$data['help_cart_weight'] = $this->language->get('help_cart_weight');
 		$data['help_checkout_guest'] = $this->language->get('help_checkout_guest');
 		$data['help_checkout'] = $this->language->get('help_checkout');
+		$data['help_min_price'] = $this->language->get('help_min_price');
 		$data['help_invoice_prefix'] = $this->language->get('help_invoice_prefix');
 		$data['help_order_status'] = $this->language->get('help_order_status');
 		$data['help_processing_status'] = $this->language->get('help_processing_status');
@@ -726,6 +728,13 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['config_checkout_id'] = $this->config->get('config_checkout_id');
 		}
+
+        if (isset($this->request->post['config_min_price'])) {
+			$data['config_min_price'] = $this->request->post['config_min_price'];
+		} else { 
+			$data['config_min_price'] = $this->config->get('config_min_price');
+		}  
+
 
 		if (isset($this->request->post['config_invoice_prefix'])) {
 			$data['config_invoice_prefix'] = $this->request->post['config_invoice_prefix'];
