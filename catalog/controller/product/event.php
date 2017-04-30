@@ -39,6 +39,31 @@ class ControllerProductEvent extends Controller {
 		$data['placeholder_book_now'] = $this->language->get('placeholder_book_now');
 
 
+        if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+
+            $customer_id = $this->model_account_customer->addCustomer($this->request->post);
+
+            // Clear any previous login attempts for unregistered accounts.
+            $this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
+
+            $this->customer->login($this->request->post['email'], $this->request->post['password']);
+
+            unset($this->session->data['guest']);
+
+            // Add to activity log
+            if ($this->config->get('config_customer_activity')) {
+                $this->load->model('account/activity');
+
+                $activity_data = array(
+                    'customer_id' => $customer_id,
+                    'name'        => $this->request->post['firstname'] . ' ' . $this->request->post['lastname']
+                );
+
+                $this->model_account_activity->addActivity('register', $activity_data);
+            }
+
+            $this->response->redirect($this->url->link('account/success'));
+        }
 
 
 		//
@@ -47,7 +72,10 @@ class ControllerProductEvent extends Controller {
 		$data['categories']=$this->getEventsCategory();
 
 
-		if ($this->customer->isLogged()) {
+        $data['action'] = $this->url->link('product/events_main', '', true);
+
+
+        if ($this->customer->isLogged()) {
 			$this->load->model('account/customer');
 
 			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
@@ -58,14 +86,76 @@ class ControllerProductEvent extends Controller {
 			$data['telephone'] = $customer_info['telephone'];
 			$data['location'] = '';
 			$data['category'] = '';
-		} elseif (isset($this->session->data['guest'])) {
+
+            if (isset($this->error['firstname'])) {
+                $data['error_firstname'] = $this->error['firstname'];
+            } else {
+                $data['error_firstname'] = '';
+            }
+
+            if (isset($this->error['lastname'])) {
+                $data['error_lastname'] = $this->error['lastname'];
+            } else {
+                $data['error_lastname'] = '';
+            }
+
+            if (isset($this->error['email'])) {
+                $data['error_email'] = $this->error['email'];
+            } else {
+                $data['error_email'] = '';
+            }
+
+            if (isset($this->error['telephone'])) {
+                $data['error_telephone'] = $this->error['telephone'];
+            } else {
+                $data['error_telephone'] = '';
+            }
+
+            $data['action'] = $this->url->link('product/events_main', '', true);
+
+
+
+        } elseif (isset($this->session->data['guest'])) {
 			$data['firstname']=$this->session->data['guest']['firstname'];
 			$data['lastname']=$this->session->data['guest']['lastname'] ;
 			$data['email']=$this->session->data['guest']['email'] ;
 			$data['telephone']=$this->session->data['guest']['telephone'];
 			$data['location']=$this->session->data['guest']['location'];
 			$data['category']=$this->session->data['guest']['category'] ;
-		}else{
+
+            if (isset($this->error['firstname'])) {
+                $data['error_firstname'] = $this->error['firstname'];
+            } else {
+                $data['error_firstname'] = '';
+            }
+
+            if (isset($this->error['lastname'])) {
+                $data['error_lastname'] = $this->error['lastname'];
+            } else {
+                $data['error_lastname'] = '';
+            }
+
+            if (isset($this->error['email'])) {
+                $data['error_email'] = $this->error['email'];
+            } else {
+                $data['error_email'] = '';
+            }
+
+            if (isset($this->error['telephone'])) {
+                $data['error_telephone'] = $this->error['telephone'];
+            } else {
+                $data['error_telephone'] = '';
+            }
+
+
+            $data['action'] = $this->url->link('product/events_main', '', true);
+
+
+
+
+
+
+        }else{
 
 			$data['firstname'] = '';
 			$data['lastname'] = '';
@@ -73,7 +163,12 @@ class ControllerProductEvent extends Controller {
 			$data['telephone'] = '';
 			$data['location'] = '';
 			$data['category'] = '';
-		}
+
+            $data['action'] = $this->url->link('product/events_main', '', true);
+
+
+        }
+
 
 
 //		$this->load->model('localisation/country');
@@ -81,7 +176,9 @@ class ControllerProductEvent extends Controller {
 
 
 
-		if(isset($this->request->post['bookNow'])){
+
+
+		if(isset($this->request->post['bookNow'])) {
 
 		$this->session->data['guest']['firstname'] = $this->request->post['firstname'];
 		$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
@@ -90,12 +187,89 @@ class ControllerProductEvent extends Controller {
 		$this->session->data['guest']['location'] = $this->request->post['location'];
 		$this->session->data['guest']['category'] = $this->request->post['category'];
 
-            $this->session->data['guest']['firstname'] = $this->request->post['firstname'];
-            $this->session->data['guest']['lastname'] = $this->request->post['lastname'];
-            $this->session->data['guest']['email'] = $this->request->post['email'];
-            $this->session->data['guest']['telephone'] = $this->request->post['telephone'];
-            $this->session->data['guest']['location'] = $this->request->post['location'];
-            $this->session->data['guest']['category'] = $this->request->post['category'];
+
+
+
+            if (isset($this->error['firstname'])) {
+                $data['error_firstname'] = $this->error['firstname'];
+            } else {
+                $data['error_firstname'] = '';
+            }
+
+            if (isset($this->error['lastname'])) {
+                $data['error_lastname'] = $this->error['lastname'];
+            } else {
+                $data['error_lastname'] = '';
+            }
+
+            if (isset($this->error['email'])) {
+                $data['error_email'] = $this->error['email'];
+            } else {
+                $data['error_email'] = '';
+            }
+
+            if (isset($this->error['telephone'])) {
+                $data['error_telephone'] = $this->error['telephone'];
+            } else {
+                $data['error_telephone'] = '';
+            }
+
+            $data['action'] = $this->url->link('product/events_main', '', true);
+
+
+
+            function validate() {
+                if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
+                    $this->error['firstname'] = $this->language->get('error_firstname');
+                }
+
+                if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
+                    $this->error['lastname'] = $this->language->get('error_lastname');
+                }
+
+                if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+                    $this->error['email'] = $this->language->get('error_email');
+                }
+
+                if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+                    $this->error['telephone'] = $this->language->get('error_telephone');
+                }
+
+
+                $this->load->model('account/custom_field');
+
+                $custom_fields = $this->model_account_custom_field->getCustomFields($customer_group_id);
+
+                foreach ($custom_fields as $custom_field) {
+                    if ($custom_field['required'] && empty($this->request->post['custom_field'][$custom_field['location']][$custom_field['custom_field_id']])) {
+                        $this->error['custom_field'][$custom_field['custom_field_id']] = sprintf($this->language->get('error_custom_field'), $custom_field['name']);
+                    } elseif (($custom_field['type'] == 'text') && !empty($custom_field['validation']) && !filter_var($this->request->post['custom_field'][$custom_field['location']][$custom_field['custom_field_id']], FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => $custom_field['validation'])))) {
+                        $this->error['custom_field'][$custom_field['custom_field_id']] = sprintf($this->language->get('error_custom_field'), $custom_field['name']);
+                    }
+                }
+
+                if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+                    $this->error['password'] = $this->language->get('error_password');
+                }
+
+                if ($this->request->post['confirm'] != $this->request->post['password']) {
+                    $this->error['confirm'] = $this->language->get('error_confirm');
+                }
+
+                // Captcha
+                if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
+                    $captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
+
+                    if ($captcha) {
+                        $this->error['captcha'] = $captcha;
+                    }
+                }
+
+                // Agree to terms
+                $data['action'] = $this->url->link('product/events_main', '', true);
+
+                return !$this->error;
+            }
 
 
 
@@ -103,15 +277,78 @@ class ControllerProductEvent extends Controller {
             $this->session->data['guest']['fax'] = '';
             $this->session->data['guest']['custom_field'] = array();
 
+
+
+            $data['action'] = $this->url->link('product/events_main', '', true);
+
+
             return $this->response->redirect($this->url->link('product/event', 'category_id=' . $this->request->post['category'], true));
 
 
         }
 
         $data['content_bottom'] = $this->load->controller('common/content_bottom');
+        $data['action'] = $this->url->link('product/events_main', '', true);
+
 
         $this->response->setOutput($this->load->view('product/events_main', $data));
     }
+
+
+
+    private function validate() {
+        if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
+            $this->error['firstname'] = $this->language->get('error_firstname');
+        }
+
+        if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
+            $this->error['lastname'] = $this->language->get('error_lastname');
+        }
+
+        if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+            $this->error['email'] = $this->language->get('error_email');
+        }
+
+        if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+            $this->error['telephone'] = $this->language->get('error_telephone');
+        }
+
+
+        $this->load->model('account/custom_field');
+
+        $custom_fields = $this->model_account_custom_field->getCustomFields($customer_group_id);
+
+        foreach ($custom_fields as $custom_field) {
+            if ($custom_field['required'] && empty($this->request->post['custom_field'][$custom_field['location']][$custom_field['custom_field_id']])) {
+                $this->error['custom_field'][$custom_field['custom_field_id']] = sprintf($this->language->get('error_custom_field'), $custom_field['name']);
+            } elseif (($custom_field['type'] == 'text') && !empty($custom_field['validation']) && !filter_var($this->request->post['custom_field'][$custom_field['location']][$custom_field['custom_field_id']], FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => $custom_field['validation'])))) {
+                $this->error['custom_field'][$custom_field['custom_field_id']] = sprintf($this->language->get('error_custom_field'), $custom_field['name']);
+            }
+        }
+
+        if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+            $this->error['password'] = $this->language->get('error_password');
+        }
+
+        if ($this->request->post['confirm'] != $this->request->post['password']) {
+            $this->error['confirm'] = $this->language->get('error_confirm');
+        }
+
+        // Captcha
+        if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
+            $captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
+
+            if ($captcha) {
+                $this->error['captcha'] = $captcha;
+            }
+        }
+
+        // Agree to terms
+
+        return !$this->error;
+    }
+
+
 
 
     public function getEventDateOptionIdAndTimeId()
@@ -281,7 +518,13 @@ class ControllerProductEvent extends Controller {
                     );
                 }
             }
+            if (isset($this->session->data['success'])) {
+                $data['success'] = $this->session->data['success'];
 
+                unset($this->session->data['success']);
+            } else {
+                $data['success'] = '';
+            }
             // Set the last category breadcrumb
             $category_info = $this->model_catalog_category->getCategory($category_id);
 
@@ -398,6 +641,15 @@ class ControllerProductEvent extends Controller {
             $product_id = 0;
         }
 
+
+        if (isset($this->session->data['success'])) {
+            $data['success'] = $this->session->data['success'];
+
+            unset($this->session->data['success']);
+        } else {
+            $data['success'] = '';
+        }
+
         $this->load->model('catalog/product');
 
         $product_info = $this->model_catalog_product->getProduct($product_id);
@@ -487,6 +739,22 @@ class ControllerProductEvent extends Controller {
             $data['text_related'] = $this->language->get('text_related');
             $data['text_payment_recurring'] = $this->language->get('text_payment_recurring');
             $data['text_loading'] = $this->language->get('text_loading');
+
+            //added by assem
+
+            $data['text_event_booking'] = $this->language->get('text_event_booking');
+            $data['text_booked'] = $this->language->get('text_booked');
+            $data['text_available'] = $this->language->get('text_available');
+            $data['text_pick_event_time'] = $this->language->get('text_pick_event_time');
+            $data['text_button_proceed'] = $this->language->get('text_button_proceed');
+
+
+
+
+
+
+            //
+
 
             $data['entry_qty'] = $this->language->get('entry_qty');
             $data['entry_name'] = $this->language->get('entry_name');
@@ -713,10 +981,6 @@ class ControllerProductEvent extends Controller {
             $data['content_bottom'] = $this->load->controller('common/content_bottom');
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');
-
-            $data['checkout'] = $this->url->link('checkout/checkout', '', true);
-
-            $data['product_id']=$this->request->get['product_id'];
 
 
 			$this->load->model('catalog/custom_option');

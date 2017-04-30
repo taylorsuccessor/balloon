@@ -93,6 +93,8 @@
 		$data['text_password'] = $this->language->get('text_password');
 		$data['text_address'] = $this->language->get('text_address');
 		$data['text_my_orders'] = $this->language->get('text_my_orders');
+		$data['text_edit_button'] = $this->language->get('text_edit_button');
+
 
 		// got them from address
         

@@ -3639,3 +3639,15 @@ header .top-nav-left ul li{margin: 0px 3px;}
 	text-decoration: none;
 	padding-top: 10px;
 }
+<<<<<<< HEAD
+.accordion_example2 li a{
+	color:#000000;
+}
+.accordion_example2 li.active i{
+	color:red;
+}
+.accordion_example2 li.active a{
+	color:blue;
+}
+=======
+>>>>>>> 59142af3548122e065d16ff42b541a0039afa8be

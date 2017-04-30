@@ -48,6 +48,16 @@ $_['text_description']                      = 'الوصف';
 $_['text_regular_latest']                      = 'البالونات العادية المضافة اخيرا ';
 $_['text_Rollover_swatches']                      = 'تمرير المؤشر لعرض الألوان.';
 $_['text_view']                      = 'تفاصيل المنتج';
+$_['text_event_booking']                = '<span>حجز</span> الحفلات ';
+$_['text_booked']              = 'محجوز';
+$_['text_available']              = 'متاح';
+$_['text_pick_event_time']              = 'اختر وقت الحفلة :';
+$_['text_button_proceed']     = 'التقديم';
+
+
+
+
+
 
 
 
