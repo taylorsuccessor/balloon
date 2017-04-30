@@ -28,8 +28,23 @@ class ControllerProductEventSummaryFinal extends Controller {
             $data['text_total'] = $this->language->get('text_total');
             $data['text_price'] = $this->language->get('text_price');
             $data['text_quantity'] = $this->language->get('text_quantity');
+			$data['text_summary_details'] = $this->language->get('text_summary_details');
+			$data['text_customer_info'] = $this->language->get('text_customer_info');
+			$data['text_selected_items'] = $this->language->get('text_selected_items');
+			$data['text_services'] = $this->language->get('text_services');
+			$data['text_timing'] = $this->language->get('text_timing');
 
-            
+			$data['text_date'] = $this->language->get('text_date');
+			$data['text_choose_payment_method'] = $this->language->get('text_choose_payment_method');
+
+
+
+
+
+
+
+
+
 			$data['column_image'] = $this->language->get('column_image');
 			$data['column_name'] = $this->language->get('column_name');
 			$data['column_model'] = $this->language->get('column_model');

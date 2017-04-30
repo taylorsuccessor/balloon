@@ -18,9 +18,10 @@
             </div>
             <!--bredcrumb-->
             <div class="product-details-page"><!--balloons-->
-                <h2><?php echo $heading_title; ?></h2>
 
+                <h2><?php echo $heading_title; ?></h2>
                 <div class="wrap_notfiy">
+
                 </div>
                 <div class="row">
                     <div class="product-details">
@@ -229,7 +230,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
                                         <div class="addfav">
 
-                                            <a title="<?php echo $button_wishlist; ?>"
+                                            <a id="wishlist" title="<?php echo $button_wishlist; ?>"
                                                onclick="wishlist.add('<?php echo $product_id; ?>');"><?php echo $text_add_favourite; ?></a>
 
                                         </div>
@@ -508,6 +509,7 @@ echo '
             data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
             dataType: 'json',
             beforeSend: function () {
+
                 $('#button-cart').button('loading');
             },
             complete: function () {
@@ -655,13 +657,13 @@ echo '
                 }
 
                 if (json['success']) {
-                    $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+            $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
-                    $('input[name=\'name\']').val('');
-                    $('textarea[name=\'text\']').val('');
-                    $('input[name=\'rating\']:checked').prop('checked', false);
-                }
-            }
+            $('input[name=\'name\']').val('');
+            $('textarea[name=\'text\']').val('');
+            $('input[name=\'rating\']:checked').prop('checked', false);
+        }
+    }
         });
     });
 

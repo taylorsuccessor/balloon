@@ -93,20 +93,7 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
               </div>
             </div>
 
-             {*
-              <style type="text/css">
-                  .accordion_example2 li a{
-                      color:#000000;
-                  }
-                  .accordion_example2 li.active i{
-                      color:red;
-                  }
-                  .accordion_example2 li.active a{
-                      color:blue;
-                  }
 
-              </style>
-              *}
 
               <script>
                   function activeMenu(){
