@@ -6,6 +6,14 @@ class ControllerCheckoutCheckout extends Controller {
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}
 
+     	//$this->load->model('admin/setting/setting');
+        //$total = $this->model_setting_setting->getSettingValue();
+		//$this->model_setting_setting->getSettingValue('config_min_price', 60);
+
+		if ($this->cart->getSubtotal() < 300){
+			$this->session->data['error'] = 'To checkout you must fill cart at least 300 kd';
+			$this->response->redirect($this->url->link('checkout/cart'));
+		}
 		// Validate minimum quantity requirements.
 		$products = $this->cart->getProducts();
 
