@@ -53,7 +53,9 @@ return $requestArray;
 
 	public function setOptions($product_id){
 
-		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "option_description`  where language_id='".$this->getEnLanuguageId()."'");
+		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "option_description`  inner join " . DB_PREFIX . "product_option
+		 on (`" . DB_PREFIX . "option_description`.option_id = " . DB_PREFIX . "product_option.option_id)
+		 where `" . DB_PREFIX . "option_description`.language_id='".$this->getEnLanuguageId()."'");
 		$productOptions=[];
 		$allOptions=[];
 		$tempOption=[];
@@ -61,6 +63,7 @@ return $requestArray;
 			foreach ($query->rows as $option) {
 				$allOptions[$option['option_id']]=[
 					'option_id'=>$option['option_id'],
+					'product_option_id'=>$option['product_option_id'],
 					'name'=>$option['name'],
 					'alias'=>strtolower(preg_replace(['/[^a-zA-Z0-9]/'],'',$option['name'])),
 
@@ -73,10 +76,12 @@ return $requestArray;
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "option_value_description` inner join `" . DB_PREFIX . "product_option_value` on
 		  `" . DB_PREFIX . "option_value_description`.option_value_id =  `" . DB_PREFIX . "product_option_value`.option_value_id where `" . DB_PREFIX . "product_option_value`.product_id='".$product_id."'
 		 ");
+		$array_product_option_id=[];
 
 		if ($query->rows) {
-			foreach ($query->rows as $option_value) {
 
+			foreach ($query->rows as $option_value) {
+				$array_product_option_id[$option_value['option_id']]=$option_value['product_option_id'];
 				$productOptions[$option_value['product_option_id']]['option_id']=$option_value['option_id'];
 				$productOptions[$option_value['product_option_id']]['values'][self::$languages[$option_value['language_id']]][]=[
 					'value'=>$option_value['product_option_value_id'],
@@ -86,12 +91,22 @@ return $requestArray;
 			}
 		}
 
+
 		foreach($productOptions as &$oneProductOptions){
 
 			$oneProductOptions['alias']=$allOptions[$oneProductOptions['option_id']]['alias'];
 			$oneProductOptions['name']=$allOptions[$oneProductOptions['option_id']]['name'];
 		}
 
+		foreach($allOptions as $option_id=>$generalOption){
+if(!isset($array_product_option_id[$option_id]) || !isset($productOptions[$array_product_option_id[$option_id]])){
+	$productOptions[$generalOption['product_option_id']]=[
+		'name'=>$generalOption['name'],
+		'alias'=>$generalOption['alias'],
+	];
+
+}
+		}
 		self::$options= $productOptions;
 
 	}

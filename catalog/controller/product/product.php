@@ -534,7 +534,11 @@ class ControllerProductProduct extends Controller {
 			$data=$this->model_catalog_custom_option->addOptionsValues($data);
 			$data['languageCode']=$this->language->get('code');
 
-
+			$data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
+//			foreach($data['optionsWithName'] as $product_option_id =>$option){
+//				echo '$("[name=\''.$option['alias'].'\']").attr("id","input-option'.$product_option_id.'");';
+//			}
+//			die(var_dump($data['optionsWithName']));
 
 //			var_dump($this->request->post);
 			if(isset( $this->request->post['finalProductDetail'])){
