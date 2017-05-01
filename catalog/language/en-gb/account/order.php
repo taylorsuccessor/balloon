@@ -21,6 +21,14 @@ $_['text_error']            = 'The order you requested could not be found!';
 
 $_['text_sort_by']            = 'Sort by :';
 
+$_['text_order_id']            = 'Order id :';
+
+$_['text_date']            = 'Date:';
+$_['text_status']            = 'Status :';
+
+
+
+
 
 $_['text_edit']      = 'Account Information';
 $_['text_address']   = 'Address book';

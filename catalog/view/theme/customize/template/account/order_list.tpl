@@ -49,9 +49,9 @@
                       <?php  ?>
                       <?php foreach ($orders as $order) { ?>
                     <div class="col-xs-12 order-details">
-                      <h2> <a href="<?php echo $order['view']; ?>" title="<?php echo $button_view; ?>"> Order id :<span><?php echo $order['order_id']; ?></span> </a> </h2>
-                      <span class="date_time">Date: <?php echo $order['date_added']; ?> <!--23 Jan 2017 | <span>10 : 35 AM</span>--></span>
-                      <span class="status">Status:  <span><?php echo $order['status']; ?></span></span>
+                      <h2> <a href="<?php echo $order['view']; ?>" title="<?php echo $button_view; ?>"><?php echo $text_order_id; ?><span><?php echo $order['order_id']; ?></span> </a> </h2>
+                      <span class="date_time"><?php echo $text_date; ?> <?php echo $order['date_added']; ?> <!--23 Jan 2017 | <span>10 : 35 AM</span>--></span>
+                      <span class="status"><?php echo $text_status; ?> <span><?php echo $order['status']; ?></span></span>
                     </div><!-- /.col-xs-12 -->
                     <?php } ?>
                     <?php } ?>
