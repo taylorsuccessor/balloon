@@ -26,7 +26,7 @@
 
 
       <div class="events-booking-calendar"><!--events-booking-calendar-->
-        <h2>Events <span>Booking</span></h2>
+        <h2><?php echo $text_event_booking; ?></span></h2>
         <div class="calendar-con">
           <div class="row">
             <div class="col-md-4">
@@ -125,8 +125,8 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                 <div class="col-md-5 pull-right"><!--calender-status-->
                   <div class="calender-status">
                     <ul>
-                      <li class="red"><div></div>Booked</li>
-                      <li class="blue"><div></div>Available</li>
+                      <li class="red"><div></div><?php echo $text_booked; ?></li>
+                      <li class="blue"><div></div><?php echo $text_available; ?></li>
                     </ul>
                   </div>
                 </div>
@@ -139,13 +139,13 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                     <div class="row">
                         <div class="col-md-12">
                             <div class="selected-items">
-                                <h4>Selected Items</h4>
+                                <h4><?php echo $text_selected_items; ?></h4>
                                 <table>
                                     <thead>
                                     <tr class="hidden-xs tablehead">
-                                        <th>Services</th>
-                                        <th>Timings </th>
-                                        <th>Date </th>
+                                        <th><?php echo $text_services; ?></th>
+                                        <th><?php echo $text_timing; ?></th>
+                                        <th><?php echo $text_date; ?> </th>
                                         <th><?php echo $text_price; ?> </th>
                                         <th><?php echo $text_total; ?></th>
                                         <th></th>
@@ -173,7 +173,7 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
 
                             </div>
                             <div class="proceed">
-                                <a class="" href="<?=$eventSummaryFinalLink;?>">Proceed</a>
+                                <a class="" href="<?=$eventSummaryFinalLink;?>"><?php echo $text_button_proceed; ?></a>
                             </div>
                         </div>
                     </div>

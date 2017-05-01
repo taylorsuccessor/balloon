@@ -41,8 +41,29 @@ class ControllerProductEventSummary extends Controller {
 			$data['button_remove'] = $this->language->get('button_remove');
 			$data['button_shopping'] = $this->language->get('button_shopping');
 			$data['button_checkout'] = $this->language->get('button_checkout');
-            
-            /*added by assem 23/03/2017 */ 
+			$data['text_button_proceed'] = $this->language->get('text_button_proceed');
+
+
+			//added by assem
+
+			$data['text_event_booking'] = $this->language->get('text_event_booking');
+			$data['text_booked'] = $this->language->get('text_booked');
+			$data['text_available'] = $this->language->get('text_available');
+			$data['text_selected_items'] = $this->language->get('text_selected_items');
+			$data['text_services'] = $this->language->get('text_services');
+			$data['text_timing'] = $this->language->get('text_timing');
+			$data['text_date'] = $this->language->get('text_date');
+
+
+
+
+
+
+
+
+			//
+
+            /*added by assem 23/03/2017 */
             $data['shopping_cart'] = $this->url->link('checkout/cart');
             $data['checkout'] = $this->url->link('checkout/checkout', '', true);
 

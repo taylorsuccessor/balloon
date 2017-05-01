@@ -27,9 +27,9 @@
 
 
         <div class="summery-details-wrapper"><!--summery-details-->
-            <h2>Summery <span>Details</span></h2>
+            <h2><?php echo $text_summary_details; ?></h2>
             <div class="customer-info">
-                <h4>Customer Info</h4>
+                <h4> <?php echo $text_customer_info; ?></h4>
 
                 <p>
                     <?=$firstname;?>  <?=$lastname;?><br>
@@ -40,13 +40,13 @@
                 </p>
             </div>
             <div class="summery-selected-items"><!--Selected Items-->
-                <h4>Selected Items</h4>
+                <h4><?php echo $text_selected_items; ?></h4>
                 <table>
                     <thead>
                     <tr class="hidden-xs tablehead">
-                        <th>Services</th>
-                        <th class="text-center padding">Timings </th>
-                        <th class="text-center padding">Date </th>
+                        <th><?php echo $text_services; ?></th>
+                        <th class="text-center padding"><?php echo $text_timing; ?> </th>
+                        <th class="text-center padding"><?php echo $text_date; ?> </th>
                         <th class="text-center padding"><?php echo $text_price; ?> </th>
                         <th class="text-right padding"><?php echo $text_total; ?></th>
 
@@ -103,7 +103,7 @@ echo '
             </div><!--Selected Items-->
 
             <div class="payment-method"><!--Choose Payment Method-->
-                <h4>Choose Payment Method</h4>
+                <h4> <?php echo $text_choose_payment_method; ?></h4>
                 <div class="row"><!--row-->
                     <div class="col-md-8">
                         <div class="demo-list">

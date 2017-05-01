@@ -150,16 +150,19 @@ $this->load->model('catalog/product');
 		$categories = $this->getCategories($parentIdArray[count($parentIdArray)- 1]);
 
 
+
 		foreach ($categories as $category)
 		{
-			$parentIdArray[]=$category['category_id'];
+			$tempParentIdArray=array_merge($parentIdArray,[$category['category_id']]);
+
+
 			$level_data = array(
 				'category_id'=>$category['category_id'],
 				'name' => $category['name'],
-				'href' => $this->url->link('product/category', 'path=' . join('_',$parentIdArray))
+				'href' => $this->url->link('product/category', 'path=' . join('_',$tempParentIdArray))
 			);
 
-			$children=$this->getCategoryChildren($parentIdArray);
+			$children=$this->getCategoryChildren($tempParentIdArray);
 
 			if(count($children)){
 				$level_data['children'] =$children;
