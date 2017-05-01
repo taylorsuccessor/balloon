@@ -22,9 +22,9 @@
     <link href="catalog/view/theme/customize/stylesheet/jquery-ui.css" rel="stylesheet" /><!--Date picker-->
 <!-- <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>  -->
 <script src="catalog/view/javascript/js/custom.js"></script><!--custom-->
-<script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom--> 
+<script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom-->
 <script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.js"></script><!--custom-->  
-<script type="text/javascript" src="catalog/view/javascript/js/smk-accordion.js"></script> 
+<script type="text/javascript" src="catalog/view/javascript/js/smk-accordion.js"></script>
 <script src="catalog/view/javascript/js/jquery.bxslider.min.js"></script><!--bxslider.min-->
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
@@ -290,94 +290,127 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
        
      </div><!-- /.container-->
     </nav>
-   </div>  <!--main-nav--> 
-   
-   
-
-   <!--Mobile Only Nav-->
+   </div>  <!--main-nav-->
+    <!--Mobile Only Nav-->
     <div class="mob-nav">
-        <a href="#" id="menu"><img src="catalog/view/theme/customize/image/icons/menu.png" alt="menu"></a></div>
-        <div id="menuDiv"><!-- /.menuDiv -->
-	<a href="#" id="active_menu"><img src="catalog/view/theme/customize/image/icons/active_menu.png" alt="active_menu"/></a>
-	<div class="accordion_example9">
-		
-			<!-- div 1 -->
-			<div class="nosubnav">
-				<div class="acc_head active"><a href="<?php echo $home; ?>"><?php echo $text_home;?></a></div>
-			</div>
+        <a href="#" id="menu"><img src="image/icons/menu.png" alt="menu"></a></div>
+    <div id="menuDiv"><!-- /.menuDiv -->
+        <a href="#" id="active_menu"><img src="image/icons/active_menu.png" alt="active_menu" /></a>
+        <div class="accordion_example9">
+
+            <!-- div 1 -->
+            <div class="nosubnav">
+                <div class="acc_head active"><a href="balloons_main.html">Home</a></div>
+            </div>
             <!-- div 2 -->
-			<div class="accordion_in">
-				<div class="acc_head">About Us</div>
-				<div class="acc_content">
-					<div class="sub_links second-sub">
-						<ul>
-							<li><a href="#">About Balloony</a></li>
-							<li><a href="#">Location Map + Contacts</a></li>
-						    <li><a href="#">Our Staff</a></li>
-						</ul>
-          </div>	
-			  </div>
-			</div>
-   
+            <div class="accordion_in">
+                <div class="acc_head">About Us</div>
+                <div class="acc_content">
+                    <div class="sub_links second-sub">
+                        <ul>
+                            <li><a href="#">About Balloony</a></li>
+                            <li><a href="#">Location Map + Contacts</a></li>
+                            <li><a href="#">Our Staff</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- div 3 -->
+            <div class="accordion_in">
+                <div class="acc_head">Send a Gift</div>
+                <div class="acc_content">
+                    <div class="accordion_example9">
+                        <div class="accordion_in">
+                            <div class="acc_head">Surprise Box</div>
+                            <div class="acc_content">
+                                <div class="sub_links second-sub">
+                                    <ul>
+                                        <li><a href="#">Small Box</a></li>
+                                        <li><a href="#">Big Box</a></li>
+                                        <li><a href="#">Toys in a box</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-           <?php foreach ($categories as $category_1)
-           { ?>
-           <?php
-             if($category_1['children'])
-                { ?>
-                 <?php foreach ($category_1['children'] as $category_2)
-                   { ?>
-			  <div class="accordion_in">
-					<div class="acc_head">
-					 <?php echo $category_2['name'];?></div>
-				     <?php if($category_2['children'])
-				      { ?>
+                </div>
+            </div>
 
-						<div class="acc_content">
-							<div class="accordion_example9">
-							<?php foreach ($category_2['children'] as $category_3)
-								    { ?>
-								<div class="accordion_in">
+            <!-- div 4 -->
+            <div class="accordion_in">
+                <div class="acc_head">Balloons</div>
+                <div class="acc_content">
+                    <div class="accordion_example9">
+                        <div class="accordion_in">
+                            <div class="acc_head">Sub Link</div>
+                            <div class="acc_content">
+                                <div class="sub_links second-sub">
+                                    <ul>
+                                        <li><a href="#">Sub Menu</a></li>
+                                        <li><a href="#">Sub Menu</a></li>
+                                        <li><a href="#">Sub Menu</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-										<div class="acc_head">
+                </div>
+            </div>
 
-											<?php echo $category_3['name']; ?>
+            <!-- div 5 -->
+            <div class="accordion_in">
+                <div class="acc_head">Party Supplies</div>
+                <div class="acc_content">
+                    <div class="accordion_example9">
+                        <div class="accordion_in">
+                            <div class="acc_head">Sub Link</div>
+                            <div class="acc_content">
+                                <div class="sub_links second-sub">
+                                    <ul>
+                                        <li><a href="#">Sub Menu</a></li>
+                                        <li><a href="#">Sub Menu</a></li>
+                                        <li><a href="#">Sub Menu</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-										</div>
-									<?php  if ($category_3['children'])
-												   { ?>
+                </div>
+            </div>
 
-														<div class="acc_content">
-															<div class="sub_links second-sub">
-																<ul>
-												            <?php foreach ($category_3['children'] as $category_4)
-																	{  ?>
-																		<li>
-																		<a href="<?php echo $category_4['href']; ?>">
-																		<?php echo $category_4['name']; ?>
-																		</a>
-																		</li>
-															 <?php } ?>
-																</ul>
-						                  </div>
-													  </div>
+            <!-- div 6 -->
+            <div class="accordion_in">
+                <div class="acc_head">Contact Us</div>
+                <div class="acc_content">
+                    <div class="accordion_example9">
+                        <div class="accordion_in">
+                            <div class="acc_head">Sub Link</div>
+                            <div class="acc_content">
+                                <div class="sub_links second-sub">
+                                    <ul>
+                                        <li><a href="#">Sub Menu</a></li>
+                                        <li><a href="#">Sub Menu</a></li>
+                                        <li><a href="#">Sub Menu</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-						                      <?php }//end if category 3 ?>
+                </div>
+            </div>
 
-								</div><?php }//foreach category_2 child?>
-						  </div>
-				    </div>
-			    </div>
-			 <?php }//acc_head?>
-				<?php }//if category?>
-		  <?php }//for_each category1?>
-		   <?php }//if category1?>
-          <!-- <div class="nosubnav">
-             <div class="acc_head"><a href="<?php echo $home; ?>">Home</a></div>
-          </div> -->
-      </div>
-		</div>
+
+
+
+        </div>
+    </div><!-- /.menuDiv -->
+
+
 </div><!-- /.menuDiv -->  
 </header>
 </section>
