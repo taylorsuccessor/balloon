@@ -23,11 +23,8 @@
 <!-- <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>  -->
 <script src="catalog/view/javascript/js/custom.js"></script><!--custom-->
 <script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom-->
-<<<<<<< HEAD
-<script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.js"></script><!--custom-->  
-=======
 <script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.js"></script><!--custom-->
->>>>>>> e5400d5da59443844b05d92f6d453bdaa9a3749e
+
 <script type="text/javascript" src="catalog/view/javascript/js/smk-accordion.js"></script>
 <script src="catalog/view/javascript/js/jquery.bxslider.min.js"></script><!--bxslider.min-->
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -414,68 +411,9 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
     </div><!-- /.menuDiv -->
 
 
-<<<<<<< HEAD
-</div><!-- /.menuDiv -->  
-=======
-           <?php foreach ($categories as $category_1)
-           { ?>
-           <?php
-             if($category_1['children'])
-                { ?>
-                 <?php foreach ($category_1['children'] as $category_2)
-                   { ?>
-			  <div class="accordion_in">
-					<div class="acc_head">
-					 <?php echo $category_2['name'];?></div>
-				     <?php if($category_2['children'])
-				      { ?>
-
-						<div class="acc_content">
-							<div class="accordion_example9">
-							<?php foreach ($category_2['children'] as $category_3)
-								    { ?>
-								<div class="accordion_in">
-
-										<div class="acc_head">
-
-											<?php echo $category_3['name']; ?>
-
-										</div>
-									<?php  if ($category_3['children'])
-												   { ?>
-
-														<div class="acc_content">
-															<div class="sub_links second-sub">
-																<ul>
-												            <?php foreach ($category_3['children'] as $category_4)
-																	{  ?>
-																		<li>
-																		<a href="<?php echo $category_4['href']; ?>">
-																		<?php echo $category_4['name']; ?>
-																		</a>
-																		</li>
-															 <?php } ?>
-																</ul>
-						                  </div>
-													  </div>
-
-						                      <?php }//end if category 3 ?>
-
-								</div><?php }//foreach category_2 child?>
-						  </div>
-				    </div>
-			    </div>
-			 <?php }//acc_head?>
-				<?php }//if category?>
-		  <?php }//for_each category1?>
-		   <?php }//if category1?>
-          <!-- <div class="nosubnav">
-             <div class="acc_head"><a href="<?php echo $home; ?>">Home</a></div>
-          </div> -->
-      </div>
-		</div>
 </div><!-- /.menuDiv -->
->>>>>>> e5400d5da59443844b05d92f6d453bdaa9a3749e
+          
+</div><!-- /.menuDiv -->
 </header>
 </section>
 <?php } ?>
