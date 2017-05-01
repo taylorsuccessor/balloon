@@ -42,6 +42,7 @@ $_['text_week']                      = 'اسبوعي';
 $_['text_semi_month']                = 'نصف شهري';
 $_['text_month']                     = 'شهري';
 $_['text_year']                      = 'سنوي';
+$_['text_min_total']                 = 'لاتمام عملية الشراء يجب ان يكون أقل مبلغ ';
 
 // Column
 $_['column_name']                    = 'الاسم';

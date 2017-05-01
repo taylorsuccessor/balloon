@@ -8,7 +8,6 @@
  <form method="post" action="">
         <section class="events-booking-warapper"><!--Events Booking Section-->
 
-          <div class="container"><!--container-->
 
             <div class="events-booking">
               <h2> <?php echo $text_events_book; ?></h2>
@@ -56,14 +55,6 @@
 
               </div>
               <div class="col-md-4" >
-                <select name="location">
-                  <option value="disabled selected" ><?php echo $placeholder_location; ?></option>
-                  <option>Location 1</option>
-                  <option>Location 2</option>
-                  <option>Location 3</option>
-                  <option>Location 4</option>
-                  <option>Location 5</option>
-                </select>
                 <select name="category">
                   <?php
                   function drowCategoryWithChildren($categories){
@@ -82,7 +73,7 @@
                                 <button type="submit" name="bookNow"><?php echo $placeholder_book_now; ?></button>
                             </div>
                         </div>
-                    </div>
+
                     <!--container-->
                 </section>
                 <!--Events Booking Section-->

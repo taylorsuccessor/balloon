@@ -5,13 +5,11 @@ class ControllerCheckoutCheckout extends Controller {
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}
-
-     	//$this->load->model('admin/setting/setting');
-        //$total = $this->model_setting_setting->getSettingValue();
-		//$this->model_setting_setting->getSettingValue('config_min_price', 60);
-
-		if ($this->cart->getSubtotal() < 300){
-			$this->session->data['error'] = 'To checkout you must fill cart at least 300 kd';
+		$this->load->language('checkout/checkout');
+		$data['text_min_total'] = $this->language->get('text_min_total');
+		$min_price = $this->config->get('config_min_price');
+		if ($this->cart->getSubtotal() < $min_price){
+			$this->session->data['error'] = $data['text_min_total'].$min_price.' '.$this->session->data['currency'];
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}
 		// Validate minimum quantity requirements.
@@ -31,7 +29,6 @@ class ControllerCheckoutCheckout extends Controller {
 			}
 		}
 
-		$this->load->language('checkout/checkout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
