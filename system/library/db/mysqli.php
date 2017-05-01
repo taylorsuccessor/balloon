@@ -15,6 +15,7 @@ final class MySQLi {
 	}
 
 	public function query($sql) {
+//		var_dump($sql);
 		$query = $this->connection->query($sql);
 
 		if (!$this->connection->errno) {

@@ -24,6 +24,7 @@
 <script src="catalog/view/javascript/js/custom.js"></script><!--custom-->
 <script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom-->
 <script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.js"></script><!--custom-->
+
 <script type="text/javascript" src="catalog/view/javascript/js/smk-accordion.js"></script>
 <script src="catalog/view/javascript/js/jquery.bxslider.min.js"></script><!--bxslider.min-->
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -291,93 +292,86 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
      </div><!-- /.container-->
     </nav>
    </div>  <!--main-nav-->
-
-
-
-   <!--Mobile Only Nav-->
+    <!--Mobile Only Nav-->
     <div class="mob-nav">
-        <a href="#" id="menu"><img src="catalog/view/theme/customize/image/icons/menu.png" alt="menu"></a></div>
-        <div id="menuDiv"><!-- /.menuDiv -->
-	<a href="#" id="active_menu"><img src="catalog/view/theme/customize/image/icons/active_menu.png" alt="active_menu"/></a>
-	<div class="accordion_example9">
+        <a href="javascript:void(0);" id="menu"><img src="image/icons/menu.png" alt="menu"></a></div>
+    <div id="menuDiv"><!-- /.menuDiv -->
+        <a href="javascript:void(0);" id="active_menu"><img src="image/icons/active_menu.png" alt="active_menu" /></a>
 
-			<!-- div 1 -->
-			<div class="nosubnav">
-				<div class="acc_head active"><a href="<?php echo $home; ?>"><?php echo $text_home;?></a></div>
-			</div>
-            <!-- div 2 -->
-			<div class="accordion_in">
-				<div class="acc_head">About Us</div>
-				<div class="acc_content">
-					<div class="sub_links second-sub">
-						<ul>
-							<li><a href="#">About Balloony</a></li>
-							<li><a href="#">Location Map + Contacts</a></li>
-						    <li><a href="#">Our Staff</a></li>
-						</ul>
-          </div>
-			  </div>
-			</div>
 
-            <!-- div 3 -->
+        <?php
 
-           <?php foreach ($categories as $category_1)
-           { ?>
-           <?php
-             if($category_1['children'])
-                { ?>
-                 <?php foreach ($category_1['children'] as $category_2)
-                   { ?>
-			  <div class="accordion_in">
-					<div class="acc_head">
-					 <?php echo $category_2['name'];?></div>
-				     <?php if($category_2['children'])
-				      { ?>
 
-						<div class="acc_content">
-							<div class="accordion_example9">
-							<?php foreach ($category_2['children'] as $category_3)
-								    { ?>
-								<div class="accordion_in">
+    function drowMobileMenu($menu,$menuName='',$first=true){
 
-										<div class="acc_head">
+    $html=(!$first)? '<div class="accordion_example9">' : '';
+        $i=0;
+        foreach($menu as $oneMenu){
+        $childrenExist=(isset($oneMenu['children']) && count($oneMenu['children']));
 
-											<?php echo $category_3['name']; ?>
+        if($childrenExist){
 
-										</div>
-									<?php  if ($category_3['children'])
-												   { ?>
+        $html.='<div class="accordion_in">
+            <div class="acc_head">'.$oneMenu['name'].'</div>
+            <div class="acc_content">
+                ';
+                $html.=drowMobileMenu($oneMenu['children'],$oneMenu['name'],false);
 
-														<div class="acc_content">
-															<div class="sub_links second-sub">
-																<ul>
-												            <?php foreach ($category_3['children'] as $category_4)
-																	{  ?>
-																		<li>
-																		<a href="<?php echo $category_4['href']; ?>">
-																		<?php echo $category_4['name']; ?>
-																		</a>
-																		</li>
-															 <?php } ?>
-																</ul>
-						                  </div>
-													  </div>
+                $html.='</div></div>';
 
-						                      <?php }//end if category 3 ?>
+        }elseif(true || isset($oneMenu['category_id'])){
+        $html.='<div class="nosubnav">
+            <div class="acc_head "><a href="'.$oneMenu['href'].'">'.$oneMenu['name'].'</a></div>
+        </div>';
 
-								</div><?php }//foreach category_2 child?>
-						  </div>
-				    </div>
-			    </div>
-			 <?php }//acc_head?>
-				<?php }//if category?>
-		  <?php }//for_each category1?>
-		   <?php }//if category1?>
-          <!-- <div class="nosubnav">
-             <div class="acc_head"><a href="<?php echo $home; ?>">Home</a></div>
-          </div> -->
-      </div>
-		</div>
+
+
+        }else{
+
+        /*
+        $html.=($i==0)? '<div class="sub_links second-sub"> <ul>':'';
+                $html.='
+                <li><a href="'.$oneMenu['href'].'">'.$oneMenu['name'].'</a></li>
+                ';
+
+                $html.=($i==(count($menu)-1))? '</ul></div>':'';$i++;
+        */
+        }
+
+
+
+
+        }
+
+        $html.=(!$first)? '</div>' : '';
+
+    return $html;
+    }
+
+
+
+    ?>
+    <div class="accordion_example9">
+       <?=drowMobileMenu($leftCategories); ?>
+        <?=drowMobileMenu($rightCategories); ?>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- /.menuDiv -->
+
+
+</div><!-- /.menuDiv -->
+          
 </div><!-- /.menuDiv -->
 </header>
 </section>

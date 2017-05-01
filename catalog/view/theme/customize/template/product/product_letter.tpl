@@ -52,8 +52,8 @@
                 <div class="row">
                     <div class="col-md-6 view-colors-left">
                         <div class="slider_cover">
-                            </div>
-                            <h4><?php echo $text_Rollover_swatches; ?></h4>
+
+                            <h4 STYLE="padding:5px;"><?php echo $text_Rollover_swatches; ?></h4>
 
                             <div id="bx-pager">
                                 <?php
@@ -70,9 +70,9 @@
                                  if($letterColorValueId==0){
 
                                 $letterColorValueId=$option_id;
-                                $colorName=$option_value;
+                                $colorName=$option_value['name'];
                                                                                         }
-             echo ' <a data-slide-index="'.$i.'" data-value="'.$option_value['value'].'" data-name="'.$option_value['name'].'" href="" style="background-color:'.$option_value['name'].'; height:44px;"></a>';$i++;
+             echo ' <a data-slide-index="'.$i.'" data-value="'.$option_value['value'].'" data-name="'.$option_value['name'].'" href="javascript:void(0)" style="background-color:'.$option_value['name'].'; height:44px;"></a>';$i++;
 
                                 }
 
@@ -96,17 +96,103 @@
                                 <div class="col-md-6">
                                     <label>Name letter</label>
 
-                                    <input type="text" name="nameletters" value="" placeholder="type name"  />
+                                    <input type="text" name="nameletters" value="" placeholder="type name" style="background:none;" oninput="countNameLetter(false);"  />
+
+                                    <?php
+
+                                     $aSizePrice=[];
+                                     if ($options) {
+                                foreach($options as $option){
+                                                                   if(str_replace(' ','',strtolower($option['name']))=='lettersize'){
+                                                                   $i=0;
+
+
+                                foreach($option['product_option_value'] as $option_value){
+                                $aSizePrice[$option_value['product_option_value_id']]=$option_value['price'];
+
+                                }
+
+                                }
+                                }
+                                }//if option
+                                ?>
+                                    <script >
+
+                                        var aSizePrice=<?=json_encode($aSizePrice);?>;
+
+                                        function countNameLetter(firstTime){
+
+                                            var name=$('input[name="nameletters"]').val();
+                                            name=name.replace(/\s/g,'');
+
+
+var nameLength=name.length;
+
+                                          var productPriceNode=  $('#productPriceLable');
+                                           var price=productPriceNode.data('price').toString();
+
+                                            var letterSizeNode=$('select[name="lettersize"]');
+
+                                            var sizePriceId=letterSizeNode.val();
+                                            var sizePrice=0;
+                                            if( aSizePrice[sizePriceId]  != undefined ){
+                                                sizePrice=parseFloat(aSizePrice[sizePriceId]);
+                                            }
+
+if( sizePrice == 0 && !firstTime){
+    letterSizeNode.css('border','1px solid red');
+}else{
+
+    letterSizeNode.css('border','#dadada solid 1px');
+}
+                                            var currency =price.replace(/[0-9\.].*/i,'');
+                                            $('#currencySignSpan').text(currency);
+
+                                            price=price.replace(/[^0-9\.]/i, '');
+                                            price=parseFloat(price);
+                                            productPriceNode.text('('+price+' + '+sizePrice+')')
+                                            var nameLettersNumberNode= $('#nameLettersNumberSpan');
+
+                                           var  totalPriceNode=$('#totalPriceSpan');
+
+                                            nameLettersNumberNode.text(nameLength );
+                                            $('#input-quantity').val(nameLength);
+
+                                            totalPriceNode.text(((price+sizePrice) * nameLength).toFixed(2));
+                                        }
+                                        $(document).ready(function(){
+                                      countNameLetter(true);
+                                        });
+                                    </script>
+                                    <style type="text/css">
+
+                                        #productPriceLable{
+
+                                        }
+
+                                        #timesSignSpan{
+                                            color:red;
+                                        }
+                                        #nameLettersNumberSpan{
+
+                                        }
+                                        #equalSignSpan{
+                                            color:red;
+                                        }
+                                        #totalPriceSpan{
+
+                                        }
+                                    </style>
                                 </div>
                                 <div class="col-md-6">
 
                                     <label>letter size</label>
 
 
-                                    <select name="lettersize">
+                                    <select name="lettersize" onchange="countNameLetter(false);">
                                         <option value="0"> Select letter size</option>
                                         <?php
-                                        foreach($lettersize_values as $size){
+                                        foreach($lettersize_values[$languageCode] as $size){
                                         echo '<option value="'.$size['value'].'">'.$size['name'].'</option>';
                                         }
                                     ?>
@@ -122,6 +208,21 @@
                         <h4>
 
 
+
+
+
+
+
+                            <?php
+                            $finalPrice=0;
+                            if ($price) {
+                            $finalPrice=(!$special)?$price:$special;
+
+                           } ?>
+
+
+
+<span id="productPriceLable" data-price="<?=$finalPrice;?>" >
                             <?php if ($price) { ?>
                                 <?php if (!$special) { ?>
                                                       <?php echo $price; ?>
@@ -132,10 +233,18 @@
 
                             <?php } ?>
 
+                            </span>
+
+                            <span id="timesSignSpan">&times;</span>
+
+                            <span id="nameLettersNumberSpan" data-value="1">0</span>
+                            <span id="equalSignSpan">&equals;</span>
+                            <span id="totalPriceSpan">0</span>
+                            <span id="currencySignSpan"></span>
                         </h4>
 
                     </div>
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-6 col-md-offset-5">
                         <div class="confetti-btns">
 
 
@@ -143,8 +252,7 @@
 
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                             <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"  class="confetti-cart"><?php echo $button_cart; ?></button>
-                            <input class="confetti-input"  type="text" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity" >
-                            <button type="submit" name="finalProductDetail" value="1" class="confetti-view">  <?php echo $text_view; ?></button>
+                            <input class="confetti-input"  type="text" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity"  style="display: none;">
                         </div>
                     </div>
                 </div>
@@ -368,9 +476,9 @@ console.log(json);
         });
     });
 
-    <?php foreach($optionsWithName as $product_option_id =>$option){
+    <?php if(isset($optionsWithName)){ foreach($optionsWithName as $product_option_id =>$option){
        echo '$("[name=\''.$option['alias'].'\']").attr("id","input-option'.$product_option_id.'");';
-    }?>
+    } }?>
     //--></script>
 
 
