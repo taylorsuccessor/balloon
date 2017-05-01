@@ -18,9 +18,10 @@
             </div>
             <!--bredcrumb-->
             <div class="product-details-page"><!--balloons-->
-                <h2><?php echo $heading_title; ?></h2>
 
+                <h2><?php echo $heading_title; ?></h2>
                 <div class="wrap_notfiy">
+
                 </div>
                 <div class="row">
                     <div class="product-details">
@@ -67,16 +68,15 @@
                                             style="text-decoration: line-through;"><?php echo $price; ?></span></p>
                                 <?php } ?>
 
-
                                 <?php } ?>
-
                             </div>
                             <div class="share">
-                                <p><?php echo $text_share_product; ?></p>
+                                <p class="text_share"><?php echo $text_share_product; ?></p>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <!-- AddThis Button BEGIN -->
+                                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+                                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5901df5f5f7f4bba"></script>
+                                    <!-- AddThis Button END -->
                                 </ul>
                             </div>
                             <div class="stock"><p><?php echo $availabilty; ?> <span><?php echo $stock; ?></span></p></div>
@@ -230,7 +230,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-btns-box">
                                         <div class="addfav">
 
-                                            <a title="<?php echo $button_wishlist; ?>"
+                                            <a id="wishlist" title="<?php echo $button_wishlist; ?>"
                                                onclick="wishlist.add('<?php echo $product_id; ?>');"><?php echo $text_add_favourite; ?></a>
 
                                         </div>
@@ -509,6 +509,7 @@ echo '
             data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
             dataType: 'json',
             beforeSend: function () {
+
                 $('#button-cart').button('loading');
             },
             complete: function () {
@@ -656,13 +657,13 @@ echo '
                 }
 
                 if (json['success']) {
-                    $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+            $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
-                    $('input[name=\'name\']').val('');
-                    $('textarea[name=\'text\']').val('');
-                    $('input[name=\'rating\']:checked').prop('checked', false);
-                }
-            }
+            $('input[name=\'name\']').val('');
+            $('textarea[name=\'text\']').val('');
+            $('input[name=\'rating\']:checked').prop('checked', false);
+        }
+    }
         });
     });
 

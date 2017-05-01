@@ -20,6 +20,8 @@ $_['entry_telephone']    = 'Mobile Number';
 $_['entry_fax']          = 'Fax';
 $_['entry_address_1']    = 'Address Name';
 $_['entry_area']         = 'Area';
+$_['text_edit_button']        = 'Edit Info';
+
 
 
 

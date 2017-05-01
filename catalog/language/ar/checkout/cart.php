@@ -32,6 +32,29 @@ $_['text_price']               = 'السعر';
 $_['text_total']               = 'المجموع';
 $_['text_quantity']            = 'الكمية';
 
+
+$_['text_event_booking']       = '<span>حجز</span> الحفلات';
+$_['text_booked']              = 'محجوز';
+$_['text_available']           = 'متاح';
+$_['text_pick_event_time']     = 'اختر وقت الحفلة :';
+$_['text_button_proceed']     = 'التقديم';
+$_['text_selected_items']     = 'العناصر المختارة';
+$_['text_services']           = 'الخدمات';
+$_['text_timing']            = 'التوقيت';
+$_['text_date']                = 'التاريخ';
+$_['text_summary_details']                = 'ملخص <span>التفاصيل</span>';
+$_['text_customer_info']                = 'تفاصيل الزبون';
+$_['text_choose_payment_method']                = 'اختر طريقة الدفع';
+
+
+
+
+
+
+
+
+
+
 // Column
 $_['column_image']    = 'صورة';
 $_['column_name']     = 'الاسم';

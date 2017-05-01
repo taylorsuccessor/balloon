@@ -28,6 +28,33 @@ $_['text_payment_cancel']      = '%s every %d %s(s) until canceled';
 $_['text_price']               = 'Price';
 $_['text_total']               = 'Total';
 $_['text_quantity']            = 'Quantity';
+
+$_['text_event_booking']       = 'Events <span>Booking</span>';
+$_['text_booked']              = 'Booked';
+$_['text_available']           = 'Available';
+$_['text_pick_event_time']     = 'Pick an event time :';
+$_['text_button_proceed']      = 'Proceed';
+$_['text_selected_items']      = 'Selected Items';
+$_['text_services']            = 'Services';
+$_['text_timing']              = 'Timings';
+$_['text_date']                = 'Date';
+$_['text_summary_details']                = 'Summery <span>Details</span>';
+$_['text_customer_info']                = 'Customer Info';
+
+$_['text_choose_payment_method']                = 'Choose Payment Method';
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Column
 $_['column_image']             = 'Image';
 $_['column_name']              = 'Product Name';

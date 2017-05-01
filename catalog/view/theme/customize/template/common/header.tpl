@@ -22,9 +22,9 @@
     <link href="catalog/view/theme/customize/stylesheet/jquery-ui.css" rel="stylesheet" /><!--Date picker-->
 <!-- <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>  -->
 <script src="catalog/view/javascript/js/custom.js"></script><!--custom-->
-<script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom--> 
-<script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.js"></script><!--custom-->  
-<script type="text/javascript" src="catalog/view/javascript/js/smk-accordion.js"></script> 
+<script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom-->
+<script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.js"></script><!--custom-->
+<script type="text/javascript" src="catalog/view/javascript/js/smk-accordion.js"></script>
 <script src="catalog/view/javascript/js/jquery.bxslider.min.js"></script><!--bxslider.min-->
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
@@ -50,7 +50,7 @@
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
-<script src="catalog/view/javascript/common.js" type="text/javascript"></script> 
+<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
@@ -60,6 +60,7 @@
 <?php foreach ($analytics as $analytic) { ?>
 <?php echo $analytic; ?>
 <?php } ?>
+
 </head>
 <body class="<?php echo $class; ?>">
 <section><!--Header Section-->
@@ -73,11 +74,11 @@
           <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
         <?php } ?>
         </div><!--logo-->
-        
-        
+
+
         <div class="top-nav"><!--top-nav-->
             <div class="top-nav-left"><!--Top nav Left-->
-               
+
                 <ul>
                     <li><a href="https://www.facebook.com/BalloonyLand/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                     <li><a href="https://twitter.com/balloonyland?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -86,7 +87,7 @@
                     <li><a href="<?php echo $shopping_cart;?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     <li><a href="?route=product/search"><i class="fa fa-search"  aria-hidden="true"></i></a></li>
                 </ul>
-                
+
             </div><!--Top nav Left-->
             <div class="top-nav-right"><!--top-nav-right-->
                 <ul>
@@ -99,13 +100,13 @@
                     <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
                     <li><a href=""><?php echo $language; ?></a></li>
 
-                <?php } ?>    
+                <?php } ?>
                 </ul>
             </div><!--top-nav-right-->
         </div><!--top-nav-->
-        
-        
-        
+
+
+
  <div class="main-nav"><!--main-nav-->
  <nav class="navbar navbar-default">
   <div class="row">
@@ -117,7 +118,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -147,11 +148,11 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 
         <ul class="nav navbar-nav navbar-left">
 
-           
+
           <?php echo drowMenu($leftCategories); ?>
 
         </ul>
-        
+
         <ul class='nav navbar-nav navbar-right'>
 
             <?php echo drowMenu($rightCategories); ?>
@@ -178,12 +179,12 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
                         </ul>
                       </li>
                       <li>
-                        <?php 
+                        <?php
                           $values = array_values($category_1['children'][0]);
                         ?>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $values[0];?><span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                   <?php foreach ($category_1['children'][0] as $category_level2) { ?> 
+                   <?php foreach ($category_1['children'][0] as $category_level2) { ?>
                     <?php if (is_array($category_level2) || is_object($category_level2)){ foreach ($category_level2 as $categorysublevel2) { ?>
                            <li class="dropdown-submenu"><a href="<?php echo $categorysublevel2['href']; ?>"><?php echo $categorysublevel2['name']; ?></a>
                         <?php if ($categorysublevel2) { ?>
@@ -209,22 +210,22 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
                     </ul>
                     </li>
                     </ul>
-              
+
             <?php //var_dump($category_1['children'][0]);
               //end add right menu
               }
              if($category_1['children'][1] && $category_1['children'][2])
               {
                //start add be me ?>
-                      <ul class='nav navbar-nav navbar-right'> 
+                      <ul class='nav navbar-nav navbar-right'>
                       <li>
-                        <?php 
+                        <?php
                           $values = array_values($category_1['children'][1]);
                           // print_r($values);
                         ?>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $values[0];?><span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                   <?php foreach ($category_1['children'][1] as $category_2) { ?> 
+                   <?php foreach ($category_1['children'][1] as $category_2) { ?>
                     <?php if (is_array($category_2) || is_object($category_2)){ foreach ($category_2 as $categorysub) { ?>
                            <li class="dropdown-submenu"><a href="<?php echo $categorysub['href']; ?>"><?php echo $categorysub['name']; ?></a>
                         <?php if ($categorysub) { ?>
@@ -233,8 +234,8 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 
                              <?php if (is_array($categoryuubfinal) || is_object($categoryuubfinal)) { ?>
                                 <?php foreach ($categoryuubfinal as $categorylastlevel) { ?>
-                              
-                               <li><a href="<?php echo  $categorylastlevel['href']; ?>"><?php echo $categorylastlevel['name']; ?></a></li> 
+
+                               <li><a href="<?php echo  $categorylastlevel['href']; ?>"><?php echo $categorylastlevel['name']; ?></a></li>
                                 <?php  }?>
                               <?php } ?>
 
@@ -249,12 +250,12 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 
                    <!-- for party suppliys -->
                     <li>
-                        <?php 
+                        <?php
                           $values = array_values($category_1['children'][2]);
                         ?>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $values[0];?><span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                   <?php foreach ($category_1['children'][2] as $category_2) { ?> 
+                   <?php foreach ($category_1['children'][2] as $category_2) { ?>
                     <?php if (is_array($category_2) || is_object($category_2)){ foreach ($category_2 as $categorysub) { ?>
                            <li class="dropdown-submenu"><a href="<?php echo $categorysub['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $categorysub['name']; ?></a>
                         <?php if ($categorysub) { ?>
@@ -263,8 +264,8 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 
                              <?php if (is_array($categoryuubfinal) || is_object($categoryuubfinal)) { ?>
                                 <?php foreach ($categoryuubfinal as $categorylastlevel) { ?>
-                              
-                               <li><a href="<?php echo  $categorylastlevel['href']; ?>"><?php echo $categorylastlevel['name']; ?></a></li> 
+
+                               <li><a href="<?php echo  $categorylastlevel['href']; ?>"><?php echo $categorylastlevel['name']; ?></a></li>
                                 <?php  }?>
                               <?php } ?>
 
@@ -277,21 +278,21 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
                     </li>
                     <li><a href="<?php echo $contact; ?>"><?php echo $text_contact_us; ?></a></li>
               </ul>
-              
+
             <?php
               //end add by me
               }
 
            }
           ?>
-          
+
        </div><!-- /.navbar-collapse -->
-       
+
      </div><!-- /.container-->
     </nav>
-   </div>  <!--main-nav--> 
-   
-   
+   </div>  <!--main-nav-->
+
+
 
    <!--Mobile Only Nav-->
     <div class="mob-nav">
@@ -299,7 +300,7 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
         <div id="menuDiv"><!-- /.menuDiv -->
 	<a href="#" id="active_menu"><img src="catalog/view/theme/customize/image/icons/active_menu.png" alt="active_menu"/></a>
 	<div class="accordion_example9">
-		
+
 			<!-- div 1 -->
 			<div class="nosubnav">
 				<div class="acc_head active"><a href="<?php echo $home; ?>"><?php echo $text_home;?></a></div>
@@ -314,10 +315,10 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 							<li><a href="#">Location Map + Contacts</a></li>
 						    <li><a href="#">Our Staff</a></li>
 						</ul>
-          </div>	
+          </div>
 			  </div>
 			</div>
-   
+
             <!-- div 3 -->
 
            <?php foreach ($categories as $category_1)
@@ -377,7 +378,7 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
           </div> -->
       </div>
 		</div>
-</div><!-- /.menuDiv -->  
+</div><!-- /.menuDiv -->
 </header>
 </section>
 <?php } ?>
