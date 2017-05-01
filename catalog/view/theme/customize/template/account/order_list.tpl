@@ -38,12 +38,13 @@
                 <div class="row">
                     <?php if ($orders) { ?>
                       <div class="col-xs-12 orders">
-                        <select>
-                          <option>Low to High</option>
-                          <option>Low to High</option>
-                          <option>Low to High</option>
+                        <select  onchange="location = this.value;">
+                          <option>
+           
+                          </option>
+
                         </select>
-                        <label>Sort By:</label>
+                        <label><?php echo $text_sort_by; ?></label>
                       </div><!-- /.col-xs-12 -->
                       <?php  ?>
                       <?php foreach ($orders as $order) { ?>
@@ -54,17 +55,17 @@
                     </div><!-- /.col-xs-12 -->
                     <?php } ?>
                     <?php } ?>
-                    
+
                       <a href="<?php echo $continue; ?>" role="button" id="continueOrder"><?php echo $button_continue; ?></a>
-                   
+
                   <?php echo $content_bottom; ?>
-                </div> <!-- /.row --> 
+                </div> <!-- /.row -->
               </div><!-- /.content_area -->
-            </div><!-- /.row -->  
-          </div><!-- /.common --> 
+            </div><!-- /.row -->
+          </div><!-- /.common -->
       </div>  <!-- /.products -->
-    </div><!-- /.content -->    
-  </div><!-- /.row --> 
+    </div><!-- /.content -->
+  </div><!-- /.row -->
   </section>
     <?php echo $column_right; ?></div>
 </div>

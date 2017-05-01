@@ -518,13 +518,17 @@ class ControllerProductEvent extends Controller {
                     );
                 }
             }
-            if (isset($this->session->data['success'])) {
-                $data['success'] = $this->session->data['success'];
+//            if (isset($this->session->data['success'])) {
+//                $data['success'] = $this->session->data['success'];
+//
+//                unset($this->session->data['success']);
+//            } else {
+//                $data['success'] = '';
+//            }
 
-                unset($this->session->data['success']);
-            } else {
-                $data['success'] = '';
-            }
+
+
+
             // Set the last category breadcrumb
             $category_info = $this->model_catalog_category->getCategory($category_id);
 
@@ -642,13 +646,13 @@ class ControllerProductEvent extends Controller {
         }
 
 
-        if (isset($this->session->data['success'])) {
-            $data['success'] = $this->session->data['success'];
-
-            unset($this->session->data['success']);
-        } else {
-            $data['success'] = '';
-        }
+//        if (isset($this->session->data['success'])) {
+//            $data['success'] = $this->session->data['success'];
+//
+//            unset($this->session->data['success']);
+//        } else {
+//            $data['success'] = '';
+//        }
 
         $this->load->model('catalog/product');
 
@@ -1159,7 +1163,12 @@ class ControllerProductEvent extends Controller {
 
                 $this->model_catalog_review->addReview($this->request->get['product_id'], $this->request->post);
 
-                $json['success'] = $this->language->get('text_success');
+
+
+              //  $json['success'] = $this->language->get('text_success');
+
+
+
             }
         }
 
@@ -1220,7 +1229,10 @@ class ControllerProductEvent extends Controller {
                     $text = $trial_text . sprintf($this->language->get('text_payment_cancel'), $price, $recurring_info['cycle'], $frequencies[$recurring_info['frequency']], $recurring_info['duration']);
                 }
 
-                $json['success'] = $text;
+               // $json['success'] = $text;
+
+
+
             }
         }
 

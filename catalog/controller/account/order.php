@@ -109,9 +109,13 @@ class ControllerAccountOrder extends Controller {
 		$data['text_my_orders'] = $this->language->get('text_my_orders');
 		$data['text_password'] = $this->language->get('text_password');
 
+		$data['text_sort_by'] = $this->language->get('text_sort_by');
+
+
 		$this->response->setOutput($this->load->view('account/order_list', $data));
 	}
-
+    
+		
 	public function info() {
 		$this->load->language('account/order');
 
