@@ -112,7 +112,9 @@ class ControllerCommonHeader extends Controller {
 
 		if(isset($this->session->data['serviceType'] ) && $this->session->data['serviceType'] =='events'){
 			$preLinks=[
-				[   'name'  =>$data['text_home'],
+				[
+					'category_id'=>'0',
+					'name'  =>$data['text_home'],
 					'href'  =>$data['home_events'],
 				]
 			];
@@ -122,16 +124,19 @@ class ControllerCommonHeader extends Controller {
 			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsRightId]);
 		}else{
 			$preLinksEvent=[
-				[   'name'  =>$data['text_home'],
+
+				['category_id'=>'0',
+					'name'  =>$data['text_home'],
 					'href'  =>$data['home_supply'],
 				],
-				[   'name'  =>$data['text_about_us'],
+				[   'category_id'=>'0',
+					'name'  =>$data['text_about_us'],
 					'href'=>$this->url->link('information/information','information_id=7'),
 					'children'=>[
-						['name'=>$data['text_about_balloony'],'href'=>$this->url->link('information/information','information_id=7'),
+						['name'=>$data['text_about_balloony'],'href'=>$this->url->link('information/information','information_id=7')],
 						['name'=>$data['text_location_map'],'href'=>$this->url->link('information/information','information_id=8')],
 						['name'=>$data['text_our_staff'],'href'=>$this->url->link('information/information','information_id=9')]
-					],
+
 ],
 				]
 			];

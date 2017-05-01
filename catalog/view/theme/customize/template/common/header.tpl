@@ -294,121 +294,80 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
    </div>  <!--main-nav-->
     <!--Mobile Only Nav-->
     <div class="mob-nav">
-        <a href="#" id="menu"><img src="image/icons/menu.png" alt="menu"></a></div>
+        <a href="javascript:void(0);" id="menu"><img src="image/icons/menu.png" alt="menu"></a></div>
     <div id="menuDiv"><!-- /.menuDiv -->
-        <a href="#" id="active_menu"><img src="image/icons/active_menu.png" alt="active_menu" /></a>
-        <div class="accordion_example9">
+        <a href="javascript:void(0);" id="active_menu"><img src="image/icons/active_menu.png" alt="active_menu" /></a>
 
-            <!-- div 1 -->
-            <div class="nosubnav">
-                <div class="acc_head active"><a href="balloons_main.html">Home</a></div>
-            </div>
-            <!-- div 2 -->
-            <div class="accordion_in">
-                <div class="acc_head">About Us</div>
-                <div class="acc_content">
-                    <div class="sub_links second-sub">
-                        <ul>
-                            <li><a href="#">About Balloony</a></li>
-                            <li><a href="#">Location Map + Contacts</a></li>
-                            <li><a href="#">Our Staff</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- div 3 -->
-            <div class="accordion_in">
-                <div class="acc_head">Send a Gift</div>
-                <div class="acc_content">
-                    <div class="accordion_example9">
-                        <div class="accordion_in">
-                            <div class="acc_head">Surprise Box</div>
-                            <div class="acc_content">
-                                <div class="sub_links second-sub">
-                                    <ul>
-                                        <li><a href="#">Small Box</a></li>
-                                        <li><a href="#">Big Box</a></li>
-                                        <li><a href="#">Toys in a box</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
+        <?php
 
-            <!-- div 4 -->
-            <div class="accordion_in">
-                <div class="acc_head">Balloons</div>
-                <div class="acc_content">
-                    <div class="accordion_example9">
-                        <div class="accordion_in">
-                            <div class="acc_head">Sub Link</div>
-                            <div class="acc_content">
-                                <div class="sub_links second-sub">
-                                    <ul>
-                                        <li><a href="#">Sub Menu</a></li>
-                                        <li><a href="#">Sub Menu</a></li>
-                                        <li><a href="#">Sub Menu</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
+    function drowMobileMenu($menu,$menuName='',$first=true){
 
-            <!-- div 5 -->
-            <div class="accordion_in">
-                <div class="acc_head">Party Supplies</div>
-                <div class="acc_content">
-                    <div class="accordion_example9">
-                        <div class="accordion_in">
-                            <div class="acc_head">Sub Link</div>
-                            <div class="acc_content">
-                                <div class="sub_links second-sub">
-                                    <ul>
-                                        <li><a href="#">Sub Menu</a></li>
-                                        <li><a href="#">Sub Menu</a></li>
-                                        <li><a href="#">Sub Menu</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    $html=(!$first)? '<div class="accordion_example9">' : '';
+        $i=0;
+        foreach($menu as $oneMenu){
+        $childrenExist=(isset($oneMenu['children']) && count($oneMenu['children']));
 
-                </div>
-            </div>
+        if($childrenExist){
 
-            <!-- div 6 -->
-            <div class="accordion_in">
-                <div class="acc_head">Contact Us</div>
-                <div class="acc_content">
-                    <div class="accordion_example9">
-                        <div class="accordion_in">
-                            <div class="acc_head">Sub Link</div>
-                            <div class="acc_content">
-                                <div class="sub_links second-sub">
-                                    <ul>
-                                        <li><a href="#">Sub Menu</a></li>
-                                        <li><a href="#">Sub Menu</a></li>
-                                        <li><a href="#">Sub Menu</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        $html.='<div class="accordion_in">
+            <div class="acc_head">'.$oneMenu['name'].'</div>
+            <div class="acc_content">
+                ';
+                $html.=drowMobileMenu($oneMenu['children'],$oneMenu['name'],false);
 
-                </div>
-            </div>
+                $html.='</div></div>';
+
+        }elseif(true || isset($oneMenu['category_id'])){
+        $html.='<div class="nosubnav">
+            <div class="acc_head "><a href="'.$oneMenu['href'].'">'.$oneMenu['name'].'</a></div>
+        </div>';
+
+
+
+        }else{
+
+        /*
+        $html.=($i==0)? '<div class="sub_links second-sub"> <ul>':'';
+                $html.='
+                <li><a href="'.$oneMenu['href'].'">'.$oneMenu['name'].'</a></li>
+                ';
+
+                $html.=($i==(count($menu)-1))? '</ul></div>':'';$i++;
+        */
+        }
 
 
 
 
-        </div>
-    </div><!-- /.menuDiv -->
+        }
+
+        $html.=(!$first)? '</div>' : '';
+
+    return $html;
+    }
+
+
+
+    ?>
+    <div class="accordion_example9">
+       <?=drowMobileMenu($leftCategories); ?>
+        <?=drowMobileMenu($rightCategories); ?>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- /.menuDiv -->
 
 
 </div><!-- /.menuDiv -->
