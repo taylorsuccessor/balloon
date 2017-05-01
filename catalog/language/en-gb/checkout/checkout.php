@@ -39,6 +39,8 @@ $_['text_week']                      = 'week';
 $_['text_semi_month']                = 'half-month';
 $_['text_month']                     = 'month';
 $_['text_year']                      = 'year';
+$_['text_min_total']                 = 'To checkout you must fill cart at least  ';
+
 
 // Column
 $_['column_name']                    = 'Product Name';
