@@ -41,6 +41,12 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-delivery-price"><?php echo $entry_delivery_price; ?></label>
+            <div class="col-sm-10">
+              <input type="text" name="delivery_price" value="<?php echo $delivery_price; ?>" placeholder="<?php echo $entry_delivery_price; ?>" id="input-delivery-price" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-country"><?php echo $entry_country; ?></label>
             <div class="col-sm-10">
               <select name="country_id" id="input-country" class="form-control">
