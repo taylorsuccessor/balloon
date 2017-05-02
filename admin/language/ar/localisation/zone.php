@@ -20,6 +20,7 @@ $_['column_action']          = 'تحرير';
 // Entry
 $_['entry_name']             = 'اسم المنطقة';
 $_['entry_code']             = 'رمز المنطقة';
+$_['entry_delivery_price']   = 'سعر التوصيل';
 $_['entry_country']          = 'الدولة';
 $_['entry_status']           = 'الحالة';
 
