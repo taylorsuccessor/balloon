@@ -48,6 +48,19 @@ class ControllerAccountOrder extends Controller {
 		$data['button_view'] = $this->language->get('button_view');
 		$data['button_continue'] = $this->language->get('button_continue');
 
+
+		//added by assem
+
+		$data['text_order_id'] = $this->language->get('text_order_id');
+		$data['text_date'] = $this->language->get('text_date');
+		$data['text_status'] = $this->language->get('text_status');
+
+
+
+
+		//
+
+
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
 		} else {
@@ -109,9 +122,13 @@ class ControllerAccountOrder extends Controller {
 		$data['text_my_orders'] = $this->language->get('text_my_orders');
 		$data['text_password'] = $this->language->get('text_password');
 
+		$data['text_sort_by'] = $this->language->get('text_sort_by');
+
+
 		$this->response->setOutput($this->load->view('account/order_list', $data));
 	}
-
+    
+		
 	public function info() {
 		$this->load->language('account/order');
 

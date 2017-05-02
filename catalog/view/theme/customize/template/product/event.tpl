@@ -1,4 +1,5 @@
 <?php echo $header; ?>
+
 <div class="container">
     <section class="banner-section"><!--Banner Section-->
         <div class="inner-banner"><!--banner-->
@@ -18,16 +19,6 @@
 
         </div> <!--bredcrumb-->
 
-        <div class="wrap_notfiy">
-
-
-            <?php if ($success) { ?>
-            <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-            </div>
-            <?php } ?>
-
-        </div>
 
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
@@ -55,12 +46,12 @@
 
                       <?php
 
-function drowLeftMenu($menu,$product_id,$first=true){
+                    function drowLeftMenu($menu,$product_id,$first=true){
 
-$html='';
+                     $html='';
 
 
-$html.=(!$first)? '<ul  class="sub-check">':'';
+                       $html.=(!$first)? '<ul  class="sub-check">':'';
 
                       foreach($menu as $oneMenu){
 $html.=($first)? '
@@ -175,7 +166,7 @@ $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$produc
                                                                    if(str_replace(' ','',strtolower($option['name']))=='eventdate'){
 
 
-                     echo '<input name="option['.$option['product_option_id'].']" id="input-option'.$option['product_option_id'].'"type="hidden"value="2017-03-05" class="eventDate">';
+                     echo '<input name="option['.$option['product_option_id'].']" id="input-option'.$option['product_option_id'].'"type="hidden" class="eventDate">';
                       }
                       }
                       }//if option
@@ -228,6 +219,7 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 //--></script>
 <script type="text/javascript"><!--
 $('#button-cart').on('click', function() {
+
 	$.ajax({
 		url: 'index.php?route=checkout/cart/add',
 		type: 'post',
