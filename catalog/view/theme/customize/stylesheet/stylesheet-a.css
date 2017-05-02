@@ -1040,6 +1040,8 @@ header .top-nav-left ul li:first-child
 .main-nav .navbar-default{
 	border:none;
 	background:none;
+	left: 2%;
+
 }
 .navbar-left > li:first-child a{
 	padding-right:0px;

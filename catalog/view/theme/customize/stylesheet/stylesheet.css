@@ -3068,7 +3068,7 @@ header .top-nav-left ul li{ margin-right:5px;}
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px) {
-.main-nav .navbar-default{ border:none; background:#009946;	margin-bottom:0px;}
+.main-nav .navbar-default{ border:none; background:#009946;	margin-bottom:0px; }
 .navbar-default .navbar-toggle .icon-bar{background-color:#fff;}
 .main-nav{ margin-top:35px;}
 .main-nav nav .row{margin-left:0; margin-right:0;}
@@ -3647,4 +3647,10 @@ header .top-nav-left ul li{margin: 0px 3px;}
 }
 .accordion_example2 li.active a{
 	color:blue;
+}
+.main-nav .navbar-default{
+	border:none;
+	background:none;
+	left: 2%;
+
 }

@@ -40,7 +40,7 @@
                       <div class="col-xs-12 orders">
                         <select  onchange="location = this.value;">
                           <option>
-           
+
                           </option>
 
                         </select>

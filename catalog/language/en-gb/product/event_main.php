@@ -20,3 +20,12 @@ $_['placeholder_book_now']        = 'Book Now';
 
 $_['placeholder_email']        = 'Email';
 
+
+$_['error_delete']                = 'Warning: You must have at least one address!';
+$_['error_email']                = 'Warning:check your email validation';
+
+$_['error_default']               = 'Warning: You can not delete your default address!';
+$_['error_firstname']             = 'First Name must be between 1 and 32 characters!';
+$_['error_lastname']              = 'Last Name must be between 1 and 32 characters!';
+$_['error_telephone']      = 'Telephone must be between 3 and 32 characters!';
+
