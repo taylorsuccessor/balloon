@@ -31,7 +31,6 @@
 
         <div class="<?php echo $class; ?>">
 
-
           <?php if ($thumb || $images) { ?>
           <ul class="thumbnails">
             <?php if ($thumb) { ?>

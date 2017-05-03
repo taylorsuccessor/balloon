@@ -3,7 +3,6 @@
 <?php } ?>
 <?php if ($shipping_methods) { ?>
 <p><?php echo $text_shipping_method; ?></p>
-<?php print_r($shipping_methods);?>
 
 <?php foreach ($shipping_methods as $shipping_method) { ?>
 <p><strong><?php echo $shipping_method['title']; ?></strong></p>
