@@ -233,6 +233,30 @@ class ControllerProductEvent extends Controller {
 //                }
 
 
+               if (isset($this->error['firstname'])) {
+                   $data['error_firstname'] = $this->error['firstname'];
+               } else {
+                   $data['error_firstname'] = '';
+               }
+
+               if (isset($this->error['lastname'])) {
+                   $data['error_lastname'] = $this->error['lastname'];
+               } else {
+                   $data['error_lastname'] = '';
+               }
+
+               if (isset($this->error['email'])) {
+                   $data['error_email'] = $this->error['email'];
+               } else {
+                   $data['error_email'] = '';
+               }
+
+               if (isset($this->error['telephone'])) {
+                   $data['error_telephone'] = $this->error['telephone'];
+               } else {
+                   $data['error_telephone'] = '';
+               }
+
         // Agree to terms
         // $data['action'] = $this->url->link('product/events_main', '', true);
 
