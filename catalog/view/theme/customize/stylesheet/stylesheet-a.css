@@ -1040,6 +1040,8 @@ header .top-nav-left ul li:first-child
 .main-nav .navbar-default{
 	border:none;
 	background:none;
+	left: 0px;
+
 }
 .navbar-left > li:first-child a{
 	padding-right:0px;
@@ -3380,4 +3382,7 @@ header .top-nav-left ul li:first-child
 }
 .accordion_example2 li.active a{
 	color:blue;
+}
+.thumbnail{
+	border:none;
 }

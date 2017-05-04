@@ -17,6 +17,7 @@ $_['column_action']          = 'Action';
 // Entry
 $_['entry_name']             = 'Zone Name';
 $_['entry_code']             = 'Zone Code';
+$_['entry_delivery_price']   = 'Delivery price';
 $_['entry_country']          = 'Country';
 $_['entry_status']           = 'Status';
 

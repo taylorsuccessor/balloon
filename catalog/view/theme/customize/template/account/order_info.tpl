@@ -24,7 +24,7 @@
           <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
         <?php } ?>
-    </div>    
+    </div>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -56,7 +56,7 @@
                 &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?></small>
                 <?php } ?><br> <?php echo $product['model']; ?></td>
               <td class="text-left"><?php echo $product['quantity']; ?>
-                
+
                 <?php if ($product['reorder']) { ?>
                 <a href="<?php echo $product['reorder']; ?>" data-toggle="tooltip" title="<?php echo $button_reorder; ?>" class="pull-right btn btn-primary" id="reorder"><i class="fa fa-shopping-cart"></i></a>
                 <?php } ?>

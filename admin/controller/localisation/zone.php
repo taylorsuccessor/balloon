@@ -269,6 +269,7 @@ class ControllerLocalisationZone extends Controller {
 
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_delivery_price'] = $this->language->get('entry_delivery_price');
 		$data['entry_code'] = $this->language->get('entry_code');
 		$data['entry_country'] = $this->language->get('entry_country');
 
@@ -342,6 +343,14 @@ class ControllerLocalisationZone extends Controller {
 			$data['name'] = $zone_info['name'];
 		} else {
 			$data['name'] = '';
+		}
+
+		if (isset($this->request->post['delivery_price'])) {
+			$data['delivery_price'] = $this->request->post['delivery_price'];
+		} elseif (!empty($zone_info)) {
+			$data['delivery_price'] = $zone_info['delivery_price'];
+		} else {
+			$data['delivery_price'] = '';
 		}
 
 		if (isset($this->request->post['code'])) {

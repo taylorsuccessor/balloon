@@ -27,29 +27,23 @@
                     <div class="product-details">
                         <div class="col-lg-6 col-md-6">
                             <div class="product-details-image"><!--product-details-image-->
+                             <?php if ($thumb || $images) { ?>
                                 <ul id="product-thumb">
+                                    <?php if ($thumb) { ?>
+                                     <li><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+                                    <?php } ?>
+                                </ul>    
+                                <div id="bx-pager2"><!--bx-pager-->
                                     <?php if ($images) { ?>
-                                    <?php foreach ($images as $image) { ?>
-
-                                    <li><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>"
-                                             alt="<?php echo $heading_title; ?>"/></li>
-                                    <?php } ?>
-                                    <?php } ?>
-
-                                    <div id="bx-pager2"><!--bx-pager-->
-
-                                        <?php if ($images) { ?>
-                                        <?php $i=0; foreach ($images as $image) { ?>
-
+                                    <?php $i=0; foreach ($images as $image) { ?>
                                         <a data-slide-index="<?=$i;?>" href=""><img src="<?php echo $image['thumb']; ?>"
-                                                                                    title="<?php echo $heading_title; ?>"
-                                                                                    alt="<?php echo $heading_title; ?>"/></a>
-
+                                        title="<?php echo $heading_title; ?>"
+                                        alt="<?php echo $heading_title; ?>"/></a>
                                         <?php $i++; } ?>
                                         <?php } ?>
-
-                                    </div>
+                                </div>
                                     <!--bx-pager-->
+                                <?php } ?>
                             </div>
                             <!--product-details-image-->
                         </div>
