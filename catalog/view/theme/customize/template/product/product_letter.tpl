@@ -507,26 +507,26 @@ console.log(json);
 <?php if(false) { ?>
 
 <div class="container">
- 
+
   <section class="banner-section"><!--Banner Section-->
     <div class="inner-banner"><!--banner-->
         <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
      </div><!--banner-->
   </section><!--Banner Section-->
- 
-   <section class="content-section"><!--content-section-->
-       	
 
-   <div class="bredcrumb"><!--bredcrumb-->      
+   <section class="content-section"><!--content-section-->
+
+
+   <div class="bredcrumb"><!--bredcrumb-->
         <?php //print_r($breadcrumbs) ;?>
             <ul>
                 <?php foreach ($breadcrumbs as $breadcrumb) { ?>
                     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
                 <?php } ?>
-            </ul> 
+            </ul>
       </div> <!-- /bredcrumb-->
-      
-      
+
+
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -535,36 +535,36 @@ console.log(json);
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    
-    
+
+
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-     
+
      <div class="product-details-page"><!--balloons-->
-     
+
         <h2><?php echo $heading_title; ?></h2>
-    
-              
+
+
      <div class="confetti-con view-colors-con">
-     
+
     <div class="row">
 
-     
+
       <div class="row">
         <?php if ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
         <?php } else { ?>
         <?php $class = 'col-sm-8'; ?>
         <?php } ?>
-        
-        
 
-         
+
+
+
           <?php if ($thumb || $images) { ?>
-          
-          
+
+
         <div class="col-md-6 view-colors-left">
               <div class="slider_cover">
-          	
+
           <ul  class="color-slider">
             <?php if ($thumb) { ?>
             <li><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
@@ -575,14 +575,14 @@ console.log(json);
             <?php } ?>
             <?php } ?>
           </ul>
-           
-            
+
+
           <?php } ?>
-          
-          
-          
+
+
+
            <div class="tab-content"> <!-- tab-content -->
-          
+
            <ul class="nav nav-tabs"> <!-- tabas for description and reviews -->
             <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
             <?php if ($attribute_groups) { ?>
@@ -592,11 +592,11 @@ console.log(json);
             <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
             <?php } ?>
           </ul>
-          
-          
+
+
     <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div><!-- text of description to add , it's realated with tab above with id -->
-           
-           
+
+
             <?php if ($attribute_groups) { ?>
             <div class="tab-pane" id="tab-specification">
               <table class="table table-bordered">
@@ -618,8 +618,8 @@ console.log(json);
               </table>
             </div>
             <?php } ?><!-- end of text description  -->
-            
-            
+
+
              <?php if ($review_status) { ?>
             <div class="tab-pane" id="tab-review">
               <form class="form-horizontal" id="form-review">
@@ -654,7 +654,7 @@ console.log(json);
                     <input type="radio" name="rating" value="5" />
                     &nbsp;<?php echo $entry_good; ?></div>
                 </div>
-                
+
                 <?php echo $captcha; ?>
                 <div class="buttons clearfix">
                   <div class="pull-right">
@@ -667,17 +667,17 @@ console.log(json);
               </form>
             </div>
             <?php } ?>
-            
+
             </div> <!-- /tab-content -->
 
-            
-            
-                
 
-        
+
+
+
+
      <h4>Rollover swatches to view colors.</h4>
 
-       
+
          <div id="bx-pager">
                                   <a data-slide-index="0" href=""><img src="../../image/color1.jpg" /></a>
                                   <a data-slide-index="1" href=""><img src="../../image/color2.jpg" /></a>
@@ -698,76 +698,76 @@ console.log(json);
 
              ?>
          </div>
-         
+
          </div>
             </div>
-        
-         
-         
-         
+
+
+
+
         <?php if ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
         <?php } else { ?>
         <?php $class = 'col-sm-4'; ?>
         <?php } ?>
-        
-        
+
+
          <div class="btn-group margin-botom"><!--Wishlist and compare-->
-           
+
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>
-            
+
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>
-            
+
           </div><!-- /Wishlist and compare-->
-          
+
                       <br>
 
          <h1><?php echo $heading_title; ?></h1> <!--name of the product , it's declears in controller -->
-          
+
           <br>
-          
+
            <ul class="list-unstyled"> <!--  for manufacturer , model , and reward-->
             <?php if ($manufacturer) { ?>
             <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
             <?php } ?>
-            
+
                       <br>
 
             <li><?php echo $text_model; ?> <?php echo $model; ?></li>
-                                 
+
                                   <br>
 
-            
+
             <?php if ($reward) { ?>
             <li><?php echo $text_reward; ?> <?php echo $reward; ?></li>
             <?php } ?>
-            
+
                                               <br>
 
             <li><?php echo $text_stock; ?> <?php echo $stock; ?></li>
-            
-            
-          </ul><!-- /for manufacturer , model , and reward-->
-          
-          
-          
 
-        
+
+          </ul><!-- /for manufacturer , model , and reward-->
+
+
+
+
+
         <br>
-        
-        
-         
+
+
+
              <div class="col-md-6 view-colors-right">
-                           
+
                         	<div class="date-time"><!--date-time-->
-                           
+
                             <div class="row">
-                            
+
                             	<div class="col-md-6">
                                 	<label>Pick a delivery date:</label>
                                     <input type="text" id="datepicker">
                                 </div>
-                                
+
                                 <div class="col-md-6">
                                 	<label>Pick a delivery time:</label>
                                     <select>
@@ -777,12 +777,12 @@ console.log(json);
                                         <option>Evening (17:00 to 21:30)</option>
                                     </select>
                                 </div>
-                                
+
                             </div>
-                            
+
                             </div><!--date-time-->
-                            
-                            
+
+
                             <div class="filling">
                             	<div class="row">
                                 	<div class="col-md-6">
@@ -794,21 +794,21 @@ console.log(json);
                                 </div>
                             </div>
                         </div>
-                        
-                        
 
-        
-       
-   
-      
+
+
+
+
+
+
         <div class="col-md-12">
-                           
-                           
+
+
                 <h3><?php echo $heading_title; ?></h3>
-                           
+
       <h4>
-                                
-                                       
+
+
         <?php if ($price) { ?>
           <ul class="list-unstyled">
             <?php if (!$special) { ?>
@@ -821,17 +821,17 @@ console.log(json);
               <h2><?php echo $special; ?></h2>
             </li>
             <?php } ?>
-            
+
             <br>
-            
+
             <?php if ($tax) { ?>
             <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
             <?php } ?>
-            
+
             <?php if ($points) { ?>
             <li><?php echo $text_points; ?> <?php echo $points; ?></li>
             <?php } ?>
-            
+
             <?php if ($discounts) { ?>
             <li>
               <hr>
@@ -841,55 +841,55 @@ console.log(json);
             <?php } ?>
             <?php } ?>
           </ul>
-        <?php } ?> 
-                      
-                                
+        <?php } ?>
+
+
      </h4>
-                           
-                           
-                           
-                            
+
+
+
+
                         </div>
-      
-      
+
+
        <div class="col-md-6 col-md-offset-3">
-               
+
                 <div class="confetti-btns">
-                
+
             <a   href="cart.tpl" class="confetti-cart" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"><?php echo $button_cart; ?></a>
-                       
+
                     <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="confetti-input">
-                               
+
                                 <a href="#" class="confetti-view">View</a>
                             </div>
                         </div>
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
                     </div>
-                    
-                    
-      
-      
-      
-      
-   
-      
-      
+
+
+
+
+
+
+
+
+
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
-       
+
         </div>
-    
+
       </div>
        </div><!--balloons-->
 
-     
-     
+
+
       </div>
-       
+
     </section><!-- /content-section-->
 </div>
 

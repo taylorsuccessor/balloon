@@ -50,6 +50,18 @@ $_['text_booked']              = 'Booked';
 $_['text_available']           = 'Available';
 $_['text_pick_event_time']     = 'Pick an event time :';
 $_['text_button_proceed']     = 'Proceed';
+$_['text_services']     = 'Services :';
+$_['text_date']     = 'Date :';
+$_['text_timing']     = 'Time :';
+$_['text_total']     = 'Total :';
+$_['text_selected_items']     = 'Selected Items';
+
+
+
+
+
+
+
 
 
 

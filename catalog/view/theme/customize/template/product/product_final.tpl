@@ -220,6 +220,7 @@
 
 
                                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>"/>
+
                                             <a type="button" id="button-cart"
                                                data-loading-text="<?php echo $text_loading; ?>"
                                                class="confetti-cart"><?php echo $button_cart; ?></a>
