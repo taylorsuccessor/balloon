@@ -2,7 +2,7 @@
 class ModelCatalogCustomOption extends Model {
 
 	public static  $languages=[];
- public static $options=array();
+ public  $options=array();
 
 	public function fixRequest($requestArray){
 
@@ -55,7 +55,7 @@ return $requestArray;
 
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "option_description`  inner join " . DB_PREFIX . "product_option
 		 on (`" . DB_PREFIX . "option_description`.option_id = " . DB_PREFIX . "product_option.option_id)
-		 where `" . DB_PREFIX . "option_description`.language_id='".$this->getEnLanuguageId()."'");
+		 where `" . DB_PREFIX . "option_description`.language_id='".$this->getEnLanuguageId()."' and  " . DB_PREFIX . "product_option.product_id='".$product_id."'");
 		$productOptions=[];
 		$allOptions=[];
 		$tempOption=[];
@@ -107,18 +107,18 @@ if(!isset($array_product_option_id[$option_id]) || !isset($productOptions[$array
 
 }
 		}
-		self::$options= $productOptions;
+		$this->options= $productOptions;
 
 	}
 
 
 
 	public function getOptions($product_id){
-		if(count(self::$options) ==0 ){
+		if(count($this->options) ==0 ){
 			$this->setOptions($product_id);
 		}
 
-		return self::$options;
+		return $this->options;
 
 	}
 
