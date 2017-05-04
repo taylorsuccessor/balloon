@@ -773,6 +773,19 @@ class ControllerProductEvent extends Controller {
             $data['button_upload'] = $this->language->get('button_upload');
             $data['button_continue'] = $this->language->get('button_continue');
 
+            $data['text_price'] = $this->language->get('text_price');
+            $data['text_total'] = $this->language->get('text_total');
+            $data['text_price'] = $this->language->get('text_price');
+
+            $data['text_date'] = $this->language->get('text_date');
+            $data['text_time'] = $this->language->get('text_time');
+            $data['text_services'] = $this->language->get('text_services');
+            $data['text_timing'] = $this->language->get('text_timing');
+            $data['text_selected_items'] = $this->language->get('text_selected_items');
+
+
+
+
             $this->load->model('catalog/review');
 
             $data['tab_description'] = $this->language->get('tab_description');
@@ -1267,4 +1280,42 @@ class ControllerProductEvent extends Controller {
 
 
     }
+
+
+    /*
+
+    public function addEventToSession(){
+        $product_id=$this->request->post['product_id'];
+        $this->load->model('catalog/custom_option');
+        $this->request->post=$this->model_catalog_custom_option->fixRequest($this->request->post);
+
+
+        $this->load->model('catalog/product');
+        $product_info = $this->model_catalog_product->getProduct($product_id);
+
+
+
+        $price=(isset($product_info['special']))? $product_info['special']:$product_info['price'];
+        [
+            'eventdate'=>$this->request->get['eventdate'],
+            'eventdate'=>$this->request->get['eventdate'],
+            'product_id'=>$product_id,
+            'price'=>$price,
+        ]
+        //{option: Object, quantity: "1", product_id: "51", eventtime: "131", eventdate: "2017-05-17"}
+
+
+//echo json_encode($this->model_catalog_custom_option->getOptions(51));die();
+        echo json_encode($this->request->post);die();
+        $this->session->data['events']=['event 1 ','event 2 ','event 3',['sub array 1','sub array2 ']];
+    }
+    public function getEventsFromSession(){
+die(var_dump($this->session->data['events']));
+    }
+
+    public function deleteEventFromSession(){
+
+    }
+    */
+
 }

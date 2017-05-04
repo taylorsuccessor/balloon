@@ -51,6 +51,7 @@
                           <?php foreach ($products as $product) { ?>
                               <li class="spcbor">
                                 <div class="row">
+
                                     <div class="col-md-3 col-sm-3 col-xs-4 for-small image">
                                     <?php if ($product['thumb']) { ?>
                                       <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
