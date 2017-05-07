@@ -194,6 +194,8 @@
       <input type="button" value="<?php echo $button_continue; ?>" id="button-guest-shipping" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary" />
     </div>
   </div>
+
+  <input type="hidden" id="delivery_price" class="delivery_price" value="" />
 </form>
 <script type="text/javascript"><!--
 // Sort the custom fields
@@ -309,7 +311,9 @@ $('#collapse-shipping-address select[name=\'country_id\']').on('change', functio
 
 					if (json['zone'][i]['zone_id'] == '<?php echo $zone_id; ?>') {
 						html += ' selected="selected"';
+                        var zoneid = json['zone'][i]['zone_id'] ;
                         var price = json['zone'][i]['delivery_price'] ;
+                      window.location.href = "catalog/view/theme/customize/template/checkout/test.php?delivery_price="+price;
                     }
 
 					html += '>' + json['zone'][i]['name']+ '</option>';
@@ -318,8 +322,12 @@ $('#collapse-shipping-address select[name=\'country_id\']').on('change', functio
 				html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
 			}
 			$('#collapse-shipping-address select[name=\'zone_id\']').html(html);
-            $('#collapse-checkout-confirm').append(price);
-		},
+           // $('#collapse-checkout-confirm').append("<p>"+n+"</p>");
+         // $('#delivery_price').val(price);
+          //alert('<tr><td colspan="4" class="text-right"><strong>Delivery:</strong></td><td class="text-right">'+price+'</td></tr>')
+         // $('.confirmtable').append('<tr><td colspan="4" class="text-right"><strong>Delivery:</strong></td><td class="text-right">'+price+'</td></tr>');
+
+        },
 		error: function(xhr, ajaxOptions, thrownError) {
 			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
 		}

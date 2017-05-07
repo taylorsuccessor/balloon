@@ -61,6 +61,7 @@ class ControllerCheckoutConfirm extends Controller {
 			$total = 0;
 
 			// Because __call can not keep var references so we put them into an array.
+
 			$total_data = array(
 				'totals' => &$totals,
 				'taxes'  => &$taxes,
@@ -87,7 +88,13 @@ class ControllerCheckoutConfirm extends Controller {
 					$this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
 				}
 			}
-
+			if (isset($this->request->get['zone_id'])) {
+				$this->load->model('localisation/zone');
+				$zone_info = $this->model_localisation_zone->getZone(4236);
+				$this->session->data['shipping_address']['zone_code'] = $zone_info['delivery_price'];
+				print_r($this->session->data['shipping_address']['zone_code']);
+				die();
+			}
 			$sort_order = array();
 
 			foreach ($totals as $key => $value) {
@@ -95,6 +102,7 @@ class ControllerCheckoutConfirm extends Controller {
 			}
 
 			array_multisort($sort_order, SORT_ASC, $totals);
+			//print_r($totals);
 
 			$order_data['totals'] = $totals;
 

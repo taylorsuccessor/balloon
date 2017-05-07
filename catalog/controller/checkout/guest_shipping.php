@@ -197,6 +197,7 @@ class ControllerCheckoutGuestShipping extends Controller {
 			if ($zone_info) {
 				$this->session->data['shipping_address']['zone'] = $zone_info['name'];
 				$this->session->data['shipping_address']['zone_code'] = $zone_info['code'];
+
 			} else {
 				$this->session->data['shipping_address']['zone'] = '';
 				$this->session->data['shipping_address']['zone_code'] = '';
