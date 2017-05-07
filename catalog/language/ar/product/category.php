@@ -25,3 +25,6 @@ $_['text_rating_desc']  = 'تقييم (مرتفع)';
 $_['text_model_asc']    = 'النوع (أ - ي)';
 $_['text_model_desc']   = 'النوع (ي - أ)';
 $_['text_limit']        = 'عرض:';
+$_['text_addCart']      = 'اضافة الى البطاقة';
+$_['text_view']      = 'المزيد';
+$_['text_noProductsCategory']      = 'لا يوجد منتجات في هذه الفئة';

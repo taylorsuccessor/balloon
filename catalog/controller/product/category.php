@@ -115,6 +115,15 @@ class ControllerProductCategory extends Controller {
 			$data['button_list'] = $this->language->get('button_list');
 			$data['button_grid'] = $this->language->get('button_grid');
 
+			// added by assem
+			$data['text_addCart'] = $this->language->get('text_addCart');
+			$data['text_view'] = $this->language->get('text_view');
+			$data['text_noProductsCategory'] = $this->language->get('text_noProductsCategory');
+
+
+
+			//
+
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
 				'text' => $category_info['name'],
