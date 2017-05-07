@@ -54,6 +54,9 @@ global $i;
                        $html.=(!$first)? '<ul  class="sub-check">':'';
 
                       foreach($menu as $oneMenu){
+                  if(isset($oneMenu['href']) && isset($oneMenu['href']) && count(explode('product/category&',$oneMenu['href'])) >0 && isset($oneMenu['category_id']) ){
+                  $oneMenu['href']=str_replace('product/category&','product/event&category_id='.$oneMenu['category_id'].'&', $oneMenu['href']);
+                  }
 $html.=($first)? '
                 <div class="accordion_in">
                       <div class="acc_head">'.$oneMenu['name'].' </div>
