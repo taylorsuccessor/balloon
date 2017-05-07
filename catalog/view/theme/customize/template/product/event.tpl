@@ -64,7 +64,7 @@ $html.=($first)? '
                         <div class="demo-list clear" >':'<li  onclick="window.location.href=\''.$oneMenu['href'].'\'; return false;" id="menuItem_'.((isset($oneMenu['product_id']))? $oneMenu['product_id']:'').'" '.((isset($oneMenu['product_id']) && $oneMenu['product_id'] ==$product_id)? 'class="active"':'').'><label></label>
 
 
-                            <a href="'.$oneMenu['href'].'" ><div class="checkboxDiv " ></div>'.$oneMenu['name'];
+                            <a href="'.$oneMenu['href'].'" ><div class="checkboxDiv " ></div>'.  $oneMenu['name'];
 
 $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$product_id,false):'';
 
@@ -102,12 +102,12 @@ $i++;
                       display:inline-block;
                       width: 27px;height:27px;
 
-                      background-image: url(catalog/view/theme/customize/stylesheet/red@2x.png);
+                      background-image: url(catalog/view/theme/customize/stylesheet/pink.png);
                       background-repeat:no-repeat;background-position: 0px 0px;
                       float:left;
                   }
                   .checkboxDiv.active{
-                      background-repeat:no-repeat;background-position: -27px 0px;
+                      background-repeat:no-repeat;background-position: -27px 0px;;
                   }
               </style>
             <div class="col-md-8">

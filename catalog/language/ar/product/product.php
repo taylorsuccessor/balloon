@@ -53,21 +53,11 @@ $_['text_booked']              = 'محجوز';
 $_['text_available']              = 'متاح';
 $_['text_pick_event_time']              = 'اختر وقت الحفلة :';
 $_['text_button_proceed']     = 'التقديم';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$_['text_services']     = 'الخدمات :';
+$_['text_date']     = 'التاريخ :';
+$_['text_timing']     = 'الوقت :';
+$_['text_total']     = 'المجموع :';
+$_['text_selected_items']     = 'العناصر المختارة :';
 
 
 // Entry

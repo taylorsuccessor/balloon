@@ -6,6 +6,7 @@
         </div>
         <!--banner-->
     </section>
+
     <!--Banner Section-->
     <section class="content-section" id="product"><!--content-section-->
         <div class="container"><!--container-->
@@ -16,13 +17,17 @@
                     <?php  } ?>
                 </ul>
             </div>
+
+            <div class="wrap_notfiy">
+                <?php if ($success) { ?>
+                <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?></div>
+                <?php } ?>
+            </div>
             <!--bredcrumb-->
             <div class="product-details-page"><!--balloons-->
 
                 <h2><?php echo $heading_title; ?></h2>
-                <div class="wrap_notfiy">
 
-                </div>
                 <div class="row">
                     <div class="product-details">
                         <div class="col-lg-6 col-md-6">
@@ -32,7 +37,7 @@
                                     <?php if ($thumb) { ?>
                                      <li><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
                                     <?php } ?>
-                                </ul>    
+                                </ul>
                                 <div id="bx-pager2"><!--bx-pager-->
                                     <?php if ($images) { ?>
                                     <?php $i=0; foreach ($images as $image) { ?>
@@ -215,6 +220,7 @@
 
 
                                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>"/>
+
                                             <a type="button" id="button-cart"
                                                data-loading-text="<?php echo $text_loading; ?>"
                                                class="confetti-cart"><?php echo $button_cart; ?></a>
@@ -225,9 +231,9 @@
                                         <div class="addfav">
 
                                             <a id="wishlist" title="<?php echo $button_wishlist; ?>"
-                                               onclick="wishlist.add('<?php echo $product_id; ?>');"><?php echo $text_add_favourite; ?></a>
+                                                  onclick="wishlist.add('<?php echo $product_id; ?>');"><?php echo $text_add_favourite; ?></a>
 
-                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -453,7 +459,7 @@ echo '
 
 
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>"/>
-                            <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"
+                            <button type="button"  id="button-cart" data-loading-text="<?php echo $text_loading; ?>"
                                     class="confetti-cart"><?php echo $button_cart; ?></button>
                             <input class="confetti-input" type="text" name="quantity" value="<?php echo $minimum; ?>"
                                    id="input-quantity">
@@ -551,6 +557,8 @@ echo '
             }
         });
     });
+
+
     //--></script>
 <script type="text/javascript"><!--
     $('.date').datetimepicker({
