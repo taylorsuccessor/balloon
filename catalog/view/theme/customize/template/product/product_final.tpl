@@ -231,9 +231,9 @@
                                         <div class="addfav">
 
                                             <a id="wishlist" title="<?php echo $button_wishlist; ?>"
-                                               onclick="wishlist.add('<?php echo $product_id; ?>');"><?php echo $text_add_favourite; ?></a>
+                                                  onclick="wishlist.add('<?php echo $product_id; ?>');"><?php echo $text_add_favourite; ?></a>
 
-                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
