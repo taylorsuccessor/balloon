@@ -1,5 +1,6 @@
 <?php echo $header;  ?>
 <div class="container">
+
     <div class="row">
       <div id="content"  >
         <?php echo $content_top; ?>
@@ -13,19 +14,18 @@
               <h2> <?php echo $text_events_book; ?></h2>
               <div class="col-md-4">
 
-                <div class="first-name">
 
                 <input type="text" name="firstname" value="<?=$firstname;?>" placeholder="<?php echo $placeholder_first_name; ?>">
-                <?php  // if ($error_firstname) { ?>
-                <!--<div class="text-danger"><?php // echo $error_firstname; ?></div>-->
-                <?php // } ?>
+                <?php   if ($error_firstname) { ?>
+                <div class="text-danger"><?php  echo $error_firstname; ?></div>
+                <?php  } ?>
 
 
                 <input type="text" name="lastname" value="<?=$lastname;?>" placeholder="<?php echo $placeholder_last_name; ?>" >
-                <?php // if ($error_lastname) { ?>
-               <!-- <div class="text-danger"><?php echo $error_lastname; ?></div> -->
-                <?php // } ?>
-              </div>
+                <?php  if ($error_lastname) { ?>
+               <div class="text-danger"><?php echo $error_lastname; ?></div>
+                <?php  } ?>
+
 
                 <?php  ?>
 
@@ -42,21 +42,23 @@
               <div class="col-md-4">
 
                 <input type="text"  name="email" value="<?=$email;?>" placeholder="<?php echo $placeholder_email; ?>">
-                <?php // if ($error_email) { ?>
-               <!-- <div class="text-danger"><?php echo $error_email; ?></div>-->
-                <?php // } ?>
+                <?php  if ($error_email) { ?>
+                <div class="text-danger"><?php echo $error_email; ?></div>
+                <?php  } ?>
 
 
 
             <input type="text" name="telephone" value="<?=$telephone;?>" placeholder="<?php echo $placeholder_mobile; ?>">
-            <?php // if ($error_telephone) { ?>
-            <!--<div class="text-danger"><?php echo $error_telephone; ?></div>-->
-            <?php // } ?>
+            <?php  if ($error_telephone) { ?>
+            <div class="text-danger"><?php echo $error_telephone; ?></div>
+            <?php  } ?>
 
 
               </div>
               <div class="col-md-4" >
                 <select name="category">
+
+
                   <?php
                   function drowCategoryWithChildren($categories){
                   foreach($categories as $oneCategory){
@@ -71,6 +73,7 @@
                                     drowCategoryWithChildren($categories);
                                     ?>
                                 </select>
+
                                 <button type="submit" name="bookNow"><?php echo $placeholder_book_now; ?></button>
                             </div>
                         </div>
@@ -79,6 +82,8 @@
                 </section>
                 <!--Events Booking Section-->
             </form>
+
+
             <?php echo $content_bottom; ?></div>
         <?php echo $column_right; ?></div>
     </div>
