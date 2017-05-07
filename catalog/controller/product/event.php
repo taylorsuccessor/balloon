@@ -356,39 +356,66 @@ class ControllerProductEvent extends Controller {
 
         $data['leftMenu'] = $this->getLeftMenu();
 
+
+        //die(var_dump($this->request->get['product_id']));
         if (!isset($this->request->get['product_id'])) {
 
             $category_id = (isset($this->request->get['category_id'])) ? $this->request->get['category_id'] : 0;
+$product_id=0;
 
-            function findProductId($categoriesOrProducts, $category_id, $correctCategory = false)
+
+
+            function findFirstProductId($categoriesOrProducts, $category_id, $correctCategory = false)
             {
+
+
                 $product_id = 0;
                 foreach ($categoriesOrProducts as $oneCategoryOrProduct) {
 
 
-                    if (isset($oneCategoryOrProduct['category_id']) && $oneCategoryOrProduct['category_id'] == $category_id) {
-                        $correctCategory = true;
-                    }
-
                     if (isset($oneCategoryOrProduct['product_id']) && $oneCategoryOrProduct['product_id'] > 0) {
-                        $product_id = $oneCategoryOrProduct['product_id'];
+
                         if ($correctCategory) {
                             return $product_id;
                         }
                     }
 
                     if (isset($oneCategoryOrProduct['children']) && count($oneCategoryOrProduct['children'])) {
-                        $child_product_id = findProductId($oneCategoryOrProduct['children'], $category_id, $correctCategory);
-                        if ($child_product_id > 0) {
-                            $product_id = $child_product_id;
-                        }
+                        $product_id = findProductId($oneCategoryOrProduct['children'], $category_id, $correctCategory);
+
                     }
                 }
                 return $product_id;
             }
 
-            $this->request->get['product_id'] = findProductId($data['leftMenu'], $category_id);
+            $this->load->model('catalog/product');
+
+
+
+
+
+                $filter_data = array(
+                    'filter_category_id' => $category_id,
+                );
+
+
+                $results = $this->model_catalog_product->getProducts($filter_data);
+                if(count($results)){
+                    foreach($results as $product){$product_id= $product['product_id'];}
+                }
+            else{
+                $product_id = findFirstProductId($data['leftMenu'], 0,  false);
+            }
+
+
+
+
+
+            $this->request->get['product_id'] = $product_id;
         }
+
+
+
 
         list($existReservation, $total_option_value) = $this->getEventReservation((int)$this->request->get['product_id']);
 
@@ -922,7 +949,7 @@ class ControllerProductEvent extends Controller {
             $data['eventTimesList'] = $total_option_value;
 
             $data['product_id']=$this->request->get['product_id'];
-            $data['eventSummaryLink']=$this->url->link('product/event_summary', '');
+            $data['eventSummaryLink']=$this->url->link('product/event_summary_final', '');
 			return $this->response->setOutput($this->view('product/event', $data,['options','air_values']));
 		} else {
             $url = '';
