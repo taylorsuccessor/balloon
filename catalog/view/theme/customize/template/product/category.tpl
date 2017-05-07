@@ -36,6 +36,7 @@
         <?php } ?>
 
       </h5>
+      
       <a href="#" onclick="productQuantity=$(this).parent().find('.productQuantity');cart.add('<?php echo $product['product_id']; ?>', productQuantity);"class="addcart">Add to Cart</a>
       <input type="text" class="productQuantity" placeholder="1">
       <a href="<?php echo $product['href']; ?>" class="view">View</a>
