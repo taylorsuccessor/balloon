@@ -59,7 +59,7 @@
   /*border-bottom: 1px gray solid;*/
 }
 .responsive-calendar .day.active a {
-  background-color: #e20020;
+  background-color: #c90d7e;
   color: #ffffff;
 }
 .responsive-calendar .day.active a:hover {

@@ -53,15 +53,25 @@ global $i;
 
                        $html.=(!$first)? '<ul  class="sub-check">':'';
 
-                      foreach($menu as $oneMenu){
+                  foreach($menu as $oneMenu){
+
+                  if(isset($oneMenu['href']) && isset($oneMenu['href']) && count(explode('product/category&',$oneMenu['href'])) >0 && isset($oneMenu['category_id']) ){
+                  $oneMenu['href']=str_replace('product/category&','product/event&category_id='.$oneMenu['category_id'].'&', $oneMenu['href']);
+                  }
+
+                  if(isset($oneMenu['href']) && isset($oneMenu['href']) && count(explode('product/product&',$oneMenu['href'])) >0 && isset($oneMenu['product_id']) ){
+                  $oneMenu['href']=str_replace('product/product&','product/event&', $oneMenu['href']);
+                  }
+
+
 $html.=($first)? '
                 <div class="accordion_in">
                       <div class="acc_head">'.$oneMenu['name'].' </div>
                       <div class="acc_content">
-                        <div class="demo-list clear" >':'<li  onclick="window.location.href=\''.$oneMenu['href'].'\'; return false;" id="menuItem_'.((isset($oneMenu['product_id']))? $oneMenu['product_id']:'').'" '.((isset($oneMenu['product_id']) && $oneMenu['product_id'] ==$product_id)? 'class="active"':'').'><label></label>
+                        <div class="demo-list clear" >':'<li   id="menuItem_'.((isset($oneMenu['product_id']))? $oneMenu['product_id']:'').'" '.((isset($oneMenu['product_id']) && $oneMenu['product_id'] ==$product_id)? 'class="active"':'').'><label></label>
 
 
-                            <a href="'.$oneMenu['href'].'" ><div class="checkboxDiv " ></div>'.$oneMenu['name'];
+                            <a href="'.$oneMenu['href'].'" ><div class="checkboxDiv " ></div>'.  $oneMenu['name'];
 
 $html.=(isset($oneMenu['children']))?  drowLeftMenu($oneMenu['children'],$product_id,false):'';
 
@@ -99,12 +109,12 @@ $i++;
                       display:inline-block;
                       width: 27px;height:27px;
 
-                      background-image: url(catalog/view/theme/customize/stylesheet/red@2x.png);
+                      background-image: url(catalog/view/theme/customize/stylesheet/pink.png);
                       background-repeat:no-repeat;background-position: 0px 0px;
                       float:left;
                   }
                   .checkboxDiv.active{
-                      background-repeat:no-repeat;background-position: -27px 0px;
+                      background-repeat:no-repeat;background-position: -27px 0px;;
                   }
               </style>
             <div class="col-md-8">
@@ -448,6 +458,16 @@ $('#button-cart').on('click', function() {
             },
             complete: function() {
                 $('#button-cart').button('reset');
+
+                var events=new Array();
+                if (localStorage.getItem("events") != null){
+                    events= JSON.parse(localStorage.getItem("events"));
+                }
+
+
+                if(events.length ==0){
+                    window.location.href='<?=$eventSummaryLink;?>';
+                }
             },
             success: function(json) {
               //  $('.alert, .text-danger').remove();

@@ -111,7 +111,7 @@ class ControllerProductEventSummaryFinal extends Controller {
 				foreach ($product['option'] as $option) {
 
 					$optionName=strtolower(preg_replace(['/[^a-zA-Z0-9]/'],'',$option['name']));
-					if($optionName != 'eventdate' || $optionName !='eventtime'){continue;}
+					if(!($optionName == 'eventdate' ||  $optionName =='eventtime')){continue;}
 
 					if($optionName == 'eventdate'){
 						$eventProduct= true ;

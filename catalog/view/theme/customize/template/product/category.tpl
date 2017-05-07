@@ -21,7 +21,6 @@
 
       <?php echo $content_top; ?>
   <div class="balloons"><!--balloons-->
-  <div class="row">
 
     <?php if($products){ foreach ($products as $product) { ?>
 
@@ -36,16 +35,19 @@
         <?php } ?>
 
       </h5>
-      <a href="#" onclick="productQuantity=$(this).parent().find('.productQuantity');cart.add('<?php echo $product['product_id']; ?>', productQuantity);"class="addcart">Add to Cart</a>
+
+      <a href="#" onclick="productQuantity=$(this).parent().find('.productQuantity');cart.add('<?php echo $product['product_id']; ?>', productQuantity);" class="addcart"><?php echo $text_addCart; ?></a>
       <input type="text" class="productQuantity" placeholder="1">
-      <a href="<?php echo $product['href']; ?>" class="view">View</a>
+      <a href="<?php echo $product['href']; ?>" class="view"><?php echo $text_view; ?></a>
     </div>
 
 <?php }//foreach products
 }//if products
 else{
 ?>
-There is no products in this category
+
+   <div><?php echo $text_noProductsCategory; ?></div>
+
     <?php }//end else if product ?>
 
 
