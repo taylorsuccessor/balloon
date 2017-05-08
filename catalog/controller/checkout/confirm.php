@@ -229,7 +229,7 @@ class ControllerCheckoutConfirm extends Controller {
 						'option_value_id'         => $option['option_value_id'],
 						'name'                    => $option['name'],
 						'value'                   => $option['value'],
-						'type'                    => $option['type']
+						'type'                    => $option['type'],
 					);
 				}
 

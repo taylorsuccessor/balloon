@@ -74,6 +74,7 @@ class ControllerCheckoutGuestShipping extends Controller {
 			$data['zone_id'] = '';
 		}
 
+
 		$this->load->model('localisation/country');
 
 		$data['countries'] = $this->model_localisation_country->getCountries();
