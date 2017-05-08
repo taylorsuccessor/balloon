@@ -41,7 +41,15 @@ class ControllerAccountRegister extends Controller {
 				$this->model_account_activity->addActivity('register', $activity_data);
 			}
 
-			$this->response->redirect($this->url->link('account/success'));
+
+				$this->redirect($this->url->link('account/success'),['status'=>'success']);
+
+		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate()){
+
+			if(isset($this->request->get['ajaxRequest'])){
+				header('Content-Type: application/json');
+				echo json_encode(['status'=>'error','errirs'=>$this->error]);exit();
+			}
 		}
 
 
@@ -353,7 +361,7 @@ class ControllerAccountRegister extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('account/register', $data));
+		$this->response->setOutput($this->view('account/register', $data,['customer_groups','agree']));
 	}
 
 	private function validate() {
@@ -400,16 +408,16 @@ class ControllerAccountRegister extends Controller {
 		// 	$this->error['zone'] = $this->language->get('error_zone');
 		// }
 
-		// Customer Group
-//		if (isset($this->request->post['customer_group_id']) && is_array($this->config->get('config_customer_group_display')) && in_array($this->request->post['customer_group_id'], $this->config->get('config_customer_group_display'))) {
-//			$customer_group_id = $this->request->post['customer_group_id'];
-//		} else {
-//			$customer_group_id = $this->config->get('config_customer_group_id');
-//		}
+//		 Customer Group
+		if (isset($this->request->post['customer_group_id']) && is_array($this->config->get('config_customer_group_display')) && in_array($this->request->post['customer_group_id'], $this->config->get('config_customer_group_display'))) {
+			$customer_group_id = $this->request->post['customer_group_id'];
+		} else {
+			$customer_group_id = $this->config->get('config_customer_group_id');
+		}
 
 		// Custom field validation
 		$this->load->model('account/custom_field');
-
+		$customer_group_id=0;
 		$custom_fields = $this->model_account_custom_field->getCustomFields($customer_group_id);
 
 		foreach ($custom_fields as $custom_field) {

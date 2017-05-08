@@ -53,4 +53,18 @@ abstract class Controller {
 
 
 	}
+
+public function redirect($link,$data){
+
+	if( isset($this->request->get['ajaxRequest']) && $this->request->get['ajaxRequest'] ==1) {
+		header('Content-Type: application/json');
+		echo json_encode($data);exit();
+
+	}else{
+
+		$this->response->redirect($this->url->link('account/success'));
+	}
+
+
+	}
 }
