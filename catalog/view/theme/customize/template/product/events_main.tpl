@@ -26,7 +26,6 @@
                <div class="text-danger"><?php echo $error_lastname; ?></div>
                 <?php  } ?>
 
-
                 <?php  ?>
 
 
