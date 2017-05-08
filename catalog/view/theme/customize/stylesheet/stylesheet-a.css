@@ -3386,3 +3386,6 @@ header .top-nav-left ul li:first-child
 .thumbnail{
 	border:none;
 }
+.accordion_in {
+	right:0 !important;
+}

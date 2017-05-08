@@ -1472,7 +1472,7 @@ header .top-nav-left ul li{
 }
 /*Left Menu*/
 #menuDiv {
-	/*position:fixed;*/
+	position:fixed;
 	left:-100%;
 	top:0;
 	width:100%;
@@ -1486,7 +1486,7 @@ header .top-nav-left ul li{
 	-ms-transition-duration:0.5s;
 	-webkit-transition-duration:0.5s;
 }
-.opend {
+.accordion_in {
 	left:0 !important;
 }
 #active_menu {
