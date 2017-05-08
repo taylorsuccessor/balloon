@@ -3,6 +3,8 @@
     <label class="col-sm-2 control-label" for="input-shipping-firstname"><?php echo $entry_firstname; ?></label>
     <div class="col-sm-10">
       <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-shipping-firstname" class="form-control" />
+
+
     </div>
   </div>
   <div class="form-group required">
@@ -313,7 +315,7 @@ $('#collapse-shipping-address select[name=\'country_id\']').on('change', functio
 						html += ' selected="selected"';
                         var zoneid = json['zone'][i]['zone_id'] ;
                         var price = json['zone'][i]['delivery_price'] ;
-                      window.location.href = "catalog/view/theme/customize/template/checkout/test.php?delivery_price="+price;
+                      //window.location.href = "catalog/view/theme/customize/template/checkout/test.php?delivery_price="+price;
                     }
 
 					html += '>' + json['zone'][i]['name']+ '</option>';
