@@ -153,9 +153,9 @@ class Mail {
 			ini_set('sendmail_from', $this->from);
 
 			if ($this->parameter) {
-				mail($to, '=?UTF-8?B?' . base64_encode($this->subject) . '?=', $message, $header, $this->parameter);
+				@mail($to, '=?UTF-8?B?' . base64_encode($this->subject) . '?=', $message, $header, $this->parameter);
 			} else {
-				mail($to, '=?UTF-8?B?' . base64_encode($this->subject) . '?=', $message, $header);
+@mail($to, '=?UTF-8?B?' . base64_encode($this->subject) . '?=', $message, $header);
 			}
 		} elseif ($this->protocol == 'smtp') {
 			if (substr($this->smtp_hostname, 0, 3) == 'tls') {
