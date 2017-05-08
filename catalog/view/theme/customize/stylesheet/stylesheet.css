@@ -1044,7 +1044,7 @@ header .top-nav-left ul li{
 }
 .navbar-default .navbar-nav > li > a{
 	color:#6a6a6a;
-	font-size:18px;
+	font-size:17px;
 	font-family: 'Raleway-Medium';
 }
 .nav>li>a{
@@ -3369,7 +3369,7 @@ header .top-nav-left ul li{margin: 0px 3px;}
 @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
     .icheckbox_square-blue,
     .iradio_square-blue {
-        background-image: url(red@2x.png);
+        background-image: url(pink.png);
         -webkit-background-size: 240px 24px;
         background-size: 57px 24px;
     }
@@ -3448,7 +3448,7 @@ header .top-nav-left ul li{margin: 0px 3px;}
 @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
     .icheckbox_square-blue,
     .iradio_square-blue {
-        background-image: url(red@2x.png);
+        background-image: url(pink.png);
         -webkit-background-size: 240px 24px;
         background-size: 57px 24px;
     }
@@ -3526,7 +3526,7 @@ header .top-nav-left ul li{margin: 0px 3px;}
 @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
     .icheckbox_square-blue,
     .iradio_square-blue {
-        background-image: url(red@2x.png);
+        background-image: url(pink.png);
         -webkit-background-size: 240px 24px;
         background-size: 57px 24px;
     }

@@ -1,6 +1,6 @@
 <?php if (!isset($redirect)) { ?>
 <div class="table-responsive">
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover confirmtable">
     <thead>
       <tr>
         <td class="text-left"><?php echo $column_name; ?></td>
@@ -16,7 +16,7 @@
         <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
           <?php foreach ($product['option'] as $option) { ?>
           <br />
-          &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?></small>
+          &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?>: <?php echo $option['price']; ?></small>
           <?php } ?>
           <?php if($product['recurring']) { ?>
           <br />
@@ -39,12 +39,20 @@
       <?php } ?>
     </tbody>
     <tfoot>
+    <tr>
+      <td colspan="4" class="text-right"><strong><?php echo 'Delivery' ?>:</strong></td>
+      <td class="text-right delivery"></td>
+    </tr>
+    <?php print_r($totals);?>
       <?php foreach ($totals as $total) { ?>
+
       <tr>
         <td colspan="4" class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
-        <td class="text-right"><?php echo $total['text']; ?></td>
+        <td class="text-right <?php echo $total['title'] ?>"><?php echo $total['text']; ?></td>
       </tr>
       <?php } ?>
+
+
     </tfoot>
   </table>
 </div>
@@ -54,3 +62,10 @@
 location = '<?php echo $redirect; ?>';
 //--></script>
 <?php } ?>
+
+<script>
+
+  //alert($('#delivery_price').val());
+  $('.delivery').append($('#delivery_price').val()+" KD");
+
+</script>

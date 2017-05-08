@@ -74,6 +74,7 @@ class ControllerCheckoutGuestShipping extends Controller {
 			$data['zone_id'] = '';
 		}
 
+
 		$this->load->model('localisation/country');
 
 		$data['countries'] = $this->model_localisation_country->getCountries();
@@ -197,6 +198,7 @@ class ControllerCheckoutGuestShipping extends Controller {
 			if ($zone_info) {
 				$this->session->data['shipping_address']['zone'] = $zone_info['name'];
 				$this->session->data['shipping_address']['zone_code'] = $zone_info['code'];
+
 			} else {
 				$this->session->data['shipping_address']['zone'] = '';
 				$this->session->data['shipping_address']['zone_code'] = '';
