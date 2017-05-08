@@ -86,7 +86,7 @@ class ControllerProductEvent extends Controller {
 			$data['location'] = '';
 			$data['category'] = '';
 
-           /* if (isset($this->error['firstname'])) {
+           if (isset($this->error['firstname'])) {
                 $data['error_firstname'] = $this->error['firstname'];
             } else {
                 $data['error_firstname'] = '';
@@ -109,12 +109,12 @@ class ControllerProductEvent extends Controller {
             } else {
                 $data['error_telephone'] = '';
             }
-           */
+
 
 
            // print_r($this->session->data);
 
-        } elseif (isset($this->session->data['guest'])) {
+        } elseif (isset($this->session->data['guest']) && $this->validate()) {
 			$data['firstname']=$this->session->data['guest']['firstname'];
 			$data['lastname']=$this->session->data['guest']['lastname'] ;
 			$data['email']=$this->session->data['guest']['email'] ;
@@ -122,14 +122,37 @@ class ControllerProductEvent extends Controller {
 			$data['location']=$this->session->data['guest']['location'];
 			$data['category']=$this->session->data['guest']['category'] ;
 
-        }else{
-
+        }elseif(!isset($data['firstname'])&&!isset($data['lastname']) &&!isset($data['email']) && !isset($data['telephone'])  ) {
 			$data['firstname'] = '';
-			$data['lastname'] = '';
+	     	$data['lastname'] = '';
 			$data['email'] = '';
 			$data['telephone'] = '';
-			$data['location'] = '';
-			$data['category'] = '';
+//			$data['location'] = '';
+//			$data['category'] = '';
+            if (isset($this->error['firstname'])) {
+                $data['error_firstname'] = $this->error['firstname'];
+            } else {
+                $data['error_firstname'] = '';
+            }
+
+            if (isset($this->error['lastname'])) {
+                $data['error_lastname'] = $this->error['lastname'];
+            } else {
+                $data['error_lastname'] = '';
+            }
+
+            if (isset($this->error['email'])) {
+                $data['error_email'] = $this->error['email'];
+            } else {
+                $data['error_email'] = '';
+            }
+
+            if (isset($this->error['telephone'])) {
+                $data['error_telephone'] = $this->error['telephone'];
+            } else {
+                $data['error_telephone'] = '';
+            }
+
 
 
         }
@@ -233,29 +256,29 @@ class ControllerProductEvent extends Controller {
 //                }
 
 
-               if (isset($this->error['firstname'])) {
-                   $data['error_firstname'] = $this->error['firstname'];
-               } else {
-                   $data['error_firstname'] = '';
-               }
-
-               if (isset($this->error['lastname'])) {
-                   $data['error_lastname'] = $this->error['lastname'];
-               } else {
-                   $data['error_lastname'] = '';
-               }
-
-               if (isset($this->error['email'])) {
-                   $data['error_email'] = $this->error['email'];
-               } else {
-                   $data['error_email'] = '';
-               }
-
-               if (isset($this->error['telephone'])) {
-                   $data['error_telephone'] = $this->error['telephone'];
-               } else {
-                   $data['error_telephone'] = '';
-               }
+//               if (isset($this->error['firstname'])) {
+//                   $data['error_firstname'] = $this->error['firstname'];
+//               } else {
+//                   $data['error_firstname'] = '';
+//               }
+//
+//               if (isset($this->error['lastname'])) {
+//                   $data['error_lastname'] = $this->error['lastname'];
+//               } else {
+//                   $data['error_lastname'] = '';
+//               }
+//
+//               if (isset($this->error['email'])) {
+//                   $data['error_email'] = $this->error['email'];
+//               } else {
+//                   $data['error_email'] = '';
+//               }
+//
+//               if (isset($this->error['telephone'])) {
+//                   $data['error_telephone'] = $this->error['telephone'];
+//               } else {
+//                   $data['error_telephone'] = '';
+//               }
 
         // Agree to terms
         // $data['action'] = $this->url->link('product/events_main', '', true);

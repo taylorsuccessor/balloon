@@ -66,6 +66,7 @@ class ControllerProductProduct extends Controller {
 					$url .= '&limit=' . $this->request->get['limit'];
 				}
 
+
 				$data['breadcrumbs'][] = array(
 					'text' => $category_info['name'],
 					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url)
@@ -92,6 +93,7 @@ class ControllerProductProduct extends Controller {
 				'text' => $this->language->get('text_brand'),
 				'href' => $this->url->link('product/manufacturer')
 			);
+
 
 			$url = '';
 
