@@ -42,7 +42,7 @@ class ControllerAccountLogin extends Controller {
 		}
 
 		if ($this->customer->isLogged()) {
-			$this->redirect($this->url->link('account/account', '', true));
+			$this->redirect($this->url->link('account/account', '', true),['status'=>'success']);
 		}
 
 		$this->load->language('account/login');
@@ -50,6 +50,7 @@ class ControllerAccountLogin extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+
 			// Unset guest
 			unset($this->session->data['guest']);
 
@@ -93,7 +94,13 @@ class ControllerAccountLogin extends Controller {
 			} else {
 				//$this->response->redirect($this->url->link('account/account', '', true));
                  //convert login from account to edit
-				$this->redirect($this->url->link('account/edit', '', true));
+				$this->redirect($this->url->link('account/edit', '', true),['status'=>'success']);
+			}
+		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate())
+		{
+			if(isset($this->request->get['ajaxRequest'])){
+				header('Content-Type: application/json');
+				echo json_encode(['status'=>'error','errirs'=>$this->error]);exit();
 			}
 		}
 
