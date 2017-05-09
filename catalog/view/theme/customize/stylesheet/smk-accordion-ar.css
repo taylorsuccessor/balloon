@@ -112,7 +112,7 @@
 .sub_links ul li:last-child { border-bottom:none;}
 .sub_links ul li a:hover{ color:#003867; text-decoration:none;}
 .sub_links ul li a.active{ color:#003867; }
-.second-sub ul li a{ padding-right: : 15px;}
+.second-sub ul li a{ padding-right: 15px;}
 
 
 /*Second acc*/

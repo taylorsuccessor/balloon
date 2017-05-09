@@ -58,7 +58,7 @@ public function redirect($link,$data){
 
 	if( isset($this->request->get['ajaxRequest']) && $this->request->get['ajaxRequest'] ==1) {
 		header('Content-Type: application/json');
-		echo json_encode($data);exit();
+		echo json_encode($data);die();
 
 	}else{
 
