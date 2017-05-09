@@ -153,6 +153,7 @@
 
   </form></section>
 </div>
+
 <script type="text/javascript"><!--
   $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
     $.ajax({
@@ -173,6 +174,7 @@
     });
   });
   //--></script>
+
 <script type="text/javascript"><!--
   $('#button-cart').on('click', function() {
     $.ajax({
