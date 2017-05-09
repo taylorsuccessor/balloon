@@ -33,3 +33,8 @@
     <input type="button" value="<?php echo $button_continue; ?>" id="button-shipping-method" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary" />
   </div>
 </div>
+
+<select id="placeSelect">
+  <option value="50">amman</option>
+  <option value="100">Jarash</option>
+  </select>

@@ -3,6 +3,10 @@ class ControllerApiOrder extends Controller {
 	public function add() {
 		$this->load->language('api/order');
 
+		$placeSelect=0;
+		if(isset($this->session->data['placeSelect'] )){
+			$placeSelect=$this->session->data['placeSelect'];
+		}
 		$json = array();
 
 		if (!isset($this->session->data['api_id'])) {
@@ -619,9 +623,9 @@ class ControllerApiOrder extends Controller {
 					// Order Totals
 					$this->load->model('extension/extension');
 
-					$totals = array();
+					$totals = array();;
 					$taxes = $this->cart->getTaxes();
-					$total = 0;
+					$total = $placeSelect;
 					
 					// Because __call can not keep var references so we put them into an array. 
 					$total_data = array(
