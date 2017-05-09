@@ -157,7 +157,6 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
         <ul class='nav navbar-nav navbar-right'>
 
             <?php echo drowMenu($rightCategories); ?>
-            <li><a href="<?php echo $contact; ?>"><?php echo $text_contact_us; ?></a></li>
 
         </ul>
 
@@ -294,13 +293,21 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
    </div>  <!--main-nav-->
     <!--Mobile Only Nav-->
     <div class="mob-nav">
-        <a href="javascript:void(0);" id="menu"><img src="image/icons/menu.png" alt="menu"></a></div>
+
+        <a href="javascript:void(0);" id="menu"><img src="image/icons/menu.png" alt="menu"></a>
+
+    </div>
+
+
     <div id="menuDiv"><!-- /.menuDiv -->
+
         <a href="javascript:void(0);" id="active_menu"><img src="image/icons/active_menu.png" alt="active_menu" /></a>
 
 
         <?php
 
+
+    // print_r($menu);die();
 
     function drowMobileMenu($menu,$menuName='',$first=true){
 
@@ -312,12 +319,14 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
         if($childrenExist){
 
         $html.='<div class="accordion_in">
+
             <div class="acc_head">'.$oneMenu['name'].'</div>
             <div class="acc_content">
                 ';
                 $html.=drowMobileMenu($oneMenu['children'],$oneMenu['name'],false);
 
-                $html.='</div></div>';
+                $html.='</div>
+                </div>';
 
         }elseif(true || isset($oneMenu['category_id'])){
         $html.='<div class="nosubnav">

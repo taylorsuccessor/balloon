@@ -122,7 +122,7 @@ class ControllerProductEvent extends Controller {
 			$data['location']=$this->session->data['guest']['location'];
 			$data['category']=$this->session->data['guest']['category'] ;
 
-        }elseif(!isset($data['firstname']) || !isset($data['lastname']) || !isset($data['email']) || !isset($data['telephone']) ) {
+            }elseif(!isset($data['firstname'])&&!isset($data['lastname']) &&!isset($data['email']) && !isset($data['telephone'])  ) {
 
 			$data['firstname'] = '';
     	    $data['lastname'] = '';

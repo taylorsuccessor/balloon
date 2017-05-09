@@ -129,6 +129,35 @@
                                         }//if option
                                         ?>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label><?php echo $text_delivery_time; ?></label>
+
+                                        <?php if ($options) {
+                                foreach($options as $option){
+                                                                   if(str_replace(' ','',strtolower($option['name']))=='cities'){
+                                                                   $i=0;
+
+
+                                echo '<select id="input-option'.$option['product_option_id'].'" name="option['.$option['product_option_id'].']" >
+                                        <option value="">  '.$text_option_time.'</option>
+                                        ';
+                                        foreach($option['product_option_value'] as $option_value){
+
+                                        echo '
+                                        <option value="'.$option_value['product_option_value_id'].'"
+                                        '.((isset($request['option'][$option['product_option_id']]) &&
+                                        $request['option'][$option['product_option_id']] ==
+                                        $option_value['product_option_value_id'])?
+                                        'selected':'').'>'.$option_value['name'].'</option>
+                                        ';
+                                        }
+                                        echo '</select>';
+                                        }
+                                        }
+                                        }//if option
+                                        ?>
+                                    </div>
+
                                 </div>
                             </div>
                             <!--date-time-->
