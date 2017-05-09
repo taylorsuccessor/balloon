@@ -37,12 +37,12 @@ class ControllerAccountLogin extends Controller {
 					$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
 				}
 
-				$this->response->redirect($this->url->link('account/account', '', true));
+				$this->redirect($this->url->link('account/account', '', true));
 			}
 		}
 
 		if ($this->customer->isLogged()) {
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->redirect($this->url->link('account/account', '', true),['status'=>'success']);
 		}
 
 		$this->load->language('account/login');
@@ -50,6 +50,7 @@ class ControllerAccountLogin extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+
 			// Unset guest
 			unset($this->session->data['guest']);
 
@@ -89,11 +90,17 @@ class ControllerAccountLogin extends Controller {
 
 			// Added strpos check to pass McAfee PCI compliance test (http://forum.opencart.com/viewtopic.php?f=10&t=12043&p=151494#p151295)
 			if (isset($this->request->post['redirect']) && $this->request->post['redirect'] != $this->url->link('account/logout', '', true) && (strpos($this->request->post['redirect'], $this->config->get('config_url')) !== false || strpos($this->request->post['redirect'], $this->config->get('config_ssl')) !== false)) {
-				$this->response->redirect(str_replace('&amp;', '&', $this->request->post['redirect']));
+				$this->redirect(str_replace('&amp;', '&', $this->request->post['redirect']));
 			} else {
 				//$this->response->redirect($this->url->link('account/account', '', true));
                  //convert login from account to edit
-				$this->response->redirect($this->url->link('account/edit', '', true));
+				$this->redirect($this->url->link('account/edit', '', true),['status'=>'success']);
+			}
+		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate())
+		{
+			if(isset($this->request->get['ajaxRequest'])){
+				header('Content-Type: application/json');
+				echo json_encode(['status'=>'error','errirs'=>$this->error]);exit();
 			}
 		}
 
@@ -182,7 +189,7 @@ class ControllerAccountLogin extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('account/login', $data));
+		$this->response->setOutput($this->view('account/login', $data));
 	}
 
 	protected function validate() {
