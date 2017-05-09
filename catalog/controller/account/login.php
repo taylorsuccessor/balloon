@@ -36,13 +36,14 @@ class ControllerAccountLogin extends Controller {
 				if ($this->config->get('config_tax_customer') == 'shipping') {
 					$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
 				}
-
-				$this->redirect($this->url->link('account/account', '', true));
+				$customer_id=$this->customer->getId();
+				$this->redirect($this->url->link('account/account', '', true),['status'=>'success','user_id'=>$customer_id]);
 			}
 		}
 
 		if ($this->customer->isLogged()) {
-			$this->redirect($this->url->link('account/account', '', true),['status'=>'success']);
+			$customer_id=$this->customer->getId();
+			$this->redirect($this->url->link('account/account', '', true),['status'=>'success','user_id'=>$customer_id]);
 		}
 
 		$this->load->language('account/login');
@@ -94,7 +95,8 @@ class ControllerAccountLogin extends Controller {
 			} else {
 				//$this->response->redirect($this->url->link('account/account', '', true));
                  //convert login from account to edit
-				$this->redirect($this->url->link('account/edit', '', true),['status'=>'success']);
+				$customer_id=$this->customer->getId();
+				$this->redirect($this->url->link('account/edit', '', true),['status'=>'success','user_id'=>$customer_id]);
 			}
 		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate())
 		{

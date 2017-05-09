@@ -42,7 +42,7 @@ class ControllerAccountRegister extends Controller {
 			}
 
 
-				$this->redirect($this->url->link('account/success'),['status'=>'success']);
+				$this->redirect($this->url->link('account/success'),['status'=>'success','user_id'=>$customer_id]);
 
 		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate()){
 
