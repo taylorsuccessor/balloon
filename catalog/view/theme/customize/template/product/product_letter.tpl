@@ -122,7 +122,10 @@
                                             name=name.replace(/\s/g,'');
 
 
-                                           var nameLength=name.length;
+                                            var nameLength=name.length;
+                                            $('#input-quantity').val(nameLength);
+                                            $('#input-quantity').attr("value",nameLength);
+
 
                                           var productPriceNode=  $('#productPriceLable');
                                            var price=productPriceNode.data('price').toString();
@@ -215,7 +218,11 @@ if( sizePrice == 0 && !firstTime){
 
 
 
+<<<<<<< HEAD
+<span id="productPriceLable" data-price="<?=$finalPrice;?>" style="display:none !important;">
+=======
                     <span id="productPriceLable" data-price="<?=$finalPrice;?>" >
+>>>>>>> 7fef19325396f4c438e3ba2ad3bd3ff1b53c4638
                             <?php if ($price) { ?>
                                 <?php if (!$special) { ?>
                                                       <?php echo $price; ?>
@@ -228,10 +235,10 @@ if( sizePrice == 0 && !firstTime){
 
                             </span>
 
-                            <span id="timesSignSpan">&times;</span>
+                            <span id="timesSignSpan" style="display:none;">&times;</span>
 
-                            <span id="nameLettersNumberSpan" data-value="1">0</span>
-                            <span id="equalSignSpan">&equals;</span>
+                            <span id="nameLettersNumberSpan" data-value="1"  style="display:none;">0</span>
+                            <span id="equalSignSpan" style="display:none;">&equals;</span>
                             <span id="totalPriceSpan">0</span>
                             <span id="currencySignSpan"></span>
                         </h4>

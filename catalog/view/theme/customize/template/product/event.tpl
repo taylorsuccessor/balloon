@@ -202,7 +202,8 @@ $i++;
                         <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" style="display:none" />
                         <input type="hidden" name="product_id" class="productId" value="<?php echo $product_id; ?>" />
                         <input type="hidden" name="product_name" class="product_name" value="<?php echo $heading_title; ?>" />
-                        <input type="hidden" name="price" class="priceClass" value="<?=(isset($special))? $special:$price ; ?>" />
+
+                        <input type="hidden" name="price" class="priceClass" value="<?php  if(isset($special) && $special > 0){echo  $special;  }else{ echo $price;} ?>" />
 
 
                       <a href="javascript: void(0)"  onclick="addEventsToCart();" data-loading-text="<?php echo $text_loading; ?>" ><?php echo $button_cart; ?></a>
