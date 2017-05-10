@@ -2080,6 +2080,7 @@ header .top-nav-left ul li:first-child
 	padding:20px 0px;
 	float:right;
 	width:100%;
+	margin-bottom:30px;
 }
 .events-booking h2{
 	font-family: 'Raleway-Regular';

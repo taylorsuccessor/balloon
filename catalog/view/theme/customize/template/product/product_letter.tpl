@@ -1,6 +1,7 @@
 <?php echo $header; ?>
 <div class="container">
 
+
 <section class="banner-section"><!--Banner Section-->
     <div class="inner-banner"><!--banner-->
         <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
@@ -8,10 +9,14 @@
 </section><!--Banner Section-->
 
 
-    <form action="<?php echo $finalProductDetailLink;?>" method="post">
+<section class="content-section" id="product"><!--content-section-->
 
 
-        <div class="container"><!--container-->
+
+       
+        
+        
+        
         <div class="bredcrumb"><!--bredcrumb-->
             <ul>
                 <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -19,31 +24,21 @@
                 <?php  } ?>
             </ul>
         </div> <!--bredcrumb-->
-
-<section class="content-section"><!--content-section-->
-
-    <div class="bredcrumb"><!--bredcrumb-->
-
-        <ul>
-            <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-            <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-            <?php  } ?>
-        </ul>
-
-    </div> <!--bredcrumb-->
-
-
-    <div class="wrap_notfiy">
+        
+         <div class="wrap_notfiy">
 
         <?php if ($success) { ?>
         <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
         <?php } ?>
+ 
+        </div>
+        
 
-    </div>
 
-<section class="content-section" id="product"><!--content-section-->
+
+   
     <form action="<?php echo $finalProductDetailLink;?>" method="post">
 
         <div class="product-details-page"><!--balloons-->
@@ -56,6 +51,7 @@
                             <h4 STYLE="padding:5px;"><?php echo $text_Rollover_swatches; ?></h4>
 
                             <div id="bx-pager">
+                               
                                 <?php
 
                                 $letterColorValueId=0;
@@ -126,9 +122,10 @@
                                             name=name.replace(/\s/g,'');
 
 
-var nameLength=name.length;
+                                            var nameLength=name.length;
                                             $('#input-quantity').val(nameLength);
                                             $('#input-quantity').attr("value",nameLength);
+
 
                                           var productPriceNode=  $('#productPriceLable');
                                            var price=productPriceNode.data('price').toString();
@@ -212,9 +209,6 @@ if( sizePrice == 0 && !firstTime){
 
 
 
-
-
-
                             <?php
                             $finalPrice=0;
                             if ($price) {
@@ -224,7 +218,11 @@ if( sizePrice == 0 && !firstTime){
 
 
 
+<<<<<<< HEAD
 <span id="productPriceLable" data-price="<?=$finalPrice;?>" style="display:none !important;">
+=======
+                    <span id="productPriceLable" data-price="<?=$finalPrice;?>" >
+>>>>>>> 7fef19325396f4c438e3ba2ad3bd3ff1b53c4638
                             <?php if ($price) { ?>
                                 <?php if (!$special) { ?>
                                                       <?php echo $price; ?>
@@ -250,8 +248,6 @@ if( sizePrice == 0 && !firstTime){
                         <div class="confetti-btns">
 
 
-
-
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                             <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"  class="confetti-cart"><?php echo $button_cart; ?></button>
                             <input class="confetti-input"  type="text" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity"  style="display: none;">
@@ -265,10 +261,12 @@ if( sizePrice == 0 && !firstTime){
 
             </div>
         </div><!--balloons-->
-    </div><!--container-->
     </form>
+            </section>
+            
+   
+    
 
-</section>
 
 
 <script>
@@ -302,6 +300,7 @@ if( sizePrice == 0 && !firstTime){
         });
     });
     //--></script>
+    
 <script type="text/javascript"><!--
     $('#button-cart').on('click', function() {
         $.ajax({
@@ -316,7 +315,7 @@ if( sizePrice == 0 && !firstTime){
                 $('#button-cart').button('reset');
             },
             success: function(json) {
-console.log(json);
+                console.log(json);
                 $('.alert, .text-danger').remove();
                 $('.form-group').removeClass('has-error');
 
@@ -342,7 +341,7 @@ console.log(json);
                 }
 
                 if (json['success']) {
-                    $('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                    $('.wrap_notfiy').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
                     $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 
@@ -359,6 +358,8 @@ console.log(json);
         });
     });
     //--></script>
+    
+    
 <script type="text/javascript"><!--
     $('.date').datetimepicker({
         pickTime: false

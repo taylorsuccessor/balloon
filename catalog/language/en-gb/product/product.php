@@ -38,6 +38,7 @@ $_['text_share_product']       = 'Share this product :';
 $_['availabilty']              = 'Availability :';
 $_['text_delivery_date']       = 'Pick a delivery date:';
 $_['text_delivery_time']       = 'Pick a delivery time:';
+$_['text_delivery_location']   = 'delivery location:';
 $_['text_option_time']         = 'Please select delivery time';
 $_['Qty']                      = 'Qty';
 $_['text_add_favourite']       = 'Add To Favourites';

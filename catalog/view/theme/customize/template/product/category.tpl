@@ -27,14 +27,7 @@
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 product-box">
       <img  src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
       <h4><?php echo $product['name']; ?> </h4>
-      <h5>
-        <?php if (!$product['special']) { ?>
-        <?php echo $product['price']; ?>
-        <?php } else { ?>
-        <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old" style="text-decoration: line-through;"><?php echo $product['price']; ?></span>
-        <?php } ?>
-
-      </h5>
+      
 
       <a href="#" onclick="productQuantity=$(this).parent().find('.productQuantity');cart.add('<?php echo $product['product_id']; ?>', productQuantity);" class="addcart"><?php echo $text_addCart; ?></a>
       <input type="text" class="productQuantity" placeholder="1">

@@ -11,6 +11,7 @@
     <!--Banner Section-->
     <section class="content-section" id="product"><!--content-section-->
         <div class="container"><!--container-->
+           
             <div class="bredcrumb"><!--bredcrumb-->
                 <ul>
                     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -131,7 +132,7 @@
                                         ?>
                                     </div>
                                     <div class="col-md-6">
-                                        <label><?php echo $text_delivery_time; ?></label>
+                                        <label><?php echo $text_delivery_location; ?></label>
 
                                         <?php if ($options) {
                                 foreach($options as $option){

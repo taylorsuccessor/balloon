@@ -15,9 +15,11 @@
         <?php  } ?>
       </ul>
     </div> <!--bredcrumb-->
+    
     <div class="wrap_notfiy">
 
     </div>
+    
     <div class="row"><?php echo $column_left; ?>
       <?php if ($column_left && $column_right) { ?>
       <?php $class = 'col-sm-6'; ?>
@@ -56,7 +58,7 @@
                   </ul>
                   <?php } ?>
                   <div class="confetti-btns">
-                    <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="confetti-cart"><?php echo $button_cart; ?></button>
+                    <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="confetti-cart"><?php  echo $button_cart; ?></button>
                     <input type="text" name="quantity" class="confetti-input" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                     <?php $flag = "&preview=1"; ?>
