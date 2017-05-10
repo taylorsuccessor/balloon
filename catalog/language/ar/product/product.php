@@ -41,6 +41,8 @@ $_['text_share_product']                     = 'مشاركة هذا المنج :
 $_['availabilty']                               = 'الأتاحية :';
 $_['text_delivery_date']       = 'اختيار تاريخ الوصول :';
 $_['text_delivery_time']       = 'اختيار وقت الوصول :';
+$_['text_delivery_location']   = 'مكان التوصيل';
+
 $_['text_option_time']         = 'الرجاء تحديد وقت الوصول';
 $_['Qty']                               = 'الكمية';
 $_['text_add_favourite']                      = 'اضافة الى  المفضلة';

@@ -132,7 +132,7 @@
                                         ?>
                                     </div>
                                     <div class="col-md-6">
-                                        <label><?php echo $text_delivery_time; ?></label>
+                                        <label><?php echo $text_delivery_location; ?></label>
 
                                         <?php if ($options) {
                                 foreach($options as $option){

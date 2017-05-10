@@ -274,6 +274,7 @@ class ControllerProductProduct extends Controller {
 			$data['availabilty'] = $this->language->get('availabilty');
 			$data['text_delivery_date'] = $this->language->get('text_delivery_date');
 			$data['text_delivery_time'] = $this->language->get('text_delivery_time');
+			$data['text_delivery_location'] = $this->language->get('text_delivery_location');
 			$data['text_option_time'] = $this->language->get('text_option_time');
 			$data['Qty'] = $this->language->get('Qty');
 			$data['text_add_favourite'] = $this->language->get('text_add_favourite');

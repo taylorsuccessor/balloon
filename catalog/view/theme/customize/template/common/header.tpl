@@ -157,6 +157,7 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
         <ul class='nav navbar-nav navbar-right'>
 
             <?php echo drowMenu($rightCategories); ?>
+            <li><a href="<?php echo $contact; ?>"><?php echo $text_contact_us; ?></a></li>
 
         </ul>
 
