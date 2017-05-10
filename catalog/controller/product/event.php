@@ -250,41 +250,40 @@ class ControllerProductEvent extends Controller {
                     }
                 }
 
-//                if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
-//                    $this->error['password'] = $this->language->get('error_password');
-//                }
-//
-//                if ($this->request->post['confirm'] != $this->request->post['password']) {
-//                    $this->error['confirm'] = $this->language->get('error_confirm');
-//                }
+                if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+                    $this->error['password'] = $this->language->get('error_password');
+                }
+
+                if ($this->request->post['confirm'] != $this->request->post['password']) {
+                    $this->error['confirm'] = $this->language->get('error_confirm');
+                }
 
 
-//               if (isset($this->error['firstname'])) {
-//                   $data['error_firstname'] = $this->error['firstname'];
-//               } else {
-//                   $data['error_firstname'] = '';
-//               }
-//
-//               if (isset($this->error['lastname'])) {
-//                   $data['error_lastname'] = $this->error['lastname'];
-//               } else {
-//                   $data['error_lastname'] = '';
-//               }
-//
-//               if (isset($this->error['email'])) {
-//                   $data['error_email'] = $this->error['email'];
-//               } else {
-//                   $data['error_email'] = '';
-//               }
-//
-//               if (isset($this->error['telephone'])) {
-//                   $data['error_telephone'] = $this->error['telephone'];
-//               } else {
-//                   $data['error_telephone'] = '';
-//               }
+               if (isset($this->error['firstname'])) {
+                   $data['error_firstname'] = $this->error['firstname'];
+               } else {
+                   $data['error_firstname'] = '';
+               }
 
-        // Agree to terms
-        // $data['action'] = $this->url->link('product/events_main', '', true);
+               if (isset($this->error['lastname'])) {
+                   $data['error_lastname'] = $this->error['lastname'];
+               } else {
+                   $data['error_lastname'] = '';
+               }
+
+               if (isset($this->error['email'])) {
+                   $data['error_email'] = $this->error['email'];
+               } else {
+                   $data['error_email'] = '';
+               }
+
+               if (isset($this->error['telephone'])) {
+                   $data['error_telephone'] = $this->error['telephone'];
+               } else {
+                   $data['error_telephone'] = '';
+               }
+
+         $data['action'] = $this->url->link('product/events_main', '', true);
 
         return !$this->error;
     }
