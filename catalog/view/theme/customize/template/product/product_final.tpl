@@ -2,6 +2,7 @@
 <div class="container">
     <section class="banner-section"><!--Banner Section-->
         <div class="inner-banner"><!--banner-->
+
             <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
         </div>
         <!--banner-->

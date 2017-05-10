@@ -29,9 +29,7 @@ $('#menu').on('click', function(){
 	});
 	$('#active_menu').on('click', function(){
 		$hideElement.removeClass('opend');
-	});
-
-
+});
 
 
 

@@ -352,7 +352,9 @@ $html=(!$first)? '<ul class="dropdown-menu">':'';
 
         }
 
-        $html.=(!$first)? '</div>' : '';
+        $html.=(!$first)? '
+
+    </div>' : '';
 
     return $html;
     }

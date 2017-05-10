@@ -43,7 +43,6 @@
       <td colspan="4" class="text-right"><strong><?php echo 'Delivery' ?>:</strong></td>
       <td class="text-right delivery"></td>
     </tr>
-    <?php print_r($totals);?>
       <?php foreach ($totals as $total) { ?>
 
       <tr>

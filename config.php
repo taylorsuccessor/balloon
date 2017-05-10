@@ -23,6 +23,7 @@ define('DIR_DOWNLOAD', BASE_DIR.'/system/storage/download/');
 define('DIR_LOGS', BASE_DIR.'/system/storage/logs/');
 define('DIR_MODIFICATION', BASE_DIR.'/system/storage/modification/');
 define('DIR_UPLOAD', BASE_DIR.'/system/storage/upload/');
+define('DIR_KNET', BASE_DIR.'/knet/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
