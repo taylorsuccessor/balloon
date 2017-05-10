@@ -218,11 +218,9 @@ if( sizePrice == 0 && !firstTime){
 
 
 
-<<<<<<< HEAD
 <span id="productPriceLable" data-price="<?=$finalPrice;?>" style="display:none !important;">
-=======
-                    <span id="productPriceLable" data-price="<?=$finalPrice;?>" >
->>>>>>> 7fef19325396f4c438e3ba2ad3bd3ff1b53c4638
+
+
                             <?php if ($price) { ?>
                                 <?php if (!$special) { ?>
                                                       <?php echo $price; ?>
