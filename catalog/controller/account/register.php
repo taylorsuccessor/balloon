@@ -48,7 +48,7 @@ class ControllerAccountRegister extends Controller {
 
 			if(isset($this->request->get['ajaxRequest'])){
 				header('Content-Type: application/json');
-				echo json_encode(['status'=>'error','errirs'=>$this->error]);exit();
+				echo json_encode(['status'=>$this->error]);exit();
 			}
 		}
 

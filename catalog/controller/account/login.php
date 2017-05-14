@@ -37,13 +37,13 @@ class ControllerAccountLogin extends Controller {
 					$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
 				}
 				$customer_id=$this->customer->getId();
-				$this->redirect($this->url->link('account/account', '', true),['status'=>'success','user_id'=>$customer_id]);
+				$this->redirect($this->url->link('account/account', true),['status'=>'success']);
 			}
 		}
 
 		if ($this->customer->isLogged()) {
 			$customer_id=$this->customer->getId();
-			$this->redirect($this->url->link('account/account', '', true),['status'=>'success','user_id'=>$customer_id]);
+			$this->redirect($this->url->link('account/account',  true),['status'=>'success']);
 		}
 
 		$this->load->language('account/login');
@@ -96,13 +96,13 @@ class ControllerAccountLogin extends Controller {
 				//$this->response->redirect($this->url->link('account/account', '', true));
                  //convert login from account to edit
 				$customer_id=$this->customer->getId();
-				$this->redirect($this->url->link('account/edit', '', true),['status'=>'success','user_id'=>$customer_id]);
+				$this->redirect($this->url->link('account/edit',true),['status'=>'success']);
 			}
 		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate())
 		{
 			if(isset($this->request->get['ajaxRequest'])){
 				header('Content-Type: application/json');
-				echo json_encode(['status'=>'error','errirs'=>$this->error]);exit();
+				echo json_encode(['status'=>$this->error]);exit();
 			}
 		}
 

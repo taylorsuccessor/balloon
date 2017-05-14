@@ -3,6 +3,9 @@ class ControllerCatalogProduct extends Controller {
 	private $error = array();
 
 	public function index() {
+
+		// echo $this->config->get('config_language_id');
+		// die();
 		$this->load->language('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));
