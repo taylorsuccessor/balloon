@@ -4,7 +4,7 @@ class ControllerAccountForgotten extends Controller {
 
 	public function index() {
 		if ($this->customer->isLogged()) {
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->redirect($this->url->link('account/account', '', true));
 		}
 
 		$this->load->language('account/forgotten');
@@ -61,7 +61,14 @@ class ControllerAccountForgotten extends Controller {
 				}
 			}
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			//$this->redirect($this->url->link('account/login', '', true));
+			$this->redirect($this->url->link('account/success'),['status'=>'success']);
+		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate()){
+
+			if(isset($this->request->get['ajaxRequest'])){
+				header('Content-Type: application/json');
+				echo json_encode(['status'=>$this->error]);exit();
+			}
 		}
 
 		$data['breadcrumbs'] = array();
@@ -114,7 +121,7 @@ class ControllerAccountForgotten extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('account/forgotten', $data));
+		$this->response->setOutput($this->view('account/forgotten', $data));
 	}
 
 	protected function validate() {
