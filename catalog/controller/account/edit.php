@@ -5,7 +5,7 @@
 	public function index() {
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/edit', '', true);
-
+            
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
 
@@ -39,7 +39,7 @@
 		} else {
 			$data['success'] = '';
 		}
-
+		
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$this->model_account_customer->editCustomer($this->request->post);
 
@@ -234,8 +234,11 @@
         $data['address'] = $this->url->link('account/address', '', true);
         $data['orders'] = $this->url->link('account/order', '', true);
         $data['password'] = $this->url->link('account/password', '', true);
-
-		$this->response->setOutput($this->load->view('account/edit', $data));
+       //var_dump($data);
+        $account_info=$data['account_custom_field'];
+        $data["our_full_name"]= $account_info[13];
+        
+		$this->response->setOutput($this->view('account/edit', $data,["our_full_name","email","telephone"]));
 	}
 
 	protected function validate() {
