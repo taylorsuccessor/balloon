@@ -57,8 +57,14 @@
 				$this->model_account_activity->addActivity('edit', $activity_data);
 			}
 
-			$this->response->redirect($this->url->link('account/account', '', true));
-            
+			//$this->redirect($this->url->link('account/account', '', true));
+            $this->redirect($this->url->link('account/success'),['status'=>'success']);
+		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate()){
+
+			if(isset($this->request->get['ajaxRequest'])){
+				header('Content-Type: application/json');
+				echo json_encode(['status'=>$this->error]);exit();
+			}
 		}
 
 		$data['breadcrumbs'] = array();

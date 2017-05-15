@@ -107,6 +107,9 @@ class ModelAccountCustomer extends Model {
 
 	public function editCustomer($data) {
 		$customer_id = $this->customer->getId();
+            $data['firstname']=array_key_exists('firstname',$data)? $data['firstname']:'';
+            $data['lastname']=array_key_exists('lastname',$data)? $data['lastname']:'';
+             $data['fax']=array_key_exists('fax',$data)? $data['fax']:'';
 
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "' WHERE customer_id = '" . (int)$customer_id . "'");
 	}
