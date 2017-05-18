@@ -189,7 +189,7 @@ if( sizePrice == 0 && !firstTime){
 
 
                                     <select name="lettersize" onchange="countNameLetter(false);">
-                                        <option value="0"> Select letter size</option>
+
                                         <?php
                                         foreach($lettersize_values[$languageCode] as $size){
                                         echo '<option value="'.$size['value'].'">'.$size['name'].'</option>';
