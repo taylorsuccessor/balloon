@@ -38,13 +38,13 @@ class ControllerAccountLogin extends Controller {
 				}
 				$customer_id=$this->customer->getId();
 				$info = $this->model_account_customer->getCustomer($customer_id);
-				$data['status_success']= "success";
+				$data['message']= "success";
 	            $data['user_firstname']= $info['firstname'];
 	            $data['user_lastname']= $info['lastname'];
 	            $data['user_password']= $info['password'];
 	            $data['user_email']= $info['email'];
 	            $data['user_telephone']= $info['telephone'];
-				$this->redirect($this->url->link('account/account',true),$data,['status_success','user_firstname','user_lastname','user_password','user_email','user_telephone']);
+				$this->redirect($this->url->link('account/account',true),$data,['message','user_firstname','user_lastname','user_password','user_email','user_telephone']);
 			}
 		}
 
@@ -52,13 +52,13 @@ class ControllerAccountLogin extends Controller {
 			$customer_id=$this->customer->getId();
 			$info = $this->model_account_customer->getCustomer($customer_id);
             //print_r($info['telephone']);die();
-            $data['status_success']= "success";
+            $data['message']= "success";
             $data['user_firstname']= $info['firstname'];
             $data['user_lastname']= $info['lastname'];
             $data['user_password']= $info['password'];
             $data['user_email']= $info['email'];
             $data['user_telephone']= $info['telephone'];
-			$this->redirect($this->url->link('account/account',true),$data,['status_success','user_firstname','user_lastname','user_password','user_email','user_telephone']);
+			$this->redirect($this->url->link('account/account',true),$data,['message','user_firstname','user_lastname','user_password','user_email','user_telephone']);
 		}
 
 		$this->load->language('account/login');
@@ -112,19 +112,19 @@ class ControllerAccountLogin extends Controller {
                  //convert login from account to edit
 				$customer_id=$this->customer->getId();
 				$info = $this->model_account_customer->getCustomer($customer_id);
-	            $data['status_success']= "success";
+	            $data['message']= "success";
 	            $data['user_firstname']= $info['firstname'];
 	            $data['user_lastname']= $info['lastname'];
 	            $data['user_password']= $info['password'];
 	            $data['user_email']= $info['email'];
 	            $data['user_telephone']= $info['telephone'];
-			    $this->redirect($this->url->link('account/edit',true),$data,['status_success','user_firstname','user_lastname','user_password','user_email','user_telephone']);
+			    $this->redirect($this->url->link('account/edit',true),$data,['message','user_firstname','user_lastname','user_password','user_email','user_telephone']);
 			}
 		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate())
 		{
 			if(isset($this->request->get['ajaxRequest'])){
 				header('Content-Type: application/json');
-				echo json_encode(['status'=>$this->error]);exit();
+				echo json_encode(['message'=>$this->error]);exit();
 			}
 		}
 
