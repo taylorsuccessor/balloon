@@ -37,7 +37,13 @@ class ControllerAccountLogin extends Controller {
 					$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
 				}
 				$customer_id=$this->customer->getId();
-				$this->redirect($this->url->link('account/account', true),['status'=>'success']);
+				$info = $this->model_account_customer->getCustomer($customer_id);
+	            $data['user_firstname']= $info['firstname'];
+	            $data['user_lastname']= $info['lastname'];
+	            $data['user_password']= $info['password'];
+	            $data['user_email']= $info['email'];
+	            $data['user_telephone']= $info['telephone'];
+				$this->redirect($this->url->link('account/account',true),$data,['user_firstname','user_lastname','user_password','user_email','user_telephone']);
 			}
 		}
 
@@ -103,7 +109,13 @@ class ControllerAccountLogin extends Controller {
 				//$this->response->redirect($this->url->link('account/account', '', true));
                  //convert login from account to edit
 				$customer_id=$this->customer->getId();
-				$this->redirect($this->url->link('account/edit',true),['status'=>'success']);
+				$info = $this->model_account_customer->getCustomer($customer_id);
+	            $data['user_firstname']= $info['firstname'];
+	            $data['user_lastname']= $info['lastname'];
+	            $data['user_password']= $info['password'];
+	            $data['user_email']= $info['email'];
+	            $data['user_telephone']= $info['telephone'];
+			    $this->redirect($this->url->link('account/edit',true),$data,['user_firstname','user_lastname','user_password','user_email','user_telephone']);
 			}
 		}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate())
 		{
