@@ -15,8 +15,14 @@ class Session {
 		if ($this->adaptor) {
 			session_set_save_handler($this->adaptor);
 		}
-			
-		if ($this->adaptor && !session_id()) {
+
+		if(isset($_GET['session_id'])){
+			ini_set("session.use_cookies",0);
+			ini_set("session.use_trans_sid",1);
+			session_id($_GET['session_id']);
+			session_start();
+//			die(var_dump(44));
+		}elseif ($this->adaptor && !session_id()) {
 			ini_set('session.use_only_cookies', 'Off');
 			ini_set('session.use_cookies', 'On');
 			ini_set('session.use_trans_sid', 'Off');
