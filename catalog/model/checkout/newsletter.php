@@ -107,6 +107,7 @@ class ModelCheckoutNewsletter extends Model {
 
 		$hash=md5($email.'PhP&P'.gmdate('Y-m-d s m'));
 
+
 		$query = $this->db->query("insert into  " . DB_PREFIX . "newsletter (email,hash,status) values ('".$email."','".$hash."','1' )");
 		return $query;
 

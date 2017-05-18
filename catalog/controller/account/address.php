@@ -172,7 +172,6 @@ class ControllerAccountAddress extends Controller {
 				
 				$this->model_account_activity->addActivity('address_delete', $activity_data);
 			}
-
 			$this->response->redirect($this->url->link('account/address', '', true));
 		}
 
@@ -297,8 +296,7 @@ class ControllerAccountAddress extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
-
-		$this->response->setOutput($this->load->view('account/address_list', $data));
+		$this->response->setOutput($this->view('account/address_list', $data,['addresses']));
 	}
 
 	protected function getForm() {
