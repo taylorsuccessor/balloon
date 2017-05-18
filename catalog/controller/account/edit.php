@@ -237,7 +237,6 @@
        //var_dump($data);
         $account_info=$data['account_custom_field'];
         $data["our_full_name"]= $account_info[13];
-        
 		$this->response->setOutput($this->view('account/edit', $data,["our_full_name","email","telephone"]));
 	}
 

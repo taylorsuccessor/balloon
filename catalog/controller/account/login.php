@@ -43,7 +43,14 @@ class ControllerAccountLogin extends Controller {
 
 		if ($this->customer->isLogged()) {
 			$customer_id=$this->customer->getId();
-			$this->redirect($this->url->link('account/account',  true),['status'=>'success']);
+			$info = $this->model_account_customer->getCustomer($customer_id);
+            //print_r($info['telephone']);die();
+            $data['user_firstname']= $info['firstname'];
+            $data['user_lastname']= $info['lastname'];
+            $data['user_password']= $info['password'];
+            $data['user_email']= $info['email'];
+            $data['user_telephone']= $info['telephone'];
+			$this->redirect($this->url->link('account/account',true),$data,['user_firstname','user_lastname','user_password','user_email','user_telephone']);
 		}
 
 		$this->load->language('account/login');
