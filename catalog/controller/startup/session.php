@@ -13,7 +13,18 @@ class ControllerStartupSession extends Controller {
 				$this->db->query("UPDATE `" . DB_PREFIX . "api_session` SET date_modified = NOW() WHERE api_session_id = '" . (int)$query->row['api_session_id'] . "'");
 			}
 		} else {
-			$this->session->start();
+
+				if(isset($_GET['default_session'])){
+
+					$this->session->start('default',$_GET['default_session']);
+					if (isset($_GET['code'])) {
+						$this->session->data['language'] = $_GET['code'];
+					}
+				}else{
+					$this->session->start();
+				}
+
+
 		}
 	}
 }
