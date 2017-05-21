@@ -2,7 +2,7 @@
 class ControllerExtensionModuleBanner extends Controller {
 	public function index($setting) {
 		static $module = 0;
-
+ 
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 
