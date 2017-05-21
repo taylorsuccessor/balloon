@@ -104,13 +104,15 @@ class ModelCheckoutNewsletter extends Model {
 
 
 	public function addNewEmail($email){
-
+       // $data['email']=array_key_exists('email',$data)? $data['email']:'';
 		$hash=md5($email.'PhP&P'.gmdate('Y-m-d s m'));
-
-
-		$query = $this->db->query("insert into  " . DB_PREFIX . "newsletter (email,hash,status) values ('".$email."','".$hash."','1' )");
-		return $query;
-
+        $sql = $this->db->query("SELECT * FROM " . DB_PREFIX . "newsletter WHERE email ='".$email."'") ;
+        if(!$sql->num_rows)
+        {
+         $query = $this->db->query("insert into  " . DB_PREFIX . "newsletter (email,hash,status) values ('".$email."','".$hash."','1' )");
+           return $query;	
+        }
+         
 	}
 
 	public function removeEmail($email){
