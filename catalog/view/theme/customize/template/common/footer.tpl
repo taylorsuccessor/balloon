@@ -18,7 +18,7 @@
                   <form action="<?php echo $newsletterLink;?>" method="post">
                       <h4><?php echo $h4_newsletter;?></h4>
                       <br>
-                      <input type="email" name="email" placeholder="<?php echo $place_holder_newsletter;?>">
+                      <input type="text" name="email" placeholder="<?php echo $place_holder_newsletter;?>">
                       <button type="submit"><?php echo $submit_button;?></button>
                   </form>
                 </div><!--footer-left-->

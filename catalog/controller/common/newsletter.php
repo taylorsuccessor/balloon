@@ -8,16 +8,32 @@ class ControllerCommonNewsletter extends Controller {
 
 		$this->load->model('checkout/newsletter');
 
-		$this->model_checkout_newsletter->addNewEmail($this->request->post['email']);
-		if(isset($this->session->data['serviceType'] ) && $this->session->data['serviceType'] =='events')
+    if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate())
+    {
+	    $this->model_checkout_newsletter->addNewEmail($this->request->post['email']);
+	    if(isset($this->session->data['serviceType'] ) && $this->session->data['serviceType'] =='events')
 		{
-			$this->response->redirect($this->url->link('product/event/events_main', '', true));
-
+			// $this->response->redirect($this->url->link('product/event/events_main', '', true));
+			
+			$this->redirect($this->url->link('product/event/events_main', '', true),['message'=>'success']);
+			//die();
 		}
 		else
 		{
-			$this->response->redirect($this->url->link('common/home/index_supply', '', true));
+			// $this->response->redirect($this->url->link('common/home/index_supply', '', true));
+			//var_dump($this->url->link('common/home/index_supply', '', true));die();
+			$this->redirect($this->url->link('common/home/index_supply', '', true),['message'=>'success']);
+			
 		}
+
+	}elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate())
+	{
+		if(isset($this->request->get['ajaxRequest'])){
+				header('Content-Type: application/json');
+				echo json_encode(['message'=>$this->error]);exit();
+			}
+	}
+		
 	}
 
 
@@ -33,6 +49,12 @@ class ControllerCommonNewsletter extends Controller {
 
 		$this->response->redirect($this->url->link('common/home', '', true));
 
+	}
+	protected function validate() {
+		if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+			$this->error['email'] = $this->language->get('error_email');
+		}
+		return !$this->error;
 	}
 
 }

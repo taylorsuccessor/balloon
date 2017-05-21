@@ -62,7 +62,7 @@ public function redirect($link,$data){
 
 	}else{
 
-		$this->response->redirect($this->url->link('account/success'));
+		$this->response->redirect($link);
 	}
 
 
