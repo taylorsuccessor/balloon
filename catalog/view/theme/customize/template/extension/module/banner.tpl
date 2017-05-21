@@ -1,4 +1,5 @@
 <div id="banner<?php echo $module; ?>" class="owl-carousel slider">
+
   <?php foreach ($banners as $banner) { ?>
   <div class="item">
     <?php if ($banner['link']) { ?>
