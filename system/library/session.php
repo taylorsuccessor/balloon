@@ -19,6 +19,7 @@ class Session {
 		if(isset($_GET['session_id'])){
 			ini_set("session.use_cookies",0);
 			ini_set("session.use_trans_sid",1);
+
 			session_id($_GET['session_id']);
 			session_start();
 //			die(var_dump(44));
@@ -34,7 +35,8 @@ class Session {
 			
 			session_set_cookie_params(0, '/');
 			session_start();
-		}			
+		}
+//		die(var_dump($_SESSION));
 	}
 		
 	public function start($key = 'default', $value = '') {
@@ -44,20 +46,20 @@ class Session {
 			$this->session_id = $_COOKIE[$key];
 		} else {
 			$this->session_id = $this->createId();
-		}	
-		
+		}
+
 		if (!isset($_SESSION[$this->session_id])) {
 			$_SESSION[$this->session_id] = array();
 		}
-		
+
 		$this->data = &$_SESSION[$this->session_id];
-		
+
 		if ($key != 'PHPSESSID') {
 			setcookie($key, $this->session_id, ini_get('session.cookie_lifetime'), ini_get('session.cookie_path'), ini_get('session.cookie_domain'), ini_get('session.cookie_secure'), ini_get('session.cookie_httponly'));
 		}
-		
+
 		return $this->session_id;
-	}	
+	}
 
 	public function getId() {
 		return $this->session_id;

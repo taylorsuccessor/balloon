@@ -40,7 +40,12 @@ if ($config->get('db_autostart')) {
 $session = new Session();
 
 if ($config->get('session_autostart')) {
-	$session->start();
+	if(isset($_GET['session_id'])){
+
+		$session->start('PHPSESSID',$_GET['session_id']);
+	}else{
+		$session->start();
+	}
 }
 
 $registry->set('session', $session);
