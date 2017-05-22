@@ -3,7 +3,10 @@ error_reporting(1);
 class ControllerApiBanner extends Controller {
 	public function index() {
 		static $module = 0;
-        $setting= array('banner_id'=>7,'width'=>'1170','height'=>'600');
+        $this->load->model('extension/module');
+		$module_id = 27;
+        $setting = $this->model_extension_module->getModule($module_id);
+
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 

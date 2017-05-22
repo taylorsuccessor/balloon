@@ -1,9 +1,12 @@
 <?php
-class ControllerExtensionModuleFeatured extends Controller {
-	public function index($setting) {
-	
+class ControllerApiFeatured extends Controller {
+	public function index() {
 		$this->load->language('extension/module/featured');
 
+		$this->load->model('extension/module');
+		$module_id = 28;
+        $setting = $this->model_extension_module->getModule($module_id);
+   
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_tax'] = $this->language->get('text_tax');
@@ -71,12 +74,13 @@ class ControllerExtensionModuleFeatured extends Controller {
 						'rating'      => $rating,
 						'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
 					);
+
 				}
 			}
 		}
-
 		if ($data['products']) {
-			return $this->load->view('extension/module/featured', $data);
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($data['products']));
 		}
 	}
 }
