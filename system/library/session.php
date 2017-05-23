@@ -59,6 +59,12 @@ class Session {
 			setcookie($key, $this->session_id, ini_get('session.cookie_lifetime'), ini_get('session.cookie_path'), ini_get('session.cookie_domain'), ini_get('session.cookie_secure'), ini_get('session.cookie_httponly'));
 		}
 
+		if (isset($_GET['customer_language'])) {
+//			$_COOKIE['language']= $_GET['code'];//die(var_dump($_GET['code']));
+			if($_GET['customer_language'] == 'en'){$_GET['customer_language']='en-gb';}
+			$this->data['language'] = $_GET['customer_language'];
+		}
+
 		return $this->session_id;
 	}
 
