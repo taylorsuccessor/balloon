@@ -86,7 +86,7 @@ class ModelCatalogCategory extends Model {
 			$level_data = array(
 				'category_id'=>$category['category_id'],
 				'name' => $category['name'],
-				'image'=> HTTP.'/image/'.$category['image'],
+				'image'=> HTTP_SERVER.'/image/'.$category['image'],
 				'href' => $this->url->link('product/category', 'path=' . join('_',$newParentIdArray))
 			);
 
@@ -157,7 +157,7 @@ $this->load->model('tool/image');
 			$level_data = array(
 				'category_id'=>$category['category_id'],
 				'name' => $category['name'],
-				'image'=>  HTTP.'/image/'.$category['image'],
+				'image'=>  HTTP_SERVER.'/image/'.$category['image'],
 				'href' => $this->url->link('product/category', 'path=' . join('_',$tempParentIdArray))
 			);
 

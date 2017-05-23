@@ -90,6 +90,7 @@ class ControllerProductCategory extends Controller {
 		$category_info = $this->model_catalog_category->getCategory($category_id);
 
 		if ($category_info) {
+
 			$this->document->setTitle($category_info['meta_title']);
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
@@ -382,8 +383,16 @@ class ControllerProductCategory extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+			if(isset($this->request->get['ajaxRequest']))
+			{
+				$this->response->addHeader('Content-Type: application/json');
+			    $this->response->setOutput(json_encode($data['products']));
+			}
+			else
+			{
+			    $this->response->setOutput($this->view('product/category', $data));
 
-			$this->response->setOutput($this->load->view('product/category', $data));
+			}
 		} else {
 			$url = '';
 
