@@ -83,15 +83,10 @@ class ModelCatalogCategory extends Model {
 			$newParentIdArray=$parentIdArray;
 			$newParentIdArray[count($parentIdArray)]=$category['category_id'];
 
-
-
-
-
-
 			$level_data = array(
 				'category_id'=>$category['category_id'],
 				'name' => $category['name'],
-				'image'=> DIR_IMAGE.$category['image'],
+				'image'=> HTTP.'/image/'.$category['image'],
 				'href' => $this->url->link('product/category', 'path=' . join('_',$newParentIdArray))
 			);
 
@@ -162,7 +157,7 @@ $this->load->model('tool/image');
 			$level_data = array(
 				'category_id'=>$category['category_id'],
 				'name' => $category['name'],
-				'image'=> DIR_IMAGE.$category['image'],
+				'image'=>  HTTP.'/image/'.$category['image'],
 				'href' => $this->url->link('product/category', 'path=' . join('_',$tempParentIdArray))
 			);
 
