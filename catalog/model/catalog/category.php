@@ -91,6 +91,7 @@ class ModelCatalogCategory extends Model {
 			$level_data = array(
 				'category_id'=>$category['category_id'],
 				'name' => $category['name'],
+				'image'=> DIR_IMAGE.$category['image'],
 				'href' => $this->url->link('product/category', 'path=' . join('_',$newParentIdArray))
 			);
 
@@ -106,6 +107,7 @@ class ModelCatalogCategory extends Model {
 			}
 
 $this->load->model('catalog/product');
+$this->load->model('tool/image');
 
 			$products = $this->model_catalog_product->getProducts(['filter_category_id'=>$category['category_id']]);
 
@@ -144,6 +146,7 @@ $this->load->model('catalog/product');
 	}
 
 	public function getCategoryChildren($parentIdArray){
+      $this->load->model('tool/image');
 
 		$final_categories = array();
 
@@ -159,6 +162,7 @@ $this->load->model('catalog/product');
 			$level_data = array(
 				'category_id'=>$category['category_id'],
 				'name' => $category['name'],
+				'image'=> DIR_IMAGE.$category['image'],
 				'href' => $this->url->link('product/category', 'path=' . join('_',$tempParentIdArray))
 			);
 

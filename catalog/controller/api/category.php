@@ -15,7 +15,6 @@ class ControllerApiCategory extends Controller {
 
 
 		if(isset($this->session->data['serviceType'] ) && $this->session->data['serviceType'] =='events'){
-			
 			$leftCategoriesList = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
 			$data['leftCategories']=$leftCategoriesList;
 
@@ -23,12 +22,17 @@ class ControllerApiCategory extends Controller {
 		    $this->response->addHeader('Content-Type: application/json');
 		    $this->response->setOutput(json_encode($data));
 		}else{
-			
-			$leftCategoriesList = $this->model_catalog_category->getCategoryChildren([$productsLeftId]);//print_r to see results for left side
-			$data['leftCategories'] = $leftCategoriesList;
-			$data['rightCategories'] = $this->model_catalog_category->getCategoryChildren([$productsRightId]);
-            $this->response->addHeader('Content-Type: application/json');
-		    $this->response->setOutput(json_encode($data));
+
+			if(isset($_GET['id']))
+			{
+				$cat_id = $_GET['id'];
+				$leftCategoriesList = $this->model_catalog_category->getCategoryChildren([$cat_id]);//print_r to see results for left side
+				$data['leftCategories'] = $leftCategoriesList;
+				$data['rightCategories'] = $this->model_catalog_category->getCategoryChildren([$cat_id]);
+	            $this->response->addHeader('Content-Type: application/json');
+			    $this->response->setOutput(json_encode($data['leftCategories']));
+		    }
+		    
 		}
 
 	}
