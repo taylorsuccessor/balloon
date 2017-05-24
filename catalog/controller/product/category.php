@@ -66,7 +66,6 @@ class ControllerProductCategory extends Controller {
 			$parts = explode('_', (string)$this->request->get['path']);
 
 			$category_id = (int)array_pop($parts);
-
 			foreach ($parts as $path_id) {
 				if (!$path) {
 					$path = (int)$path_id;
@@ -75,7 +74,6 @@ class ControllerProductCategory extends Controller {
 				}
 
 				$category_info = $this->model_catalog_category->getCategory($path_id);
-
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
@@ -83,7 +81,13 @@ class ControllerProductCategory extends Controller {
 					);
 				}
 			}
-		} else {
+		} elseif(isset($this->request->get['ajaxRequest'])) {
+			
+			$category_id = $_GET['cat_id'];
+			$this->request->get['path'] = $this->request->get['cat_id'];
+
+		}else
+		{
 			$category_id = 0;
 		}
 
@@ -385,6 +389,7 @@ class ControllerProductCategory extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 			if(isset($this->request->get['ajaxRequest']))
 			{
+				//$category_id = $_GET['cat_id'];
 				$this->response->addHeader('Content-Type: application/json');
 			    $this->response->setOutput(json_encode($data['products']));
 			}
