@@ -192,7 +192,6 @@ class ControllerProductCategory extends Controller {
 			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
-
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
@@ -223,7 +222,6 @@ class ControllerProductCategory extends Controller {
 				} else {
 					$rating = false;
 				}
-
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -233,6 +231,8 @@ class ControllerProductCategory extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
+					'quantity'     => $result['quantity'],
+					'stock'     => $result['stock_status'],
 					'rating'      => $result['rating'],
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
 				);

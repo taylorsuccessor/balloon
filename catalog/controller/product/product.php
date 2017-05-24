@@ -374,6 +374,8 @@ class ControllerProductProduct extends Controller {
 			}
 
 			$data['options'] = array();
+
+
 //confetti
 			// if(str_replace(' ','',strtolower($option['name']))=='ballooncolor')
 			//eventtime
@@ -418,6 +420,17 @@ class ControllerProductProduct extends Controller {
                  //die(var_dump($option));
 				//$option['product_option_value']=$product_option_value_data;
 				$data['options'][] =$option;
+				$this->load->model('catalog/custom_option');
+			    
+		        $data=$this->model_catalog_custom_option->addOptionsValues($data);
+			    $data['languageCode']=$this->language->get('code');
+			    $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
+                 if(isset($this->request->get['ajaxRequest']))
+                 {
+                    //print_r($data['options']);
+                    $this->response->addHeader('Content-Type: application/json');
+			        $this->response->setOutput(json_encode($data['options']));
+                 }
 			}
 
 
@@ -641,6 +654,7 @@ class ControllerProductProduct extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
+
 		}
 	}
 
