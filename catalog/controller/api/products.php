@@ -501,6 +501,8 @@ class ControllerApiProducts extends Controller {
 			$data['languageCode']=$this->language->get('code');
 
 			$data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
+
+
 //			foreach($data['optionsWithName'] as $product_option_id =>$option){
 //				echo '$("[name=\''.$option['alias'].'\']").attr("id","input-option'.$product_option_id.'");';
 //			}
@@ -520,6 +522,11 @@ class ControllerApiProducts extends Controller {
             //confetti
 			// if(str_replace(' ','',strtolower($option['name']))=='ballooncolor')
 			//eventtime
+
+
+
+
+
 			$view_template_name='product/product_final';
 			foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
 				$option_name=str_replace(' ','',strtolower($option['name']));
@@ -570,10 +577,16 @@ class ControllerApiProducts extends Controller {
 		        $data=$this->model_catalog_custom_option->addOptionsValues($data);
 			    $data['languageCode']=$this->language->get('code');
 			    $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
+
+	            
+
+
+
+
                  if(isset($this->request->get['ajaxRequest']))
                  {
                     $this->response->addHeader('Content-Type: application/json');
-			        $this->response->setOutput(json_encode($data['options']));
+			        $this->response->setOutput(json_encode($data['optionsWithName']));
                  }
                  
 			}
