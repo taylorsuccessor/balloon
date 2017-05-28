@@ -427,7 +427,8 @@ class ControllerProductProduct extends Controller {
 			    $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
                  if(isset($this->request->get['ajaxRequest']))
                  {
-                    //print_r($data['options']);
+                    // print_r($data['options']);
+                    // die();
                     $this->response->addHeader('Content-Type: application/json');
 			        $this->response->setOutput(json_encode($data['options']));
                  }
