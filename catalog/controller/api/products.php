@@ -575,16 +575,14 @@ class ControllerApiProducts extends Controller {
 				$this->load->model('catalog/custom_option');
 			    
 		        $data=$this->model_catalog_custom_option->addOptionsValues($data);
-			    $data['languageCode']=$this->language->get('code');
+			    //$data['languageCode']=$this->language->get('code');
 			    $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
 
-	            
-
-
-
+	           
 
                  if(isset($this->request->get['ajaxRequest']))
                  {
+                   //var_dump($data['optionsWithName']);die();
                     $this->response->addHeader('Content-Type: application/json');
 			        $this->response->setOutput(json_encode($data['optionsWithName']));
                  }

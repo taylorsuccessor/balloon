@@ -131,6 +131,11 @@ class ControllerAccountWishList extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
+		if( isset($this->request->get['ajaxRequest']))
+		{
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode($data));
+		}
 		$this->response->setOutput($this->load->view('account/wishlist', $data));
 		
 	}
@@ -155,8 +160,11 @@ class ControllerAccountWishList extends Controller {
 				// Edit customers cart
 				$this->load->model('account/wishlist');
 
-				$this->model_account_wishlist->addWishlist($this->request->post['product_id']);
-
+				$data_added = $this->model_account_wishlist->addWishlist($this->request->post['product_id']);
+				if($data_added && isset($this->request->get['ajaxRequest']))
+				{
+					$json['success'] = $this->language->get('text_success');
+				}
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
 				$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
 			} else {
@@ -171,6 +179,7 @@ class ControllerAccountWishList extends Controller {
 				$json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
 
 				$json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+
 			}
 		}
 
