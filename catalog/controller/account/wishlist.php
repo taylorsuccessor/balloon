@@ -174,7 +174,12 @@ class ControllerAccountWishList extends Controller {
 				if (!isset($this->session->data['wishlist'])) {
 					$this->session->data['wishlist'] = array();
 				}
-				echo "hello";die();
+				if(isset($this->request->get['ajaxRequest']))
+				{
+					$json['success'] = $this->language->get('text_success');
+					$this->response->addHeader('Content-Type: application/json');
+					$this->response->setOutput(json_encode($json));
+				}
 				$this->session->data['wishlist'][] = $this->request->post['product_id'];
 
 				$this->session->data['wishlist'] = array_unique($this->session->data['wishlist']);
