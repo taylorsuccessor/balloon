@@ -122,6 +122,8 @@ class ControllerAccountWishList extends Controller {
 			}
 
 		}
+
+
 		$data['continue'] = $this->url->link('account/account', '', true);
         $data['continue_shopping'] = $this->url->link('common/home');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -135,7 +137,7 @@ class ControllerAccountWishList extends Controller {
 		if(isset($this->request->get['ajaxRequest']))
 		{
 			$this->response->addHeader('Content-Type: application/json');
-			$this->response->setOutput(json_encode($result));
+			$this->response->setOutput(json_encode($data['products']));
 		}
 	}
 
