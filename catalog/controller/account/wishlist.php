@@ -131,13 +131,12 @@ class ControllerAccountWishList extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		if( isset($this->request->get['ajaxRequest']))
+		$this->response->setOutput($this->load->view('account/wishlist', $data));
+		if(isset($this->request->get['ajaxRequest']))
 		{
 			$this->response->addHeader('Content-Type: application/json');
-			$this->response->setOutput(json_encode($data));
+			$this->response->setOutput(json_encode($result));
 		}
-		$this->response->setOutput($this->load->view('account/wishlist', $data));
-		
 	}
 
 	public function add() {
