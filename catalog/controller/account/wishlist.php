@@ -162,24 +162,19 @@ class ControllerAccountWishList extends Controller {
 				$this->load->model('account/wishlist');
 
 				$this->model_account_wishlist->addWishlist($this->request->post['product_id']);
-				if(isset($this->request->get['ajaxRequest']))
-				{
-					$json['success'] = $this->language->get('text_success');
-					$this->response->addHeader('Content-Type: application/json');
-					$this->response->setOutput(json_encode($json));
-				}
+
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
 				$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+				if(isset($this->request->get['ajaxRequest'])) {
+					$status = array('status' => 'success');
+					echo json_encode($status);
+					die();
+				}
 			} else {
 				if (!isset($this->session->data['wishlist'])) {
 					$this->session->data['wishlist'] = array();
 				}
-				if(isset($this->request->get['ajaxRequest']))
-				{
-					$json['success'] = $this->language->get('text_success');
-					$this->response->addHeader('Content-Type: application/json');
-					$this->response->setOutput(json_encode($json));
-				}
+
 				$this->session->data['wishlist'][] = $this->request->post['product_id'];
 
 				$this->session->data['wishlist'] = array_unique($this->session->data['wishlist']);
@@ -190,8 +185,8 @@ class ControllerAccountWishList extends Controller {
 
 			}
 		}
-
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+
 	}
 }
