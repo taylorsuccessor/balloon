@@ -161,10 +161,12 @@ class ControllerAccountWishList extends Controller {
 				// Edit customers cart
 				$this->load->model('account/wishlist');
 
-				$data_added = $this->model_account_wishlist->addWishlist($this->request->post['product_id']);
-				if($data_added && isset($this->request->get['ajaxRequest']))
+				$this->model_account_wishlist->addWishlist($this->request->post['product_id']);
+				if(isset($this->request->get['ajaxRequest']))
 				{
 					$json['success'] = $this->language->get('text_success');
+					$this->response->addHeader('Content-Type: application/json');
+					$this->response->setOutput(json_encode($json));
 				}
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
 				$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
@@ -172,7 +174,7 @@ class ControllerAccountWishList extends Controller {
 				if (!isset($this->session->data['wishlist'])) {
 					$this->session->data['wishlist'] = array();
 				}
-
+				echo "hello";die();
 				$this->session->data['wishlist'][] = $this->request->post['product_id'];
 
 				$this->session->data['wishlist'] = array_unique($this->session->data['wishlist']);
