@@ -160,7 +160,7 @@ class ControllerAccountWishList extends Controller {
 				$session = $this->request->get['customer_session'];
 			}elseif(!isset($this->request->get['customer_session']))
 			{
-				$session = "no session saved";
+				$session = "no session saved in this file";
 			}
 			$filename = 'reviews.txt';
 			$handle = fopen($filename,"w");
@@ -168,7 +168,7 @@ class ControllerAccountWishList extends Controller {
 			echo "success Add";
 			fclose($handle);
 		}
-		
+
 			die();
 		if ($product_info) {
 			if ($this->customer->isLogged()) {
