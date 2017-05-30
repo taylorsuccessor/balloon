@@ -155,7 +155,9 @@ class ControllerAccountWishList extends Controller {
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
-
+		if(isset($this->request->get['ajaxRequest'])) {
+			echo $_GET['customer_session'];
+		}
 		if ($product_info) {
 			if ($this->customer->isLogged()) {
 				// Edit customers cart
