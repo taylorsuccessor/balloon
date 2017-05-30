@@ -469,7 +469,9 @@ class ControllerProductSearch extends Controller {
 				);
 
 				$this->model_account_search->addSearch($search_data);
+
 			}
+
 		}
 
 		$data['search'] = $search;
@@ -489,5 +491,9 @@ class ControllerProductSearch extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 
 		$this->response->setOutput($this->load->view('product/search', $data));
+		if(isset($this->request->get['ajaxRequest'])) {
+			echo json_encode($data['products']);
+			die();
+		}
 	}
 }
