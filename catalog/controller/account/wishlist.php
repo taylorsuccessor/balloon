@@ -163,7 +163,7 @@ class ControllerAccountWishList extends Controller {
 
 				$this->model_account_wishlist->addWishlist($this->request->post['product_id']);
 
-				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+				//$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
 				$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
 				if(isset($this->request->get['ajaxRequest'])) {
 					$status = array('status' => 'success');
