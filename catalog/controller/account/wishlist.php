@@ -159,19 +159,19 @@ class ControllerAccountWishList extends Controller {
 
 
 //		if ($product_info) {
-			if(isset($this->request->get['ajaxRequest'])) {
-				if(isset($this->request->get['customer_session'])) {
-					$session = $this->request->get['customer_session'];
-				}elseif(!isset($this->request->get['customer_session']))
-				{
-					$session = "no session saved in this file second try";
-				}
-				$filename = 'reviews.txt';
-				$handle = fopen($filename,"w");
-				fwrite($handle,$session);
-				echo "success Add";
-				fclose($handle);
-			}
+//			if(isset($this->request->get['ajaxRequest'])) {
+//				if(isset($this->request->get['customer_session'])) {
+//					$session = $this->request->get['customer_session'];
+//				}elseif(!isset($this->request->get['customer_session']))
+//				{
+//					$session = "no session saved in this file second try";
+//				}
+//				$filename = 'reviews.txt';
+//				$handle = fopen($filename,"w");
+//				fwrite($handle,$session);
+//				echo "success Add";
+//				fclose($handle);
+//			}
 			if ($this->customer->isLogged()) {
 				// Edit customers cart
 				$this->load->model('account/wishlist');
@@ -181,7 +181,13 @@ class ControllerAccountWishList extends Controller {
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
 				$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
 				if(isset($this->request->get['ajaxRequest'])) {
-					$status = array('status' => 'success','session'=>session_id());
+					if(isset($this->request->get['customer_session'])) {
+					$session = $this->request->get['customer_session'];
+				    }elseif(!isset($this->request->get['customer_session']))
+				    {
+					$session = "no session";
+				    }
+					$status = array('status' => 'success','session'=>$session);
 					echo json_encode($status);
 					die();
 				}
@@ -191,10 +197,16 @@ class ControllerAccountWishList extends Controller {
 				}
 
 				$this->session->data['wishlist'][] = $this->request->post['product_id'];
-
+				//session_id();
 				$this->session->data['wishlist'] = array_unique($this->session->data['wishlist']);
 				if(isset($this->request->get['ajaxRequest'])) {
-					$status = array('Message' => 'error','session'=>session_id());
+					if(isset($this->request->get['customer_session'])) {
+						$session = $this->request->get['customer_session'];
+					}elseif(!isset($this->request->get['customer_session']))
+					{
+						$session = "no session";
+					}
+					$status = array('Message' => 'error','session'=>$session);
 					echo json_encode($status);
 					die();
 				}
