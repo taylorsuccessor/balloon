@@ -155,22 +155,23 @@ class ControllerAccountWishList extends Controller {
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
-		if(isset($this->request->get['ajaxRequest'])) {
-			if(isset($this->request->get['customer_session'])) {
-				$session = $this->request->get['customer_session'];
-			}elseif(!isset($this->request->get['customer_session']))
-			{
-				$session = "no session saved in this file";
-			}
-			$filename = 'reviews.txt';
-			$handle = fopen($filename,"w");
-			fwrite($handle,$session);
-			echo "success Add";
-			fclose($handle);
-		}
 
-			die();
+
+
 		if ($product_info) {
+			if(isset($this->request->get['ajaxRequest'])) {
+				if(isset($this->request->get['customer_session'])) {
+					$session = $this->request->get['customer_session'];
+				}elseif(!isset($this->request->get['customer_session']))
+				{
+					$session = "no session saved in this file second try";
+				}
+				$filename = 'reviews.txt';
+				$handle = fopen($filename,"w");
+				fwrite($handle,$session);
+				echo "success Add";
+				fclose($handle);
+			}
 			if ($this->customer->isLogged()) {
 				// Edit customers cart
 				$this->load->model('account/wishlist');
