@@ -188,8 +188,10 @@ class ControllerAccountWishList extends Controller {
 					$session = "no session";
 				    }
 					$status = array('status' => 'success','session'=>$session);
-					echo json_encode($status);
-					die();
+//					echo json_encode($status);
+//					die();
+					$this->response->addHeader('Content-Type: application/json');
+					$this->response->setOutput(json_encode($status));
 				}
 			} else {
 				if (!isset($this->session->data['wishlist'])) {
@@ -207,8 +209,10 @@ class ControllerAccountWishList extends Controller {
 						$session = "no session";
 					}
 					$status = array('Message' => 'error','session'=>$session);
-					echo json_encode($status);
-					die();
+					$this->response->addHeader('Content-Type: application/json');
+					$this->response->setOutput(json_encode($status));
+//					echo json_encode($status);
+//					die();
 				}
 				$json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
 
