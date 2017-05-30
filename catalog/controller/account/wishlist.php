@@ -178,8 +178,8 @@ class ControllerAccountWishList extends Controller {
 
 				$this->model_account_wishlist->addWishlist($this->request->post['product_id']);
 
-				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
-				$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+				//$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+				//$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
 				if(isset($this->request->get['ajaxRequest'])) {
 					if(isset($this->request->get['customer_session'])) {
 					$session = $this->request->get['customer_session'];
@@ -190,8 +190,9 @@ class ControllerAccountWishList extends Controller {
 					$status = array('status' => 'success','session'=>$session);
 //					echo json_encode($status);
 //					die();
-					$this->response->addHeader('Content-Type: application/json');
-					$this->response->setOutput(json_encode($status));
+//					$this->response->addHeader('Content-Type: application/json');
+//					$this->response->setOutput(json_encode($status));
+					print_r($status);die();
 				}
 			} else {
 				if (!isset($this->session->data['wishlist'])) {
