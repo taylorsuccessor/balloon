@@ -158,7 +158,7 @@ class ControllerAccountWishList extends Controller {
 
 
 
-		if ($product_info) {
+//		if ($product_info) {
 			if(isset($this->request->get['ajaxRequest'])) {
 				if(isset($this->request->get['customer_session'])) {
 					$session = $this->request->get['customer_session'];
@@ -203,7 +203,7 @@ class ControllerAccountWishList extends Controller {
 				$json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
 
 			}
-		}
+//		}
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 
