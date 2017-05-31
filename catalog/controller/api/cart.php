@@ -78,6 +78,12 @@ class ControllerApiCart extends Controller {
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+
+		if(isset($this->request->get['ajaxRequest'])) {
+			echo json_encode($json);
+			die();
+
+		}
 	}
 
 	public function edit() {
