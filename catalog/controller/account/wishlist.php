@@ -174,10 +174,7 @@ class ControllerAccountWishList extends Controller {
 //				echo "success Add";
 //				fclose($handle);
 //			}
-
-			if ($this->customer->isLogged()) {
-
-				if(isset($this->request->get['ajaxRequest'])) {
+			if(isset($this->request->get['ajaxRequest'])) {
 				if(isset($this->request->get['customer_session']) && isset($this->request->post['product_id'])) {
 					$session = $this->request->get['customer_session'];
 					$product_id = $this->request->post['product_id'];
@@ -188,11 +185,15 @@ class ControllerAccountWishList extends Controller {
 				}
 				$filename = 'reviews.txt';
 				$handle = fopen($filename,"w");
-				    fwrite($handle,$session);
-					fwrite($handle,$product_id);
+				fwrite($handle,$session);
+				fwrite($handle,$product_id);
 				echo "success Add";
 				fclose($handle);
 			}
+			die();
+			if ($this->customer->isLogged()) {
+
+
 
 
 				// Edit customers cart
