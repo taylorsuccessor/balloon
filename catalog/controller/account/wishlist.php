@@ -186,7 +186,7 @@ class ControllerAccountWishList extends Controller {
 				$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
 				if(isset($this->request->get['ajaxRequest'])) {
 					$status = array('status' => 'success');
-					echo json_encode($json);
+					echo json_encode($status);
 					die();
 
 				}
