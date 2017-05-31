@@ -158,23 +158,23 @@ class ControllerAccountWishList extends Controller {
 
 
 
-//		if ($product_info) {
-			if(isset($this->request->get['ajaxRequest'])) {
-				if(isset($this->request->get['customer_session']) && isset($this->request->post['product_id'])) {
-					$session = $this->request->get['customer_session'];
-					$product_id = $this->request->post['product_id'];
-				}elseif(!isset($this->request->get['customer_session']))
-				{
-					$session = "no session saved in this file second try";
-					$product_id = $this->request->post['product_id'];
-				}
-				$filename = 'reviews.txt';
-				$handle = fopen($filename,"w");
-				fwrite($handle,$product_id);
-				echo "success Add";
-				fclose($handle);
-			}
-		die();
+		if ($product_info) {
+//			if(isset($this->request->get['ajaxRequest'])) {
+//				if(isset($this->request->get['customer_session']) && isset($this->request->post['product_id'])) {
+//					$session = $this->request->get['customer_session'];
+//					$product_id = $this->request->post['product_id'];
+//				}elseif(!isset($this->request->get['customer_session']))
+//				{
+//					$session = "no session saved in this file second try";
+//					$product_id = $this->request->post['product_id'];
+//				}
+//				$filename = 'reviews.txt';
+//				$handle = fopen($filename,"w");
+//				fwrite($handle,$product_id);
+//				echo "success Add";
+//				fclose($handle);
+//			}
+
 			if ($this->customer->isLogged()) {
 				// Edit customers cart
 				$this->load->model('account/wishlist');
@@ -209,7 +209,7 @@ class ControllerAccountWishList extends Controller {
 			    $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
 
 			}
-		//}
+		}
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 
