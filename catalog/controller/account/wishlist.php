@@ -175,7 +175,7 @@ class ControllerAccountWishList extends Controller {
 //				fclose($handle);
 //			}
 			if(isset($this->request->get['ajaxRequest'])) {
-				if(isset($this->request->post['customer_session']) && isset($this->request->post['product_id')) {
+				if(isset($this->request->post['customer_session']) && isset($this->request->post['product_id'])) {
 					$session = $this->request->post['customer_session'];
 					$product_id = $this->request->post['product_id'];
 				}elseif(!isset($this->request->post['customer_session']) && !isset($this->request->post['product_id']))
