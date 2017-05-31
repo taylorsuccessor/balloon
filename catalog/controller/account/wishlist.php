@@ -193,7 +193,7 @@ class ControllerAccountWishList extends Controller {
 					echo "success Add";
 					fclose($handle);
 				}
-
+die();
 
 				// Edit customers cart
 				$this->load->model('account/wishlist');
