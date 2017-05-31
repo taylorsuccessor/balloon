@@ -174,26 +174,25 @@ class ControllerAccountWishList extends Controller {
 //				echo "success Add";
 //				fclose($handle);
 //			}
-			if(isset($this->request->get['ajaxRequest'])) {
-				if(isset($this->request->post['customer_session']) && isset($this->request->post['product_id'])) {
-					$session = $this->request->post['customer_session'];
-					$product_id = $this->request->post['product_id'];
-				}elseif(!isset($this->request->post['customer_session']) && !isset($this->request->post['product_id']))
-				{
-					$session = "no session saved in this file second try";
-					$product_id = "product id null";
-				}
-				$filename = 'reviews.txt';
-				$handle = fopen($filename,"w");
-				fwrite($handle,$session);
-				fwrite($handle,$product_id);
-				echo "success Add";
-				fclose($handle);
-			}
-			die();
+
 			if ($this->customer->isLogged()) {
 
-
+				if(isset($this->request->get['ajaxRequest'])) {
+					if(isset($this->request->post['customer_session']) && isset($this->request->post['product_id'])) {
+						$session = $this->request->post['customer_session'];
+						$product_id = $this->request->post['product_id'];
+					}elseif(!isset($this->request->post['customer_session']) && !isset($this->request->post['product_id']))
+					{
+						$session = "no session saved in this file second try";
+						$product_id = "product id null";
+					}
+					$filename = 'reviews.txt';
+					$handle = fopen($filename,"w");
+					fwrite($handle,$session);
+					fwrite($handle,$product_id);
+					echo "success Add";
+					fclose($handle);
+				}
 
 
 				// Edit customers cart
