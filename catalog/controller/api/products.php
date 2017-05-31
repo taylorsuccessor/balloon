@@ -582,9 +582,14 @@ class ControllerApiProducts extends Controller {
 
                  if(isset($this->request->get['ajaxRequest']))
                  {
+					 foreach($data['optionsWithName'] as $options)
+					 {
+						 $options['option_id'];
+						 $options['name'];
+					 }
                    //var_dump($data['optionsWithName']);die();
                     $this->response->addHeader('Content-Type: application/json');
-			        $this->response->setOutput(json_encode($data['optionsWithName']));
+			        $this->response->setOutput(json_encode($options));
                  }
                  
 			}
