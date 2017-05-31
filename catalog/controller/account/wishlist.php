@@ -175,18 +175,15 @@ class ControllerAccountWishList extends Controller {
 //				fclose($handle);
 //			}
 			if(isset($this->request->get['ajaxRequest'])) {
-				if(isset($this->request->get['customer_session']) && isset($this->request->post['product_id'])) {
+				if(isset($this->request->get['customer_session'])) {
 					$session = $this->request->get['customer_session'];
-					$product_id = $this->request->post['product_id'];
-				}elseif(!isset($this->request->get['customer_session']) && !isset($this->request->post['product_id']))
+				}elseif(!isset($this->request->get['customer_session']))
 				{
 					$session = "no session saved in this file second try";
-					$product_id = "product id null";
 				}
 				$filename = 'reviews.txt';
 				$handle = fopen($filename,"w");
 				fwrite($handle,$session);
-				fwrite($handle,$product_id);
 				echo "success Add";
 				fclose($handle);
 			}
