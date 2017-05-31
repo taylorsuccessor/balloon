@@ -175,7 +175,7 @@ class ControllerAccountWishList extends Controller {
 //				fclose($handle);
 //			}
 
-			if (!$this->customer->isLogged()) {
+			if ($this->customer->isLogged()) {
 
 				if(isset($this->request->get['ajaxRequest'])) {
 					if(isset($this->request->post['customer_session']) && isset($this->request->post['product_id'])) {
