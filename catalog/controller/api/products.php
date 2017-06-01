@@ -584,21 +584,14 @@ class ControllerApiProducts extends Controller {
 				$finalOptions=[];
                     foreach($data['optionsWithName'] as $option)
 					{
-						
 						foreach($option['values']['en'] as $optionItem){
 
-							$finalOptions[$option['alias']][$optionItem['value']]=$optionItem['name'];
+							$finalOptions[$option['alias']][]=['id'=>$optionItem['value'],'name'=>$optionItem['name']];
 						}
 
 					}
 				//die(var_dump($finalOptions));
-//				$c=$data['optionsWithName'];
-//				//print_r($c);
-//				$aa =array();
-//				array_map(function ($var) {
-//					$aa['name'] = $var['name'];
-//					$aa['option'] = $var['option_id'];
-//				}, $data['optionsWithName']);
+
 
 //var_dump($data['optionsWithName']);die();
 				$this->response->addHeader('Content-Type: application/json');
