@@ -577,19 +577,33 @@ class ControllerApiProducts extends Controller {
 		        $data=$this->model_catalog_custom_option->addOptionsValues($data);
 			    //$data['languageCode']=$this->language->get('code');
 			    $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
-
-	           
-
-                 if(isset($this->request->get['ajaxRequest']))
-                 {
-
-                   //var_dump($data['optionsWithName']);die();
-					 $this->response->addHeader('Content-Type: application/json');
-					 $this->response->setOutput(json_encode($data['optionsWithName']));
-                 }
                  
 			}
-                
+			if(isset($this->request->get['ajaxRequest']))
+			{
+				$finalOptions=[];
+                    foreach($data['optionsWithName'] as $option)
+					{
+						
+						foreach($option['values']['en'] as $optionItem){
+
+							$finalOptions[$option['alias']][$optionItem['value']]=$optionItem['name'];
+						}
+
+					}
+				//die(var_dump($finalOptions));
+//				$c=$data['optionsWithName'];
+//				//print_r($c);
+//				$aa =array();
+//				array_map(function ($var) {
+//					$aa['name'] = $var['name'];
+//					$aa['option'] = $var['option_id'];
+//				}, $data['optionsWithName']);
+
+//var_dump($data['optionsWithName']);die();
+				$this->response->addHeader('Content-Type: application/json');
+				$this->response->setOutput(json_encode($finalOptions));
+			}
 				//return $this->response->setOutput($this->load->view($view_template_name, $data));
 
 			//end add by gholeh 10-04-2017
