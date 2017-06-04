@@ -73,6 +73,8 @@ class ControllerAccountAddress extends Controller {
 	}
 
 	public function edit() {
+		$this->load->model('catalog/custom_field');
+		$this->request->post=$this->model_catalog_custom_field->fixRequest($this->request->post);
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/address', '', true);
 			$this->response->redirect($this->url->link('account/login', '', true));
@@ -297,7 +299,12 @@ class ControllerAccountAddress extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->view('account/address_list', $data,['addresses']));
+		$data['custom_field']=$result['custom_field'];
+
+		$this->load->model('catalog/custom_field');
+		$data=$this->model_catalog_custom_field->fixNamesRequest($data);
+		$this->response->setOutput($this->view('account/address_list', $data,['addresses','addressData']));
+
 	}
 
 	protected function getForm() {

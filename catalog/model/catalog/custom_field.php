@@ -13,6 +13,13 @@ class ModelCatalogCustomField extends Model {
 return $requestArray;
 	}
 
+	public function fixNamesRequest($requestArray){
+
+		$this->convertCustomFieldsArrayToOneName($requestArray);
+
+
+		return $requestArray;
+	}
 
 	public function setLanguages()
 	{
@@ -78,20 +85,25 @@ return $requestArray;
 
 	public function convertCustomFieldsArrayToOneName(&$requestArray){
 		$originCustomFields=$this->getCustomFields();
+
+		$requestArray['addressData']=[];
 		if(isset($requestArray['custom_field']) && is_array($requestArray['custom_field'])){
 
 			foreach($requestArray['custom_field'] as $custom_field_id=>$value){
 				if(isset($originCustomFields[$custom_field_id])){
-					$requestArray[$custom_field_id[$custom_field_id]['alias']]=$value;
+					$requestArray[$originCustomFields[$custom_field_id]['alias']]=$value;
+					$requestArray['addressData'][$originCustomFields[$custom_field_id]['alias']]=$value;
 				}
 			}
 
 		}
 
+
 	}
 
 	public function convertOneNameToCustomFieldsArray(&$requestArray){
 		$originCustomFields=$this->getCustomFields();
+
 			foreach($originCustomFields as  $custom_field_id=>$value){
 				if(isset($requestArray[$value['alias']])){
 					$requestArray['custom_field'][$custom_field_id]=$requestArray[$value['alias']];
