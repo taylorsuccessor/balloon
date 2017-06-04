@@ -127,7 +127,7 @@ class ControllerAccountOrder extends Controller {
 		if(isset($this->request->get['ajaxRequest'])){
 			header('Content-Type: application/json');
 			echo json_encode($data['orders']);exit();
-		}		
+		}
 		$this->response->setOutput($this->load->view('account/order_list', $data));
 	}
     

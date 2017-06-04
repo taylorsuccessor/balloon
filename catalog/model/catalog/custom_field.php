@@ -101,6 +101,26 @@ return $requestArray;
 
 	}
 
+	public function convertAddressesCustomFieldsToName($addressesCustomFields){
+		$originCustomFields=$this->getCustomFields();
+
+		$addressesData=[];
+
+		foreach($addressesCustomFields as $key=>$addressCustomFields){
+
+			foreach($addressCustomFields as $custom_field_id=>$value){
+				if(isset($originCustomFields[$custom_field_id])){
+					$addressesData[$key][$originCustomFields[$custom_field_id]['alias']]=$value;
+				}
+			}
+
+		}
+
+
+		return $addressesData;
+
+	}
+
 	public function convertOneNameToCustomFieldsArray(&$requestArray){
 		$originCustomFields=$this->getCustomFields();
 

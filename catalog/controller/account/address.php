@@ -244,6 +244,8 @@ class ControllerAccountAddress extends Controller {
 		$results = $this->model_account_address->getAddresses(isset($this->request->get['address_id'])? $this->request->get['address_id']:'');
 
 		foreach ($results as $result) {
+			$data['custom_field']=$result['custom_field'];
+
 			if ($result['custom_field']) {
 				foreach ($result['custom_field'] as $custom_value) {
 					
@@ -299,11 +301,19 @@ class ControllerAccountAddress extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$data['custom_field']=$result['custom_field'];
 
 		$this->load->model('catalog/custom_field');
 		$data=$this->model_catalog_custom_field->fixNamesRequest($data);
-		$this->response->setOutput($this->view('account/address_list', $data,['addresses','addressData']));
+
+		$oAllAddressResults = $this->model_account_address->getAddresses();
+		$aAllAddressResults=[];
+		foreach ($oAllAddressResults as $result) {
+			$aAllAddressResults[]=$result['custom_field'];
+		}
+		$data['allAddressResults']=$this->model_catalog_custom_field->convertAddressesCustomFieldsToName($aAllAddressResults);
+
+
+		$this->response->setOutput($this->view('account/address_list', $data,['addresses','addressData','allAddressResults']));
 
 	}
 
