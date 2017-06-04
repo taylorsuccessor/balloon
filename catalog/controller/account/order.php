@@ -124,7 +124,10 @@ class ControllerAccountOrder extends Controller {
 
 		$data['text_sort_by'] = $this->language->get('text_sort_by');
 
-
+		if(isset($this->request->get['ajaxRequest'])){
+			header('Content-Type: application/json');
+			echo json_encode($data['orders']);exit();
+		}		
 		$this->response->setOutput($this->load->view('account/order_list', $data));
 	}
     
