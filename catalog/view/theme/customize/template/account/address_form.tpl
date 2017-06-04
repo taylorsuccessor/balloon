@@ -125,7 +125,7 @@
               <div class="text-danger"><?php echo $error_custom_field[$custom_field['custom_field_id']]; ?></div>
               <?php } ?>
           </div>
-          <?php }else{?>
+          <?php }else {?>
             <div class="col-md-3 col-sm-4 col-xs-6 for-small <?php echo ($custom_field['required'] ? ' required' : ''); ?> custom-field" data-sort="<?php echo $custom_field['sort_order']; ?>">
             <label class=" control-label labelfloat" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>
               <input type="text" name="custom_field[<?php echo $custom_field['custom_field_id']; ?>]" value="<?php echo (isset($address_custom_field[$custom_field['custom_field_id']]) ? $address_custom_field[$custom_field['custom_field_id']] : $custom_field['value']); ?>" placeholder="<?php echo $custom_field['name']; ?>" id="input-custom-field<?php echo $custom_field['custom_field_id']; ?>" class="form-control" />
@@ -204,6 +204,26 @@
           <?php } ?>
           <?php } ?>
           <?php } ?>
+                <div class="col-md-12 col-sm-4 col-xs-6 for-small">
+                   <label class="col-sm-2 default-address"><?php echo $entry_default; ?></label>
+                    <div class="col-sm-6">
+                      <?php if ($default) { ?>
+                      <label class="radio-inline">
+                        <input type="radio" name="default" value="1" checked="checked" />
+                        <?php echo $text_yes; ?></label>
+                      <label class="radio-inline">
+                        <input type="radio" name="default" value="0" />
+                        <?php echo $text_no; ?></label>
+                      <?php }else { ?>
+                      <label class="radio-inline">
+                        <input type="radio" name="default" value="1" />
+                        <?php echo $text_yes; ?></label>
+                      <label class="radio-inline">
+                        <input type="radio" name="default" value="0" checked="checked" />
+                        <?php echo $text_no; ?></label>
+                      <?php } ?>
+                    </div>
+                </div>
           <div class="col-md-3 col-sm-4 col-xs-6 for-small">
             <input type="submit" class="editinfo" value="<?php echo $button_continue; ?>" />
           </div>

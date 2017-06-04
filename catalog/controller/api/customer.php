@@ -89,6 +89,7 @@ class ControllerApiCustomer extends Controller {
 
 				$json['success'] = $this->language->get('text_success');
 			}
+
 		}
 
 		if (isset($this->request->server['HTTP_ORIGIN'])) {

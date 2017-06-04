@@ -3661,3 +3661,9 @@ header .top-nav-left ul li{margin: 0px 3px;}
 .thumbnail{
 	border:none;
 }
+.col-sm-2 .default-address{
+
+	padding-top: 7px;
+	margin-bottom: 0;
+	text-align: left;
+}

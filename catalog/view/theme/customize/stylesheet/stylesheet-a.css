@@ -3390,3 +3390,9 @@ header .top-nav-left ul li:first-child
 .accordion_in {
 	right:0 !important;
 }
+.col-sm-2 .default-address{
+
+	padding-top: 7px;
+	margin-bottom: 0;
+	text-align: right;
+}

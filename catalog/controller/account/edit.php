@@ -108,10 +108,6 @@
         //$data['entry_area'] = $this->language->get('entry_area');
 
 
-        
-        
-        
-        
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -156,6 +152,11 @@
 			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 		//	print_r($customer_info);exit;
 		}
+
+		if (isset($this->request->post['address_id'])) {
+			$data['address_id'] = $this->request->post['address_id'];
+		}
+		$data['address_id'] = $this->customer->getAddressId();
 
 		if (isset($this->request->post['firstname'])) {
 			$data['firstname'] = $this->request->post['firstname'];
@@ -237,7 +238,8 @@
        //var_dump($data);
         $account_info=$data['account_custom_field'];
         $data["our_full_name"]= $account_info[13];
-		$this->response->setOutput($this->view('account/edit', $data,["our_full_name","email","telephone"]));
+
+		$this->response->setOutput($this->view('account/edit', $data,["our_full_name","email","telephone","address_id"]));
 	}
 
 	protected function validate() {
