@@ -239,7 +239,7 @@ class ControllerAccountAddress extends Controller {
 
 		$data['addresses'] = array();
 
-		$results = $this->model_account_address->getAddresses();
+		$results = $this->model_account_address->getAddresses(isset($this->request->get['address_id'])? $this->request->get['address_id']:'');
 
 		foreach ($results as $result) {
 			if ($result['custom_field']) {
@@ -296,6 +296,7 @@ class ControllerAccountAddress extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+
 		$this->response->setOutput($this->view('account/address_list', $data,['addresses']));
 	}
 

@@ -89,10 +89,10 @@ class ModelAccountAddress extends Model {
 		}
 	}
 
-	public function getAddresses() {
+	public function getAddresses($address_id='') {
 		$address_data = array();
 
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "address WHERE customer_id = '" . (int)$this->customer->getId() . "'");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "address WHERE ".(($address_id !='')? "address_id='".$address_id."' and ":"")." customer_id = '" . (int)$this->customer->getId() . "'");
 
 		foreach ($query->rows as $result) {
 			$country_query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "country` WHERE country_id = '" . (int)$result['country_id'] . "'");
