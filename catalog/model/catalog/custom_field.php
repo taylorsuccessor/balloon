@@ -107,12 +107,15 @@ return $requestArray;
 		$addressesData=[];
 
 		foreach($addressesCustomFields as $key=>$addressCustomFields){
-
-			foreach($addressCustomFields as $custom_field_id=>$value){
-				if(isset($originCustomFields[$custom_field_id])){
-					$addressesData[$key][$originCustomFields[$custom_field_id]['alias']]=$value;
+			if(is_array($addressCustomFields))
+			{
+				foreach($addressCustomFields as $custom_field_id=>$value){
+					if(isset($originCustomFields[$custom_field_id])){
+						$addressesData[$key][$originCustomFields[$custom_field_id]['alias']]=$value;
+					}
 				}
 			}
+
 
 		}
 
