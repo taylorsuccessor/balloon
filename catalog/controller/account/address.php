@@ -313,11 +313,13 @@ class ControllerAccountAddress extends Controller {
 		}
 
 		$data['allAddressResults']=$this->model_catalog_custom_field->convertAddressesCustomFieldsToName($aAllAddressResults);
-
+$newAllAddressResults=[];
 		foreach($data['allAddressResults'] as $address_id=>&$addressData){
 			$addressData['address_id']=$address_id;
+			$newAllAddressResults[]=$addressData;
 		}
-		$this->response->setOutput($this->view('account/address_list', $data,['addresses','addressData','allAddressResults']));
+		$data['newAllAddressResults']=$newAllAddressResults;
+		$this->response->setOutput($this->view('account/address_list', $data,['addresses','addressData','newAllAddressResults']));
 
 	}
 
