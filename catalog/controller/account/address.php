@@ -123,8 +123,9 @@ class ControllerAccountAddress extends Controller {
 				$this->model_account_activity->addActivity('address_edit', $activity_data);
 
 			}
+			$data['message'] = $this->session->data['success'];
 
-			$this->response->redirect($this->url->link('account/address', '', true));
+			$this->redirect($this->url->link('account/address', true),$data,['message']);
 		}
 
 
