@@ -309,7 +309,7 @@ class ControllerAccountAddress extends Controller {
 		$aAllAddressResults=[];
 		foreach ($oAllAddressResults as $result) {
 //			$aAllAddressResults[$result['address_id']]=$result['custom_field'];
-			$aAllAddressResults[]=$result['custom_field'];
+			$aAllAddressResults[$result['address_id']]=$result['custom_field'];
 		}
 
 		$data['allAddressResults']=$this->model_catalog_custom_field->convertAddressesCustomFieldsToName($aAllAddressResults);
