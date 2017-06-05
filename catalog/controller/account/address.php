@@ -308,11 +308,15 @@ class ControllerAccountAddress extends Controller {
 		$oAllAddressResults = $this->model_account_address->getAddresses();
 		$aAllAddressResults=[];
 		foreach ($oAllAddressResults as $result) {
-			$aAllAddressResults[]=$result['custom_field'];
+
+			$aAllAddressResults[$result['address_id']]=$result['custom_field'];
 		}
+
 		$data['allAddressResults']=$this->model_catalog_custom_field->convertAddressesCustomFieldsToName($aAllAddressResults);
 
-
+		foreach($data['allAddressResults'] as $address_id=>&$addressData){
+			$addressData['address_id']=$address_id;
+		}
 		$this->response->setOutput($this->view('account/address_list', $data,['addresses','addressData','allAddressResults']));
 
 	}
