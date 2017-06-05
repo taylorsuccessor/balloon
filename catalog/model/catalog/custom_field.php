@@ -107,7 +107,7 @@ return $requestArray;
 		$addressesData=[];
 
 		foreach($addressesCustomFields as $key=>$addressCustomFields){
-			if(is_array($addressCustomFields))
+			if(is_array($addressCustomFields) || is_object($addressCustomFields))
 			{
 				foreach($addressCustomFields as $custom_field_id=>$value){
 					if(isset($originCustomFields[$custom_field_id])){
