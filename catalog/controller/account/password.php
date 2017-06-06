@@ -31,8 +31,12 @@ class ControllerAccountPassword extends Controller {
 
 				$this->model_account_activity->addActivity('password', $activity_data);
 			}
+			$this->redirect($this->url->link('account/account'),['status'=>'success']);
 
-			$this->response->redirect($this->url->link('account/account', '', true));
+			//$this->response->redirect($this->url->link('account/account', '', true));
+		}if(isset($this->request->get['ajaxRequest'])){
+			header('Content-Type: application/json');
+			echo json_encode(['status'=>$this->error]);exit();
 		}
 
 		$data['breadcrumbs'] = array();
@@ -109,7 +113,10 @@ class ControllerAccountPassword extends Controller {
 		$data['text_my_orders'] = $this->language->get('text_my_orders');
 		$data['text_password'] = $this->language->get('text_password');
 
+
 		$this->response->setOutput($this->load->view('account/password', $data));
+
+
 	}
 
 	protected function validate() {
