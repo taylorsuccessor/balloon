@@ -123,8 +123,9 @@ class ControllerAccountAddress extends Controller {
 				$this->model_account_activity->addActivity('address_edit', $activity_data);
 
 			}
+			$this->redirect($this->url->link('account/success'),['status'=>'success']);
 
-			$this->response->redirect($this->url->link('account/address', '', true));
+			//$this->response->redirect($this->url->link('account/address', '', true));
 		}elseif (isset($this->request->get['ajaxRequest']) && !$this->validateForm()){
 			header('Content-Type: application/json');
 			echo json_encode(['status'=>$this->error]);exit();
