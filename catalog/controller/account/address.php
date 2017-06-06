@@ -308,6 +308,7 @@ class ControllerAccountAddress extends Controller {
 
 		$this->load->model('catalog/custom_field');
 		$data=$this->model_catalog_custom_field->fixNamesRequest($data);
+//var_dump($data['addressData']);die();
 
 		$oAllAddressResults = $this->model_account_address->getAddresses();
 		$aAllAddressResults=[];
@@ -318,9 +319,9 @@ class ControllerAccountAddress extends Controller {
 
 		$data['allAddressResults']=$this->model_catalog_custom_field->convertAddressesCustomFieldsToName($aAllAddressResults);
         $AddressesResults=[];
-		foreach($data['allAddressResults'] as $address_id=>&$addressData){
-			$addressData['address_id']=$address_id;
-			$AddressesResults[]=$addressData;
+		foreach($data['allAddressResults'] as $address_id=>&$oneAddressData){
+			$oneAddressData['address_id']=$address_id;
+			$AddressesResults[]=$oneAddressData;
 		}
 		$data['addressesResults']=$AddressesResults;
 		$this->response->setOutput($this->view('account/address_list', $data,['addresses','addressData','addressesResults']));
