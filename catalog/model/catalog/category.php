@@ -192,4 +192,76 @@ $this->load->model('tool/image');
 
 	}
 
+
+	public function getCategoryApi($parentIdArray){
+		$category_id=$parentIdArray[count($parentIdArray)- 1 ];
+
+
+		$categories = $this->getCategories($category_id);
+
+
+		$final_categories = array();
+		foreach ($categories as $category)
+		{
+			$newParentIdArray=$parentIdArray;
+			$newParentIdArray[count($parentIdArray)]=$category['category_id'];
+
+			$level_data = array(
+				'category_id'=>$category['category_id'],
+				'name' => $category['name'],
+			);
+
+//			$children=$this->getCategoryChildrenWithProducts($newParentIdArray);
+//
+//
+//			if(count($children) ){
+//				foreach($children as $child){
+//
+//					$level_data['children'][] =$child;
+//				}
+//
+//			}
+
+			$this->load->model('catalog/product');
+			$this->load->model('tool/image');
+
+			$products = $this->model_catalog_product->getProducts(['filter_category_id'=>$category['category_id']]);
+
+
+
+//			if(count($products)){
+//
+//				$productsLinks=[];
+//				foreach($products as $product){
+//					$productsLinks[] = array(
+//						'product_id'=>$product['product_id'],
+//						'name' => $product['name'],
+//					);
+//				}
+//				if(isset($level_data['children'])){
+//					$level_data['children']=array_merge($productsLinks,$level_data['children']);
+//				}else{
+//					$level_data['children']=	$productsLinks;
+//
+//				}
+//			}
+
+
+
+			$final_categories[]=$level_data;
+		}
+
+
+
+
+
+
+		return $final_categories;
+
+	}
+
+
+
+
+
 }

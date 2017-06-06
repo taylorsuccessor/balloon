@@ -7,7 +7,7 @@ class ControllerApiServices extends Controller {
 
         $this->load->model('catalog/product');
 
-        // $data['categories'] = array();
+         $Allcategories = array();
 
         $categories = $this->model_catalog_category->getCategories(0);
 
@@ -16,12 +16,19 @@ class ControllerApiServices extends Controller {
 
 
         if(isset($this->request->get['ajaxRequest'])){
-            $leftCategoriesList = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
-            $data['leftCategories']=$leftCategoriesList;
+            $leftCategoriesList = $this->model_catalog_category->getCategoryApi([$eventsLeftId]);
 
-            $data['rightCategories'] = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsRightId]);
+            foreach($leftCategoriesList as $left){
+                $Allcategories[] = $left;
+            }
+
+            $rightCategoriesList = $this->model_catalog_category->getCategoryApi([$eventsRightId]);
+            foreach($rightCategoriesList as $right){
+                $Allcategories[] = $right;
+            }
+
             $this->response->addHeader('Content-Type: application/json');
-            $this->response->setOutput(json_encode($data));
+            $this->response->setOutput(json_encode($Allcategories));
         }
 
     }
