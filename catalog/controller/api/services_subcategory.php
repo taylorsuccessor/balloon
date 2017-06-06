@@ -11,9 +11,13 @@ class ControllerApiServicesSubcategory extends Controller {
         $categories = $this->model_catalog_category->getCategories(0);
 
 
-        //list($eventsLeftId,$eventsRightId,$productsLeftId,$productsRightId)=$this->model_catalog_category->getMainMenuCategory();
-
-        $eventsLeftId = $this->request->get['category_id'];
+        if(isset($this->request->get['category_id']))
+        {
+            $eventsLeftId = $this->request->get['category_id'];
+        }elseif(!isset($this->request->get['category_id']))
+        {
+            $eventsLeftId =0;
+        }
         if(isset($this->request->get['ajaxRequest'])){
             $leftCategoriesList = $this->model_catalog_category->getSubCategoryApi([$eventsLeftId]);
 
