@@ -177,7 +177,7 @@ class ControllerProductEvent extends Controller {
 		$this->session->data['guest']['lastname']  = $this->request->post['lastname'];
 		$this->session->data['guest']['email']     = $this->request->post['email'];
 		$this->session->data['guest']['telephone'] = $this->request->post['telephone'];
-		$this->session->data['guest']['location']  = $this->request->post['location'];
+		//$this->session->data['guest']['location']  = $this->request->post['location'];
 		$this->session->data['guest']['category']  = $this->request->post['category'];
 
 
@@ -205,9 +205,18 @@ class ControllerProductEvent extends Controller {
                 $data['error_telephone'] = '';
             }
 
+            if(isset($this->request->get['ajaxRequest'])) {
+                $this->redirect($this->url->link('product/event'), ['status' => 'success']);
+            }
 
             return $this->response->redirect($this->url->link('product/event', 'category_id=' . $this->request->post['category'], true));
 
+        }elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && !$this->validate()){
+
+            if(isset($this->request->get['ajaxRequest'])){
+                header('Content-Type: application/json');
+                echo json_encode(['status'=>$this->error]);exit();
+            }
         }
 
         $data['content_bottom'] = $this->load->controller('common/content_bottom');
