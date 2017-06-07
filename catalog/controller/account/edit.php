@@ -237,6 +237,7 @@
         $data['password'] = $this->url->link('account/password', '', true);
        //var_dump($data);
         $account_info=$data['account_custom_field'];
+		print_r($account_info);die();
         $data["our_full_name"]= $account_info[13];
 		$data["country_code"] = $account_info[12];
 		$this->response->setOutput($this->view('account/edit', $data,["our_full_name","email","country_code","telephone","address_id"]));
