@@ -238,8 +238,8 @@
        //var_dump($data);
         $account_info=$data['account_custom_field'];
         $data["our_full_name"]= $account_info[13];
-
-		$this->response->setOutput($this->view('account/edit', $data,["our_full_name","email","telephone","address_id"]));
+		$data["country_code"] = $account_info[12];
+		$this->response->setOutput($this->view('account/edit', $data,["our_full_name","email","country_code","telephone","address_id"]));
 	}
 
 	protected function validate() {
