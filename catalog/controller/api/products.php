@@ -584,11 +584,12 @@ class ControllerApiProducts extends Controller {
 				$finalOptions=[];
                     foreach($data['optionsWithName'] as $option)
 					{
-						foreach($option['values']['en'] as $optionItem){
+						if(isset($option['values'])) {
+							foreach ($option['values']['en'] as $optionItem) {
 
-							$finalOptions[$option['alias']][]=['id'=>$optionItem['value'],'name'=>$optionItem['name']];
+								$finalOptions[$option['alias']][] = ['id' => $optionItem['value'], 'name' => $optionItem['name']];
+							}
 						}
-
 					}
 				//die(var_dump($finalOptions));
 

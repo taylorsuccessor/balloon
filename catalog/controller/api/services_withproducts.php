@@ -20,7 +20,7 @@ class ControllerApiServicesWithproducts extends Controller {
             $eventsLeftId =0;
         }
         if(isset($this->request->get['ajaxRequest'])){
-            $leftCategoriesList = $this->model_catalog_category->getMainMenuCategory([$category_id]);
+            $leftCategoriesList = $this->model_catalog_category->getCategory([$category_id]);
 
             foreach($leftCategoriesList as $left){
                 $Allcategories[] = $left;

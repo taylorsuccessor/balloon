@@ -952,7 +952,22 @@ $product_id=0;
 
             $data['product_id']=$this->request->get['product_id'];
             $data['eventSummaryLink']=$this->url->link('product/event_summary_final', '');
-			return $this->response->setOutput($this->view('product/event', $data,['options','air_values']));
+
+            
+            $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
+            $finalOptions=[];
+
+            foreach($data['optionsWithName'] as $option)
+            {
+                if(isset($option['values'])){
+                foreach($option['values']['en'] as $optionItem){
+
+                    $finalOptions[$option['alias']][]=['id'=>$optionItem['value'],'name'=>$optionItem['name']];
+                }
+                }
+            $data['all_options']=$finalOptions;
+            }
+			return $this->response->setOutput($this->view('product/event', $data,['all_options']));
 		} else {
             $url = '';
 
