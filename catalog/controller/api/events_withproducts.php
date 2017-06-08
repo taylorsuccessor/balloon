@@ -1,6 +1,6 @@
 <?php
 
-class ControllerApiServicesWithproducts extends Controller {
+class ControllerApiEventsWithproducts extends Controller {
     public function index() {
         $this->load->language('product/category');
 
