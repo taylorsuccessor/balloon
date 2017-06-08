@@ -82,7 +82,7 @@ class ControllerProductCategory extends Controller {
 				}
 			}
 		} elseif(isset($this->request->get['ajaxRequest'])) {
-			
+
 			$category_id = $_GET['cat_id'];
 			$this->request->get['path'] = $this->request->get['cat_id'];
 

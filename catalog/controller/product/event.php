@@ -953,7 +953,7 @@ $product_id=0;
             $data['product_id']=$this->request->get['product_id'];
             $data['eventSummaryLink']=$this->url->link('product/event_summary_final', '');
 
-            
+
             $data['optionsWithName']=$this->model_catalog_custom_option->getOptions($this->request->get['product_id']);
             $finalOptions=[];
 

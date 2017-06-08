@@ -591,10 +591,7 @@ class ControllerApiProducts extends Controller {
 							}
 						}
 					}
-				//die(var_dump($finalOptions));
 
-
-//var_dump($data['optionsWithName']);die();
 				$this->response->addHeader('Content-Type: application/json');
 				$this->response->setOutput(json_encode($finalOptions));
 			}
