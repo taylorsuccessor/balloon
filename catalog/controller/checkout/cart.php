@@ -460,9 +460,9 @@ class ControllerCheckoutCart extends Controller {
 		$this->load->language('checkout/cart');
 
 		$json = array();
-
 		// Remove
 		if (isset($this->request->post['key'])) {
+
 			$this->cart->remove($this->request->post['key']);
 
 			unset($this->session->data['vouchers'][$this->request->post['key']]);
@@ -521,7 +521,10 @@ class ControllerCheckoutCart extends Controller {
 
 			$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
 		}
-
+if(isset($this->request->get['ajaxRequest']))
+{
+	echo $json['success'];
+}
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
