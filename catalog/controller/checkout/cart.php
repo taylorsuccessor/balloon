@@ -293,8 +293,10 @@ class ControllerCheckoutCart extends Controller {
 		}
 		if(isset($this->request->get['ajaxRequest']))
 		{
-			echo json_encode($data['products']);
-			die();
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode($data['products']));
+			//echo json_encode($data['products']);
+			//die();
 		}
 	}
 
