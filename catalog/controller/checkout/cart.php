@@ -520,10 +520,10 @@ class ControllerCheckoutCart extends Controller {
 			}
 
 			$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
-			if(isset($this->request->get['ajaxRequest']))
-			{
-				echo $json['success'];
-			}
+//			if(isset($this->request->get['ajaxRequest']))
+//			{
+//				echo $json['success'];
+//			}
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
