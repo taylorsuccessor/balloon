@@ -325,14 +325,13 @@ class ControllerProductEvent extends Controller {
 
 
         }
-
         foreach ($existReservation as $date => &$times) {
             if (count($times['times']) >= count($option_value)) {
                 $times['reserved'] = true;
             }
         }
 
-
+//print_r($existReservation);
         return [$existReservation, $option_value];
 
     }

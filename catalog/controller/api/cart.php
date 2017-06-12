@@ -1,6 +1,7 @@
 <?php
 class ControllerApiCart extends Controller {
 	public function add() {
+
 		$this->load->language('api/cart');
 
 		$json = array();
@@ -75,15 +76,16 @@ class ControllerApiCart extends Controller {
 			$this->response->addHeader('Access-Control-Max-Age: 1000');
 			$this->response->addHeader('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 		}
-
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
-
 		if(isset($this->request->get['ajaxRequest'])) {
+
 			echo json_encode($json);
 			die();
 
 		}
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+
+
 	}
 
 	public function edit() {

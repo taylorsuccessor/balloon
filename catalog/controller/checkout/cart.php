@@ -291,6 +291,11 @@ class ControllerCheckoutCart extends Controller {
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
+		if(isset($this->request->get['ajaxRequest']))
+		{
+			echo json_encode($data['products']);
+			die();
+		}
 	}
 
 	public function add() {
