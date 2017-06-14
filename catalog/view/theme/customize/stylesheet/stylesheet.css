@@ -3667,3 +3667,137 @@ header .top-nav-left ul li{margin: 0px 3px;}
 	margin-bottom: 0;
 	text-align: left;
 }
+/*---------- letterbuilder builder  ----------*/
+.letterbuilder .builder {
+	border:1px solid #c2c2c2
+}
+.letterbuilder .items {
+	height:250px;
+	overflow-y:scroll;
+}
+.letterbuilder .builder .drag {
+	padding:10px;
+	background-color: #ebebeb !important;
+	padding: 25px 25px 35px 25px;
+	border: #dadada solid 1px !important;
+}/**/
+.letterbuilder .builder .items .letters {
+	border:1px solid #eee;
+	height:75px;
+	margin:6px;
+	text-align:center;
+	padding:0
+}
+.itemsmall {
+	border:1px dotted;
+	height:50px
+}
+.letterbuilder .builder .drag .item-droped {
+	border:1px solid #c8c8c8;
+	height:50px;
+	width:50px;
+	display:inline-block;
+	position:relative;
+	margin-right:5px
+}
+.letterbuilder .builder .drag .item-droped.add {
+	background-color:#d7d7d7;
+	border-style:dashed
+}
+.letterbuilder .builder .drag p > span, .letterbuilder .builder .drag .delete-item {
+	background:#ff1d25 none repeat scroll 0 0;
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	-ms-border-radius:15px;
+	-o-border-radius:15px;
+	border-radius:15px;
+	display:inline-block;
+	height:13px;
+	width:13px;
+	margin:2px 5px -2px 7px
+}
+.letterbuilder .builder .drag .delete-item {
+	position:absolute;
+	right:0;
+	top:0
+}
+.letterbuilder h5 {
+	font-size:16px;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding-bottom:10px;
+}
+.letterbuilder h5>span {
+	color:#707070;
+	font-size:12px;
+	font-weight:normal;
+	margin-left:13px;
+	text-transform:uppercase
+}
+.letterbuilder .builder .drag>p {
+	font-size:12px;
+	padding-bottom:10px;
+	line-height:22px;
+}
+.letterbuilder .builder .drag .price span {
+	color:#000;
+	font-size:14px
+}
+.letterbuilder .builder .drag .price {
+	margin-left:42px;
+	margin-bottom:10px
+}
+.letterbuilder .builder .items .letters .overlay {
+	background:rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+	bottom:0;
+	display:none;
+	left:0;
+	line-height:75px;
+	position:absolute;
+	right:0;
+	top:0
+}
+.letterbuilder .builder .items .letters .photo:hover .overlay {
+	display:block
+}
+.icon.plus {
+	background-position:-259px -11px;
+	height:21px;
+	width:21px
+}
+.icon {
+	background: url("/images/icons-v2.png") no-repeat;
+	display: inline-block;
+}
+.letterbuilder .builder .drag .price {
+	margin-left: 42px;
+	margin-bottom: 10px;
+}
+.price {
+	color: #ff1d25;
+	font-size: 26px;
+	font-weight: 700;
+	line-height: normal;
+}
+.letterbuilder .builder .drag .price span {
+	color: #000;
+	font-size: 14px;
+}
+.price span {
+	color: #777;
+	font-size: 14px;
+}
+.letterbuilder .confetti-cart {
+	width:80%;
+	float:left;
+	height:48px;
+	background:#c90d7e url(../images/icons/cart-icon.png) no-repeat 10px center;
+	color:#fff;
+	font-size:18px;
+	display:block;
+	text-align:center;
+	line-height:45px;
+	text-decoration:none;
+	padding-left:15px;
+	border:none;
+}

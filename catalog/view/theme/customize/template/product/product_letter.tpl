@@ -8,270 +8,72 @@
     </div><!--banner-->
 </section><!--Banner Section-->
 
-
-<section class="content-section" id="product"><!--content-section-->
-
-
-
-       
-        
-        
-        
+    <section class="content-section"><!--content-section-->
         <div class="bredcrumb"><!--bredcrumb-->
             <ul>
                 <?php foreach ($breadcrumbs as $breadcrumb) { ?>
                 <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
                 <?php  } ?>
             </ul>
+            <div class="wrap_notfiy">
+
+                <?php if ($success) { ?>
+                <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+                <?php } ?>
+
+            </div>
         </div> <!--bredcrumb-->
-        
-         <div class="wrap_notfiy">
-
-        <?php if ($success) { ?>
-        <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-        </div>
-        <?php } ?>
- 
-        </div>
-        
-
-
-
-   
-    <form action="<?php echo $finalProductDetailLink;?>" method="post">
-
-        <div class="product-details-page"><!--balloons-->
-            <h2><?php echo $text_regular_latest; ?></h2>
-            <div class="confetti-con view-colors-con">
+            <div class="product-details-page"><!--balloons-->
+                <h2>Numbers / Letters</h2>
+                <!-- /.service -->
                 <div class="row">
-                    <div class="col-md-6 view-colors-left">
-                        <div class="slider_cover">
-
-                            <h4 STYLE="padding:5px;"><?php echo $text_Rollover_swatches; ?></h4>
-
-                            <div id="bx-pager">
-                               
-                                <?php
-
-                                $letterColorValueId=0;
-                                $colorName='';
-
-
-
-
-
-                                      $i=0;
-                                foreach($lettercolor_values[$languageCode] as $option_id => $option_value){
-                                 if($letterColorValueId==0){
-
-                                $letterColorValueId=$option_id;
-                                $colorName=$option_value['name'];
-                                                                                        }
-             echo ' <a data-slide-index="'.$i.'" data-value="'.$option_value['value'].'" data-name="'.$option_value['name'].'" href="javascript:void(0)" style="background-color:'.$option_value['name'].'; height:44px;"></a>';$i++;
-
-                                }
-
-
-                                ?>
-                            </div>
-
-                            <input type="hidden" name="lettercolor" id="letterColor" value="<?php echo $letterColorValueId; ?>" >
-                            <script >
-                                $('#bx-pager a').mouseover(function(){
-                                    $('#letterColor').val($(this).data('value'));
-                                    $('#colorNameLabel').text($(this).data('name'));
-                                });
-                            </script>
-
-                        </div>
-                    </div>
-                    <div class="col-md-6 view-colors-right">
-                        <div class="date-time"><!--date-time-->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Name letter</label>
-
-                                    <input type="text" name="nameletters" value="" placeholder="type name" style="background:none;" oninput="countNameLetter(false);"  />
-
-                                    <?php
-
-                                     $aSizePrice=[];
-                                     if ($options) {
-                                foreach($options as $option){
-                                                                   if(str_replace(' ','',strtolower($option['name']))=='lettersize'){
-                                                                   $i=0;
-
-
-                                foreach($option['product_option_value'] as $option_value){
-                                $aSizePrice[$option_value['product_option_value_id']]=$option_value['price'];
-
-                                }
-
-                                }
-                                }
-                                }//if option
-                                ?>
-                                    <script >
-
-                                        var aSizePrice=<?=json_encode($aSizePrice);?>;
-
-                                        function countNameLetter(firstTime){
-
-                                            var name=$('input[name="nameletters"]').val();
-                                            name=name.replace(/\s/g,'');
-
-
-                                            var nameLength=name.length;
-                                            $('#input-quantity').val(nameLength);
-                                            $('#input-quantity').attr("value",nameLength);
-
-
-                                          var productPriceNode=  $('#productPriceLable');
-                                           var price=productPriceNode.data('price').toString();
-
-                                            var letterSizeNode=$('select[name="lettersize"]');
-
-                                            var sizePriceId=letterSizeNode.val();
-                                            var sizePrice=0;
-                                            if( aSizePrice[sizePriceId]  != undefined ){
-                                                sizePrice=parseFloat(aSizePrice[sizePriceId]);
-                                            }
-
-if( sizePrice == 0 && !firstTime){
-    letterSizeNode.css('border','1px solid red');
-}else{
-
-    letterSizeNode.css('border','#dadada solid 1px');
-}
-                                            var currency =price.replace(/[0-9\.].*/i,'');
-                                            $('#currencySignSpan').text(currency);
-
-                                            price=price.replace(/[^0-9\.]/i, '');
-                                            price=parseFloat(price);
-                                            productPriceNode.text('('+price+' + '+sizePrice+')')
-                                            var nameLettersNumberNode= $('#nameLettersNumberSpan');
-
-                                           var  totalPriceNode=$('#totalPriceSpan');
-
-                                            nameLettersNumberNode.text(nameLength );
-                                            $('#input-quantity').val(nameLength);
-
-                                            totalPriceNode.text(((price+sizePrice) * nameLength).toFixed(2));
-                                        }
-                                        $(document).ready(function(){
-                                      countNameLetter(true);
-                                        });
-                                    </script>
-                                    <style type="text/css">
-
-                                        #productPriceLable{
-
-                                        }
-
-                                        #timesSignSpan{
-                                            color:red;
-                                        }
-                                        #nameLettersNumberSpan{
-
-                                        }
-                                        #equalSignSpan{
-                                            color:red;
-                                        }
-                                        #totalPriceSpan{
-
-                                        }
-                                    </style>
+                    <div class="col-md-12 letterbuilder">
+                        <hr>
+                        <h5>Looking for other Letters?<span>Use our builder for customize the letters you are looking for</span></h5>
+                        <div class="builder">
+                            <div class="items" id="simpleList">
+                            <?php foreach($products_latter as $info){ ?>
+                                <div class="col-md-1 letters">
+                                    <a href="" class="photo" data-pid="<?php echo $info['product_id']; ?>" data-price="<?php echo $info['price']; ?>">
+                                        <div class="overlay"> <i class="icon plus"></i> </div>
+                                        <img src="<?php echo HTTP_SERVER.'/image/'.$info['image']; ?>" alt="">
+                                    </a>
                                 </div>
-                                <div class="col-md-6">
-
-                                    <label>letter size</label>
-
-
-                                    <select name="lettersize" onchange="countNameLetter(false);">
-
-                                        <?php
-                                        foreach($lettersize_values[$languageCode] as $size){
-                                        echo '<option value="'.$size['value'].'">'.$size['name'].'</option>';
-                                        }
-                                    ?>
-                                        </select>
-
-                                </div>
-                            </div>
-                        </div><!--date-time-->
-
-                    </div>
-                    <div class="col-md-12">
-                        <h3 id="colorNameLabel"><?php echo $colorName ?></h3>
-                        <h4>
-
-
-
-
-                            <?php
-                            $finalPrice=0;
-                            if ($price) {
-                            $finalPrice=(!$special)?$price:$special;
-
-                           } ?>
-
-
-
-<span id="productPriceLable" data-price="<?=$finalPrice;?>" style="display:none !important;">
-
-
-                            <?php if ($price) { ?>
-                                <?php if (!$special) { ?>
-                                                      <?php echo $price; ?>
-                                <?php } else { ?>
-                            <?php echo $special; ?><span style="text-decoration: line-through;"><?php echo $price; ?></span>
-                                <?php } ?>
-
-
                             <?php } ?>
-
-                            </span>
-
-                            <span id="timesSignSpan" style="display:none;">&times;</span>
-
-                            <span id="nameLettersNumberSpan" data-value="1"  style="display:none;">0</span>
-                            <span id="equalSignSpan" style="display:none;">&equals;</span>
-                            <span id="totalPriceSpan">0</span>
-                            <span id="currencySignSpan"></span>
-                        </h4>
-
-                    </div>
-                    <div class="col-md-6 col-md-offset-5">
-                        <div class="confetti-btns">
-
-
-                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                            <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"  class="confetti-cart"><?php echo $button_cart; ?></button>
-                            <input class="confetti-input"  type="text" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity"  style="display: none;">
+                            </div>
+                            <div class="drag">
+                                <p>Drag Items for Rearrange letters, Click <span> </span> button to remove item, When you finish click Add to Chart button.</p>
+                                <div class="row">
+                                    <div class="col-md-9" id="dropList">
+                                        <div class="item-droped add ignore-elements" style=""> </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="price"> <span>Price</span> <strong>0 KD</strong> </div>
+                                      <!--  <input name="products_id" value="365" type="hidden">-->
+                                        <button type="button"  class="confetti-cart" onclick="getProductsIds();"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
+                <!-- /.letterbuilder -->
 
             </div>
-        </div><!--balloons-->
-    </form>
-            </section>
-            
-   
-    
+            <!--balloons-->
 
+    </section>
 
+    <section class="content-section" id="product"><!--content-section-->
+    </section>
 
-<script>
-    $( function() {
-        $( "#datepicker" ).datepicker();
-    } );
-</script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
 
 
 
@@ -298,9 +100,23 @@ if( sizePrice == 0 && !firstTime){
         });
     });
     //--></script>
-    
+    <script>
+
+        function getProductsIds(){
+            var ids=[];
+            $('#dropList .item-droped.can_drag').each(function(){
+                ids.push($(this).data('pid'));
+                //alert($(this).data('pid'));
+                var id = $(this).data('pid');
+                cart.add(id,1);
+            });
+            return ids;
+        }
+        setTimeout('getProductsIds();',30000);
+    </script>
 <script type="text/javascript"><!--
     $('#button-cart').on('click', function() {
+
         $.ajax({
             url: 'index.php?route=checkout/cart/add',
             type: 'post',

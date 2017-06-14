@@ -11,7 +11,7 @@
     <!--Banner Section-->
     <section class="content-section" id="product"><!--content-section-->
         <div class="container"><!--container-->
-           
+
             <div class="bredcrumb"><!--bredcrumb-->
                 <ul>
                     <?php foreach ($breadcrumbs as $breadcrumb) { ?>

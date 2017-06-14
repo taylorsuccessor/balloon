@@ -25,6 +25,7 @@
 <script src="catalog/view/javascript/js/bootstrap.min.js"></script><!--custom-->
 <script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.js"></script><!--custom-->
 
+
 <script type="text/javascript" src="catalog/view/javascript/js/smk-accordion.js"></script>
 <script src="catalog/view/javascript/js/jquery.bxslider.min.js"></script><!--bxslider.min-->
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />

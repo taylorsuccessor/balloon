@@ -269,6 +269,16 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 	}
 
+	public function getAllProductsInCategory($category_id) {
+
+			$query = $this->db->query("SELECT * FROM oc_product_to_category left join  oc_product on (oc_product.product_id = oc_product_to_category.product_id)  WHERE oc_product_to_category.category_id=".$category_id);
+
+			foreach ($query->rows as $result) {
+				$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+			}
+		return $product_data;
+	}
+
 	public function getLatestProducts($limit) {
 		$product_data = $this->cache->get('product.latest.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id') . '.' . (int)$limit);
 

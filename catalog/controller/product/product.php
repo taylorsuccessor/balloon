@@ -374,9 +374,14 @@ class ControllerProductProduct extends Controller {
 			}
 
 			$data['options'] = array();
+            //for number and latter
+			$this->load->model('catalog/product');
+			$category_id = 153;
+			$products_latter = $this->model_catalog_product->getAllProductsInCategory($category_id);
 
+			$data['products_latter'] = $products_latter;
 
-//confetti
+			//confetti
 			// if(str_replace(' ','',strtolower($option['name']))=='ballooncolor')
 			//eventtime
 			$view_template_name='product/product_final';
@@ -394,8 +399,14 @@ class ControllerProductProduct extends Controller {
 					return $this->response->redirect($this->url->link('product/event', 'product_id='.$this->request->get['product_id'], true));
 
 				}elseif($option_name == 'nameletters'){
+					//$data['products'] = array();
 
+					//$results = $this->model_catalog_category->getCategoryChildrenWithProducts(153);
+
+					//print_r($results);die();
 					$view_template_name='product/product_letter';
+					//$this->response->setOutput($this->load->view('product/product_letter', $data['products_latter']));
+
 				}
 				$product_option_value_data = array();
 

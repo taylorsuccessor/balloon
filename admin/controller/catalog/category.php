@@ -397,6 +397,7 @@ class ControllerCatalogCategory extends Controller {
 
 		if (isset($this->request->get['category_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$category_info = $this->model_catalog_category->getCategory($this->request->get['category_id']);
+			print_r($category_info);die();
 		}
 
 		$data['token'] = $this->session->data['token'];
