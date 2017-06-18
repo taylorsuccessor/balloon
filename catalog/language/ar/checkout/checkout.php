@@ -6,6 +6,7 @@
 $_['heading_title']                  = 'إنهاء الطلب';
 
 // Text
+$_['text_select_product']            = 'الرجاء اختيار منتج';
 $_['text_cart']                      = 'سلة الشراء';
 $_['text_checkout_option']           = 'الخطوة %s: خيارات إنهاء الطلب';
 $_['text_checkout_account']          = 'الخطوة %s: الحساب وتفاصيل الفاتورة';

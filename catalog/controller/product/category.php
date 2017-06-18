@@ -166,6 +166,7 @@ class ControllerProductCategory extends Controller {
 
 			$results = $this->model_catalog_category->getCategories($category_id);
 
+
 			foreach ($results as $result) {
 				$filter_data = array(
 					'filter_category_id'  => $result['category_id'],
@@ -387,6 +388,8 @@ class ControllerProductCategory extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+
+
 			if(isset($this->request->get['ajaxRequest']))
 			{
 				//$category_id = $_GET['cat_id'];
