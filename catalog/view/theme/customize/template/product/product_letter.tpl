@@ -7,9 +7,9 @@
         <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
     </div><!--banner-->
 </section><!--Banner Section-->
-
     <section class="content-section"><!--content-section-->
-        <div class="bredcrumb"><!--bredcrumb-->
+
+            <div class="bredcrumb"><!--bredcrumb-->
             <ul>
                 <?php foreach ($breadcrumbs as $breadcrumb) { ?>
                 <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -112,7 +112,7 @@
             });
             return ids;
         }
-        setTimeout('getProductsIds();',30000);
+        //setTimeout('getProductsIds();',30000);
     </script>
 <script type="text/javascript"><!--
     $('#button-cart').on('click', function() {
@@ -126,7 +126,9 @@
                 $('#button-cart').button('loading');
             },
             complete: function() {
+
                 $('#button-cart').button('reset');
+
             },
             success: function(json) {
                 console.log(json);

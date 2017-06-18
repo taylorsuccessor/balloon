@@ -378,14 +378,15 @@ class ControllerProductProduct extends Controller {
 			$this->load->model('catalog/product');
 			$category_id = 153;
 			$products_latter = $this->model_catalog_product->getAllProductsInCategory($category_id);
-
 			$data['products_latter'] = $products_latter;
 
 			//confetti
 			// if(str_replace(' ','',strtolower($option['name']))=='ballooncolor')
 			//eventtime
 			$view_template_name='product/product_final';
+
 			foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
+
 				$option_name=str_replace(' ','',strtolower($option['name']));
 
 				if($option_name == 'confetti'){
@@ -668,6 +669,7 @@ class ControllerProductProduct extends Controller {
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 
 		}
+
 	}
 
 	public function review() {

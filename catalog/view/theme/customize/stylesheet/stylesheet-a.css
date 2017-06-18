@@ -3396,3 +3396,7 @@ header .top-nav-left ul li:first-child
 	margin-bottom: 0;
 	text-align: right;
 }
+#textMessageGreeting
+{
+ margin-top: 20px;
+}

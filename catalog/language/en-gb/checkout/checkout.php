@@ -3,6 +3,7 @@
 $_['heading_title']                  = 'Checkout';
 
 // Text
+$_['text_select_product']            = 'Select Product';
 $_['text_cart']                      = 'Shopping Cart';
 $_['text_checkout_option']           = 'Step %s: Checkout Options';
 $_['text_checkout_account']          = 'Step %s: Account &amp; Billing Details';

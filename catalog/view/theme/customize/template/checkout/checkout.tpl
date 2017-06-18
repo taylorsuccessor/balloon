@@ -29,6 +29,48 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+        <div class="panel-group" >
+            <div class="panel panel-default">
+                <form action="" method="POST">
+
+                <div class="panel-heading">Greeting Card Message</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select name="card_occasion" data-title="Select a occasion" onchange="this.form.submit();getId(this);"  data-width="100%" class="form-control">
+                                <option value="0"><?php echo $text_select_product; ?></option>
+                                <?php foreach($products_latter as $product_card ){ ?>
+                                <option value="<?php echo $product_card['product_id'] ?>"><?php echo $product_card['name'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <input type="hidden" id="">
+                        </div>
+                        <div class="col-md-12">
+                            <?php foreach($options as $option){ ?>
+                            <?php // print_r($options);?>
+                            <div id="divId"></div>
+                            <?php // echo $option['product_option_id']; ?>
+                            <?php if ($option['name'] == 'textGreetingCardMessage') { ?>
+                                <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>" id="textMessageGreeting">
+                                    <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5"  class="form-control" id="input-option"><?php echo $option['value']; ?></textarea>
+                                </div>
+                            <?php } ?>
+                </form>
+                <?php if(isset($_POST['card_occasion'])){
+                $id = $_POST['card_occasion']; }?>
+                            <button type="button" class="btn btn-primary" onclick="cart.addtocreeting('<?php echo $id ?>', '1');">Add To Cart</button>
+
+
+
+                            <?php } ?>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- panel close -->
+            </div>
+
+        </div>
       <h1><?php echo $heading_title; ?></h1>
       <div class="panel-group" id="accordion">
         <div class="panel panel-default">
@@ -93,7 +135,9 @@
           </div>
         </div>
       </div>
-      <?php echo $content_bottom; ?></div>
+
+
+        <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
 <script type="text/javascript"><!--
@@ -805,4 +849,38 @@ $(document).delegate('#button-payment-method', 'click', function() {
     });
 });
 //--></script>
+<script>
+
+    function getId(selectObject) {
+        var value = selectObject.value;
+       // alert(value);
+
+                $.ajax({
+                    url: 'index.php?route=checkout/checkout&ajaxRequest&product_id='+value,
+                    type: "post", //send it through get method
+                    dataType: "json",
+                    data: {
+                        product_id: value
+                    },
+                    success: function(response) {
+                        var html='';
+                        $.each(response, function(index, item) {
+                           // $("#name").html(item['name'],item['product_option_id']);
+                            //console.log(item['name']);
+                           html+=item['name']+"\n\r";
+                        });
+                        html+='';
+                        $('#input-option').html(html);
+
+                        console.log(response);
+                    },
+                    error: function(xhr) {
+                        alert('xhr');
+                    }
+                });
+
+    }
+
+
+    //--></script>
 <?php echo $footer; ?>

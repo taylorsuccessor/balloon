@@ -12,6 +12,7 @@ class ControllerCheckoutCheckout extends Controller {
 			$this->session->data['error'] = $data['text_min_total'].$min_price.' '.$this->session->data['currency'];
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}
+
 		// Validate minimum quantity requirements.
 		$products = $this->cart->getProducts();
 
@@ -59,6 +60,7 @@ class ControllerCheckoutCheckout extends Controller {
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
+		$data['text_select_product'] = $this->language->get('text_select_product');
 
 		$data['text_checkout_option'] = sprintf($this->language->get('text_checkout_option'), 1);
 		$data['text_checkout_account'] = sprintf($this->language->get('text_checkout_account'), 2);
@@ -97,6 +99,76 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+
+
+
+		$this->load->model('catalog/product');
+		$category_id = 207;
+		$products_latter = $this->model_catalog_product->getAllProductsInCategory($category_id);
+		$data['products_latter'] = $products_latter;
+		$data['options'] = array();
+		foreach ($this->model_catalog_product->getProductOptions(61) as $option) {
+			$product_option_value_data = array();
+
+			foreach ($option['product_option_value'] as $option_value) {
+
+				if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
+
+					$product_option_value_data[] = array(
+						'product_option_value_id' => $option_value['product_option_value_id'],
+						'option_value_id'         => $option_value['option_value_id'],
+						'name'                    => $option_value['name'],
+						'image'                   => $this->model_tool_image->resize($option_value['image'], 50, 50),
+						'price_prefix'            => $option_value['price_prefix']
+					);
+				}
+			}
+			$data['options'][] = array(
+				'product_option_id'    => $option['product_option_id'],
+				'product_option_value' => $product_option_value_data,
+				'option_id'            => $option['option_id'],
+				'name'                 => $option['name'],
+				'type'                 => $option['type'],
+				'value'                => $option['value'],
+				'required'             => $option['required']
+			);
+		}
+   if(isset($this->request->get['ajaxRequest']))
+   {
+
+	$data['options'] = array();
+	foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
+		$product_option_value_data = array();
+
+		foreach ($option['product_option_value'] as $option_value) {
+
+			if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
+
+				$product_option_value_data[] = array(
+					'product_option_value_id' => $option_value['product_option_value_id'],
+					'option_value_id'         => $option_value['option_value_id'],
+					'name'                    => $option_value['name'],
+					'image'                   => $this->model_tool_image->resize($option_value['image'], 50, 50),
+					'price_prefix'            => $option_value['price_prefix']
+				);
+			}
+		}
+		$data['options'][] = array(
+			'product_option_id'    => $option['product_option_id'],
+			'product_option_value' => $product_option_value_data,
+			'option_id'            => $option['option_id'],
+			'name'                 => $option['name'],
+			'type'                 => $option['type'],
+			'value'                => $option['value'],
+			'required'             => $option['required']
+		);
+	}
+	$ahmad= "yes";
+	$this->response->addHeader('Content-Type: application/json');
+	echo json_encode($data['options']);
+	die();
+}
+
 
 		$this->response->setOutput($this->load->view('checkout/checkout', $data));
 	}
