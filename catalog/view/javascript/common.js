@@ -159,7 +159,7 @@ var cart = {
 
 				if (json['success']) {
 setTimeout(function(){
-window.location.href ="/index.php?route=checkout/checkout";
+window.location.href ="index.php?route=checkout/checkout";
 
 },500);
 					$('.wrap_notfiy').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');

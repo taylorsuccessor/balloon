@@ -103,11 +103,11 @@ class ControllerCheckoutCheckout extends Controller {
 
 
 		$this->load->model('catalog/product');
-		$category_id = 207;
+		$category_id = 211;
 		$products_latter = $this->model_catalog_product->getAllProductsInCategory($category_id);
 		$data['products_latter'] = $products_latter;
 		$data['options'] = array();
-		foreach ($this->model_catalog_product->getProductOptions(61) as $option) {
+		foreach ($this->model_catalog_product->getProductOptions(86) as $option) {
 			$product_option_value_data = array();
 
 			foreach ($option['product_option_value'] as $option_value) {

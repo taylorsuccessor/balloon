@@ -119,7 +119,7 @@ class ControllerProductEvent extends Controller {
 			$data['lastname']=$this->session->data['guest']['lastname'] ;
 			$data['email']=$this->session->data['guest']['email'] ;
 			$data['telephone']=$this->session->data['guest']['telephone'];
-			$data['location']=$this->session->data['guest']['location'];
+			//$data['location']=$this->session->data['guest']['location'];
 			$data['category']=$this->session->data['guest']['category'] ;
 
             }elseif(!isset($data['firstname'])&&!isset($data['lastname']) &&!isset($data['email']) && !isset($data['telephone'])  ) {
@@ -230,19 +230,19 @@ class ControllerProductEvent extends Controller {
 
            function validate() {
 
-                if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
+                if (isset($this->request->post['firstname']) && ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32))) {
                     $this->error['firstname'] = $this->language->get('error_firstname');
                 }
 
-                if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
+                if (isset($this->request->post['lastname']) && ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32))) {
                     $this->error['lastname'] = $this->language->get('error_lastname');
                 }
 
-                if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+                if (isset($this->request->post['email']) && ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL))) {
                     $this->error['email'] = $this->language->get('error_email');
                 }
 
-                if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+                if (isset($this->request->post['email']) && ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32))) {
                     $this->error['telephone'] = $this->language->get('error_telephone');
                 }
 

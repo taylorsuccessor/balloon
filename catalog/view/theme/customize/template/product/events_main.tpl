@@ -16,13 +16,13 @@
 
 
                 <input type="text" name="firstname" value="<?=$firstname;?>" placeholder="<?php echo $placeholder_first_name; ?>">
-                <?php   if ($error_firstname) { ?>
+                <?php   if (isset($error_firstname) ){ ?>
                 <div class="text-danger"><?php  echo $error_firstname; ?></div>
                 <?php  } ?>
 
 
                 <input type="text" name="lastname" value="<?=$lastname;?>" placeholder="<?php echo $placeholder_last_name; ?>" >
-                <?php  if ($error_lastname) { ?>
+                <?php  if (isset($error_lastname)) { ?>
                <div class="text-danger"><?php echo $error_lastname; ?></div>
                 <?php  } ?>
 
@@ -41,14 +41,14 @@
               <div class="col-md-4">
 
                 <input type="text"  name="email" value="<?=$email;?>" placeholder="<?php echo $placeholder_email; ?>">
-                <?php  if ($error_email) { ?>
+                <?php  if (isset($error_email)) { ?>
                 <div class="text-danger"><?php echo $error_email; ?></div>
                 <?php  } ?>
 
 
 
             <input type="text" name="telephone" value="<?=$telephone;?>" placeholder="<?php echo $placeholder_mobile; ?>">
-            <?php  if ($error_telephone) { ?>
+            <?php  if (isset($error_telephone)) { ?>
             <div class="text-danger"><?php echo $error_telephone; ?></div>
             <?php  } ?>
 

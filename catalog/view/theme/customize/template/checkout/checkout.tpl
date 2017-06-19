@@ -37,7 +37,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <select name="card_occasion" data-title="Select a occasion" onchange="this.form.submit();getId(this);"  data-width="100%" class="form-control">
+                            <select name="card_occasion" data-title="Select a occasion" onchange="this.form.submit();"  data-width="100%" class="form-control">
                                 <option value="0"><?php echo $text_select_product; ?></option>
                                 <?php foreach($products_latter as $product_card ){ ?>
                                 <option value="<?php echo $product_card['product_id'] ?>"><?php echo $product_card['name'] ?></option>
