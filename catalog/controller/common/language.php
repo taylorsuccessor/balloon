@@ -3,11 +3,26 @@ class ControllerCommonLanguage extends Controller {
 	public function index() {
 		$this->load->language('common/language');
 
+		if (isset($this->request->get['lang'])) {
+
+			$this->session->data['language'] = $this->request->get['lang'];
+
+			$this->response->redirect($this->url->link('common/home/index_supply'));
+		}
+		if (isset($this->request->get['langevent'])) {
+
+			$this->session->data['language'] = $this->request->get['langevent'];
+
+			$this->response->redirect($this->url->link('product/event/events_main'));
+		}
+
+
+
 		$data['text_language'] = $this->language->get('text_language');
 
 		$data['action'] = $this->url->link('common/language/language', '', $this->request->server['HTTPS']);
 
-		$data['code'] = $this->session->data['language'];
+		 $data['code'] = $this->session->data['language'];
 
 		$this->load->model('localisation/language');
 

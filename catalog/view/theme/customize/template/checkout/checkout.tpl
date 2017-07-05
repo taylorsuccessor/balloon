@@ -37,7 +37,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <select name="card_occasion" data-title="Select a occasion" onchange="this.form.submit();"  data-width="100%" class="form-control">
+                            <select name="card_occasion" data-title="Select a occasion" onchange="getId(this);" id="testid" data-width="100%" class="form-control">
                                 <option value="0"><?php echo $text_select_product; ?></option>
                                 <?php foreach($products_latter as $product_card ){ ?>
                                 <option value="<?php echo $product_card['product_id'] ?>"><?php echo $product_card['name'] ?></option>
@@ -48,22 +48,19 @@
                         <div class="col-md-12">
                             <?php foreach($options as $option){ ?>
                             <?php // print_r($options);?>
-                            <div id="divId"></div>
                             <?php // echo $option['product_option_id']; ?>
                             <?php if ($option['name'] == 'textGreetingCardMessage') { ?>
                                 <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>" id="textMessageGreeting">
                                     <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5"  class="form-control" id="input-option"><?php echo $option['value']; ?></textarea>
                                 </div>
+                            <div id="divId"></div></br>
+
                             <?php } ?>
                 </form>
-                <?php if(isset($_POST['card_occasion'])){
-                $id = $_POST['card_occasion']; }?>
-                            <button type="button" class="btn btn-primary" onclick="cart.addtocreeting('<?php echo $id ?>', '1');">Add To Cart</button>
-
-
-
                             <?php } ?>
-                        </div>
+                <button type="button" class="btn btn-primary" id="addToCartUnderDropdown" onclick="">Add To Cart</button>
+
+            </div>
 
                     </div>
                 </div>
@@ -853,8 +850,7 @@ $(document).delegate('#button-payment-method', 'click', function() {
 
     function getId(selectObject) {
         var value = selectObject.value;
-       // alert(value);
-
+        $('#addToCartUnderDropdown').attr('onclick',"cart.addtocreeting("+value+", '1');");
                 $.ajax({
                     url: 'index.php?route=checkout/checkout&ajaxRequest&product_id='+value,
                     type: "post", //send it through get method
@@ -862,22 +858,46 @@ $(document).delegate('#button-payment-method', 'click', function() {
                     data: {
                         product_id: value
                     },
+                    beforeSend: function(){
+                        // Disable selectbox
+                        $('#divId').empty();
+
+                    },
                     success: function(response) {
                         var html='';
+                        var $this = $(this);
+
                         $.each(response, function(index, item) {
-                           // $("#name").html(item['name'],item['product_option_id']);
-                            //console.log(item['name']);
-                           html+=item['name']+"\n\r";
+
+                           $("#name").html(item['name'],item['product_option_id'],item['product_option_value']);
+                            //console.log(item['product_option_value']);
+//                            $this.children(item['product_option_value']).each(function() {
+//                                console.log('dlfkdjfdkd');
+//                                //console.log(item['product_option_value']['image']);
+//
+//                            });
+                         //  var img =  item.product_option_value["0"].image;
+                          //  alert(img);
+                            for (var i = 0; i < item['product_option_value'].length; i++) {
+                                $("<span id='imagecard'><input type='radio' name='imgname' ><img src="+item.product_option_value[i].image+"></span>").appendTo('#divId');
+
+                            }
+                            //html+=item.product_option_value.image+"\n\r";
+                            return false;
                         });
+
                         html+='';
                         $('#input-option').html(html);
 
                         console.log(response);
                     },
                     error: function(xhr) {
-                        alert('xhr');
+                        alert(xhr.getMessage());
                     }
                 });
+
+
+        //form.submit();
 
     }
 

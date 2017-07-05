@@ -220,7 +220,7 @@
             dateString = yearNum + "-" + this.addLeadingZero(monthNum) + "-" + this.addLeadingZero(dayNum);
           }
         }
-        day.append($("<a>" + dayNum + "</a>").attr("data-day", dayNum).attr("data-month", monthNum).attr("data-year", yearNum));
+        day.append($("<a id='lds'>" + dayNum + "</a>").attr("data-day", dayNum).attr("data-month", monthNum).attr("data-year", yearNum));
         if (this.options.monthChangeAnimation) {
           this.applyTransform(day, 'rotateY(180deg)');
           this.applyBackfaceVisibility(day);

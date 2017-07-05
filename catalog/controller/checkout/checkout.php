@@ -163,7 +163,8 @@ class ControllerCheckoutCheckout extends Controller {
 			'required'             => $option['required']
 		);
 	}
-	$ahmad= "yes";
+	//$data['lll'] = $this->request->get['product_id'];
+
 	$this->response->addHeader('Content-Type: application/json');
 	echo json_encode($data['options']);
 	die();

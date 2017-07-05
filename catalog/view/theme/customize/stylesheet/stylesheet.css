@@ -934,7 +934,7 @@ table {
 	font-size:16px;
 	line-height:22px;
 	color:#777777;
-	margin-top:10px;
+	margin-top:33px;
 }
 .ballon-left p a{
 	display:block;
@@ -3804,4 +3804,28 @@ header .top-nav-left ul li{margin: 0px 3px;}
 #textMessageGreeting
 {
  margin-top: 20px;
+}
+.langlink
+{
+	background-color:#ffffff ;
+	color:#000;
+	border: 1px solid black;
+	font-size:12px;
+	height:34px;
+	display:block;
+	padding:12px;
+	text-align: center;
+	text-decoration: none;
+
+}
+.langlink:hover
+{
+	text-decoration: none;
+}
+.customize-right p{
+	margin-top: 36px;
+}
+#imagecard
+{
+	margin:50px;
 }

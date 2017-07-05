@@ -50,9 +50,7 @@ $i=1;
 global $i;
                      $html='';
 
-
                        $html.=(!$first)? '<ul  class="sub-check">':'';
-
                   foreach($menu as $oneMenu){
 
                   if(isset($oneMenu['href']) && isset($oneMenu['href']) && count(explode('product/category&',$oneMenu['href'])) >0 && isset($oneMenu['category_id']) ){
@@ -113,9 +111,15 @@ $i++;
                       background-repeat:no-repeat;background-position: 0px 0px;
                       float:left;
                   }
-                  .checkboxDiv.active{
-                      background-repeat:no-repeat;background-position: -27px 0px;;
+                  .sub-check>li>a.active
+                  {
+                      background-repeat:no-repeat;background-position: -27px 0px;
+
                   }
+                  .checkboxDiv:active{
+                      background-repeat:no-repeat;background-position: -27px 0px;
+                  }
+
               </style>
             <div class="col-md-8">
               <!-- Responsive calendar - START -->
@@ -715,7 +719,7 @@ $('.eventDate').val(fullDate);
           return false;
         }else{
 $(this).parent().parent().find('div:not(.active) a').css('background-color','#fff !important');
-          $(this).css('background-color','#0ff !important');
+          $(this).css('background-color','#70c398 !important');
         }
 
         $('.eventDate').val(fullDate);

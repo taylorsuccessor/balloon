@@ -94,13 +94,11 @@
                     <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
                     <li><a href=""><?php echo $language; ?></a></li>
 
-                <?php } ?>    
+                <?php } ?>
                 </ul>
             </div><!--top-nav-right-->
         </div><!--top-nav-->
-        
-        
-        
+
  <div class="main-nav"><!--main-nav-->
  <nav class="navbar navbar-default">
   <div class="row">

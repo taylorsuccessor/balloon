@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Ballony land</title>
+	<title>Ballony land</title> 
+
 
 	<link href="catalog/view/theme/customize/stylesheet/stylesheet.css" rel="stylesheet"><!-- Bootstrap --><link href="catalog/view/theme/customize/stylesheet/custom-style.css" rel="stylesheet">
 	<link href="catalog/view/theme/customize/stylesheet/bootstrap.min.css" rel="stylesheet">
@@ -36,9 +38,17 @@
 					<h2>Balloons<br>
 						& Party Supplies</h2>
 					<p>
-						<a href="<?php echo $partySuppliesLink; ?>">A short two line description about the section
-							<span class="block">will be shown here.<img src="image/catalog/icons/landing-arrow.png" alt=""/></span></a>
+						<!--<a href="<?php // echo $partySuppliesLink; ?>">A short two line description about the section
+							<span class="block">will be shown here.<img src="image/catalog/icons/landing-arrow.png" alt=""/></span></a>-->
+					<div class="col-md-6">
+						<a href="<?php echo $partySuppliesLinkEn; ?>" class="langlink"><?php echo $text_language_en; ?></a>
+					</div>
+					<div class="col-md-6">
+						<a href="<?php echo $partySuppliesLinkAr; ?>"  class="langlink"><?php echo $text_language_ar; ?></a>
+					</div>
+
 					</p>
+
 					<div class="play-store-down">
 						<a href="#"><img src="image/catalog/icons/play-store-icon.png" alt=""/></a>
 					</div>
@@ -52,8 +62,15 @@
 					<h2>Customize<br>
 						Your Party & Event</h2>
 					<p>
-						<a href="<?php echo $eventsLink;?>">A short two line description about the section
-							<span class="block">will be shown here.<img src="image/catalog/icons/landing-arrow.png" alt=""/></span></a>
+						<!--<a href="<?php // echo $eventsLink;?>">A short two line description about the section
+							<span class="block">will be shown here.<img src="image/catalog/icons/landing-arrow.png" alt=""/></span></a>-->
+					<div class="col-md-6">
+						<a href="<?php echo $eventsLinkEn; ?>" class="langlink"><?php echo $text_language_en; ?></a>
+					</div>
+					<div class="col-md-6">
+						<a href="<?php echo $eventsLinkAr; ?>" class="langlink"><?php echo $text_language_ar; ?></a>
+					</div>
+
 					</p>
 					<div class="app-store-down">
 						<a href="#"><img src="image/catalog/icons/app-store-icon.png" alt=""/></a>

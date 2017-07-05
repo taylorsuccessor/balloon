@@ -503,6 +503,7 @@ $product_id=0;
         $this->load->model('catalog/manufacturer');
 
         if (isset($this->request->get['manufacturer_id'])) {
+
             $data['breadcrumbs'][] = array(
                 'text' => $this->language->get('text_brand'),
                 'href' => $this->url->link('product/manufacturer')
