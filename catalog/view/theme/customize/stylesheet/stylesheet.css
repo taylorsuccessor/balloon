@@ -3814,8 +3814,10 @@ header .top-nav-left ul li{margin: 0px 3px;}
 	background-color:#ffffff ;
 	color:#000;
 	border: 1px solid black;
-	font-size:12px;
+	font-size:18px;
 	height:34px;
+	line-height:11px;
+	font-family: 'Raleway-Regular';
 	display:block;
 	padding:12px;
 	text-align: center;
