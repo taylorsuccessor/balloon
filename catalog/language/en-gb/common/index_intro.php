@@ -8,4 +8,4 @@
 
 $_['text_balloons_party_supply']      = 'Balloons <br> & Party Supplies';
 $_['text_language_en']                = 'Click Here';
-$_['text_language_ar']                = 'ÇÖÛØ åäÇ';
+$_['text_language_ar']                = 'Ø§Ø¶ØºØ· Ù‡Ù†Ø§';

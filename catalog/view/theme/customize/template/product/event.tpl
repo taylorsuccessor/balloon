@@ -52,13 +52,13 @@ global $i;
 
                        $html.=(!$first)? '<ul  class="sub-check">':'';
                   foreach($menu as $oneMenu){
-
+//echo $oneMenu['href'];
                   if(isset($oneMenu['href']) && isset($oneMenu['href']) && count(explode('product/category&',$oneMenu['href'])) >0 && isset($oneMenu['category_id']) ){
                   $oneMenu['href']=str_replace('product/category&','product/event&category_id='.$oneMenu['category_id'].'&', $oneMenu['href']);
                   }
 
                   if(isset($oneMenu['href']) && isset($oneMenu['href']) && count(explode('product/product&',$oneMenu['href'])) >0 && isset($oneMenu['product_id']) ){
-                  $oneMenu['href']=str_replace('product/product&','product/event&', $oneMenu['href']);
+                  $oneMenu['href']=str_replace('product/product&','product/event&directtoevent&', $oneMenu['href']);
                   }
 
 

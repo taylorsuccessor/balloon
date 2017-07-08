@@ -57,6 +57,7 @@
 
 
     </footer><!--footer-->
+
  <script src="catalog/view/javascript/js/g=builder_js.js"></script><!--custom-->
  <script src="catalog/view/javascript/js/icheck.js"></script><!--bxslider.min-->
     <script>

@@ -63,14 +63,15 @@
                   foreach($categories as $oneCategory){
                   echo '<option value="'.$oneCategory['category_id'].'" '.(($oneCategory['category_id'] ==$category)? 'selected':'' ).'>
                                     '.$oneCategory['name'].'</option>';
-
                                     if(isset($oneCategory['children']) && count($oneCategory['children'])){
                                     drowCategoryWithChildren($oneCategory['children']);
-                                    }
+
+                    }
                                     }
                                     }
                                     drowCategoryWithChildren($categories);
-                                    ?>
+
+                    ?>
                                 </select>
 
                                 <button type="submit" name="bookNow"><?php echo $placeholder_book_now; ?></button>

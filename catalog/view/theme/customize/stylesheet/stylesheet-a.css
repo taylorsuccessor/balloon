@@ -2718,10 +2718,14 @@ header .top-nav-left ul li:first-child
 .green_bt {
 	border: none;
 	padding: 15px 30px;
-	background: #008b16;
+	background: #70c398;
 	font-size: 20px;
 	color: #fff;
 	margin-top: 20px;
+}
+.green_bt:hover
+{
+	color:#fff;
 }
 .common {
 	margin-top: 30px;
@@ -3399,4 +3403,12 @@ header .top-nav-left ul li:first-child
 #textMessageGreeting
 {
  margin-top: 20px;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover{
+	background: #c90d7e;
+	color: #fff;
+}
+.nav-tabs > li > a{
+	background: #efefef;
+	color: #000;
 }

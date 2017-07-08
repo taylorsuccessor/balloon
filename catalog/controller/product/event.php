@@ -733,6 +733,7 @@ $product_id=0;
 
             $data['tab_description'] = $this->language->get('tab_description');
             $data['tab_attribute'] = $this->language->get('tab_attribute');
+
             $data['tab_review'] = sprintf($this->language->get('tab_review'), $product_info['reviews']);
 
             $data['product_id'] = (int)$this->request->get['product_id'];
@@ -967,8 +968,16 @@ $product_id=0;
                 }
             $data['all_options']=$finalOptions;
             }
-			return $this->response->setOutput($this->view('product/event', $data,['all_options']));
-		} else {
+			//return $this->response->setOutput($this->view('product/event', $data,['all_options']));
+            $data['eventBooking']=$this->url->link('product/event&directtoevent', '');
+            if(isset($this->request->get['directtoevent']))
+            {
+                return $this->response->setOutput($this->view('product/event', $data,['all_options']));
+
+            }
+            return $this->response->setOutput($this->view('product/product', $data,['all_options']));
+
+        } else {
             $url = '';
 
             $data['existReservation'] = $existReservation;
@@ -980,6 +989,7 @@ $product_id=0;
 
             $data['product_id'] = $this->request->get['product_id'];
             return $this->response->setOutput($this->view('product/event', $data, ['options']));
+
         }
 
 

@@ -248,6 +248,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['heading_title'] = $product_info['name'];
 
+
 			$data['text_select'] = $this->language->get('text_select');
 			$data['text_manufacturer'] = $this->language->get('text_manufacturer');
 			$data['text_model'] = $this->language->get('text_model');
@@ -376,9 +377,17 @@ class ControllerProductProduct extends Controller {
 			$data['options'] = array();
             //for number and latter
 			$this->load->model('catalog/product');
-			$category_id = 153;
-			$products_latter = $this->model_catalog_product->getAllProductsInCategory($category_id);
-			$data['products_latter'] = $products_latter;
+			$category_id_latters = 153;
+			$products_latters = $this->model_catalog_product->getAllProductsInCategory($category_id_latters);
+			$data['products_latter'] = $products_latters;
+
+			$category_id_numbers = 212;
+			$products_numbers = $this->model_catalog_product->getAllProductsInCategory($category_id_numbers);
+			$data['products_number'] = $products_numbers;
+
+			$category_id_characters = 213;
+			$products_characters = $this->model_catalog_product->getAllProductsInCategory($category_id_characters);
+			$data['products_characters'] = $products_characters;
 
 			//confetti
 			// if(str_replace(' ','',strtolower($option['name']))=='ballooncolor')
@@ -665,6 +674,7 @@ class ControllerProductProduct extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+			$data['eventBooking']=$this->url->link('product/event', '');
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 

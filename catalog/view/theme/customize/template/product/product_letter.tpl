@@ -33,25 +33,75 @@
                         <hr>
                         <h5>Looking for other Letters?<span>Use our builder for customize the letters you are looking for</span></h5>
                         <div class="builder">
-                            <div class="items" id="simpleList">
-                            <?php foreach($products_latter as $info){ ?>
-                                <div class="col-md-1 letters">
-                                    <a href="" class="photo" data-pid="<?php echo $info['product_id']; ?>" data-price="<?php echo $info['price']; ?>">
-                                        <div class="overlay"> <i class="icon plus"></i> </div>
-                                        <img src="<?php echo HTTP_SERVER.'/image/'.$info['image']; ?>" alt="">
-                                    </a>
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#letter" aria-controls="letter" role="tab" data-toggle="tab">Letters</a></li>
+                                <li role="presentation"><a href="#number" aria-controls="number" role="tab" data-toggle="tab">Numbers</a></li>
+                                <li role="presentation"><a href="#char" aria-controls="char" role="tab" data-toggle="tab">Characters</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="letter">
+                                    <div class="items" id="simpleList">
+                                        <?php foreach($products_latter as $info){ ?>
+                                        <div class="col-md-1 letters">
+                                            <a href="" class="photo" data-pid="<?php echo $info['product_id']; ?>" data-price="<?php echo $info['price']; ?>">
+                                                <div class="overlay"> <i class="icon plus"></i> </div>
+                                                <img src="<?php echo HTTP_SERVER.'/image/'.$info['image']; ?>" alt="">
+                                            </a>
+                                        </div>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                            <?php } ?>
+                                <div role="tabpanel" class="tab-pane" id="number">
+
+
+                                    <div class="items" id="simpleList">
+                                        <?php foreach($products_number as $infonumber){ ?>
+                                        <div class="col-md-1 letters">
+                                            <a href="" class="photo" data-pid="<?php echo $infonumber['product_id']; ?>" data-price="<?php echo $infonumber['price']; ?>">
+                                                <div class="overlay"> <i class="icon plus"></i> </div>
+                                                <img src="<?php echo HTTP_SERVER.'/image/'.$infonumber['image']; ?>" alt="">
+                                            </a>
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="char">
+
+                                    <div class="items" id="simpleList">
+                                        <?php foreach($products_characters as $infochar){ ?>
+                                        <div class="col-md-1 letters">
+                                            <a href="" class="photo" data-pid="<?php echo $infochar['product_id']; ?>" data-price="<?php echo $infochar['price']; ?>">
+                                                <div class="overlay"> <i class="icon plus"></i> </div>
+                                                <img src="<?php echo HTTP_SERVER.'/image/'.$infochar['image']; ?>" alt="">
+                                            </a>
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
                             </div>
+
+
                             <div class="drag">
                                 <p>Drag Items for Rearrange letters, Click <span> </span> button to remove item, When you finish click Add to Chart button.</p>
                                 <div class="row">
-                                    <div class="col-md-9" id="dropList">
+                                    <div class="col-md-7" id="dropList">
                                         <div class="item-droped add ignore-elements" style=""> </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="letter-style">
+                                            <label>Choose style</label>
+                                            <select>
+                                                <option>Vertical</option>
+                                                <option>Horizontal</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="price"> <span>Price</span> <strong>0 KD</strong> </div>
-                                      <!--  <input name="products_id" value="365" type="hidden">-->
+                                        <!--  <input name="products_id" value="365" type="hidden">-->
                                         <button type="button"  class="confetti-cart" onclick="getProductsIds();"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
                                     </div>
                                 </div>

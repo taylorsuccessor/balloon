@@ -56,7 +56,7 @@ $_['text_date']     = 'Date :';
 $_['text_timing']     = 'Time :';
 $_['text_total']     = 'Total :';
 $_['text_selected_items']     = 'Selected Items';
-
+$_['text_book']        = 'Book Now';
 
 
 
