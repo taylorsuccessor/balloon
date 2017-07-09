@@ -971,7 +971,8 @@ $product_id=0;
             $data['all_options']=$finalOptions;
             }
 			//return $this->response->setOutput($this->view('product/event', $data,['all_options']));
-            $data['eventBooking']=$this->url->link('product/event&directtoevent', '');
+
+            $data['eventBooking']=$this->url->link('product/event&directtoevent&product_id=', '');
             if(isset($this->request->get['directtoevent']))
             {
                 return $this->response->setOutput($this->view('product/event', $data,['all_options']));

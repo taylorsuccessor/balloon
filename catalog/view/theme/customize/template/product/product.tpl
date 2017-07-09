@@ -40,8 +40,8 @@
 
                 <h3><?php echo $heading_title; ?></h3>
 
-                <p><?php echo $description; ?></p>
-              <a href="<?php echo $eventBooking; ?>"
+                <p><?php echo $description;?></p>
+              <a href="<?php echo $eventBooking.$product_id; ?>"
                  class="green_bt">Book Now</a>
             </div><!-- /.service -->
 
