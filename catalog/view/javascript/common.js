@@ -193,10 +193,12 @@ window.location.href ="index.php?route=checkout/checkout";
 			},
 			success: function(json) {
 
+
 				$('.alert, .text-danger').remove();
 
 				if (json['redirect']) {
 					location = json['redirect'];
+
 				}
 
 				if (json['success']) {

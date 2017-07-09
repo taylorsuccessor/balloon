@@ -3,7 +3,14 @@
 <div class="container">
     <section class="banner-section"><!--Banner Section-->
         <div class="inner-banner"><!--banner-->
+            <?php $image_category = end($breadcrumbs);
+      if(isset($image_category['image']) && !empty($image_category['image']))
+      {
+      ?>
+            <img src="<?php echo  HTTP_SERVER.'/image/'.$image_category['image']; ?>" alt=""/>
+            <?php }else{ ?>
             <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+            <?php } ?>
         </div><!--banner-->
     </section><!--Banner Section-->
     <section class="content-section"><!--content-section-->
@@ -35,7 +42,6 @@
                     <?=$firstname;?>  <?=$lastname;?><br>
                     <?=$email;?><br>
                     <?=$telephone;?><br>
-                    <?=$location;?><br>
                     <?=$category;?>
                 </p>
             </div>

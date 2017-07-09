@@ -3654,7 +3654,7 @@ header .top-nav-left ul li{margin: 0px 3px;}
 	color:red;
 }
 .accordion_example2 li.active a{
-	color:blue;
+	color:#c90d7e;
 }
 .main-nav .navbar-default{
 	border:none;
@@ -3842,4 +3842,8 @@ header .top-nav-left ul li{margin: 0px 3px;}
 .nav-tabs > li > a{
 	background: #efefef;
 	color: #000;
+}
+select option:disabled {
+	color: #c90d7e;
+	font-weight: bold;
 }

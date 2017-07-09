@@ -3,7 +3,14 @@
 <div class="container">
     <section class="banner-section"><!--Banner Section-->
         <div class="inner-banner"><!--banner-->
+            <?php $image_category = end($breadcrumbs);
+      if(isset($image_category['image']) && !empty($image_category['image']))
+      {
+      ?>
+            <img src="<?php echo  HTTP_SERVER.'/image/'.$image_category['image']; ?>" alt=""/>
+            <?php }else{ ?>
             <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+            <?php } ?>
         </div><!--banner-->
     </section><!--Banner Section-->
 
@@ -753,7 +760,14 @@ var dateArray=selectedDate.split('-');
 
     timeSelectNode.find('option').each(function(){ if($(this).attr('value') >0 ){$(this).remove(); } });
     for(oneEventTime in allEventTimesList  ){
-      if(reservedDayTime.indexOf(oneEventTime) == -1){timeSelectNode.append('<option value="'+oneEventTime+'" >'+allEventTimesList[oneEventTime]+'</option>');}
+        var html='<option value="'+oneEventTime+'" ';
+
+
+      if(reservedDayTime.indexOf(oneEventTime) != -1){
+          html+=' disabled ';
+      }
+html+=' > '+allEventTimesList[oneEventTime]+'</option>';
+        timeSelectNode.append(html);
     }
   }
 

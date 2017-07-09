@@ -4,8 +4,16 @@
 
 <section class="banner-section"><!--Banner Section-->
     <div class="inner-banner"><!--banner-->
+        <?php $image_category = end($breadcrumbs);
+      if(isset($image_category['image']) && !empty($image_category['image']))
+      {
+      ?>
+        <img src="<?php echo  HTTP_SERVER.'/image/'.$image_category['image']; ?>" alt=""/>
+        <?php }else{ ?>
         <img src="catalog/view/theme/customize/image/inner-banner1.jpg" alt=""/>
+        <?php } ?>
     </div><!--banner-->
+
 </section><!--Banner Section-->
     <section class="content-section"><!--content-section-->
 
@@ -92,11 +100,28 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="letter-style">
-                                            <label>Choose style</label>
-                                            <select>
-                                                <option>Vertical</option>
-                                                <option>Horizontal</option>
-                                            </select>
+                                            <?php if ($options) { ?>
+                                            <?php foreach ($options as $option) { ?>
+                                            <?php if ($option['type'] == 'select' && $option['name'] == 'Choose style') {  ?>
+
+                                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                                <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+                                                    <label>Choose style</label>
+                                                    <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>">
+                                                        <option value=""><?php echo $text_size; ?></option>
+                                                        <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                                                        <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+
+                                                        </option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <?php } ?>
+
+                                            <?php } ?>
+                                            <?php } ?>
+
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -224,8 +249,8 @@
         });
     });
     //--></script>
-    
-    
+
+
 <script type="text/javascript"><!--
     $('.date').datetimepicker({
         pickTime: false

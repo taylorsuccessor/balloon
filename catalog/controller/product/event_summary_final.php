@@ -308,14 +308,14 @@ class ControllerProductEventSummaryFinal extends Controller {
 				$data['lastname'] = $customer_info['lastname'];
 				$data['email'] = $customer_info['email'];
 				$data['telephone'] = $customer_info['telephone'];
-				$data['location'] = '';
+				//$data['location'] = '';
 				$data['category'] = '';
 			} elseif (isset($this->session->data['guest'])) {
 				$data['firstname']=$this->session->data['guest']['firstname'];
 				$data['lastname']=$this->session->data['guest']['lastname'] ;
 				$data['email']=$this->session->data['guest']['email'] ;
 				$data['telephone']=$this->session->data['guest']['telephone'];
-				$data['location']=$this->session->data['guest']['location'];
+				//$data['location']=$this->session->data['guest']['location'];
 				$data['category']=$this->session->data['guest']['category'] ;
 			}else{
 
@@ -323,7 +323,7 @@ class ControllerProductEventSummaryFinal extends Controller {
 				$data['lastname'] = '';
 				$data['email'] = '';
 				$data['telephone'] = '';
-				$data['location'] = '';
+				//$data['location'] = '';
 				$data['category'] = '';
 			}
 
