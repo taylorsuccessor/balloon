@@ -383,11 +383,11 @@ class ControllerProductProduct extends Controller {
 			$products_latters = $this->model_catalog_product->getAllProductsInCategory($category_id_latters);
 			$data['products_latter'] = $products_latters;
 
-			$category_id_numbers = 212;
+			$category_id_numbers = 213;
 			$products_numbers = $this->model_catalog_product->getAllProductsInCategory($category_id_numbers);
 			$data['products_number'] = $products_numbers;
 
-			$category_id_characters = 213;
+			$category_id_characters = 212;
 			$products_characters = $this->model_catalog_product->getAllProductsInCategory($category_id_characters);
 			$data['products_characters'] = $products_characters;
 

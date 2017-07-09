@@ -139,7 +139,26 @@
                      <div class="confetti-text">
                         <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
 
-                           <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5" placeholder="<?php echo $option['name']; ?>" class="col-text" id="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['value']; ?></textarea>
+                           <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5" placeholder="<?php echo $option['name']; ?>" class="col-text"  id="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['value']; ?></textarea>
+                        </div>
+                     </div>
+                   <?php } ?>
+                  <?php } ?>
+                  <?php if ($option['type'] == 'select') { ?>
+                   <?php if($option['name'] == 'Font color'){ ?>
+                     <div class="col-md-4 col-sm-4 col-xs-4 col-text">
+                        <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+
+                           <select name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>">
+                              <option value=""><?php echo "Font Color"; ?></option>
+                              <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                              <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+                                <?php if ($option_value['price']) { ?>
+                                (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+                                <?php } ?>
+                              </option>
+                              <?php } ?>
+                            </select>
                         </div>
                      </div>
                    <?php } ?>
