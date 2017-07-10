@@ -97,6 +97,9 @@
                                 <div class="row">
                                     <div class="col-md-7" id="dropList">
                                         <div class="item-droped add ignore-elements" style=""> </div>
+                                        <div class="item-droped2 add ignore-elements" style=""> </div>
+
+
                                     </div>
                                     <div class="col-md-2">
                                         <div class="letter-style">
