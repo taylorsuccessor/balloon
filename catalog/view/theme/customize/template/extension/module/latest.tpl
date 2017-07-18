@@ -97,7 +97,7 @@
           </div>
     </div>
   </div>
-</section>       
+</section>
 <script type="text/javascript"><!--
 // $('#carousel<?php echo $module; ?>').owlCarousel({
 //   items: 6,

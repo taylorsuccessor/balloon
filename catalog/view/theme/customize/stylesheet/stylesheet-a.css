@@ -1094,6 +1094,72 @@ header .top-nav-left ul li:first-child
 	margin-top:25px;
 	margin-bottom:25px;
 }
+/*Begin for first product showing as best product*/
+
+.latest-services{
+	position:relative;
+	margin-bottom:30px;
+}
+.latest-services img{
+	width:100%;
+}
+.latest-services .item{
+	margin:0px 15px;
+}
+.latest-services h2{
+	font-family: 'Raleway-Regular';
+	font-size:34px;
+	color:#000;
+	margin-top:10px;
+	margin-bottom:30px;
+}
+.latest-services h2 span{
+	font-weight:bold;
+}
+.latest-services .item{
+	position:relative;
+}
+.latest-services .item .slide-caption{
+	background:url(../image/icons/slide-black-bg.png) repeat;
+	width:100%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-family: 'Raleway-Regular';
+	font-size:20px;
+	color:#fff;
+	position:absolute;
+	bottom:0px;
+}
+.latest-services .item .caption-hover{
+	width:100%;
+	background:url(../image/icons/slide-black-bg.png) repeat;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	position:absolute;
+	font-family: 'Raleway-Regular';
+	font-size:20px;
+	color:#fff;
+	top:45%;
+	z-index:99;
+	transition-duration: 5s;
+	display:none;
+}
+.latest-services .item .caption-hover a{
+	color: white
+}
+.latest-services .item:hover > .caption-hover{
+	display:block;
+	transition-duration: 5s;
+}
+
+/*End for first product showing as best product*/
+
+
+
+
+
 .latest-products{
 	position:relative;
 	margin-bottom:30px;

@@ -79,6 +79,17 @@ $('.slider_cover').on('mouseenter', '#bx-pager a', function(){
 	  
  
   });
+    /*Latest Product services*/
+    $("#owl-demo4").owlCarousel({
+
+       // autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items : 3,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3],
+        navigation : false
+
+
+    });
 
 
 }); 
