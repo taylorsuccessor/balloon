@@ -17,6 +17,10 @@ class ControllerApiCharacter extends Controller {
             $products_characters = $this->model_catalog_product->getAllProductsInCategory($category_id_character);
 
             foreach($products_characters as $products_character){
+
+                if($products_character['image']) {
+                    $products_character['image']= HTTP_SERVER.'/image/'.$products_character['image'];
+                }
                 $character[] = $products_character;
             }
 

@@ -16,6 +16,10 @@ class ControllerApiNumber extends Controller {
             $products_numbers = $this->model_catalog_product->getAllProductsInCategory($category_id_number);
 
             foreach($products_numbers as $products_number){
+
+                if($products_number['image']) {
+                    $products_number['image']= HTTP_SERVER.'/image/'.$products_number['image'];
+                }
                 $number[] = $products_number;
             }
 
