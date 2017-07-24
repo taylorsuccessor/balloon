@@ -16,7 +16,7 @@ class ControllerApilatter extends Controller {
             $products_latters = $this->model_catalog_product->getAllProductsInCategory($category_id_latters);
 
             foreach($products_latters as $products_latter){
-                $latters[] = $products_latter;
+                $latters[]= $products_latter;
             }
 
             $this->response->addHeader('Content-Type: application/json');
