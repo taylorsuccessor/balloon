@@ -725,4 +725,11 @@ class ModelCatalogProduct extends Model {
 			return 0;
 		}
 	}
+
+	public function getOrderId($customer_session) {
+		$query = $this->db->query("select ". DB_PREFIX ."customer.customer_id,".DB_PREFIX ."customer.session_id,".DB_PREFIX ."order.order_id,".DB_PREFIX ."order.date_added from ".DB_PREFIX ."customer,".DB_PREFIX ."order where ".DB_PREFIX ."customer.session_id='".$customer_session."' and ".DB_PREFIX ."customer.customer_id = ".DB_PREFIX ."order.customer_id order by ".DB_PREFIX ."order.date_added desc limit 1");
+
+		return $query->rows;
+	}
+
 }

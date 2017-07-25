@@ -85,7 +85,7 @@ class  ControllerExtensionPaymentKNET extends Controller {
         $payment->setAmt($order_info['total']);
         $payment->setTrackId($trackID);
         $payment->performPaymentInitialization();
-        
+
         if (strlen($payment->getErrorMsg()) > 0) 
         {
             $this->session->data['error'] = $payment->getErrorMsg();
@@ -103,9 +103,9 @@ class  ControllerExtensionPaymentKNET extends Controller {
             if($order_info)
             {
                 $this->load->model('extension/payment/knet');
-                $voidOrderStatus = 16;            
+                $voidOrderStatus = 16;
                 $this->model_extension_payment_knet->change_order_status($order_info, $voidOrderStatus, $message);
-            
+
                 header('Location: ' . $payment_id = $payment->paymentPage . '?PaymentID=' . $payment->paymentId);
             }
             else
@@ -224,6 +224,9 @@ class  ControllerExtensionPaymentKNET extends Controller {
           //  $this->response->setOutput($this->load->view($this->config->get('config_template') . 'extension/payment/knet_success', $data));
         //} else {
             $this->response->setOutput($this->load->view('extension/payment/knet_success', $data));
+
+
+
         //}
     }
 }
