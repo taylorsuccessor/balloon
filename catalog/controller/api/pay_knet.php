@@ -49,8 +49,13 @@ class  ControllerApiPayKnet extends Controller {
                 $this->load->model('extension/payment/knet');
                 $voidOrderStatus = 16;
                 $this->model_extension_payment_knet->change_order_status($order_info, $voidOrderStatus, $message);
-
-                header('Location: ' . $payment_id = $payment->paymentPage . '?PaymentID=' . $payment->paymentId);
+                if(isset($this->request->get['ajaxRequest']))
+                {
+                     $payment_id = $payment->paymentPage . '?PaymentID=' . $payment->paymentId;
+                      $data['link']=$payment_id;
+                    echo json_encode($data);die();
+                }
+                //header('Location: ' . $payment_id = $payment->paymentPage . '?PaymentID=' . $payment->paymentId);
             }
             else
             {
