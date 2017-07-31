@@ -208,9 +208,9 @@ class ControllerCheckoutGuest extends Controller {
 				$json['error']['telephone'] = $this->language->get('error_telephone');
 			}
 
-			if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
-				$json['error']['address_1'] = $this->language->get('error_address_1');
-			}
+//			if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
+//				$json['error']['address_1'] = $this->language->get('error_address_1');
+//			}
 
 			if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
 				$json['error']['city'] = $this->language->get('error_city');
@@ -220,9 +220,9 @@ class ControllerCheckoutGuest extends Controller {
 
 			$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
 
-			if ($country_info && $country_info['postcode_required'] && (utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
-				$json['error']['postcode'] = $this->language->get('error_postcode');
-			}
+//			if ($country_info && $country_info['postcode_required'] && (utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
+//				$json['error']['postcode'] = $this->language->get('error_postcode');
+//			}
 
 			if ($this->request->post['country_id'] == '') {
 				$json['error']['country'] = $this->language->get('error_country');
@@ -285,9 +285,9 @@ if (!empty($this->request->post['fax'])) {
 			$this->session->data['payment_address']['firstname'] = $this->request->post['firstname'];
 			$this->session->data['payment_address']['lastname'] = $this->request->post['lastname'];
 			$this->session->data['payment_address']['company'] = $this->request->post['company'];
-			$this->session->data['payment_address']['address_1'] = $this->request->post['address_1'];
-			$this->session->data['payment_address']['address_2'] = $this->request->post['address_2'];
-			$this->session->data['payment_address']['postcode'] = $this->request->post['postcode'];
+			//$this->session->data['payment_address']['address_1'] = $this->request->post['address_1'];
+			//$this->session->data['payment_address']['address_2'] = $this->request->post['address_2'];
+			//$this->session->data['payment_address']['postcode'] = $this->request->post['postcode'];
 			$this->session->data['payment_address']['city'] = $this->request->post['city'];
 			$this->session->data['payment_address']['country_id'] = $this->request->post['country_id'];
 			$this->session->data['payment_address']['zone_id'] = $this->request->post['zone_id'];
@@ -336,9 +336,9 @@ if (!empty($this->request->post['fax'])) {
 				$this->session->data['shipping_address']['firstname'] = $this->request->post['firstname'];
 				$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];
 				$this->session->data['shipping_address']['company'] = $this->request->post['company'];
-				$this->session->data['shipping_address']['address_1'] = $this->request->post['address_1'];
-				$this->session->data['shipping_address']['address_2'] = $this->request->post['address_2'];
-				$this->session->data['shipping_address']['postcode'] = $this->request->post['postcode'];
+				//$this->session->data['shipping_address']['address_1'] = $this->request->post['address_1'];
+				//$this->session->data['shipping_address']['address_2'] = $this->request->post['address_2'];
+				//$this->session->data['shipping_address']['postcode'] = $this->request->post['postcode'];
 				$this->session->data['shipping_address']['city'] = $this->request->post['city'];
 				$this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];
 				$this->session->data['shipping_address']['zone_id'] = $this->request->post['zone_id'];

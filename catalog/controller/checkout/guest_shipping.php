@@ -122,9 +122,9 @@ class ControllerCheckoutGuestShipping extends Controller {
 				$json['error']['lastname'] = $this->language->get('error_lastname');
 			}
 
-			if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
-				$json['error']['address_1'] = $this->language->get('error_address_1');
-			}
+//			if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
+//				$json['error']['address_1'] = $this->language->get('error_address_1');
+//			}
 
 			if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
 				$json['error']['city'] = $this->language->get('error_city');
@@ -134,9 +134,9 @@ class ControllerCheckoutGuestShipping extends Controller {
 
 			$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
 
-			if ($country_info && $country_info['postcode_required'] && (utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
-				$json['error']['postcode'] = $this->language->get('error_postcode');
-			}
+//			if ($country_info && $country_info['postcode_required'] && (utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
+//				$json['error']['postcode'] = $this->language->get('error_postcode');
+//			}
 
 			if ($this->request->post['country_id'] == '') {
 				$json['error']['country'] = $this->language->get('error_country');
@@ -168,9 +168,9 @@ class ControllerCheckoutGuestShipping extends Controller {
     if (!empty($this->request->post['company'])) {
         $this->session->data['shipping_address']['company'] = $this->request->post['company'];
 }
-			$this->session->data['shipping_address']['address_1'] = $this->request->post['address_1'];
-			$this->session->data['shipping_address']['address_2'] = $this->request->post['address_2'];
-			$this->session->data['shipping_address']['postcode'] = $this->request->post['postcode'];
+			//$this->session->data['shipping_address']['address_1'] = $this->request->post['address_1'];
+			//$this->session->data['shipping_address']['address_2'] = $this->request->post['address_2'];
+			//$this->session->data['shipping_address']['postcode'] = $this->request->post['postcode'];
 			$this->session->data['shipping_address']['city'] = $this->request->post['city'];
 			$this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];
 			$this->session->data['shipping_address']['zone_id'] = $this->request->post['zone_id'];

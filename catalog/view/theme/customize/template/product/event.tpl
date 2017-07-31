@@ -726,7 +726,7 @@ $('.eventDate').val(fullDate);
           return false;
         }else{
 $(this).parent().parent().find('div:not(.active) a').css('background-color','#fff !important');
-          $(this).css('background-color','#70c398 !important');
+          $(this).css('background-color','#1e90ff !important');
         }
 
         $('.eventDate').val(fullDate);
