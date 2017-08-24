@@ -49,17 +49,26 @@ class  ControllerExtensionPaymentKNET extends Controller {
         
         $data['email_address'] = $order_info['email'];
         $data['customer_phone_number']= $order_info['telephone'];
-		
-		$data['ap_returnurl'] = $this->url->link('checkout/success');
-		$data['ap_cancelurl'] = $this->url->link('checkout/checkout', '', true);
         
-		return $this->load->view('extension/payment/knet', $data);
-		
+        $data['success_url'] = $this->url->link('checkout/success');
+        $data['cancel_url'] = $this->url->link('checkout/checkout', '', true);
+        
+        return $this->load->view('extension/payment/knet', $data);
+        
        // if (file_exists( 'extension/payment/knet')) {
        //     return $this->load->view( 'extension/payment/knet', $data);
        // } else {
           //  return $this->load->view('extension/payment/knet', $data);
        // }
+       
+       if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/knet.tpl')) {
+            $this->template = $this->config->get('config_template') . '/template/payment/knet.tpl';
+        } else {
+            $this->template = 'customize/template/payment/knet.tpl';
+        }   
+       $this->render();
+       
+       
     }
     
     public function makepayment()
@@ -71,7 +80,7 @@ class  ControllerExtensionPaymentKNET extends Controller {
         $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
         $trackID = date('YmdHis');
         
-        $host = "https://" . $_SERVER['HTTP_HOST'];
+        $host = "https://" . $_SERVER['HTTP_HOST'] ."/test";
         $successUrl = $host . '/success.php';
         $errorUrl = $host . '/error.php';
         $payment = new e24PaymentPipe;
@@ -93,13 +102,13 @@ class  ControllerExtensionPaymentKNET extends Controller {
         }
         else
         {
-			$this->session->data['order_total'] = $order_info['total'];
+            $this->session->data['order_total'] = $order_info['total'];
             $message = 'PaymentID: ' . $payment->paymentId . "\n";
             $message .= 'TrackID: ' . $trackID . "\n";
             $message .= 'Amount: ' . $order_info['total'] . "\n";
             $message .= 'Time: ' . date('d-m-Y H:i:s') . "\n";
             //Save details in DB before redirecting user to KNET. Else redirect to cart.
-			
+            
             if($order_info)
             {
                 $this->load->model('extension/payment/knet');
@@ -122,7 +131,8 @@ class  ControllerExtensionPaymentKNET extends Controller {
     }
     
     public function success() {
-        $this->load->language('extension/payment/knet');
+
+  $this->load->language('extension/payment/knet');
         
         if (isset($this->session->data['order_id'])) {
             $order_id = $this->session->data['order_id'];
@@ -140,8 +150,8 @@ class  ControllerExtensionPaymentKNET extends Controller {
             $this->response->redirect($this->url->link('checkout/cart'));
         }
         
-		$orderAmt = 0;
-		$comment = $this->session->data['comment'];
+        $orderAmt = 0;
+        $comment = $this->session->data['comment'];
         if (isset($this->session->data['order_id'])) {
             $this->cart->clear();
             
@@ -156,9 +166,9 @@ class  ControllerExtensionPaymentKNET extends Controller {
             unset($this->session->data['reward']);
             unset($this->session->data['voucher']);
             unset($this->session->data['vouchers']);
-			
-			$orderAmt = $this->session->data['order_total'];
-			unset($this->session->data['order_total']);
+            
+            $orderAmt = $this->session->data['order_total'];
+            unset($this->session->data['order_total']);
         }    
         
         //Read URL params
@@ -169,10 +179,10 @@ class  ControllerExtensionPaymentKNET extends Controller {
         $auth = $_GET['Auth'];
         $ref = $_GET['Ref'];
         $trackid = $_GET['TrackID'];
-		
-		$message = 'PaymentID: ' . $paymentID . "\n";
+        
+        $message = 'PaymentID: ' . $paymentID . "\n";
         $message .= 'Result: ' . $presult . "\n";
-		$message .= 'Amount: ' . $orderAmt . "\n";
+        $message .= 'Amount: ' . $orderAmt . "\n";
         $message .= 'PostDate: ' . $postdate . "\n";
         $message .= 'TranID: ' . $tranid . "\n";
         $message .= 'Auth: ' . $auth . "\n";
@@ -182,9 +192,9 @@ class  ControllerExtensionPaymentKNET extends Controller {
         
         $orderStatusID = 0;
         if ($presult == 'CAPTURED') {
-			$order_comment = $comment;
-			$order_comment = "<br><br>KNET Details:<br>";
-			$order_comment = $message;
+            $order_comment = $comment;
+            $order_comment = "<br><br>KNET Details:<br>";
+            $order_comment = $message;
             $this->model_checkout_order->addOrderHistory($order_id, $this->config->get('config_order_status_id'), $order_comment, true);            
             $paymentMessage = $this->language->get('payment_success');
             $orderStatusID = $this->config->get('config_order_status_id');    //Set order_status_id = 'Pending'            
@@ -198,7 +208,7 @@ class  ControllerExtensionPaymentKNET extends Controller {
         $data['paymentID'] = $paymentID;
         $data['result']= $presult;
         $data['paymentDate'] = $postdate;
-		$data['amount']= $orderAmt;
+        $data['amount']= $orderAmt;
         $data['transID'] = $tranid;
         $data['trackID'] = $trackid;
         $data['refID'] = $ref;
@@ -206,8 +216,8 @@ class  ControllerExtensionPaymentKNET extends Controller {
         $data['payment_message'] = $paymentMessage;
         
         $this->model_checkout_order->addOrderHistory($order_id, $orderStatusID, $message, false);
-		
-	
+        
+    
         
         $data['continue'] = $this->url->link('checkout/cart');
         
@@ -228,6 +238,6 @@ class  ControllerExtensionPaymentKNET extends Controller {
 
 
         //}
-    }
+ }
 }
 ?>

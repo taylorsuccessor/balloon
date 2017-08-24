@@ -3,9 +3,10 @@
 
     <div class="row">
       <div id="content"  >
+
+
+
         <?php echo $content_top; ?>
-
-
  <form method="post" action="">
         <section class="events-booking-warapper"><!--Events Booking Section-->
 
@@ -59,9 +60,10 @@
 
 
                   <?php
+
                   function drowCategoryWithChildren($categories){
                   foreach($categories as $oneCategory){
-                  echo '<option value="'.$oneCategory['category_id'].'" '.(($oneCategory['category_id'] ==$category)? 'selected':'' ).'>
+                  echo '<option value="'.$oneCategory['category_id'].'" '.(($oneCategory['category_id'] ==$oneCategory['category_id'] /*$category*/)? 'selected':'' ).'>
                                     '.$oneCategory['name'].'</option>';
                                     if(isset($oneCategory['children']) && count($oneCategory['children'])){
                                     drowCategoryWithChildren($oneCategory['children']);

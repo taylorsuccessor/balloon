@@ -291,12 +291,15 @@ class ControllerCheckoutCart extends Controller {
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
-		if(isset($this->request->get['ajaxRequest']))
+		if(isset($this->request->get['ajaxRequest']) && !empty($data['products']))
 		{
 			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($data['products']));
 			//echo json_encode($data['products']);
 			//die();
+		}elseif(isset($this->request->get['ajaxRequest']) && empty($data['products'])){
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode([]));
 		}
 	}
 
@@ -365,6 +368,7 @@ class ControllerCheckoutCart extends Controller {
 
 			if (!$json) {
 				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
+
 
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
 

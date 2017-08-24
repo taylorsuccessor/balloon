@@ -228,6 +228,7 @@ class ControllerProductProduct extends Controller {
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
+			$category_info = $this->model_catalog_category->getCategory($category_id);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $product_info['name'],

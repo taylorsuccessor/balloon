@@ -33,7 +33,7 @@
           <div class="row">
             <div class="col-sm-3">
               <div class="form-group">
-                <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
+                <label class="control-label" for="input-name"><?php echo $entry_name;?></label>
                 <input type="text" name="filter_name" value="<?php echo $filter_name; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name" class="form-control" />
               </div>
               <div class="form-group">
@@ -147,18 +147,20 @@
                 </tr>
               </thead>
               <tbody>
-                <?php if ($customers) { ?>
-                <?php foreach ($customers as $customer) { ?>
+                <?php if ($customers) {  ?>
+                <?php foreach ($customers as $customer) {  ?>
                 <tr>
+
                   <td class="text-center"><?php if (in_array($customer['customer_id'], $selected)) { ?>
                     <input type="checkbox" name="selected[]" value="<?php echo $customer['customer_id']; ?>" checked="checked" />
                     <?php } else { ?>
                     <input type="checkbox" name="selected[]" value="<?php echo $customer['customer_id']; ?>" />
                     <?php } ?></td>
-                  <td class="text-left"><?php echo $customer['name']; ?></td>
+
+                  <td class="text-left" ><?php echo $customer['name']; ?></td>
                   <td class="text-left"><?php echo $customer['email']; ?></td>
                   <td class="text-left"><?php echo $customer['customer_group']; ?></td>
-                  <td class="text-left"><?php echo $customer['status']; ?></td>
+                  <td class="text-left"  ><?php  echo $customer['status']; ?></td>
                   <td class="text-left"><?php echo $customer['ip']; ?></td>
                   <td class="text-left"><?php echo $customer['date_added']; ?></td>
                   <td class="text-right"><?php if ($customer['approve']) { ?>

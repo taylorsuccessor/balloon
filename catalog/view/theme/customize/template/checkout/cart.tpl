@@ -69,7 +69,7 @@
                                             <select class="quantity" name="quantity[<?php echo $product['cart_id']; ?>]">
                                                 <?php for($cp=1; $cp<=$product['product_quantity']; $cp++){ ?>
                                                    <option  <?php if($product['quantity']==$cp){ echo 'selected'; } ?>
-                                                              value="<?php echo $cp; ?>" ><?php echo $cp; ?></option> 
+                                                              value="<?php echo $cp; ?>" ><?php echo $cp; ?></option>
                                                 <?php } ?>
                                             </select> 
                                         </div><!-- /.select_area -->

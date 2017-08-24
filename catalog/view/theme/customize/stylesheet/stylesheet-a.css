@@ -1097,7 +1097,7 @@ header .top-nav-left ul li:first-child
 /*Begin for first product showing as best product*/
 
 .latest-services{
-	position:relative;
+	/*position:relative;*/
 	margin-bottom:30px;
 }
 .latest-services img{
